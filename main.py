@@ -159,7 +159,30 @@ pag_web_completa = f"""<!DOCTYPE html>
         </ul>
 
         <div class="tab-content" id="portalTabsContent">
-            
+
+            <div class="tab-pane fade" id="mapa-content" role="tabpanel">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card card-custom">
+                            <div class="card-header-custom d-flex justify-content-between align-items-center">
+                                <span><i class="fa-solid fa-earth-americas text-primary me-2"></i>¿Dónde puedo llevar mi equipo?</span>
+                                <span class="badge bg-secondary">Total ubicados: {len(df_mapa)}</span>
+                            </div>
+                            <div class="card-body p-2">
+                                <div class="alert alert-info py-2 px-3 mb-2 small d-flex align-items-center">
+                                    <i class="fa-solid fa-circle-info me-2 fs-5"></i>
+                                    <span>Usa los controles del mapa para explorar la distribución geográfica en Montevideo. Los colores de los marcadores indican la categoría de inscripción.</span>
+                                </div>
+                                <div class="map-container">
+                                    {mapa_html_snippet}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+           
             <div class="tab-pane fade show active" id="info-content" role="tabpanel">
                 <div class="row">
                     <div class="col-md-8">
@@ -223,28 +246,6 @@ pag_web_completa = f"""<!DOCTYPE html>
                             <div class="p-3 border rounded bg-light h-100">
                                 <h5 class="text-warning"><i class="fa-solid fa-wrench me-2"></i>Reparación</h5>
                                 <p class="small text-muted">Procedimiento de mantenimiento correctivo realizado por talleres autorizados cuando se detectan fugas en las tuberías/pera, fallas en la válvula de purga, o desvíos mecánicos severos. Un equipo reparado debe recalibrarse y verificarse obligatoriamente antes de volver a operar.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="tab-pane fade" id="mapa-content" role="tabpanel">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="card card-custom">
-                            <div class="card-header-custom d-flex justify-content-between align-items-center">
-                                <span><i class="fa-solid fa-earth-americas text-primary me-2"></i>Localizador de Importadores y Reparadores Autorizados</span>
-                                <span class="badge bg-secondary">Total ubicados: {len(df_mapa)}</span>
-                            </div>
-                            <div class="card-body p-2">
-                                <div class="alert alert-info py-2 px-3 mb-2 small d-flex align-items-center">
-                                    <i class="fa-solid fa-circle-info me-2 fs-5"></i>
-                                    <span>Usa los controles del mapa para explorar la distribución geográfica en Montevideo. Los colores de los marcadores indican la categoría de inscripción.</span>
-                                </div>
-                                <div class="map-container">
-                                    {mapa_html_snippet}
-                                </div>
                             </div>
                         </div>
                     </div>

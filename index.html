@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal de Esfigmomanómetros - Metrología y Registro</title>
+    <title> Esfigmomanómetros </title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -59,26 +59,1112 @@
 
     <div class="hero-section text-center">
         <div class="container">
-            <h1 class="display-5 fw-bold"><i class="fa-solid fa-heart-pulse me-3"></i>Gestión de Esfigmomanómetros</h1>
-            <p class="lead mb-0">Portal informativo de metrología legal y registro de profesionales en Uruguay</p>
+            <h1 class="display-5 fw-bold"><i class="fa-solid fa-heart-pulse me-3"></i>Esfigmomanómetros</h1>
+            <p class="lead mb-0">Portal informativo</p>
         </div>
     </div>
 
     <div class="container">
         <ul class="nav nav-tabs nav-tabs-custom mb-4" id="portalTabs" role="tablist">
+           <li class="nav-item" role="presentation">
+                <button class="nav-link" id="mapa-tab" data-bs-toggle="tab" data-bs-target="#mapa-content" type="button" role="tab"><i class="fa-solid fa-map-location-dot me-2"></i>Mapa de Registros</button>
+            </li>
             <li class="nav-item" role="presentation">
                 <button class="nav-link active" id="info-tab" data-bs-toggle="tab" data-bs-target="#info-content" type="button" role="tab"><i class="fa-solid fa-book-medical me-2"></i>Información Técnica</button>
             </li>
             <li class="nav-item" role="presentation">
                 <button class="nav-link" id="metro-tab" data-bs-toggle="tab" data-bs-target="#metro-content" type="button" role="tab"><i class="fa-solid fa-gauge me-2"></i>Metrología Legal</button>
             </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="mapa-tab" data-bs-toggle="tab" data-bs-target="#mapa-content" type="button" role="tab"><i class="fa-solid fa-map-location-dot me-2"></i>Mapa de Registros</button>
-            </li>
+            
         </ul>
 
         <div class="tab-content" id="portalTabsContent">
+
+            <div class="tab-pane fade" id="mapa-content" role="tabpanel">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card card-custom">
+                            <div class="card-header-custom d-flex justify-content-between align-items-center">
+                                <span><i class="fa-solid fa-earth-americas text-primary me-2"></i>¿Dónde puedo llevar mi equipo?</span>
+                                <span class="badge bg-secondary">Total ubicados: 25</span>
+                            </div>
+                            <div class="card-body p-2">
+                                <div class="alert alert-info py-2 px-3 mb-2 small d-flex align-items-center">
+                                    <i class="fa-solid fa-circle-info me-2 fs-5"></i>
+                                    <span>Usa los controles del mapa para explorar la distribución geográfica en Montevideo. Los colores de los marcadores indican la categoría de inscripción.</span>
+                                </div>
+                                <div class="map-container">
+                                    <div style="width:100%;"><div style="position:relative;width:100%;height:0;padding-bottom:60%;"><span style="color:#565656">Make this Notebook Trusted to load map: File -> Trust Notebook</span><iframe srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    
+    &lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=UTF-8&quot; /&gt;
+    &lt;script src=&quot;https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://code.jquery.com/jquery-3.7.1.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js&quot;&gt;&lt;/script&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css&quot;/&gt;
+    
+            &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; /&gt;
+            &lt;style&gt;
+                #map_37763d3ab96e98f4c23c43a5a22d82de {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            &lt;/style&gt;
+
+            &lt;style&gt;html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            &lt;/style&gt;
+
+            &lt;style&gt;#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            &lt;/style&gt;
+
+            &lt;script&gt;
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            &lt;/script&gt;
+
+        
+    &lt;script src=&quot;https://cdn.jsdelivr.net/npm/leaflet.fullscreen@3.0.0/Control.FullScreen.min.js&quot;&gt;&lt;/script&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/leaflet.fullscreen@3.0.0/Control.FullScreen.css&quot;/&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    
+    
+            &lt;div class=&quot;folium-map&quot; id=&quot;map_37763d3ab96e98f4c23c43a5a22d82de&quot; &gt;&lt;/div&gt;
+        
+&lt;/body&gt;
+&lt;script&gt;
+    
+    
+            var map_37763d3ab96e98f4c23c43a5a22d82de = L.map(
+                &quot;map_37763d3ab96e98f4c23c43a5a22d82de&quot;,
+                {
+                    center: [-34.9011, -56.1645],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  &quot;zoom&quot;: 12,
+  &quot;zoomControl&quot;: true,
+  &quot;preferCanvas&quot;: false,
+}
+
+                }
+            );
+
             
+
+        
+    
+            var tile_layer_4e2ec34bbf3ef3c4898e7b8cdb24bfa2 = L.tileLayer(
+                &quot;https://tile.openstreetmap.org/{z}/{x}/{y}.png&quot;,
+                {
+  &quot;minZoom&quot;: 0,
+  &quot;maxZoom&quot;: 19,
+  &quot;maxNativeZoom&quot;: 19,
+  &quot;noWrap&quot;: false,
+  &quot;attribution&quot;: &quot;\u0026copy; \u003ca href=\&quot;https://www.openstreetmap.org/copyright\&quot;\u003eOpenStreetMap\u003c/a\u003e contributors&quot;,
+  &quot;subdomains&quot;: &quot;abc&quot;,
+  &quot;detectRetina&quot;: false,
+  &quot;tms&quot;: false,
+  &quot;opacity&quot;: 1,
+}
+
+            );
+        
+    
+            tile_layer_4e2ec34bbf3ef3c4898e7b8cdb24bfa2.addTo(map_37763d3ab96e98f4c23c43a5a22d82de);
+        
+    
+            L.control.fullscreen(
+                {
+  &quot;position&quot;: &quot;topright&quot;,
+  &quot;title&quot;: &quot;Pantalla Completa&quot;,
+  &quot;titleCancel&quot;: &quot;Salir&quot;,
+  &quot;forceSeparateButton&quot;: false,
+}
+            ).addTo(map_37763d3ab96e98f4c23c43a5a22d82de);
+        
+    
+            var marker_04144467ae03ec90a2cca664b985ca01 = L.marker(
+                [-34.9210957, -56.1618465],
+                {
+}
+            ).addTo(map_37763d3ab96e98f4c23c43a5a22d82de);
+        
+    
+            var icon_1492d42cf563674e74c9a2ff08a3f63d = L.AwesomeMarkers.icon(
+                {
+  &quot;markerColor&quot;: &quot;green&quot;,
+  &quot;iconColor&quot;: &quot;white&quot;,
+  &quot;icon&quot;: &quot;star&quot;,
+  &quot;prefix&quot;: &quot;fa&quot;,
+  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
+}
+            );
+        
+    
+        var popup_1ce35cfe66f36a12c834007cd291c0e7 = L.popup({
+  &quot;maxWidth&quot;: 300,
+});
+
+        
+            
+                var html_e57b32eafc2cb97eaee3e11742b589ce = $(`&lt;div id=&quot;html_e57b32eafc2cb97eaee3e11742b589ce&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Segoe UI&#x27;, Arial, sans-serif; min-width: 220px; padding: 5px;&quot;&gt;         &lt;h4 style=&quot;margin-top: 0; margin-bottom: 8px; color: #2c3e50; font-size: 14px;&quot;&gt;BTL MEDICAL URUGUAY S.A.&lt;/h4&gt;         &lt;div style=&quot;background-color: #f8f9fa; padding: 8px; border-radius: 6px; border-left: 4px solid #3498db;&quot;&gt;             &lt;b style=&quot;color: #555; font-size: 10px; text-transform: uppercase;&quot;&gt;Categoría:&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color: #333; font-size: 12px; font-weight: bold;&quot;&gt;Importador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top: 10px; font-size: 10px; color: #7f8c8d; text-align: right;&quot;&gt;             &lt;i&gt;Fuente: Sugerido por LATU&lt;/i&gt;         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
+                popup_1ce35cfe66f36a12c834007cd291c0e7.setContent(html_e57b32eafc2cb97eaee3e11742b589ce);
+            
+        
+
+        marker_04144467ae03ec90a2cca664b985ca01.bindPopup(popup_1ce35cfe66f36a12c834007cd291c0e7)
+        ;
+
+        
+    
+    
+                marker_04144467ae03ec90a2cca664b985ca01.setIcon(icon_1492d42cf563674e74c9a2ff08a3f63d);
+            
+    
+            var marker_2ef749ff572b9802d5e8b0d3ffdd8d46 = L.marker(
+                [-34.9102049, -56.1846634],
+                {
+}
+            ).addTo(map_37763d3ab96e98f4c23c43a5a22d82de);
+        
+    
+            var icon_5dccb0e406fac9604f806206aaad14e3 = L.AwesomeMarkers.icon(
+                {
+  &quot;markerColor&quot;: &quot;purple&quot;,
+  &quot;iconColor&quot;: &quot;white&quot;,
+  &quot;icon&quot;: &quot;star&quot;,
+  &quot;prefix&quot;: &quot;fa&quot;,
+  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
+}
+            );
+        
+    
+        var popup_1d8c4ecbf70066c613424b7da85bf061 = L.popup({
+  &quot;maxWidth&quot;: 300,
+});
+
+        
+            
+                var html_f1ddea3f4b73fbec7b2a7dd8b346439a = $(`&lt;div id=&quot;html_f1ddea3f4b73fbec7b2a7dd8b346439a&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Segoe UI&#x27;, Arial, sans-serif; min-width: 220px; padding: 5px;&quot;&gt;         &lt;h4 style=&quot;margin-top: 0; margin-bottom: 8px; color: #2c3e50; font-size: 14px;&quot;&gt;FANIO SA&lt;/h4&gt;         &lt;div style=&quot;background-color: #f8f9fa; padding: 8px; border-radius: 6px; border-left: 4px solid #3498db;&quot;&gt;             &lt;b style=&quot;color: #555; font-size: 10px; text-transform: uppercase;&quot;&gt;Categoría:&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color: #333; font-size: 12px; font-weight: bold;&quot;&gt;Importador Reparador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top: 10px; font-size: 10px; color: #7f8c8d; text-align: right;&quot;&gt;             &lt;i&gt;Fuente: Sugerido por LATU&lt;/i&gt;         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
+                popup_1d8c4ecbf70066c613424b7da85bf061.setContent(html_f1ddea3f4b73fbec7b2a7dd8b346439a);
+            
+        
+
+        marker_2ef749ff572b9802d5e8b0d3ffdd8d46.bindPopup(popup_1d8c4ecbf70066c613424b7da85bf061)
+        ;
+
+        
+    
+    
+                marker_2ef749ff572b9802d5e8b0d3ffdd8d46.setIcon(icon_5dccb0e406fac9604f806206aaad14e3);
+            
+    
+            var marker_81cc2a7f92d1c43167a4a8d0664032bb = L.marker(
+                [-34.8990504, -56.1465624],
+                {
+}
+            ).addTo(map_37763d3ab96e98f4c23c43a5a22d82de);
+        
+    
+            var icon_260178732c894a74bbe593896509869a = L.AwesomeMarkers.icon(
+                {
+  &quot;markerColor&quot;: &quot;purple&quot;,
+  &quot;iconColor&quot;: &quot;white&quot;,
+  &quot;icon&quot;: &quot;star&quot;,
+  &quot;prefix&quot;: &quot;fa&quot;,
+  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
+}
+            );
+        
+    
+        var popup_faebe40d6cfb00a73b70afd9392e0ae8 = L.popup({
+  &quot;maxWidth&quot;: 300,
+});
+
+        
+            
+                var html_fe706673f430a6b09b9212a03af7b50b = $(`&lt;div id=&quot;html_fe706673f430a6b09b9212a03af7b50b&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Segoe UI&#x27;, Arial, sans-serif; min-width: 220px; padding: 5px;&quot;&gt;         &lt;h4 style=&quot;margin-top: 0; margin-bottom: 8px; color: #2c3e50; font-size: 14px;&quot;&gt;KEITO URUGUAY S A&lt;/h4&gt;         &lt;div style=&quot;background-color: #f8f9fa; padding: 8px; border-radius: 6px; border-left: 4px solid #3498db;&quot;&gt;             &lt;b style=&quot;color: #555; font-size: 10px; text-transform: uppercase;&quot;&gt;Categoría:&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color: #333; font-size: 12px; font-weight: bold;&quot;&gt;Importador Reparador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top: 10px; font-size: 10px; color: #7f8c8d; text-align: right;&quot;&gt;             &lt;i&gt;Fuente: Sugerido por LATU&lt;/i&gt;         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
+                popup_faebe40d6cfb00a73b70afd9392e0ae8.setContent(html_fe706673f430a6b09b9212a03af7b50b);
+            
+        
+
+        marker_81cc2a7f92d1c43167a4a8d0664032bb.bindPopup(popup_faebe40d6cfb00a73b70afd9392e0ae8)
+        ;
+
+        
+    
+    
+                marker_81cc2a7f92d1c43167a4a8d0664032bb.setIcon(icon_260178732c894a74bbe593896509869a);
+            
+    
+            var marker_baa08bf41ad2a7d423e615493fa8819a = L.marker(
+                [-34.8990504, -56.1465624],
+                {
+}
+            ).addTo(map_37763d3ab96e98f4c23c43a5a22d82de);
+        
+    
+            var icon_fd94902775dd1921ada83927c753aa7d = L.AwesomeMarkers.icon(
+                {
+  &quot;markerColor&quot;: &quot;purple&quot;,
+  &quot;iconColor&quot;: &quot;white&quot;,
+  &quot;icon&quot;: &quot;star&quot;,
+  &quot;prefix&quot;: &quot;fa&quot;,
+  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
+}
+            );
+        
+    
+        var popup_72d98440c106eca9b2f5352c19350a83 = L.popup({
+  &quot;maxWidth&quot;: 300,
+});
+
+        
+            
+                var html_658ad5ab3c09dabc3739f21ead2f8f96 = $(`&lt;div id=&quot;html_658ad5ab3c09dabc3739f21ead2f8f96&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Segoe UI&#x27;, Arial, sans-serif; min-width: 220px; padding: 5px;&quot;&gt;         &lt;h4 style=&quot;margin-top: 0; margin-bottom: 8px; color: #2c3e50; font-size: 14px;&quot;&gt;KEITO URUGUAY S A&lt;/h4&gt;         &lt;div style=&quot;background-color: #f8f9fa; padding: 8px; border-radius: 6px; border-left: 4px solid #3498db;&quot;&gt;             &lt;b style=&quot;color: #555; font-size: 10px; text-transform: uppercase;&quot;&gt;Categoría:&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color: #333; font-size: 12px; font-weight: bold;&quot;&gt;Importador Reparador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top: 10px; font-size: 10px; color: #7f8c8d; text-align: right;&quot;&gt;             &lt;i&gt;Fuente: Sugerido por LATU&lt;/i&gt;         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
+                popup_72d98440c106eca9b2f5352c19350a83.setContent(html_658ad5ab3c09dabc3739f21ead2f8f96);
+            
+        
+
+        marker_baa08bf41ad2a7d423e615493fa8819a.bindPopup(popup_72d98440c106eca9b2f5352c19350a83)
+        ;
+
+        
+    
+    
+                marker_baa08bf41ad2a7d423e615493fa8819a.setIcon(icon_fd94902775dd1921ada83927c753aa7d);
+            
+    
+            var marker_d25435aca06cd246e7ed429ae0c01cb4 = L.marker(
+                [-34.8879025, -56.1762535],
+                {
+}
+            ).addTo(map_37763d3ab96e98f4c23c43a5a22d82de);
+        
+    
+            var icon_beafb73b4efb7613af96dc8694bf82c2 = L.AwesomeMarkers.icon(
+                {
+  &quot;markerColor&quot;: &quot;purple&quot;,
+  &quot;iconColor&quot;: &quot;white&quot;,
+  &quot;icon&quot;: &quot;star&quot;,
+  &quot;prefix&quot;: &quot;fa&quot;,
+  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
+}
+            );
+        
+    
+        var popup_b953451dda282f8997e7eb50bdba2f74 = L.popup({
+  &quot;maxWidth&quot;: 300,
+});
+
+        
+            
+                var html_ae9077a1835180ad531e6a907f58b8ba = $(`&lt;div id=&quot;html_ae9077a1835180ad531e6a907f58b8ba&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Segoe UI&#x27;, Arial, sans-serif; min-width: 220px; padding: 5px;&quot;&gt;         &lt;h4 style=&quot;margin-top: 0; margin-bottom: 8px; color: #2c3e50; font-size: 14px;&quot;&gt;TECMAR MEDICA S.A.&lt;/h4&gt;         &lt;div style=&quot;background-color: #f8f9fa; padding: 8px; border-radius: 6px; border-left: 4px solid #3498db;&quot;&gt;             &lt;b style=&quot;color: #555; font-size: 10px; text-transform: uppercase;&quot;&gt;Categoría:&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color: #333; font-size: 12px; font-weight: bold;&quot;&gt;Importador Reparador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top: 10px; font-size: 10px; color: #7f8c8d; text-align: right;&quot;&gt;             &lt;i&gt;Fuente: Sugerido por LATU&lt;/i&gt;         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
+                popup_b953451dda282f8997e7eb50bdba2f74.setContent(html_ae9077a1835180ad531e6a907f58b8ba);
+            
+        
+
+        marker_d25435aca06cd246e7ed429ae0c01cb4.bindPopup(popup_b953451dda282f8997e7eb50bdba2f74)
+        ;
+
+        
+    
+    
+                marker_d25435aca06cd246e7ed429ae0c01cb4.setIcon(icon_beafb73b4efb7613af96dc8694bf82c2);
+            
+    
+            var marker_7ddf85d6601d711b22c59b5ea8314aba = L.marker(
+                [-34.9095869, -56.1913639],
+                {
+}
+            ).addTo(map_37763d3ab96e98f4c23c43a5a22d82de);
+        
+    
+            var icon_3153950823ea7f0e39e727ec2e84a162 = L.AwesomeMarkers.icon(
+                {
+  &quot;markerColor&quot;: &quot;green&quot;,
+  &quot;iconColor&quot;: &quot;white&quot;,
+  &quot;icon&quot;: &quot;star&quot;,
+  &quot;prefix&quot;: &quot;fa&quot;,
+  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
+}
+            );
+        
+    
+        var popup_4fc3eab1da73a91b624c999583f25596 = L.popup({
+  &quot;maxWidth&quot;: 300,
+});
+
+        
+            
+                var html_01623455d26e85ceb2aba2de2c90df2e = $(`&lt;div id=&quot;html_01623455d26e85ceb2aba2de2c90df2e&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Segoe UI&#x27;, Arial, sans-serif; min-width: 220px; padding: 5px;&quot;&gt;         &lt;h4 style=&quot;margin-top: 0; margin-bottom: 8px; color: #2c3e50; font-size: 14px;&quot;&gt;ARTILLEROS S.R.L.&lt;/h4&gt;         &lt;div style=&quot;background-color: #f8f9fa; padding: 8px; border-radius: 6px; border-left: 4px solid #3498db;&quot;&gt;             &lt;b style=&quot;color: #555; font-size: 10px; text-transform: uppercase;&quot;&gt;Categoría:&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color: #333; font-size: 12px; font-weight: bold;&quot;&gt;Importador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top: 10px; font-size: 10px; color: #7f8c8d; text-align: right;&quot;&gt;             &lt;i&gt;Fuente: Sugerido por LATU&lt;/i&gt;         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
+                popup_4fc3eab1da73a91b624c999583f25596.setContent(html_01623455d26e85ceb2aba2de2c90df2e);
+            
+        
+
+        marker_7ddf85d6601d711b22c59b5ea8314aba.bindPopup(popup_4fc3eab1da73a91b624c999583f25596)
+        ;
+
+        
+    
+    
+                marker_7ddf85d6601d711b22c59b5ea8314aba.setIcon(icon_3153950823ea7f0e39e727ec2e84a162);
+            
+    
+            var marker_93fd2cfa1cc77b049e90e6bfff60dda8 = L.marker(
+                [-34.8851543, -56.172572],
+                {
+}
+            ).addTo(map_37763d3ab96e98f4c23c43a5a22d82de);
+        
+    
+            var icon_15c89a8f033e3e6e10092999f8c7316f = L.AwesomeMarkers.icon(
+                {
+  &quot;markerColor&quot;: &quot;green&quot;,
+  &quot;iconColor&quot;: &quot;white&quot;,
+  &quot;icon&quot;: &quot;star&quot;,
+  &quot;prefix&quot;: &quot;fa&quot;,
+  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
+}
+            );
+        
+    
+        var popup_65ee2f4eac820c88d8bb3e082652bc18 = L.popup({
+  &quot;maxWidth&quot;: 300,
+});
+
+        
+            
+                var html_93941f5a39aaf6002a21ea16609a2ab4 = $(`&lt;div id=&quot;html_93941f5a39aaf6002a21ea16609a2ab4&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Segoe UI&#x27;, Arial, sans-serif; min-width: 220px; padding: 5px;&quot;&gt;         &lt;h4 style=&quot;margin-top: 0; margin-bottom: 8px; color: #2c3e50; font-size: 14px;&quot;&gt;MEDICENTER SRL&lt;/h4&gt;         &lt;div style=&quot;background-color: #f8f9fa; padding: 8px; border-radius: 6px; border-left: 4px solid #3498db;&quot;&gt;             &lt;b style=&quot;color: #555; font-size: 10px; text-transform: uppercase;&quot;&gt;Categoría:&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color: #333; font-size: 12px; font-weight: bold;&quot;&gt;Importador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top: 10px; font-size: 10px; color: #7f8c8d; text-align: right;&quot;&gt;             &lt;i&gt;Fuente: Sugerido por LATU&lt;/i&gt;         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
+                popup_65ee2f4eac820c88d8bb3e082652bc18.setContent(html_93941f5a39aaf6002a21ea16609a2ab4);
+            
+        
+
+        marker_93fd2cfa1cc77b049e90e6bfff60dda8.bindPopup(popup_65ee2f4eac820c88d8bb3e082652bc18)
+        ;
+
+        
+    
+    
+                marker_93fd2cfa1cc77b049e90e6bfff60dda8.setIcon(icon_15c89a8f033e3e6e10092999f8c7316f);
+            
+    
+            var marker_cb8b7be1b454503a98c36454031b7e02 = L.marker(
+                [-34.9107955, -56.1759784],
+                {
+}
+            ).addTo(map_37763d3ab96e98f4c23c43a5a22d82de);
+        
+    
+            var icon_96a91edb26229693222cce987c30a833 = L.AwesomeMarkers.icon(
+                {
+  &quot;markerColor&quot;: &quot;green&quot;,
+  &quot;iconColor&quot;: &quot;white&quot;,
+  &quot;icon&quot;: &quot;star&quot;,
+  &quot;prefix&quot;: &quot;fa&quot;,
+  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
+}
+            );
+        
+    
+        var popup_eca2f8301b453f471d9122166dd7e421 = L.popup({
+  &quot;maxWidth&quot;: 300,
+});
+
+        
+            
+                var html_7b63f6e338de8ea837921c2137a63aba = $(`&lt;div id=&quot;html_7b63f6e338de8ea837921c2137a63aba&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Segoe UI&#x27;, Arial, sans-serif; min-width: 220px; padding: 5px;&quot;&gt;         &lt;h4 style=&quot;margin-top: 0; margin-bottom: 8px; color: #2c3e50; font-size: 14px;&quot;&gt;UNION DISPROFARMA S.A&lt;/h4&gt;         &lt;div style=&quot;background-color: #f8f9fa; padding: 8px; border-radius: 6px; border-left: 4px solid #3498db;&quot;&gt;             &lt;b style=&quot;color: #555; font-size: 10px; text-transform: uppercase;&quot;&gt;Categoría:&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color: #333; font-size: 12px; font-weight: bold;&quot;&gt;Importador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top: 10px; font-size: 10px; color: #7f8c8d; text-align: right;&quot;&gt;             &lt;i&gt;Fuente: Sugerido por LATU&lt;/i&gt;         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
+                popup_eca2f8301b453f471d9122166dd7e421.setContent(html_7b63f6e338de8ea837921c2137a63aba);
+            
+        
+
+        marker_cb8b7be1b454503a98c36454031b7e02.bindPopup(popup_eca2f8301b453f471d9122166dd7e421)
+        ;
+
+        
+    
+    
+                marker_cb8b7be1b454503a98c36454031b7e02.setIcon(icon_96a91edb26229693222cce987c30a833);
+            
+    
+            var marker_80ab3cc97a01d33797fe3e093d25b51c = L.marker(
+                [-34.9102049, -56.1846634],
+                {
+}
+            ).addTo(map_37763d3ab96e98f4c23c43a5a22d82de);
+        
+    
+            var icon_36aa877a7b0f7ddce409482b0de4cf13 = L.AwesomeMarkers.icon(
+                {
+  &quot;markerColor&quot;: &quot;green&quot;,
+  &quot;iconColor&quot;: &quot;white&quot;,
+  &quot;icon&quot;: &quot;star&quot;,
+  &quot;prefix&quot;: &quot;fa&quot;,
+  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
+}
+            );
+        
+    
+        var popup_a48ed342be327c80ceca807ad832aaa0 = L.popup({
+  &quot;maxWidth&quot;: 300,
+});
+
+        
+            
+                var html_c6e6bf6673094801bf6b455f3931a181 = $(`&lt;div id=&quot;html_c6e6bf6673094801bf6b455f3931a181&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Segoe UI&#x27;, Arial, sans-serif; min-width: 220px; padding: 5px;&quot;&gt;         &lt;h4 style=&quot;margin-top: 0; margin-bottom: 8px; color: #2c3e50; font-size: 14px;&quot;&gt;FANIO SA&lt;/h4&gt;         &lt;div style=&quot;background-color: #f8f9fa; padding: 8px; border-radius: 6px; border-left: 4px solid #3498db;&quot;&gt;             &lt;b style=&quot;color: #555; font-size: 10px; text-transform: uppercase;&quot;&gt;Categoría:&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color: #333; font-size: 12px; font-weight: bold;&quot;&gt;Importador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top: 10px; font-size: 10px; color: #7f8c8d; text-align: right;&quot;&gt;             &lt;i&gt;Fuente: Sugerido por LATU&lt;/i&gt;         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
+                popup_a48ed342be327c80ceca807ad832aaa0.setContent(html_c6e6bf6673094801bf6b455f3931a181);
+            
+        
+
+        marker_80ab3cc97a01d33797fe3e093d25b51c.bindPopup(popup_a48ed342be327c80ceca807ad832aaa0)
+        ;
+
+        
+    
+    
+                marker_80ab3cc97a01d33797fe3e093d25b51c.setIcon(icon_36aa877a7b0f7ddce409482b0de4cf13);
+            
+    
+            var marker_96a1550ea5e5368a1b3291ba74bd575e = L.marker(
+                [-34.8960358, -56.1659223],
+                {
+}
+            ).addTo(map_37763d3ab96e98f4c23c43a5a22d82de);
+        
+    
+            var icon_2760532cbbaed8ad2af7e229205b0f99 = L.AwesomeMarkers.icon(
+                {
+  &quot;markerColor&quot;: &quot;green&quot;,
+  &quot;iconColor&quot;: &quot;white&quot;,
+  &quot;icon&quot;: &quot;star&quot;,
+  &quot;prefix&quot;: &quot;fa&quot;,
+  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
+}
+            );
+        
+    
+        var popup_4b71d75af9fb95be41f53fa075725ec7 = L.popup({
+  &quot;maxWidth&quot;: 300,
+});
+
+        
+            
+                var html_df5f54313a02126cf58bb3588fb02766 = $(`&lt;div id=&quot;html_df5f54313a02126cf58bb3588fb02766&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Segoe UI&#x27;, Arial, sans-serif; min-width: 220px; padding: 5px;&quot;&gt;         &lt;h4 style=&quot;margin-top: 0; margin-bottom: 8px; color: #2c3e50; font-size: 14px;&quot;&gt;MEDILAND S.A&lt;/h4&gt;         &lt;div style=&quot;background-color: #f8f9fa; padding: 8px; border-radius: 6px; border-left: 4px solid #3498db;&quot;&gt;             &lt;b style=&quot;color: #555; font-size: 10px; text-transform: uppercase;&quot;&gt;Categoría:&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color: #333; font-size: 12px; font-weight: bold;&quot;&gt;Importador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top: 10px; font-size: 10px; color: #7f8c8d; text-align: right;&quot;&gt;             &lt;i&gt;Fuente: Sugerido por LATU&lt;/i&gt;         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
+                popup_4b71d75af9fb95be41f53fa075725ec7.setContent(html_df5f54313a02126cf58bb3588fb02766);
+            
+        
+
+        marker_96a1550ea5e5368a1b3291ba74bd575e.bindPopup(popup_4b71d75af9fb95be41f53fa075725ec7)
+        ;
+
+        
+    
+    
+                marker_96a1550ea5e5368a1b3291ba74bd575e.setIcon(icon_2760532cbbaed8ad2af7e229205b0f99);
+            
+    
+            var marker_bb45eccf55d739b8174e2dfe7ed547f5 = L.marker(
+                [-34.8927738, -56.0833129],
+                {
+}
+            ).addTo(map_37763d3ab96e98f4c23c43a5a22d82de);
+        
+    
+            var icon_535bb4758ab802bf441a8fa0eacf745c = L.AwesomeMarkers.icon(
+                {
+  &quot;markerColor&quot;: &quot;green&quot;,
+  &quot;iconColor&quot;: &quot;white&quot;,
+  &quot;icon&quot;: &quot;star&quot;,
+  &quot;prefix&quot;: &quot;fa&quot;,
+  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
+}
+            );
+        
+    
+        var popup_981a7002c9b45c6f076250b706d87581 = L.popup({
+  &quot;maxWidth&quot;: 300,
+});
+
+        
+            
+                var html_64de8bb2a1235bf3b8fc5dc4a7dcc12b = $(`&lt;div id=&quot;html_64de8bb2a1235bf3b8fc5dc4a7dcc12b&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Segoe UI&#x27;, Arial, sans-serif; min-width: 220px; padding: 5px;&quot;&gt;         &lt;h4 style=&quot;margin-top: 0; margin-bottom: 8px; color: #2c3e50; font-size: 14px;&quot;&gt;GW Y DW S.R.L&lt;/h4&gt;         &lt;div style=&quot;background-color: #f8f9fa; padding: 8px; border-radius: 6px; border-left: 4px solid #3498db;&quot;&gt;             &lt;b style=&quot;color: #555; font-size: 10px; text-transform: uppercase;&quot;&gt;Categoría:&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color: #333; font-size: 12px; font-weight: bold;&quot;&gt;Importador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top: 10px; font-size: 10px; color: #7f8c8d; text-align: right;&quot;&gt;             &lt;i&gt;Fuente: Sugerido por LATU&lt;/i&gt;         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
+                popup_981a7002c9b45c6f076250b706d87581.setContent(html_64de8bb2a1235bf3b8fc5dc4a7dcc12b);
+            
+        
+
+        marker_bb45eccf55d739b8174e2dfe7ed547f5.bindPopup(popup_981a7002c9b45c6f076250b706d87581)
+        ;
+
+        
+    
+    
+                marker_bb45eccf55d739b8174e2dfe7ed547f5.setIcon(icon_535bb4758ab802bf441a8fa0eacf745c);
+            
+    
+            var marker_7724febd09f73f5afa8a178d5434c425 = L.marker(
+                [-34.9078319, -56.2034867],
+                {
+}
+            ).addTo(map_37763d3ab96e98f4c23c43a5a22d82de);
+        
+    
+            var icon_8b985674953e96ffb16f00a36863a4f8 = L.AwesomeMarkers.icon(
+                {
+  &quot;markerColor&quot;: &quot;green&quot;,
+  &quot;iconColor&quot;: &quot;white&quot;,
+  &quot;icon&quot;: &quot;star&quot;,
+  &quot;prefix&quot;: &quot;fa&quot;,
+  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
+}
+            );
+        
+    
+        var popup_301617e436aa8c63601afbb54ba6cb1b = L.popup({
+  &quot;maxWidth&quot;: 300,
+});
+
+        
+            
+                var html_a0c6c7706b1530d16d674ccb4eeb3780 = $(`&lt;div id=&quot;html_a0c6c7706b1530d16d674ccb4eeb3780&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Segoe UI&#x27;, Arial, sans-serif; min-width: 220px; padding: 5px;&quot;&gt;         &lt;h4 style=&quot;margin-top: 0; margin-bottom: 8px; color: #2c3e50; font-size: 14px;&quot;&gt;ARUYA SA&lt;/h4&gt;         &lt;div style=&quot;background-color: #f8f9fa; padding: 8px; border-radius: 6px; border-left: 4px solid #3498db;&quot;&gt;             &lt;b style=&quot;color: #555; font-size: 10px; text-transform: uppercase;&quot;&gt;Categoría:&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color: #333; font-size: 12px; font-weight: bold;&quot;&gt;Importador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top: 10px; font-size: 10px; color: #7f8c8d; text-align: right;&quot;&gt;             &lt;i&gt;Fuente: Sugerido por LATU&lt;/i&gt;         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
+                popup_301617e436aa8c63601afbb54ba6cb1b.setContent(html_a0c6c7706b1530d16d674ccb4eeb3780);
+            
+        
+
+        marker_7724febd09f73f5afa8a178d5434c425.bindPopup(popup_301617e436aa8c63601afbb54ba6cb1b)
+        ;
+
+        
+    
+    
+                marker_7724febd09f73f5afa8a178d5434c425.setIcon(icon_8b985674953e96ffb16f00a36863a4f8);
+            
+    
+            var marker_3d8a95048f6de834b41865b1f248cadc = L.marker(
+                [-34.8651693, -56.178707],
+                {
+}
+            ).addTo(map_37763d3ab96e98f4c23c43a5a22d82de);
+        
+    
+            var icon_328afe90368e90e3485e00f52020e9a7 = L.AwesomeMarkers.icon(
+                {
+  &quot;markerColor&quot;: &quot;orange&quot;,
+  &quot;iconColor&quot;: &quot;white&quot;,
+  &quot;icon&quot;: &quot;star&quot;,
+  &quot;prefix&quot;: &quot;fa&quot;,
+  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
+}
+            );
+        
+    
+        var popup_5c984e8c1eb7f7354ab9d35927a3f9b8 = L.popup({
+  &quot;maxWidth&quot;: 300,
+});
+
+        
+            
+                var html_26d5d3d32d21a66a134bd09e1d43db03 = $(`&lt;div id=&quot;html_26d5d3d32d21a66a134bd09e1d43db03&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Segoe UI&#x27;, Arial, sans-serif; min-width: 220px; padding: 5px;&quot;&gt;         &lt;h4 style=&quot;margin-top: 0; margin-bottom: 8px; color: #2c3e50; font-size: 14px;&quot;&gt;NESTOR LUIS PAEZ MERA&lt;/h4&gt;         &lt;div style=&quot;background-color: #f8f9fa; padding: 8px; border-radius: 6px; border-left: 4px solid #3498db;&quot;&gt;             &lt;b style=&quot;color: #555; font-size: 10px; text-transform: uppercase;&quot;&gt;Categoría:&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color: #333; font-size: 12px; font-weight: bold;&quot;&gt;Reparador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top: 10px; font-size: 10px; color: #7f8c8d; text-align: right;&quot;&gt;             &lt;i&gt;Fuente: Sugerido por LATU&lt;/i&gt;         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
+                popup_5c984e8c1eb7f7354ab9d35927a3f9b8.setContent(html_26d5d3d32d21a66a134bd09e1d43db03);
+            
+        
+
+        marker_3d8a95048f6de834b41865b1f248cadc.bindPopup(popup_5c984e8c1eb7f7354ab9d35927a3f9b8)
+        ;
+
+        
+    
+    
+                marker_3d8a95048f6de834b41865b1f248cadc.setIcon(icon_328afe90368e90e3485e00f52020e9a7);
+            
+    
+            var marker_f0e77f1c46b1e0e56b68a183a94d75eb = L.marker(
+                [-34.9015349, -56.1667299],
+                {
+}
+            ).addTo(map_37763d3ab96e98f4c23c43a5a22d82de);
+        
+    
+            var icon_446b7d6add7c26d944a48bcab8c5a04d = L.AwesomeMarkers.icon(
+                {
+  &quot;markerColor&quot;: &quot;orange&quot;,
+  &quot;iconColor&quot;: &quot;white&quot;,
+  &quot;icon&quot;: &quot;star&quot;,
+  &quot;prefix&quot;: &quot;fa&quot;,
+  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
+}
+            );
+        
+    
+        var popup_eb2d18489b1b24129c1c1318d962fe22 = L.popup({
+  &quot;maxWidth&quot;: 300,
+});
+
+        
+            
+                var html_1e08b40f1a0b9c93a0699ee296753ba9 = $(`&lt;div id=&quot;html_1e08b40f1a0b9c93a0699ee296753ba9&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Segoe UI&#x27;, Arial, sans-serif; min-width: 220px; padding: 5px;&quot;&gt;         &lt;h4 style=&quot;margin-top: 0; margin-bottom: 8px; color: #2c3e50; font-size: 14px;&quot;&gt;MBR LTDA&lt;/h4&gt;         &lt;div style=&quot;background-color: #f8f9fa; padding: 8px; border-radius: 6px; border-left: 4px solid #3498db;&quot;&gt;             &lt;b style=&quot;color: #555; font-size: 10px; text-transform: uppercase;&quot;&gt;Categoría:&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color: #333; font-size: 12px; font-weight: bold;&quot;&gt;Reparador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top: 10px; font-size: 10px; color: #7f8c8d; text-align: right;&quot;&gt;             &lt;i&gt;Fuente: Sugerido por LATU&lt;/i&gt;         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
+                popup_eb2d18489b1b24129c1c1318d962fe22.setContent(html_1e08b40f1a0b9c93a0699ee296753ba9);
+            
+        
+
+        marker_f0e77f1c46b1e0e56b68a183a94d75eb.bindPopup(popup_eb2d18489b1b24129c1c1318d962fe22)
+        ;
+
+        
+    
+    
+                marker_f0e77f1c46b1e0e56b68a183a94d75eb.setIcon(icon_446b7d6add7c26d944a48bcab8c5a04d);
+            
+    
+            var marker_f4f09797c39ac38f2b03f127bb0fad24 = L.marker(
+                [-34.9078319, -56.2034867],
+                {
+}
+            ).addTo(map_37763d3ab96e98f4c23c43a5a22d82de);
+        
+    
+            var icon_fd78e7852ec06f45c5735542a3cd76f9 = L.AwesomeMarkers.icon(
+                {
+  &quot;markerColor&quot;: &quot;green&quot;,
+  &quot;iconColor&quot;: &quot;white&quot;,
+  &quot;icon&quot;: &quot;star&quot;,
+  &quot;prefix&quot;: &quot;fa&quot;,
+  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
+}
+            );
+        
+    
+        var popup_efcd98464b86a63ade9abbb8f9fe52fd = L.popup({
+  &quot;maxWidth&quot;: 300,
+});
+
+        
+            
+                var html_ee73e5fe1e3d3ee6c3767234ce63dc34 = $(`&lt;div id=&quot;html_ee73e5fe1e3d3ee6c3767234ce63dc34&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Segoe UI&#x27;, Arial, sans-serif; min-width: 220px; padding: 5px;&quot;&gt;         &lt;h4 style=&quot;margin-top: 0; margin-bottom: 8px; color: #2c3e50; font-size: 14px;&quot;&gt;SUCESORES DE SAUL FOJGIEL LTDA&lt;/h4&gt;         &lt;div style=&quot;background-color: #f8f9fa; padding: 8px; border-radius: 6px; border-left: 4px solid #3498db;&quot;&gt;             &lt;b style=&quot;color: #555; font-size: 10px; text-transform: uppercase;&quot;&gt;Categoría:&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color: #333; font-size: 12px; font-weight: bold;&quot;&gt;Importador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top: 10px; font-size: 10px; color: #7f8c8d; text-align: right;&quot;&gt;             &lt;i&gt;Fuente: Sugerido por LATU&lt;/i&gt;         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
+                popup_efcd98464b86a63ade9abbb8f9fe52fd.setContent(html_ee73e5fe1e3d3ee6c3767234ce63dc34);
+            
+        
+
+        marker_f4f09797c39ac38f2b03f127bb0fad24.bindPopup(popup_efcd98464b86a63ade9abbb8f9fe52fd)
+        ;
+
+        
+    
+    
+                marker_f4f09797c39ac38f2b03f127bb0fad24.setIcon(icon_fd78e7852ec06f45c5735542a3cd76f9);
+            
+    
+            var marker_c3ea25a6b4fe3e8d3370816f8c22faf2 = L.marker(
+                [-34.8879025, -56.1762535],
+                {
+}
+            ).addTo(map_37763d3ab96e98f4c23c43a5a22d82de);
+        
+    
+            var icon_777aab2a486f1a8a9d192ad5063e053e = L.AwesomeMarkers.icon(
+                {
+  &quot;markerColor&quot;: &quot;purple&quot;,
+  &quot;iconColor&quot;: &quot;white&quot;,
+  &quot;icon&quot;: &quot;star&quot;,
+  &quot;prefix&quot;: &quot;fa&quot;,
+  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
+}
+            );
+        
+    
+        var popup_f8e17b2beec721a3e91187c5f4e557cf = L.popup({
+  &quot;maxWidth&quot;: 300,
+});
+
+        
+            
+                var html_7bc4d2d5b2f83b683e8589d9729bec98 = $(`&lt;div id=&quot;html_7bc4d2d5b2f83b683e8589d9729bec98&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Segoe UI&#x27;, Arial, sans-serif; min-width: 220px; padding: 5px;&quot;&gt;         &lt;h4 style=&quot;margin-top: 0; margin-bottom: 8px; color: #2c3e50; font-size: 14px;&quot;&gt;TECMAR MEDICA S.A.&lt;/h4&gt;         &lt;div style=&quot;background-color: #f8f9fa; padding: 8px; border-radius: 6px; border-left: 4px solid #3498db;&quot;&gt;             &lt;b style=&quot;color: #555; font-size: 10px; text-transform: uppercase;&quot;&gt;Categoría:&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color: #333; font-size: 12px; font-weight: bold;&quot;&gt;Importador Reparador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top: 10px; font-size: 10px; color: #7f8c8d; text-align: right;&quot;&gt;             &lt;i&gt;Fuente: Sugerido por LATU&lt;/i&gt;         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
+                popup_f8e17b2beec721a3e91187c5f4e557cf.setContent(html_7bc4d2d5b2f83b683e8589d9729bec98);
+            
+        
+
+        marker_c3ea25a6b4fe3e8d3370816f8c22faf2.bindPopup(popup_f8e17b2beec721a3e91187c5f4e557cf)
+        ;
+
+        
+    
+    
+                marker_c3ea25a6b4fe3e8d3370816f8c22faf2.setIcon(icon_777aab2a486f1a8a9d192ad5063e053e);
+            
+    
+            var marker_aabf7b2576ea2c719e2a8c112263ffb0 = L.marker(
+                [-34.8914069, -56.074603],
+                {
+}
+            ).addTo(map_37763d3ab96e98f4c23c43a5a22d82de);
+        
+    
+            var icon_b8770e85d2f1f37c94dda8e0ea9884b7 = L.AwesomeMarkers.icon(
+                {
+  &quot;markerColor&quot;: &quot;green&quot;,
+  &quot;iconColor&quot;: &quot;white&quot;,
+  &quot;icon&quot;: &quot;star&quot;,
+  &quot;prefix&quot;: &quot;fa&quot;,
+  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
+}
+            );
+        
+    
+        var popup_24edbf8781a0ae0759cf758c5da8f22a = L.popup({
+  &quot;maxWidth&quot;: 300,
+});
+
+        
+            
+                var html_402f0d3bf51ba2ec2ee988e9d5ec5586 = $(`&lt;div id=&quot;html_402f0d3bf51ba2ec2ee988e9d5ec5586&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Segoe UI&#x27;, Arial, sans-serif; min-width: 220px; padding: 5px;&quot;&gt;         &lt;h4 style=&quot;margin-top: 0; margin-bottom: 8px; color: #2c3e50; font-size: 14px;&quot;&gt;JORGE N. GONZALEZ&lt;/h4&gt;         &lt;div style=&quot;background-color: #f8f9fa; padding: 8px; border-radius: 6px; border-left: 4px solid #3498db;&quot;&gt;             &lt;b style=&quot;color: #555; font-size: 10px; text-transform: uppercase;&quot;&gt;Categoría:&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color: #333; font-size: 12px; font-weight: bold;&quot;&gt;Importador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top: 10px; font-size: 10px; color: #7f8c8d; text-align: right;&quot;&gt;             &lt;i&gt;Fuente: Sugerido por LATU&lt;/i&gt;         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
+                popup_24edbf8781a0ae0759cf758c5da8f22a.setContent(html_402f0d3bf51ba2ec2ee988e9d5ec5586);
+            
+        
+
+        marker_aabf7b2576ea2c719e2a8c112263ffb0.bindPopup(popup_24edbf8781a0ae0759cf758c5da8f22a)
+        ;
+
+        
+    
+    
+                marker_aabf7b2576ea2c719e2a8c112263ffb0.setIcon(icon_b8770e85d2f1f37c94dda8e0ea9884b7);
+            
+    
+            var marker_4e5b7bdef1ecb92166106408413d929c = L.marker(
+                [-34.8802231, -56.1740781],
+                {
+}
+            ).addTo(map_37763d3ab96e98f4c23c43a5a22d82de);
+        
+    
+            var icon_fc5fca7e9eef1c496df7d8b03d747f6b = L.AwesomeMarkers.icon(
+                {
+  &quot;markerColor&quot;: &quot;green&quot;,
+  &quot;iconColor&quot;: &quot;white&quot;,
+  &quot;icon&quot;: &quot;star&quot;,
+  &quot;prefix&quot;: &quot;fa&quot;,
+  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
+}
+            );
+        
+    
+        var popup_c5a0561b22ee6b7b6057a33a33c21e05 = L.popup({
+  &quot;maxWidth&quot;: 300,
+});
+
+        
+            
+                var html_0f532cc90906f4dbfb274f2c9ba37f9b = $(`&lt;div id=&quot;html_0f532cc90906f4dbfb274f2c9ba37f9b&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Segoe UI&#x27;, Arial, sans-serif; min-width: 220px; padding: 5px;&quot;&gt;         &lt;h4 style=&quot;margin-top: 0; margin-bottom: 8px; color: #2c3e50; font-size: 14px;&quot;&gt;MARE URUGUAY LTDA.&lt;/h4&gt;         &lt;div style=&quot;background-color: #f8f9fa; padding: 8px; border-radius: 6px; border-left: 4px solid #3498db;&quot;&gt;             &lt;b style=&quot;color: #555; font-size: 10px; text-transform: uppercase;&quot;&gt;Categoría:&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color: #333; font-size: 12px; font-weight: bold;&quot;&gt;Importador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top: 10px; font-size: 10px; color: #7f8c8d; text-align: right;&quot;&gt;             &lt;i&gt;Fuente: Sugerido por LATU&lt;/i&gt;         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
+                popup_c5a0561b22ee6b7b6057a33a33c21e05.setContent(html_0f532cc90906f4dbfb274f2c9ba37f9b);
+            
+        
+
+        marker_4e5b7bdef1ecb92166106408413d929c.bindPopup(popup_c5a0561b22ee6b7b6057a33a33c21e05)
+        ;
+
+        
+    
+    
+                marker_4e5b7bdef1ecb92166106408413d929c.setIcon(icon_fc5fca7e9eef1c496df7d8b03d747f6b);
+            
+    
+            var marker_24b0d885ceb65ae8ad3cd81825a476f0 = L.marker(
+                [-34.8950223, -56.0742192],
+                {
+}
+            ).addTo(map_37763d3ab96e98f4c23c43a5a22d82de);
+        
+    
+            var icon_b4e43a68b69e2ae46f0a8b753b31867e = L.AwesomeMarkers.icon(
+                {
+  &quot;markerColor&quot;: &quot;green&quot;,
+  &quot;iconColor&quot;: &quot;white&quot;,
+  &quot;icon&quot;: &quot;star&quot;,
+  &quot;prefix&quot;: &quot;fa&quot;,
+  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
+}
+            );
+        
+    
+        var popup_226c84be101740cf5414a1eac32db86d = L.popup({
+  &quot;maxWidth&quot;: 300,
+});
+
+        
+            
+                var html_7d9266c027ac3145231c14f0a940bede = $(`&lt;div id=&quot;html_7d9266c027ac3145231c14f0a940bede&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Segoe UI&#x27;, Arial, sans-serif; min-width: 220px; padding: 5px;&quot;&gt;         &lt;h4 style=&quot;margin-top: 0; margin-bottom: 8px; color: #2c3e50; font-size: 14px;&quot;&gt;ALDENOR S.A.&lt;/h4&gt;         &lt;div style=&quot;background-color: #f8f9fa; padding: 8px; border-radius: 6px; border-left: 4px solid #3498db;&quot;&gt;             &lt;b style=&quot;color: #555; font-size: 10px; text-transform: uppercase;&quot;&gt;Categoría:&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color: #333; font-size: 12px; font-weight: bold;&quot;&gt;Importador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top: 10px; font-size: 10px; color: #7f8c8d; text-align: right;&quot;&gt;             &lt;i&gt;Fuente: Sugerido por LATU&lt;/i&gt;         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
+                popup_226c84be101740cf5414a1eac32db86d.setContent(html_7d9266c027ac3145231c14f0a940bede);
+            
+        
+
+        marker_24b0d885ceb65ae8ad3cd81825a476f0.bindPopup(popup_226c84be101740cf5414a1eac32db86d)
+        ;
+
+        
+    
+    
+                marker_24b0d885ceb65ae8ad3cd81825a476f0.setIcon(icon_b4e43a68b69e2ae46f0a8b753b31867e);
+            
+    
+            var marker_32091a193f6b5baaa0067dd9f8d64441 = L.marker(
+                [-34.8962723, -56.1791701],
+                {
+}
+            ).addTo(map_37763d3ab96e98f4c23c43a5a22d82de);
+        
+    
+            var icon_67874fa6154440ab0c8acaa51c37fb8b = L.AwesomeMarkers.icon(
+                {
+  &quot;markerColor&quot;: &quot;purple&quot;,
+  &quot;iconColor&quot;: &quot;white&quot;,
+  &quot;icon&quot;: &quot;star&quot;,
+  &quot;prefix&quot;: &quot;fa&quot;,
+  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
+}
+            );
+        
+    
+        var popup_42ac92c659751ba992fc78ffc0a93f96 = L.popup({
+  &quot;maxWidth&quot;: 300,
+});
+
+        
+            
+                var html_f5b95fbc70e78e0199bc9e3730d0021e = $(`&lt;div id=&quot;html_f5b95fbc70e78e0199bc9e3730d0021e&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Segoe UI&#x27;, Arial, sans-serif; min-width: 220px; padding: 5px;&quot;&gt;         &lt;h4 style=&quot;margin-top: 0; margin-bottom: 8px; color: #2c3e50; font-size: 14px;&quot;&gt;MEDI IMPORT S.A.&lt;/h4&gt;         &lt;div style=&quot;background-color: #f8f9fa; padding: 8px; border-radius: 6px; border-left: 4px solid #3498db;&quot;&gt;             &lt;b style=&quot;color: #555; font-size: 10px; text-transform: uppercase;&quot;&gt;Categoría:&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color: #333; font-size: 12px; font-weight: bold;&quot;&gt;Importador Reparador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top: 10px; font-size: 10px; color: #7f8c8d; text-align: right;&quot;&gt;             &lt;i&gt;Fuente: Sugerido por LATU&lt;/i&gt;         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
+                popup_42ac92c659751ba992fc78ffc0a93f96.setContent(html_f5b95fbc70e78e0199bc9e3730d0021e);
+            
+        
+
+        marker_32091a193f6b5baaa0067dd9f8d64441.bindPopup(popup_42ac92c659751ba992fc78ffc0a93f96)
+        ;
+
+        
+    
+    
+                marker_32091a193f6b5baaa0067dd9f8d64441.setIcon(icon_67874fa6154440ab0c8acaa51c37fb8b);
+            
+    
+            var marker_46fbe93a5a98c34a5e7d80c13aad7db3 = L.marker(
+                [-34.8962723, -56.1791701],
+                {
+}
+            ).addTo(map_37763d3ab96e98f4c23c43a5a22d82de);
+        
+    
+            var icon_6f803783f5c9fd65d980832528a46f9d = L.AwesomeMarkers.icon(
+                {
+  &quot;markerColor&quot;: &quot;purple&quot;,
+  &quot;iconColor&quot;: &quot;white&quot;,
+  &quot;icon&quot;: &quot;star&quot;,
+  &quot;prefix&quot;: &quot;fa&quot;,
+  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
+}
+            );
+        
+    
+        var popup_413099382a2b50b14c14a658a7c216d7 = L.popup({
+  &quot;maxWidth&quot;: 300,
+});
+
+        
+            
+                var html_5304962b6b9367ac44c5ce68902e1f7a = $(`&lt;div id=&quot;html_5304962b6b9367ac44c5ce68902e1f7a&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Segoe UI&#x27;, Arial, sans-serif; min-width: 220px; padding: 5px;&quot;&gt;         &lt;h4 style=&quot;margin-top: 0; margin-bottom: 8px; color: #2c3e50; font-size: 14px;&quot;&gt;MEDI IMPORT S.A.&lt;/h4&gt;         &lt;div style=&quot;background-color: #f8f9fa; padding: 8px; border-radius: 6px; border-left: 4px solid #3498db;&quot;&gt;             &lt;b style=&quot;color: #555; font-size: 10px; text-transform: uppercase;&quot;&gt;Categoría:&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color: #333; font-size: 12px; font-weight: bold;&quot;&gt;Importador Reparador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top: 10px; font-size: 10px; color: #7f8c8d; text-align: right;&quot;&gt;             &lt;i&gt;Fuente: Sugerido por LATU&lt;/i&gt;         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
+                popup_413099382a2b50b14c14a658a7c216d7.setContent(html_5304962b6b9367ac44c5ce68902e1f7a);
+            
+        
+
+        marker_46fbe93a5a98c34a5e7d80c13aad7db3.bindPopup(popup_413099382a2b50b14c14a658a7c216d7)
+        ;
+
+        
+    
+    
+                marker_46fbe93a5a98c34a5e7d80c13aad7db3.setIcon(icon_6f803783f5c9fd65d980832528a46f9d);
+            
+    
+            var marker_40d30066e8d5aad596f7caf171ee38e6 = L.marker(
+                [-34.9055186, -56.1841652],
+                {
+}
+            ).addTo(map_37763d3ab96e98f4c23c43a5a22d82de);
+        
+    
+            var icon_573511fa049391d5694522c5bb4f5b6e = L.AwesomeMarkers.icon(
+                {
+  &quot;markerColor&quot;: &quot;orange&quot;,
+  &quot;iconColor&quot;: &quot;white&quot;,
+  &quot;icon&quot;: &quot;star&quot;,
+  &quot;prefix&quot;: &quot;fa&quot;,
+  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
+}
+            );
+        
+    
+        var popup_32f5b1ae3f837a85285bef94cc520939 = L.popup({
+  &quot;maxWidth&quot;: 300,
+});
+
+        
+            
+                var html_4b20df2eff83dd95469027030d73fc40 = $(`&lt;div id=&quot;html_4b20df2eff83dd95469027030d73fc40&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Segoe UI&#x27;, Arial, sans-serif; min-width: 220px; padding: 5px;&quot;&gt;         &lt;h4 style=&quot;margin-top: 0; margin-bottom: 8px; color: #2c3e50; font-size: 14px;&quot;&gt;DE OLIVEIRA RUBEN GERARDO Y MORALES&lt;/h4&gt;         &lt;div style=&quot;background-color: #f8f9fa; padding: 8px; border-radius: 6px; border-left: 4px solid #3498db;&quot;&gt;             &lt;b style=&quot;color: #555; font-size: 10px; text-transform: uppercase;&quot;&gt;Categoría:&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color: #333; font-size: 12px; font-weight: bold;&quot;&gt;Reparador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top: 10px; font-size: 10px; color: #7f8c8d; text-align: right;&quot;&gt;             &lt;i&gt;Fuente: Sugerido por LATU&lt;/i&gt;         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
+                popup_32f5b1ae3f837a85285bef94cc520939.setContent(html_4b20df2eff83dd95469027030d73fc40);
+            
+        
+
+        marker_40d30066e8d5aad596f7caf171ee38e6.bindPopup(popup_32f5b1ae3f837a85285bef94cc520939)
+        ;
+
+        
+    
+    
+                marker_40d30066e8d5aad596f7caf171ee38e6.setIcon(icon_573511fa049391d5694522c5bb4f5b6e);
+            
+    
+            var marker_bc93298f9abf291b760d2854b4de8b4d = L.marker(
+                [-34.9136255, -56.173108],
+                {
+}
+            ).addTo(map_37763d3ab96e98f4c23c43a5a22d82de);
+        
+    
+            var icon_3ec9ad7346d7090211be0e820b242323 = L.AwesomeMarkers.icon(
+                {
+  &quot;markerColor&quot;: &quot;green&quot;,
+  &quot;iconColor&quot;: &quot;white&quot;,
+  &quot;icon&quot;: &quot;star&quot;,
+  &quot;prefix&quot;: &quot;fa&quot;,
+  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
+}
+            );
+        
+    
+        var popup_89c19ab801314cf974b8458fe7b57557 = L.popup({
+  &quot;maxWidth&quot;: 300,
+});
+
+        
+            
+                var html_61cbadafe76c0b0b9a8606f2482ddd25 = $(`&lt;div id=&quot;html_61cbadafe76c0b0b9a8606f2482ddd25&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Segoe UI&#x27;, Arial, sans-serif; min-width: 220px; padding: 5px;&quot;&gt;         &lt;h4 style=&quot;margin-top: 0; margin-bottom: 8px; color: #2c3e50; font-size: 14px;&quot;&gt;GAMA ITALY S.A&lt;/h4&gt;         &lt;div style=&quot;background-color: #f8f9fa; padding: 8px; border-radius: 6px; border-left: 4px solid #3498db;&quot;&gt;             &lt;b style=&quot;color: #555; font-size: 10px; text-transform: uppercase;&quot;&gt;Categoría:&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color: #333; font-size: 12px; font-weight: bold;&quot;&gt;Importador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top: 10px; font-size: 10px; color: #7f8c8d; text-align: right;&quot;&gt;             &lt;i&gt;Fuente: Sugerido por LATU&lt;/i&gt;         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
+                popup_89c19ab801314cf974b8458fe7b57557.setContent(html_61cbadafe76c0b0b9a8606f2482ddd25);
+            
+        
+
+        marker_bc93298f9abf291b760d2854b4de8b4d.bindPopup(popup_89c19ab801314cf974b8458fe7b57557)
+        ;
+
+        
+    
+    
+                marker_bc93298f9abf291b760d2854b4de8b4d.setIcon(icon_3ec9ad7346d7090211be0e820b242323);
+            
+    
+            var marker_494fe221dc368be8a78f6909c3b332d4 = L.marker(
+                [-34.9106525, -56.1848499],
+                {
+}
+            ).addTo(map_37763d3ab96e98f4c23c43a5a22d82de);
+        
+    
+            var icon_5024a67b80c5031b19289a5aa1b3bfb5 = L.AwesomeMarkers.icon(
+                {
+  &quot;markerColor&quot;: &quot;purple&quot;,
+  &quot;iconColor&quot;: &quot;white&quot;,
+  &quot;icon&quot;: &quot;info&quot;,
+  &quot;prefix&quot;: &quot;fa&quot;,
+  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
+}
+            );
+        
+    
+        var popup_190e96e286ec846e693b64300f33c5b6 = L.popup({
+  &quot;maxWidth&quot;: 300,
+});
+
+        
+            
+                var html_659fc128fc30a3f367310c13d34d7c90 = $(`&lt;div id=&quot;html_659fc128fc30a3f367310c13d34d7c90&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Segoe UI&#x27;, Arial, sans-serif; min-width: 220px; padding: 5px;&quot;&gt;         &lt;h4 style=&quot;margin-top: 0; margin-bottom: 8px; color: #2c3e50; font-size: 14px;&quot;&gt;SOJU STORE &lt;/h4&gt;         &lt;div style=&quot;background-color: #f8f9fa; padding: 8px; border-radius: 6px; border-left: 4px solid #3498db;&quot;&gt;             &lt;b style=&quot;color: #555; font-size: 10px; text-transform: uppercase;&quot;&gt;Categoría:&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color: #333; font-size: 12px; font-weight: bold;&quot;&gt;Importador Reparador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top: 10px; font-size: 10px; color: #7f8c8d; text-align: right;&quot;&gt;             &lt;i&gt;Fuente: Otros&lt;/i&gt;         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
+                popup_190e96e286ec846e693b64300f33c5b6.setContent(html_659fc128fc30a3f367310c13d34d7c90);
+            
+        
+
+        marker_494fe221dc368be8a78f6909c3b332d4.bindPopup(popup_190e96e286ec846e693b64300f33c5b6)
+        ;
+
+        
+    
+    
+                marker_494fe221dc368be8a78f6909c3b332d4.setIcon(icon_5024a67b80c5031b19289a5aa1b3bfb5);
+            
+    
+            var marker_e396aeef33672ab8acec07b1853611a7 = L.marker(
+                [-34.9025833, -56.1992817],
+                {
+}
+            ).addTo(map_37763d3ab96e98f4c23c43a5a22d82de);
+        
+    
+            var icon_d0d778af85016d40ceb574970a89570b = L.AwesomeMarkers.icon(
+                {
+  &quot;markerColor&quot;: &quot;orange&quot;,
+  &quot;iconColor&quot;: &quot;white&quot;,
+  &quot;icon&quot;: &quot;info&quot;,
+  &quot;prefix&quot;: &quot;fa&quot;,
+  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
+}
+            );
+        
+    
+        var popup_a8fe07d47ccf8ccf2c5020eaefdc8743 = L.popup({
+  &quot;maxWidth&quot;: 300,
+});
+
+        
+            
+                var html_fd58e273e6d852fbb40c887b0a92a699 = $(`&lt;div id=&quot;html_fd58e273e6d852fbb40c887b0a92a699&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Segoe UI&#x27;, Arial, sans-serif; min-width: 220px; padding: 5px;&quot;&gt;         &lt;h4 style=&quot;margin-top: 0; margin-bottom: 8px; color: #2c3e50; font-size: 14px;&quot;&gt;LPGC&lt;/h4&gt;         &lt;div style=&quot;background-color: #f8f9fa; padding: 8px; border-radius: 6px; border-left: 4px solid #3498db;&quot;&gt;             &lt;b style=&quot;color: #555; font-size: 10px; text-transform: uppercase;&quot;&gt;Categoría:&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color: #333; font-size: 12px; font-weight: bold;&quot;&gt;Reparador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top: 10px; font-size: 10px; color: #7f8c8d; text-align: right;&quot;&gt;             &lt;i&gt;Fuente: Otros&lt;/i&gt;         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
+                popup_a8fe07d47ccf8ccf2c5020eaefdc8743.setContent(html_fd58e273e6d852fbb40c887b0a92a699);
+            
+        
+
+        marker_e396aeef33672ab8acec07b1853611a7.bindPopup(popup_a8fe07d47ccf8ccf2c5020eaefdc8743)
+        ;
+
+        
+    
+    
+                marker_e396aeef33672ab8acec07b1853611a7.setIcon(icon_d0d778af85016d40ceb574970a89570b);
+            
+&lt;/script&gt;
+&lt;/html&gt;" style="position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe></div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+           
             <div class="tab-pane fade show active" id="info-content" role="tabpanel">
                 <div class="row">
                     <div class="col-md-8">
@@ -147,1099 +1233,9 @@
                     </div>
                 </div>
             </div>
-
-            <div class="tab-pane fade" id="mapa-content" role="tabpanel">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="card card-custom">
-                            <div class="card-header-custom d-flex justify-content-between align-items-center">
-                                <span><i class="fa-solid fa-earth-americas text-primary me-2"></i>Localizador de Importadores y Reparadores Autorizados</span>
-                                <span class="badge bg-secondary">Total ubicados: 25</span>
-                            </div>
-                            <div class="card-body p-2">
-                                <div class="alert alert-info py-2 px-3 mb-2 small d-flex align-items-center">
-                                    <i class="fa-solid fa-circle-info me-2 fs-5"></i>
-                                    <span>Usa los controles del mapa para explorar la distribución geográfica en Montevideo. Los colores de los marcadores indican la categoría de inscripción.</span>
-                                </div>
-                                <div class="map-container">
-                                    <div style="width:100%;"><div style="position:relative;width:100%;height:0;padding-bottom:60%;"><span style="color:#565656">Make this Notebook Trusted to load map: File -> Trust Notebook</span><iframe srcdoc="&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-    
-    &lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=UTF-8&quot; /&gt;
-    &lt;script src=&quot;https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js&quot;&gt;&lt;/script&gt;
-    &lt;script src=&quot;https://code.jquery.com/jquery-3.7.1.min.js&quot;&gt;&lt;/script&gt;
-    &lt;script src=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js&quot;&gt;&lt;/script&gt;
-    &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js&quot;&gt;&lt;/script&gt;
-    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css&quot;/&gt;
-    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css&quot;/&gt;
-    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css&quot;/&gt;
-    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css&quot;/&gt;
-    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css&quot;/&gt;
-    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css&quot;/&gt;
-    
-            &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,
-                initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; /&gt;
-            &lt;style&gt;
-                #map_9bd1e233af4929796197dd4a2cf2ed8d {
-                    position: relative;
-                    width: 100.0%;
-                    height: 100.0%;
-                    left: 0.0%;
-                    top: 0.0%;
-                }
-                .leaflet-container { font-size: 1rem; }
-            &lt;/style&gt;
-
-            &lt;style&gt;html, body {
-                width: 100%;
-                height: 100%;
-                margin: 0;
-                padding: 0;
-            }
-            &lt;/style&gt;
-
-            &lt;style&gt;#map {
-                position:absolute;
-                top:0;
-                bottom:0;
-                right:0;
-                left:0;
-                }
-            &lt;/style&gt;
-
-            &lt;script&gt;
-                L_NO_TOUCH = false;
-                L_DISABLE_3D = false;
-            &lt;/script&gt;
-
-        
-    &lt;script src=&quot;https://cdn.jsdelivr.net/npm/leaflet.fullscreen@3.0.0/Control.FullScreen.min.js&quot;&gt;&lt;/script&gt;
-    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/leaflet.fullscreen@3.0.0/Control.FullScreen.css&quot;/&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    
-    
-            &lt;div class=&quot;folium-map&quot; id=&quot;map_9bd1e233af4929796197dd4a2cf2ed8d&quot; &gt;&lt;/div&gt;
-        
-&lt;/body&gt;
-&lt;script&gt;
-    
-    
-            var map_9bd1e233af4929796197dd4a2cf2ed8d = L.map(
-                &quot;map_9bd1e233af4929796197dd4a2cf2ed8d&quot;,
-                {
-                    center: [-34.9011, -56.1645],
-                    crs: L.CRS.EPSG3857,
-                    ...{
-  &quot;zoom&quot;: 12,
-  &quot;zoomControl&quot;: true,
-  &quot;preferCanvas&quot;: false,
-}
-
-                }
-            );
-
-            
-
-        
-    
-            var tile_layer_583a44b01a0565ad014c9a87e4e30ee8 = L.tileLayer(
-                &quot;https://tile.openstreetmap.org/{z}/{x}/{y}.png&quot;,
-                {
-  &quot;minZoom&quot;: 0,
-  &quot;maxZoom&quot;: 19,
-  &quot;maxNativeZoom&quot;: 19,
-  &quot;noWrap&quot;: false,
-  &quot;attribution&quot;: &quot;\u0026copy; \u003ca href=\&quot;https://www.openstreetmap.org/copyright\&quot;\u003eOpenStreetMap\u003c/a\u003e contributors&quot;,
-  &quot;subdomains&quot;: &quot;abc&quot;,
-  &quot;detectRetina&quot;: false,
-  &quot;tms&quot;: false,
-  &quot;opacity&quot;: 1,
-}
-
-            );
-        
-    
-            tile_layer_583a44b01a0565ad014c9a87e4e30ee8.addTo(map_9bd1e233af4929796197dd4a2cf2ed8d);
-        
-    
-            L.control.fullscreen(
-                {
-  &quot;position&quot;: &quot;topright&quot;,
-  &quot;title&quot;: &quot;Pantalla Completa&quot;,
-  &quot;titleCancel&quot;: &quot;Salir&quot;,
-  &quot;forceSeparateButton&quot;: false,
-}
-            ).addTo(map_9bd1e233af4929796197dd4a2cf2ed8d);
-        
-    
-            var marker_13599a5de754b0f46d47bc6bd32edd8d = L.marker(
-                [-34.9210957, -56.1618465],
-                {
-}
-            ).addTo(map_9bd1e233af4929796197dd4a2cf2ed8d);
-        
-    
-            var icon_c7a91375275e9b1cf7d5d9d228cd107d = L.AwesomeMarkers.icon(
-                {
-  &quot;markerColor&quot;: &quot;green&quot;,
-  &quot;iconColor&quot;: &quot;white&quot;,
-  &quot;icon&quot;: &quot;star&quot;,
-  &quot;prefix&quot;: &quot;fa&quot;,
-  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
-}
-            );
-        
-    
-        var popup_d0b7d7d55a9e54f9a56f195ba4982c72 = L.popup({
-  &quot;maxWidth&quot;: 300,
-});
-
-        
-            
-                var html_55ce1d859a9902829a0e69d31d7d6563 = $(`&lt;div id=&quot;html_55ce1d859a9902829a0e69d31d7d6563&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Segoe UI&#x27;, Arial, sans-serif; min-width: 220px; padding: 5px;&quot;&gt;         &lt;h4 style=&quot;margin-top: 0; margin-bottom: 8px; color: #2c3e50; font-size: 14px;&quot;&gt;BTL MEDICAL URUGUAY S.A.&lt;/h4&gt;         &lt;div style=&quot;background-color: #f8f9fa; padding: 8px; border-radius: 6px; border-left: 4px solid #3498db;&quot;&gt;             &lt;b style=&quot;color: #555; font-size: 10px; text-transform: uppercase;&quot;&gt;Categoría:&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color: #333; font-size: 12px; font-weight: bold;&quot;&gt;Importador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top: 10px; font-size: 10px; color: #7f8c8d; text-align: right;&quot;&gt;             &lt;i&gt;Fuente: Sugerido por LATU&lt;/i&gt;         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
-                popup_d0b7d7d55a9e54f9a56f195ba4982c72.setContent(html_55ce1d859a9902829a0e69d31d7d6563);
-            
-        
-
-        marker_13599a5de754b0f46d47bc6bd32edd8d.bindPopup(popup_d0b7d7d55a9e54f9a56f195ba4982c72)
-        ;
-
-        
-    
-    
-                marker_13599a5de754b0f46d47bc6bd32edd8d.setIcon(icon_c7a91375275e9b1cf7d5d9d228cd107d);
-            
-    
-            var marker_0886700732fe1db4a9f6b23996a4c23f = L.marker(
-                [-34.9102049, -56.1846634],
-                {
-}
-            ).addTo(map_9bd1e233af4929796197dd4a2cf2ed8d);
-        
-    
-            var icon_2e3aba5ddcabf2edb00a8d6cb470a0b8 = L.AwesomeMarkers.icon(
-                {
-  &quot;markerColor&quot;: &quot;purple&quot;,
-  &quot;iconColor&quot;: &quot;white&quot;,
-  &quot;icon&quot;: &quot;star&quot;,
-  &quot;prefix&quot;: &quot;fa&quot;,
-  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
-}
-            );
-        
-    
-        var popup_b46770bb80c9817838d492d660059f56 = L.popup({
-  &quot;maxWidth&quot;: 300,
-});
-
-        
-            
-                var html_b0595c363b3c8d6141476c500a77352b = $(`&lt;div id=&quot;html_b0595c363b3c8d6141476c500a77352b&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Segoe UI&#x27;, Arial, sans-serif; min-width: 220px; padding: 5px;&quot;&gt;         &lt;h4 style=&quot;margin-top: 0; margin-bottom: 8px; color: #2c3e50; font-size: 14px;&quot;&gt;FANIO SA&lt;/h4&gt;         &lt;div style=&quot;background-color: #f8f9fa; padding: 8px; border-radius: 6px; border-left: 4px solid #3498db;&quot;&gt;             &lt;b style=&quot;color: #555; font-size: 10px; text-transform: uppercase;&quot;&gt;Categoría:&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color: #333; font-size: 12px; font-weight: bold;&quot;&gt;Importador Reparador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top: 10px; font-size: 10px; color: #7f8c8d; text-align: right;&quot;&gt;             &lt;i&gt;Fuente: Sugerido por LATU&lt;/i&gt;         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
-                popup_b46770bb80c9817838d492d660059f56.setContent(html_b0595c363b3c8d6141476c500a77352b);
-            
-        
-
-        marker_0886700732fe1db4a9f6b23996a4c23f.bindPopup(popup_b46770bb80c9817838d492d660059f56)
-        ;
-
-        
-    
-    
-                marker_0886700732fe1db4a9f6b23996a4c23f.setIcon(icon_2e3aba5ddcabf2edb00a8d6cb470a0b8);
-            
-    
-            var marker_28f4c432b3da8a5f28f65acdab9a1f71 = L.marker(
-                [-34.8990504, -56.1465624],
-                {
-}
-            ).addTo(map_9bd1e233af4929796197dd4a2cf2ed8d);
-        
-    
-            var icon_f0f054a050bca4c4513034610003bc08 = L.AwesomeMarkers.icon(
-                {
-  &quot;markerColor&quot;: &quot;purple&quot;,
-  &quot;iconColor&quot;: &quot;white&quot;,
-  &quot;icon&quot;: &quot;star&quot;,
-  &quot;prefix&quot;: &quot;fa&quot;,
-  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
-}
-            );
-        
-    
-        var popup_33a76ace6d80e84bf4994c6b61f42f2c = L.popup({
-  &quot;maxWidth&quot;: 300,
-});
-
-        
-            
-                var html_fd6878ea3327ce336633bd7febdf7c48 = $(`&lt;div id=&quot;html_fd6878ea3327ce336633bd7febdf7c48&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Segoe UI&#x27;, Arial, sans-serif; min-width: 220px; padding: 5px;&quot;&gt;         &lt;h4 style=&quot;margin-top: 0; margin-bottom: 8px; color: #2c3e50; font-size: 14px;&quot;&gt;KEITO URUGUAY S A&lt;/h4&gt;         &lt;div style=&quot;background-color: #f8f9fa; padding: 8px; border-radius: 6px; border-left: 4px solid #3498db;&quot;&gt;             &lt;b style=&quot;color: #555; font-size: 10px; text-transform: uppercase;&quot;&gt;Categoría:&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color: #333; font-size: 12px; font-weight: bold;&quot;&gt;Importador Reparador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top: 10px; font-size: 10px; color: #7f8c8d; text-align: right;&quot;&gt;             &lt;i&gt;Fuente: Sugerido por LATU&lt;/i&gt;         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
-                popup_33a76ace6d80e84bf4994c6b61f42f2c.setContent(html_fd6878ea3327ce336633bd7febdf7c48);
-            
-        
-
-        marker_28f4c432b3da8a5f28f65acdab9a1f71.bindPopup(popup_33a76ace6d80e84bf4994c6b61f42f2c)
-        ;
-
-        
-    
-    
-                marker_28f4c432b3da8a5f28f65acdab9a1f71.setIcon(icon_f0f054a050bca4c4513034610003bc08);
-            
-    
-            var marker_c21eee57f8055e332b5c1ecb0ccef4ef = L.marker(
-                [-34.8990504, -56.1465624],
-                {
-}
-            ).addTo(map_9bd1e233af4929796197dd4a2cf2ed8d);
-        
-    
-            var icon_38ec1c8724da07ef87d2bbe072bc049f = L.AwesomeMarkers.icon(
-                {
-  &quot;markerColor&quot;: &quot;purple&quot;,
-  &quot;iconColor&quot;: &quot;white&quot;,
-  &quot;icon&quot;: &quot;star&quot;,
-  &quot;prefix&quot;: &quot;fa&quot;,
-  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
-}
-            );
-        
-    
-        var popup_d49a30b12f3a65290c7b51c209cf5cb1 = L.popup({
-  &quot;maxWidth&quot;: 300,
-});
-
-        
-            
-                var html_6750c69975e4b6002fc243c76434d919 = $(`&lt;div id=&quot;html_6750c69975e4b6002fc243c76434d919&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Segoe UI&#x27;, Arial, sans-serif; min-width: 220px; padding: 5px;&quot;&gt;         &lt;h4 style=&quot;margin-top: 0; margin-bottom: 8px; color: #2c3e50; font-size: 14px;&quot;&gt;KEITO URUGUAY S A&lt;/h4&gt;         &lt;div style=&quot;background-color: #f8f9fa; padding: 8px; border-radius: 6px; border-left: 4px solid #3498db;&quot;&gt;             &lt;b style=&quot;color: #555; font-size: 10px; text-transform: uppercase;&quot;&gt;Categoría:&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color: #333; font-size: 12px; font-weight: bold;&quot;&gt;Importador Reparador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top: 10px; font-size: 10px; color: #7f8c8d; text-align: right;&quot;&gt;             &lt;i&gt;Fuente: Sugerido por LATU&lt;/i&gt;         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
-                popup_d49a30b12f3a65290c7b51c209cf5cb1.setContent(html_6750c69975e4b6002fc243c76434d919);
-            
-        
-
-        marker_c21eee57f8055e332b5c1ecb0ccef4ef.bindPopup(popup_d49a30b12f3a65290c7b51c209cf5cb1)
-        ;
-
-        
-    
-    
-                marker_c21eee57f8055e332b5c1ecb0ccef4ef.setIcon(icon_38ec1c8724da07ef87d2bbe072bc049f);
-            
-    
-            var marker_0f9c8ec59f4478d6f98e137d5fbf918f = L.marker(
-                [-34.8879025, -56.1762535],
-                {
-}
-            ).addTo(map_9bd1e233af4929796197dd4a2cf2ed8d);
-        
-    
-            var icon_14cf0a29c1d837c9ed39f331b31c6ca6 = L.AwesomeMarkers.icon(
-                {
-  &quot;markerColor&quot;: &quot;purple&quot;,
-  &quot;iconColor&quot;: &quot;white&quot;,
-  &quot;icon&quot;: &quot;star&quot;,
-  &quot;prefix&quot;: &quot;fa&quot;,
-  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
-}
-            );
-        
-    
-        var popup_e8abe18453528da79cd902cc3a338350 = L.popup({
-  &quot;maxWidth&quot;: 300,
-});
-
-        
-            
-                var html_23ed9565e585e3be0b7be4cb8c779abf = $(`&lt;div id=&quot;html_23ed9565e585e3be0b7be4cb8c779abf&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Segoe UI&#x27;, Arial, sans-serif; min-width: 220px; padding: 5px;&quot;&gt;         &lt;h4 style=&quot;margin-top: 0; margin-bottom: 8px; color: #2c3e50; font-size: 14px;&quot;&gt;TECMAR MEDICA S.A.&lt;/h4&gt;         &lt;div style=&quot;background-color: #f8f9fa; padding: 8px; border-radius: 6px; border-left: 4px solid #3498db;&quot;&gt;             &lt;b style=&quot;color: #555; font-size: 10px; text-transform: uppercase;&quot;&gt;Categoría:&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color: #333; font-size: 12px; font-weight: bold;&quot;&gt;Importador Reparador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top: 10px; font-size: 10px; color: #7f8c8d; text-align: right;&quot;&gt;             &lt;i&gt;Fuente: Sugerido por LATU&lt;/i&gt;         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
-                popup_e8abe18453528da79cd902cc3a338350.setContent(html_23ed9565e585e3be0b7be4cb8c779abf);
-            
-        
-
-        marker_0f9c8ec59f4478d6f98e137d5fbf918f.bindPopup(popup_e8abe18453528da79cd902cc3a338350)
-        ;
-
-        
-    
-    
-                marker_0f9c8ec59f4478d6f98e137d5fbf918f.setIcon(icon_14cf0a29c1d837c9ed39f331b31c6ca6);
-            
-    
-            var marker_7c2b98470b033bc06afd9cd5f8e6bf6a = L.marker(
-                [-34.9095869, -56.1913639],
-                {
-}
-            ).addTo(map_9bd1e233af4929796197dd4a2cf2ed8d);
-        
-    
-            var icon_c444009cde17759107c4becf52b1cc2e = L.AwesomeMarkers.icon(
-                {
-  &quot;markerColor&quot;: &quot;green&quot;,
-  &quot;iconColor&quot;: &quot;white&quot;,
-  &quot;icon&quot;: &quot;star&quot;,
-  &quot;prefix&quot;: &quot;fa&quot;,
-  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
-}
-            );
-        
-    
-        var popup_cdd971f4a0ef8923d511fc857a0ce0be = L.popup({
-  &quot;maxWidth&quot;: 300,
-});
-
-        
-            
-                var html_c9b8c0825eb5e7efa30ec3045584f678 = $(`&lt;div id=&quot;html_c9b8c0825eb5e7efa30ec3045584f678&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Segoe UI&#x27;, Arial, sans-serif; min-width: 220px; padding: 5px;&quot;&gt;         &lt;h4 style=&quot;margin-top: 0; margin-bottom: 8px; color: #2c3e50; font-size: 14px;&quot;&gt;ARTILLEROS S.R.L.&lt;/h4&gt;         &lt;div style=&quot;background-color: #f8f9fa; padding: 8px; border-radius: 6px; border-left: 4px solid #3498db;&quot;&gt;             &lt;b style=&quot;color: #555; font-size: 10px; text-transform: uppercase;&quot;&gt;Categoría:&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color: #333; font-size: 12px; font-weight: bold;&quot;&gt;Importador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top: 10px; font-size: 10px; color: #7f8c8d; text-align: right;&quot;&gt;             &lt;i&gt;Fuente: Sugerido por LATU&lt;/i&gt;         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
-                popup_cdd971f4a0ef8923d511fc857a0ce0be.setContent(html_c9b8c0825eb5e7efa30ec3045584f678);
-            
-        
-
-        marker_7c2b98470b033bc06afd9cd5f8e6bf6a.bindPopup(popup_cdd971f4a0ef8923d511fc857a0ce0be)
-        ;
-
-        
-    
-    
-                marker_7c2b98470b033bc06afd9cd5f8e6bf6a.setIcon(icon_c444009cde17759107c4becf52b1cc2e);
-            
-    
-            var marker_f711cc7f043cfee75c97924ca3b0aae8 = L.marker(
-                [-34.8851543, -56.172572],
-                {
-}
-            ).addTo(map_9bd1e233af4929796197dd4a2cf2ed8d);
-        
-    
-            var icon_883c389f4afd41ddf8195cd50d0e4df1 = L.AwesomeMarkers.icon(
-                {
-  &quot;markerColor&quot;: &quot;green&quot;,
-  &quot;iconColor&quot;: &quot;white&quot;,
-  &quot;icon&quot;: &quot;star&quot;,
-  &quot;prefix&quot;: &quot;fa&quot;,
-  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
-}
-            );
-        
-    
-        var popup_ebd324dd60db89ab59bac9d948d02f66 = L.popup({
-  &quot;maxWidth&quot;: 300,
-});
-
-        
-            
-                var html_8031f4a0f9d2f9dd13f792acf34028fc = $(`&lt;div id=&quot;html_8031f4a0f9d2f9dd13f792acf34028fc&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Segoe UI&#x27;, Arial, sans-serif; min-width: 220px; padding: 5px;&quot;&gt;         &lt;h4 style=&quot;margin-top: 0; margin-bottom: 8px; color: #2c3e50; font-size: 14px;&quot;&gt;MEDICENTER SRL&lt;/h4&gt;         &lt;div style=&quot;background-color: #f8f9fa; padding: 8px; border-radius: 6px; border-left: 4px solid #3498db;&quot;&gt;             &lt;b style=&quot;color: #555; font-size: 10px; text-transform: uppercase;&quot;&gt;Categoría:&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color: #333; font-size: 12px; font-weight: bold;&quot;&gt;Importador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top: 10px; font-size: 10px; color: #7f8c8d; text-align: right;&quot;&gt;             &lt;i&gt;Fuente: Sugerido por LATU&lt;/i&gt;         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
-                popup_ebd324dd60db89ab59bac9d948d02f66.setContent(html_8031f4a0f9d2f9dd13f792acf34028fc);
-            
-        
-
-        marker_f711cc7f043cfee75c97924ca3b0aae8.bindPopup(popup_ebd324dd60db89ab59bac9d948d02f66)
-        ;
-
-        
-    
-    
-                marker_f711cc7f043cfee75c97924ca3b0aae8.setIcon(icon_883c389f4afd41ddf8195cd50d0e4df1);
-            
-    
-            var marker_eb0b0fac6e12432c04cdaabe90d467d4 = L.marker(
-                [-34.9107955, -56.1759784],
-                {
-}
-            ).addTo(map_9bd1e233af4929796197dd4a2cf2ed8d);
-        
-    
-            var icon_45d67fd2e8c1800780dfa2541f7cded7 = L.AwesomeMarkers.icon(
-                {
-  &quot;markerColor&quot;: &quot;green&quot;,
-  &quot;iconColor&quot;: &quot;white&quot;,
-  &quot;icon&quot;: &quot;star&quot;,
-  &quot;prefix&quot;: &quot;fa&quot;,
-  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
-}
-            );
-        
-    
-        var popup_9111dd89da8997c94542861293559deb = L.popup({
-  &quot;maxWidth&quot;: 300,
-});
-
-        
-            
-                var html_630af00fadab3638afd821aed615ee19 = $(`&lt;div id=&quot;html_630af00fadab3638afd821aed615ee19&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Segoe UI&#x27;, Arial, sans-serif; min-width: 220px; padding: 5px;&quot;&gt;         &lt;h4 style=&quot;margin-top: 0; margin-bottom: 8px; color: #2c3e50; font-size: 14px;&quot;&gt;UNION DISPROFARMA S.A&lt;/h4&gt;         &lt;div style=&quot;background-color: #f8f9fa; padding: 8px; border-radius: 6px; border-left: 4px solid #3498db;&quot;&gt;             &lt;b style=&quot;color: #555; font-size: 10px; text-transform: uppercase;&quot;&gt;Categoría:&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color: #333; font-size: 12px; font-weight: bold;&quot;&gt;Importador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top: 10px; font-size: 10px; color: #7f8c8d; text-align: right;&quot;&gt;             &lt;i&gt;Fuente: Sugerido por LATU&lt;/i&gt;         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
-                popup_9111dd89da8997c94542861293559deb.setContent(html_630af00fadab3638afd821aed615ee19);
-            
-        
-
-        marker_eb0b0fac6e12432c04cdaabe90d467d4.bindPopup(popup_9111dd89da8997c94542861293559deb)
-        ;
-
-        
-    
-    
-                marker_eb0b0fac6e12432c04cdaabe90d467d4.setIcon(icon_45d67fd2e8c1800780dfa2541f7cded7);
-            
-    
-            var marker_2256ef22c7f049b9b6cca7671e867e99 = L.marker(
-                [-34.9102049, -56.1846634],
-                {
-}
-            ).addTo(map_9bd1e233af4929796197dd4a2cf2ed8d);
-        
-    
-            var icon_b039b3444a9b29d61bebd85a04e0996f = L.AwesomeMarkers.icon(
-                {
-  &quot;markerColor&quot;: &quot;green&quot;,
-  &quot;iconColor&quot;: &quot;white&quot;,
-  &quot;icon&quot;: &quot;star&quot;,
-  &quot;prefix&quot;: &quot;fa&quot;,
-  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
-}
-            );
-        
-    
-        var popup_bd0677884196f84f21c89c1b3853ddf9 = L.popup({
-  &quot;maxWidth&quot;: 300,
-});
-
-        
-            
-                var html_ed113ba4ac4bfbef5b55a8d4b1a42b5e = $(`&lt;div id=&quot;html_ed113ba4ac4bfbef5b55a8d4b1a42b5e&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Segoe UI&#x27;, Arial, sans-serif; min-width: 220px; padding: 5px;&quot;&gt;         &lt;h4 style=&quot;margin-top: 0; margin-bottom: 8px; color: #2c3e50; font-size: 14px;&quot;&gt;FANIO SA&lt;/h4&gt;         &lt;div style=&quot;background-color: #f8f9fa; padding: 8px; border-radius: 6px; border-left: 4px solid #3498db;&quot;&gt;             &lt;b style=&quot;color: #555; font-size: 10px; text-transform: uppercase;&quot;&gt;Categoría:&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color: #333; font-size: 12px; font-weight: bold;&quot;&gt;Importador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top: 10px; font-size: 10px; color: #7f8c8d; text-align: right;&quot;&gt;             &lt;i&gt;Fuente: Sugerido por LATU&lt;/i&gt;         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
-                popup_bd0677884196f84f21c89c1b3853ddf9.setContent(html_ed113ba4ac4bfbef5b55a8d4b1a42b5e);
-            
-        
-
-        marker_2256ef22c7f049b9b6cca7671e867e99.bindPopup(popup_bd0677884196f84f21c89c1b3853ddf9)
-        ;
-
-        
-    
-    
-                marker_2256ef22c7f049b9b6cca7671e867e99.setIcon(icon_b039b3444a9b29d61bebd85a04e0996f);
-            
-    
-            var marker_b1a34bb0aeced98bf22137df7e7b49ef = L.marker(
-                [-34.8960358, -56.1659223],
-                {
-}
-            ).addTo(map_9bd1e233af4929796197dd4a2cf2ed8d);
-        
-    
-            var icon_979247d0a56e50acc15a4b604a5c34d7 = L.AwesomeMarkers.icon(
-                {
-  &quot;markerColor&quot;: &quot;green&quot;,
-  &quot;iconColor&quot;: &quot;white&quot;,
-  &quot;icon&quot;: &quot;star&quot;,
-  &quot;prefix&quot;: &quot;fa&quot;,
-  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
-}
-            );
-        
-    
-        var popup_43857db9376ecf80ded0678cb4443152 = L.popup({
-  &quot;maxWidth&quot;: 300,
-});
-
-        
-            
-                var html_7838b192f4da0e61c03f241cba666a8d = $(`&lt;div id=&quot;html_7838b192f4da0e61c03f241cba666a8d&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Segoe UI&#x27;, Arial, sans-serif; min-width: 220px; padding: 5px;&quot;&gt;         &lt;h4 style=&quot;margin-top: 0; margin-bottom: 8px; color: #2c3e50; font-size: 14px;&quot;&gt;MEDILAND S.A&lt;/h4&gt;         &lt;div style=&quot;background-color: #f8f9fa; padding: 8px; border-radius: 6px; border-left: 4px solid #3498db;&quot;&gt;             &lt;b style=&quot;color: #555; font-size: 10px; text-transform: uppercase;&quot;&gt;Categoría:&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color: #333; font-size: 12px; font-weight: bold;&quot;&gt;Importador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top: 10px; font-size: 10px; color: #7f8c8d; text-align: right;&quot;&gt;             &lt;i&gt;Fuente: Sugerido por LATU&lt;/i&gt;         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
-                popup_43857db9376ecf80ded0678cb4443152.setContent(html_7838b192f4da0e61c03f241cba666a8d);
-            
-        
-
-        marker_b1a34bb0aeced98bf22137df7e7b49ef.bindPopup(popup_43857db9376ecf80ded0678cb4443152)
-        ;
-
-        
-    
-    
-                marker_b1a34bb0aeced98bf22137df7e7b49ef.setIcon(icon_979247d0a56e50acc15a4b604a5c34d7);
-            
-    
-            var marker_d501d44abb5049b5679f7ee166e2b059 = L.marker(
-                [-34.8927738, -56.0833129],
-                {
-}
-            ).addTo(map_9bd1e233af4929796197dd4a2cf2ed8d);
-        
-    
-            var icon_0518b4c921674a185ebc82ada4e08a0a = L.AwesomeMarkers.icon(
-                {
-  &quot;markerColor&quot;: &quot;green&quot;,
-  &quot;iconColor&quot;: &quot;white&quot;,
-  &quot;icon&quot;: &quot;star&quot;,
-  &quot;prefix&quot;: &quot;fa&quot;,
-  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
-}
-            );
-        
-    
-        var popup_201bec015899f8c936019df5acffb25a = L.popup({
-  &quot;maxWidth&quot;: 300,
-});
-
-        
-            
-                var html_e37192ed999413b319795bc0cbddf9c7 = $(`&lt;div id=&quot;html_e37192ed999413b319795bc0cbddf9c7&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Segoe UI&#x27;, Arial, sans-serif; min-width: 220px; padding: 5px;&quot;&gt;         &lt;h4 style=&quot;margin-top: 0; margin-bottom: 8px; color: #2c3e50; font-size: 14px;&quot;&gt;GW Y DW S.R.L&lt;/h4&gt;         &lt;div style=&quot;background-color: #f8f9fa; padding: 8px; border-radius: 6px; border-left: 4px solid #3498db;&quot;&gt;             &lt;b style=&quot;color: #555; font-size: 10px; text-transform: uppercase;&quot;&gt;Categoría:&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color: #333; font-size: 12px; font-weight: bold;&quot;&gt;Importador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top: 10px; font-size: 10px; color: #7f8c8d; text-align: right;&quot;&gt;             &lt;i&gt;Fuente: Sugerido por LATU&lt;/i&gt;         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
-                popup_201bec015899f8c936019df5acffb25a.setContent(html_e37192ed999413b319795bc0cbddf9c7);
-            
-        
-
-        marker_d501d44abb5049b5679f7ee166e2b059.bindPopup(popup_201bec015899f8c936019df5acffb25a)
-        ;
-
-        
-    
-    
-                marker_d501d44abb5049b5679f7ee166e2b059.setIcon(icon_0518b4c921674a185ebc82ada4e08a0a);
-            
-    
-            var marker_5e3761bd7cf2a6c78571f55a1462ccd7 = L.marker(
-                [-34.9078319, -56.2034867],
-                {
-}
-            ).addTo(map_9bd1e233af4929796197dd4a2cf2ed8d);
-        
-    
-            var icon_3daa693cbb88a08ab5c44b7f2df6a67d = L.AwesomeMarkers.icon(
-                {
-  &quot;markerColor&quot;: &quot;green&quot;,
-  &quot;iconColor&quot;: &quot;white&quot;,
-  &quot;icon&quot;: &quot;star&quot;,
-  &quot;prefix&quot;: &quot;fa&quot;,
-  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
-}
-            );
-        
-    
-        var popup_30375d49cfd4005f034a1793aba23bb9 = L.popup({
-  &quot;maxWidth&quot;: 300,
-});
-
-        
-            
-                var html_1ee9a2ed3dcef279f2149fd92727d1cc = $(`&lt;div id=&quot;html_1ee9a2ed3dcef279f2149fd92727d1cc&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Segoe UI&#x27;, Arial, sans-serif; min-width: 220px; padding: 5px;&quot;&gt;         &lt;h4 style=&quot;margin-top: 0; margin-bottom: 8px; color: #2c3e50; font-size: 14px;&quot;&gt;ARUYA SA&lt;/h4&gt;         &lt;div style=&quot;background-color: #f8f9fa; padding: 8px; border-radius: 6px; border-left: 4px solid #3498db;&quot;&gt;             &lt;b style=&quot;color: #555; font-size: 10px; text-transform: uppercase;&quot;&gt;Categoría:&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color: #333; font-size: 12px; font-weight: bold;&quot;&gt;Importador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top: 10px; font-size: 10px; color: #7f8c8d; text-align: right;&quot;&gt;             &lt;i&gt;Fuente: Sugerido por LATU&lt;/i&gt;         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
-                popup_30375d49cfd4005f034a1793aba23bb9.setContent(html_1ee9a2ed3dcef279f2149fd92727d1cc);
-            
-        
-
-        marker_5e3761bd7cf2a6c78571f55a1462ccd7.bindPopup(popup_30375d49cfd4005f034a1793aba23bb9)
-        ;
-
-        
-    
-    
-                marker_5e3761bd7cf2a6c78571f55a1462ccd7.setIcon(icon_3daa693cbb88a08ab5c44b7f2df6a67d);
-            
-    
-            var marker_2473183de1d31f6d2289b30e71bbe4a3 = L.marker(
-                [-34.8651693, -56.178707],
-                {
-}
-            ).addTo(map_9bd1e233af4929796197dd4a2cf2ed8d);
-        
-    
-            var icon_26e941e505763035fa35846fad681f37 = L.AwesomeMarkers.icon(
-                {
-  &quot;markerColor&quot;: &quot;orange&quot;,
-  &quot;iconColor&quot;: &quot;white&quot;,
-  &quot;icon&quot;: &quot;star&quot;,
-  &quot;prefix&quot;: &quot;fa&quot;,
-  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
-}
-            );
-        
-    
-        var popup_48c555edbea7cd5ecaec699ab06b8b87 = L.popup({
-  &quot;maxWidth&quot;: 300,
-});
-
-        
-            
-                var html_812a40e0c5677c87470f15e1c3de3d6c = $(`&lt;div id=&quot;html_812a40e0c5677c87470f15e1c3de3d6c&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Segoe UI&#x27;, Arial, sans-serif; min-width: 220px; padding: 5px;&quot;&gt;         &lt;h4 style=&quot;margin-top: 0; margin-bottom: 8px; color: #2c3e50; font-size: 14px;&quot;&gt;NESTOR LUIS PAEZ MERA&lt;/h4&gt;         &lt;div style=&quot;background-color: #f8f9fa; padding: 8px; border-radius: 6px; border-left: 4px solid #3498db;&quot;&gt;             &lt;b style=&quot;color: #555; font-size: 10px; text-transform: uppercase;&quot;&gt;Categoría:&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color: #333; font-size: 12px; font-weight: bold;&quot;&gt;Reparador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top: 10px; font-size: 10px; color: #7f8c8d; text-align: right;&quot;&gt;             &lt;i&gt;Fuente: Sugerido por LATU&lt;/i&gt;         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
-                popup_48c555edbea7cd5ecaec699ab06b8b87.setContent(html_812a40e0c5677c87470f15e1c3de3d6c);
-            
-        
-
-        marker_2473183de1d31f6d2289b30e71bbe4a3.bindPopup(popup_48c555edbea7cd5ecaec699ab06b8b87)
-        ;
-
-        
-    
-    
-                marker_2473183de1d31f6d2289b30e71bbe4a3.setIcon(icon_26e941e505763035fa35846fad681f37);
-            
-    
-            var marker_f0adfa33baede29792f094d89b63404b = L.marker(
-                [-34.9015349, -56.1667299],
-                {
-}
-            ).addTo(map_9bd1e233af4929796197dd4a2cf2ed8d);
-        
-    
-            var icon_341fdef8bf34868c5ae618e63959e586 = L.AwesomeMarkers.icon(
-                {
-  &quot;markerColor&quot;: &quot;orange&quot;,
-  &quot;iconColor&quot;: &quot;white&quot;,
-  &quot;icon&quot;: &quot;star&quot;,
-  &quot;prefix&quot;: &quot;fa&quot;,
-  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
-}
-            );
-        
-    
-        var popup_f5d6ff5cfb7f69c97e16b2b0eed0573d = L.popup({
-  &quot;maxWidth&quot;: 300,
-});
-
-        
-            
-                var html_815b1d3b0751dd4b1005fa280473e3a3 = $(`&lt;div id=&quot;html_815b1d3b0751dd4b1005fa280473e3a3&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Segoe UI&#x27;, Arial, sans-serif; min-width: 220px; padding: 5px;&quot;&gt;         &lt;h4 style=&quot;margin-top: 0; margin-bottom: 8px; color: #2c3e50; font-size: 14px;&quot;&gt;MBR LTDA&lt;/h4&gt;         &lt;div style=&quot;background-color: #f8f9fa; padding: 8px; border-radius: 6px; border-left: 4px solid #3498db;&quot;&gt;             &lt;b style=&quot;color: #555; font-size: 10px; text-transform: uppercase;&quot;&gt;Categoría:&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color: #333; font-size: 12px; font-weight: bold;&quot;&gt;Reparador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top: 10px; font-size: 10px; color: #7f8c8d; text-align: right;&quot;&gt;             &lt;i&gt;Fuente: Sugerido por LATU&lt;/i&gt;         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
-                popup_f5d6ff5cfb7f69c97e16b2b0eed0573d.setContent(html_815b1d3b0751dd4b1005fa280473e3a3);
-            
-        
-
-        marker_f0adfa33baede29792f094d89b63404b.bindPopup(popup_f5d6ff5cfb7f69c97e16b2b0eed0573d)
-        ;
-
-        
-    
-    
-                marker_f0adfa33baede29792f094d89b63404b.setIcon(icon_341fdef8bf34868c5ae618e63959e586);
-            
-    
-            var marker_f5207e48a2d23b00d925c6c39e3e0525 = L.marker(
-                [-34.9078319, -56.2034867],
-                {
-}
-            ).addTo(map_9bd1e233af4929796197dd4a2cf2ed8d);
-        
-    
-            var icon_7309db148fbf300c93ef724cda01cd09 = L.AwesomeMarkers.icon(
-                {
-  &quot;markerColor&quot;: &quot;green&quot;,
-  &quot;iconColor&quot;: &quot;white&quot;,
-  &quot;icon&quot;: &quot;star&quot;,
-  &quot;prefix&quot;: &quot;fa&quot;,
-  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
-}
-            );
-        
-    
-        var popup_8ee7e8d260d4e0785a8ac94c6a4bf78b = L.popup({
-  &quot;maxWidth&quot;: 300,
-});
-
-        
-            
-                var html_74f399de29541f3b87e6c059218fbc8c = $(`&lt;div id=&quot;html_74f399de29541f3b87e6c059218fbc8c&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Segoe UI&#x27;, Arial, sans-serif; min-width: 220px; padding: 5px;&quot;&gt;         &lt;h4 style=&quot;margin-top: 0; margin-bottom: 8px; color: #2c3e50; font-size: 14px;&quot;&gt;SUCESORES DE SAUL FOJGIEL LTDA&lt;/h4&gt;         &lt;div style=&quot;background-color: #f8f9fa; padding: 8px; border-radius: 6px; border-left: 4px solid #3498db;&quot;&gt;             &lt;b style=&quot;color: #555; font-size: 10px; text-transform: uppercase;&quot;&gt;Categoría:&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color: #333; font-size: 12px; font-weight: bold;&quot;&gt;Importador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top: 10px; font-size: 10px; color: #7f8c8d; text-align: right;&quot;&gt;             &lt;i&gt;Fuente: Sugerido por LATU&lt;/i&gt;         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
-                popup_8ee7e8d260d4e0785a8ac94c6a4bf78b.setContent(html_74f399de29541f3b87e6c059218fbc8c);
-            
-        
-
-        marker_f5207e48a2d23b00d925c6c39e3e0525.bindPopup(popup_8ee7e8d260d4e0785a8ac94c6a4bf78b)
-        ;
-
-        
-    
-    
-                marker_f5207e48a2d23b00d925c6c39e3e0525.setIcon(icon_7309db148fbf300c93ef724cda01cd09);
-            
-    
-            var marker_1bc1be14533d0b0646fa03a67f838d45 = L.marker(
-                [-34.8879025, -56.1762535],
-                {
-}
-            ).addTo(map_9bd1e233af4929796197dd4a2cf2ed8d);
-        
-    
-            var icon_e5081ed3940500a3dc0f04a8151536b4 = L.AwesomeMarkers.icon(
-                {
-  &quot;markerColor&quot;: &quot;purple&quot;,
-  &quot;iconColor&quot;: &quot;white&quot;,
-  &quot;icon&quot;: &quot;star&quot;,
-  &quot;prefix&quot;: &quot;fa&quot;,
-  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
-}
-            );
-        
-    
-        var popup_c276c7f63df46d62b22902917941d9a1 = L.popup({
-  &quot;maxWidth&quot;: 300,
-});
-
-        
-            
-                var html_6ce76762d8b14a38a4d53f102ac79b9b = $(`&lt;div id=&quot;html_6ce76762d8b14a38a4d53f102ac79b9b&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Segoe UI&#x27;, Arial, sans-serif; min-width: 220px; padding: 5px;&quot;&gt;         &lt;h4 style=&quot;margin-top: 0; margin-bottom: 8px; color: #2c3e50; font-size: 14px;&quot;&gt;TECMAR MEDICA S.A.&lt;/h4&gt;         &lt;div style=&quot;background-color: #f8f9fa; padding: 8px; border-radius: 6px; border-left: 4px solid #3498db;&quot;&gt;             &lt;b style=&quot;color: #555; font-size: 10px; text-transform: uppercase;&quot;&gt;Categoría:&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color: #333; font-size: 12px; font-weight: bold;&quot;&gt;Importador Reparador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top: 10px; font-size: 10px; color: #7f8c8d; text-align: right;&quot;&gt;             &lt;i&gt;Fuente: Sugerido por LATU&lt;/i&gt;         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
-                popup_c276c7f63df46d62b22902917941d9a1.setContent(html_6ce76762d8b14a38a4d53f102ac79b9b);
-            
-        
-
-        marker_1bc1be14533d0b0646fa03a67f838d45.bindPopup(popup_c276c7f63df46d62b22902917941d9a1)
-        ;
-
-        
-    
-    
-                marker_1bc1be14533d0b0646fa03a67f838d45.setIcon(icon_e5081ed3940500a3dc0f04a8151536b4);
-            
-    
-            var marker_ce7ed1f75d61b24c0f8ac8c191d74fb7 = L.marker(
-                [-34.8914069, -56.074603],
-                {
-}
-            ).addTo(map_9bd1e233af4929796197dd4a2cf2ed8d);
-        
-    
-            var icon_844db3a3f235857fb5c62e416d938f5d = L.AwesomeMarkers.icon(
-                {
-  &quot;markerColor&quot;: &quot;green&quot;,
-  &quot;iconColor&quot;: &quot;white&quot;,
-  &quot;icon&quot;: &quot;star&quot;,
-  &quot;prefix&quot;: &quot;fa&quot;,
-  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
-}
-            );
-        
-    
-        var popup_baaa2e9a90ddb413723eeff5578bc4df = L.popup({
-  &quot;maxWidth&quot;: 300,
-});
-
-        
-            
-                var html_dc3ad2fffbcb298d3e45878d2e62616f = $(`&lt;div id=&quot;html_dc3ad2fffbcb298d3e45878d2e62616f&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Segoe UI&#x27;, Arial, sans-serif; min-width: 220px; padding: 5px;&quot;&gt;         &lt;h4 style=&quot;margin-top: 0; margin-bottom: 8px; color: #2c3e50; font-size: 14px;&quot;&gt;JORGE N. GONZALEZ&lt;/h4&gt;         &lt;div style=&quot;background-color: #f8f9fa; padding: 8px; border-radius: 6px; border-left: 4px solid #3498db;&quot;&gt;             &lt;b style=&quot;color: #555; font-size: 10px; text-transform: uppercase;&quot;&gt;Categoría:&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color: #333; font-size: 12px; font-weight: bold;&quot;&gt;Importador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top: 10px; font-size: 10px; color: #7f8c8d; text-align: right;&quot;&gt;             &lt;i&gt;Fuente: Sugerido por LATU&lt;/i&gt;         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
-                popup_baaa2e9a90ddb413723eeff5578bc4df.setContent(html_dc3ad2fffbcb298d3e45878d2e62616f);
-            
-        
-
-        marker_ce7ed1f75d61b24c0f8ac8c191d74fb7.bindPopup(popup_baaa2e9a90ddb413723eeff5578bc4df)
-        ;
-
-        
-    
-    
-                marker_ce7ed1f75d61b24c0f8ac8c191d74fb7.setIcon(icon_844db3a3f235857fb5c62e416d938f5d);
-            
-    
-            var marker_ecd5215441a4775e6f97bf5a62e9291e = L.marker(
-                [-34.8802231, -56.1740781],
-                {
-}
-            ).addTo(map_9bd1e233af4929796197dd4a2cf2ed8d);
-        
-    
-            var icon_49d9041dfa5b323c2a9ed2818edce257 = L.AwesomeMarkers.icon(
-                {
-  &quot;markerColor&quot;: &quot;green&quot;,
-  &quot;iconColor&quot;: &quot;white&quot;,
-  &quot;icon&quot;: &quot;star&quot;,
-  &quot;prefix&quot;: &quot;fa&quot;,
-  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
-}
-            );
-        
-    
-        var popup_82c7042aa3bdcc2d8058c4644aa9f466 = L.popup({
-  &quot;maxWidth&quot;: 300,
-});
-
-        
-            
-                var html_78af28ddb2d3cbe2c741ceb44497158e = $(`&lt;div id=&quot;html_78af28ddb2d3cbe2c741ceb44497158e&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Segoe UI&#x27;, Arial, sans-serif; min-width: 220px; padding: 5px;&quot;&gt;         &lt;h4 style=&quot;margin-top: 0; margin-bottom: 8px; color: #2c3e50; font-size: 14px;&quot;&gt;MARE URUGUAY LTDA.&lt;/h4&gt;         &lt;div style=&quot;background-color: #f8f9fa; padding: 8px; border-radius: 6px; border-left: 4px solid #3498db;&quot;&gt;             &lt;b style=&quot;color: #555; font-size: 10px; text-transform: uppercase;&quot;&gt;Categoría:&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color: #333; font-size: 12px; font-weight: bold;&quot;&gt;Importador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top: 10px; font-size: 10px; color: #7f8c8d; text-align: right;&quot;&gt;             &lt;i&gt;Fuente: Sugerido por LATU&lt;/i&gt;         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
-                popup_82c7042aa3bdcc2d8058c4644aa9f466.setContent(html_78af28ddb2d3cbe2c741ceb44497158e);
-            
-        
-
-        marker_ecd5215441a4775e6f97bf5a62e9291e.bindPopup(popup_82c7042aa3bdcc2d8058c4644aa9f466)
-        ;
-
-        
-    
-    
-                marker_ecd5215441a4775e6f97bf5a62e9291e.setIcon(icon_49d9041dfa5b323c2a9ed2818edce257);
-            
-    
-            var marker_a06722c104753c90f9440d8412948e8f = L.marker(
-                [-34.8950223, -56.0742192],
-                {
-}
-            ).addTo(map_9bd1e233af4929796197dd4a2cf2ed8d);
-        
-    
-            var icon_f529627d0a84fd15f46d4e5b8f2db4ea = L.AwesomeMarkers.icon(
-                {
-  &quot;markerColor&quot;: &quot;green&quot;,
-  &quot;iconColor&quot;: &quot;white&quot;,
-  &quot;icon&quot;: &quot;star&quot;,
-  &quot;prefix&quot;: &quot;fa&quot;,
-  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
-}
-            );
-        
-    
-        var popup_ff4bfe5c2bdf9510633d88cc8aa5a528 = L.popup({
-  &quot;maxWidth&quot;: 300,
-});
-
-        
-            
-                var html_eab6f878579e15b5fffb21adf157f8f5 = $(`&lt;div id=&quot;html_eab6f878579e15b5fffb21adf157f8f5&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Segoe UI&#x27;, Arial, sans-serif; min-width: 220px; padding: 5px;&quot;&gt;         &lt;h4 style=&quot;margin-top: 0; margin-bottom: 8px; color: #2c3e50; font-size: 14px;&quot;&gt;ALDENOR S.A.&lt;/h4&gt;         &lt;div style=&quot;background-color: #f8f9fa; padding: 8px; border-radius: 6px; border-left: 4px solid #3498db;&quot;&gt;             &lt;b style=&quot;color: #555; font-size: 10px; text-transform: uppercase;&quot;&gt;Categoría:&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color: #333; font-size: 12px; font-weight: bold;&quot;&gt;Importador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top: 10px; font-size: 10px; color: #7f8c8d; text-align: right;&quot;&gt;             &lt;i&gt;Fuente: Sugerido por LATU&lt;/i&gt;         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
-                popup_ff4bfe5c2bdf9510633d88cc8aa5a528.setContent(html_eab6f878579e15b5fffb21adf157f8f5);
-            
-        
-
-        marker_a06722c104753c90f9440d8412948e8f.bindPopup(popup_ff4bfe5c2bdf9510633d88cc8aa5a528)
-        ;
-
-        
-    
-    
-                marker_a06722c104753c90f9440d8412948e8f.setIcon(icon_f529627d0a84fd15f46d4e5b8f2db4ea);
-            
-    
-            var marker_c15f469d9afeed0adcb989e77314a382 = L.marker(
-                [-34.8962723, -56.1791701],
-                {
-}
-            ).addTo(map_9bd1e233af4929796197dd4a2cf2ed8d);
-        
-    
-            var icon_71e7edd345ae905b226fb1544b45ba60 = L.AwesomeMarkers.icon(
-                {
-  &quot;markerColor&quot;: &quot;purple&quot;,
-  &quot;iconColor&quot;: &quot;white&quot;,
-  &quot;icon&quot;: &quot;star&quot;,
-  &quot;prefix&quot;: &quot;fa&quot;,
-  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
-}
-            );
-        
-    
-        var popup_e259df3a088c680e67adf8337db7f89e = L.popup({
-  &quot;maxWidth&quot;: 300,
-});
-
-        
-            
-                var html_e2f2039925311aaaf84b63272b997661 = $(`&lt;div id=&quot;html_e2f2039925311aaaf84b63272b997661&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Segoe UI&#x27;, Arial, sans-serif; min-width: 220px; padding: 5px;&quot;&gt;         &lt;h4 style=&quot;margin-top: 0; margin-bottom: 8px; color: #2c3e50; font-size: 14px;&quot;&gt;MEDI IMPORT S.A.&lt;/h4&gt;         &lt;div style=&quot;background-color: #f8f9fa; padding: 8px; border-radius: 6px; border-left: 4px solid #3498db;&quot;&gt;             &lt;b style=&quot;color: #555; font-size: 10px; text-transform: uppercase;&quot;&gt;Categoría:&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color: #333; font-size: 12px; font-weight: bold;&quot;&gt;Importador Reparador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top: 10px; font-size: 10px; color: #7f8c8d; text-align: right;&quot;&gt;             &lt;i&gt;Fuente: Sugerido por LATU&lt;/i&gt;         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
-                popup_e259df3a088c680e67adf8337db7f89e.setContent(html_e2f2039925311aaaf84b63272b997661);
-            
-        
-
-        marker_c15f469d9afeed0adcb989e77314a382.bindPopup(popup_e259df3a088c680e67adf8337db7f89e)
-        ;
-
-        
-    
-    
-                marker_c15f469d9afeed0adcb989e77314a382.setIcon(icon_71e7edd345ae905b226fb1544b45ba60);
-            
-    
-            var marker_11ed43edb46809beb072201fd63b5a9a = L.marker(
-                [-34.8962723, -56.1791701],
-                {
-}
-            ).addTo(map_9bd1e233af4929796197dd4a2cf2ed8d);
-        
-    
-            var icon_6ef1801b405b8169feda1871a87a26f6 = L.AwesomeMarkers.icon(
-                {
-  &quot;markerColor&quot;: &quot;purple&quot;,
-  &quot;iconColor&quot;: &quot;white&quot;,
-  &quot;icon&quot;: &quot;star&quot;,
-  &quot;prefix&quot;: &quot;fa&quot;,
-  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
-}
-            );
-        
-    
-        var popup_1413a6c5c44e308e979f9d7def12d6db = L.popup({
-  &quot;maxWidth&quot;: 300,
-});
-
-        
-            
-                var html_86511d7f09d258259372c300cc853f04 = $(`&lt;div id=&quot;html_86511d7f09d258259372c300cc853f04&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Segoe UI&#x27;, Arial, sans-serif; min-width: 220px; padding: 5px;&quot;&gt;         &lt;h4 style=&quot;margin-top: 0; margin-bottom: 8px; color: #2c3e50; font-size: 14px;&quot;&gt;MEDI IMPORT S.A.&lt;/h4&gt;         &lt;div style=&quot;background-color: #f8f9fa; padding: 8px; border-radius: 6px; border-left: 4px solid #3498db;&quot;&gt;             &lt;b style=&quot;color: #555; font-size: 10px; text-transform: uppercase;&quot;&gt;Categoría:&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color: #333; font-size: 12px; font-weight: bold;&quot;&gt;Importador Reparador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top: 10px; font-size: 10px; color: #7f8c8d; text-align: right;&quot;&gt;             &lt;i&gt;Fuente: Sugerido por LATU&lt;/i&gt;         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
-                popup_1413a6c5c44e308e979f9d7def12d6db.setContent(html_86511d7f09d258259372c300cc853f04);
-            
-        
-
-        marker_11ed43edb46809beb072201fd63b5a9a.bindPopup(popup_1413a6c5c44e308e979f9d7def12d6db)
-        ;
-
-        
-    
-    
-                marker_11ed43edb46809beb072201fd63b5a9a.setIcon(icon_6ef1801b405b8169feda1871a87a26f6);
-            
-    
-            var marker_1eeb4afbc0888cebb371885f440fb104 = L.marker(
-                [-34.9055186, -56.1841652],
-                {
-}
-            ).addTo(map_9bd1e233af4929796197dd4a2cf2ed8d);
-        
-    
-            var icon_4c66bef44fec778fe358e8e13632dde0 = L.AwesomeMarkers.icon(
-                {
-  &quot;markerColor&quot;: &quot;orange&quot;,
-  &quot;iconColor&quot;: &quot;white&quot;,
-  &quot;icon&quot;: &quot;star&quot;,
-  &quot;prefix&quot;: &quot;fa&quot;,
-  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
-}
-            );
-        
-    
-        var popup_d7b5cc465fa65a9cb3105d331b820b66 = L.popup({
-  &quot;maxWidth&quot;: 300,
-});
-
-        
-            
-                var html_5ccb91399c7746d0e4b45d4278f76ddf = $(`&lt;div id=&quot;html_5ccb91399c7746d0e4b45d4278f76ddf&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Segoe UI&#x27;, Arial, sans-serif; min-width: 220px; padding: 5px;&quot;&gt;         &lt;h4 style=&quot;margin-top: 0; margin-bottom: 8px; color: #2c3e50; font-size: 14px;&quot;&gt;DE OLIVEIRA RUBEN GERARDO Y MORALES&lt;/h4&gt;         &lt;div style=&quot;background-color: #f8f9fa; padding: 8px; border-radius: 6px; border-left: 4px solid #3498db;&quot;&gt;             &lt;b style=&quot;color: #555; font-size: 10px; text-transform: uppercase;&quot;&gt;Categoría:&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color: #333; font-size: 12px; font-weight: bold;&quot;&gt;Reparador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top: 10px; font-size: 10px; color: #7f8c8d; text-align: right;&quot;&gt;             &lt;i&gt;Fuente: Sugerido por LATU&lt;/i&gt;         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
-                popup_d7b5cc465fa65a9cb3105d331b820b66.setContent(html_5ccb91399c7746d0e4b45d4278f76ddf);
-            
-        
-
-        marker_1eeb4afbc0888cebb371885f440fb104.bindPopup(popup_d7b5cc465fa65a9cb3105d331b820b66)
-        ;
-
-        
-    
-    
-                marker_1eeb4afbc0888cebb371885f440fb104.setIcon(icon_4c66bef44fec778fe358e8e13632dde0);
-            
-    
-            var marker_dab4d2273c09b5f9eb4257d48bb74f59 = L.marker(
-                [-34.9136255, -56.173108],
-                {
-}
-            ).addTo(map_9bd1e233af4929796197dd4a2cf2ed8d);
-        
-    
-            var icon_94c9be6a2a5b8d2e110d73e07672f4e3 = L.AwesomeMarkers.icon(
-                {
-  &quot;markerColor&quot;: &quot;green&quot;,
-  &quot;iconColor&quot;: &quot;white&quot;,
-  &quot;icon&quot;: &quot;star&quot;,
-  &quot;prefix&quot;: &quot;fa&quot;,
-  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
-}
-            );
-        
-    
-        var popup_873c815fde0ecc3dd214c3edb3434067 = L.popup({
-  &quot;maxWidth&quot;: 300,
-});
-
-        
-            
-                var html_6665eb05a10bc61e26cb2ca4e6159be4 = $(`&lt;div id=&quot;html_6665eb05a10bc61e26cb2ca4e6159be4&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Segoe UI&#x27;, Arial, sans-serif; min-width: 220px; padding: 5px;&quot;&gt;         &lt;h4 style=&quot;margin-top: 0; margin-bottom: 8px; color: #2c3e50; font-size: 14px;&quot;&gt;GAMA ITALY S.A&lt;/h4&gt;         &lt;div style=&quot;background-color: #f8f9fa; padding: 8px; border-radius: 6px; border-left: 4px solid #3498db;&quot;&gt;             &lt;b style=&quot;color: #555; font-size: 10px; text-transform: uppercase;&quot;&gt;Categoría:&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color: #333; font-size: 12px; font-weight: bold;&quot;&gt;Importador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top: 10px; font-size: 10px; color: #7f8c8d; text-align: right;&quot;&gt;             &lt;i&gt;Fuente: Sugerido por LATU&lt;/i&gt;         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
-                popup_873c815fde0ecc3dd214c3edb3434067.setContent(html_6665eb05a10bc61e26cb2ca4e6159be4);
-            
-        
-
-        marker_dab4d2273c09b5f9eb4257d48bb74f59.bindPopup(popup_873c815fde0ecc3dd214c3edb3434067)
-        ;
-
-        
-    
-    
-                marker_dab4d2273c09b5f9eb4257d48bb74f59.setIcon(icon_94c9be6a2a5b8d2e110d73e07672f4e3);
-            
-    
-            var marker_abfc7f1d78f822e0207fda880be66112 = L.marker(
-                [-34.9106525, -56.1848499],
-                {
-}
-            ).addTo(map_9bd1e233af4929796197dd4a2cf2ed8d);
-        
-    
-            var icon_1ff5e369e8e7b64ef2ed40ac874ee4db = L.AwesomeMarkers.icon(
-                {
-  &quot;markerColor&quot;: &quot;purple&quot;,
-  &quot;iconColor&quot;: &quot;white&quot;,
-  &quot;icon&quot;: &quot;info&quot;,
-  &quot;prefix&quot;: &quot;fa&quot;,
-  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
-}
-            );
-        
-    
-        var popup_a5310162443fe5a7724c03499c8cdc13 = L.popup({
-  &quot;maxWidth&quot;: 300,
-});
-
-        
-            
-                var html_6b45c80f8418180e7829611be710ea57 = $(`&lt;div id=&quot;html_6b45c80f8418180e7829611be710ea57&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Segoe UI&#x27;, Arial, sans-serif; min-width: 220px; padding: 5px;&quot;&gt;         &lt;h4 style=&quot;margin-top: 0; margin-bottom: 8px; color: #2c3e50; font-size: 14px;&quot;&gt;SOJU STORE &lt;/h4&gt;         &lt;div style=&quot;background-color: #f8f9fa; padding: 8px; border-radius: 6px; border-left: 4px solid #3498db;&quot;&gt;             &lt;b style=&quot;color: #555; font-size: 10px; text-transform: uppercase;&quot;&gt;Categoría:&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color: #333; font-size: 12px; font-weight: bold;&quot;&gt;Importador Reparador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top: 10px; font-size: 10px; color: #7f8c8d; text-align: right;&quot;&gt;             &lt;i&gt;Fuente: Otros&lt;/i&gt;         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
-                popup_a5310162443fe5a7724c03499c8cdc13.setContent(html_6b45c80f8418180e7829611be710ea57);
-            
-        
-
-        marker_abfc7f1d78f822e0207fda880be66112.bindPopup(popup_a5310162443fe5a7724c03499c8cdc13)
-        ;
-
-        
-    
-    
-                marker_abfc7f1d78f822e0207fda880be66112.setIcon(icon_1ff5e369e8e7b64ef2ed40ac874ee4db);
-            
-    
-            var marker_5dff545088dc27e950746aad385a6359 = L.marker(
-                [-34.9025833, -56.1992817],
-                {
-}
-            ).addTo(map_9bd1e233af4929796197dd4a2cf2ed8d);
-        
-    
-            var icon_729615ab6d6ade5d668a755af0d06c0b = L.AwesomeMarkers.icon(
-                {
-  &quot;markerColor&quot;: &quot;orange&quot;,
-  &quot;iconColor&quot;: &quot;white&quot;,
-  &quot;icon&quot;: &quot;info&quot;,
-  &quot;prefix&quot;: &quot;fa&quot;,
-  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
-}
-            );
-        
-    
-        var popup_1ff17c64a931e33509f57592897850a1 = L.popup({
-  &quot;maxWidth&quot;: 300,
-});
-
-        
-            
-                var html_e8daa6f309a2f9e012e93a3aa999be5b = $(`&lt;div id=&quot;html_e8daa6f309a2f9e012e93a3aa999be5b&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Segoe UI&#x27;, Arial, sans-serif; min-width: 220px; padding: 5px;&quot;&gt;         &lt;h4 style=&quot;margin-top: 0; margin-bottom: 8px; color: #2c3e50; font-size: 14px;&quot;&gt;LPGC&lt;/h4&gt;         &lt;div style=&quot;background-color: #f8f9fa; padding: 8px; border-radius: 6px; border-left: 4px solid #3498db;&quot;&gt;             &lt;b style=&quot;color: #555; font-size: 10px; text-transform: uppercase;&quot;&gt;Categoría:&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color: #333; font-size: 12px; font-weight: bold;&quot;&gt;Reparador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top: 10px; font-size: 10px; color: #7f8c8d; text-align: right;&quot;&gt;             &lt;i&gt;Fuente: Otros&lt;/i&gt;         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
-                popup_1ff17c64a931e33509f57592897850a1.setContent(html_e8daa6f309a2f9e012e93a3aa999be5b);
-            
-        
-
-        marker_5dff545088dc27e950746aad385a6359.bindPopup(popup_1ff17c64a931e33509f57592897850a1)
-        ;
-
-        
-    
-    
-                marker_5dff545088dc27e950746aad385a6359.setIcon(icon_729615ab6d6ade5d668a755af0d06c0b);
-            
-&lt;/script&gt;
-&lt;/html&gt;" style="position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe></div></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
             
         </div>
     </div>
-
-    <footer class="bg-dark text-white text-center py-3 mt-5">
-        <div class="container">
-            <p class="mb-0 small">Portal de Ingeniería Biomédica & Metrología • Generado automáticamente</p>
-        </div>
-    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>

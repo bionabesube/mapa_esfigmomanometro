@@ -160,7 +160,7 @@ pag_web_completa = f"""<!DOCTYPE html>
 
         <div class="tab-content" id="portalTabsContent">
 
-            <div class="tab-pane fade" id="mapa-content" role="tabpanel">
+            <div class="tab-pane fade show active" id="mapa-content" role="tabpanel">
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="card card-custom">
@@ -183,7 +183,7 @@ pag_web_completa = f"""<!DOCTYPE html>
             </div>
 
            
-            <div class="tab-pane fade show active" id="info-content" role="tabpanel">
+            <div class="tab-pane fade" id="info-content" role="tabpanel">
                 <div class="row">
                     <div class="col-md-8">
                         <div class="card card-custom p-4">

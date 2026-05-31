@@ -9,10 +9,6 @@ Original file is located at
 1. Mapa de Fabricantes, Importadores y Reparadores
 """
 
-!pip install xlrd -q
-
-!pip install geopy folium
-
 import os
 import glob
 import pandas as pd

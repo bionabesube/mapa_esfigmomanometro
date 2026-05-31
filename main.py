@@ -139,22 +139,23 @@ pag_web_completa = f"""<!DOCTYPE html>
 
     <div class="hero-section text-center">
         <div class="container">
-            <h1 class="display-5 fw-bold"><i class="fa-solid fa-heart-pulse me-3"></i>Gestión de Esfigmomanómetros</h1>
-            <p class="lead mb-0">Portal informativo de metrología legal y registro de profesionales en Uruguay</p>
+            <h1 class="display-5 fw-bold"><i class="fa-solid fa-heart-pulse me-3"></i>Esfigmomanómetros</h1>
+            <p class="lead mb-0">Portal informativo</p>
         </div>
     </div>
 
     <div class="container">
         <ul class="nav nav-tabs nav-tabs-custom mb-4" id="portalTabs" role="tablist">
+           <li class="nav-item" role="presentation">
+                <button class="nav-link" id="mapa-tab" data-bs-toggle="tab" data-bs-target="#mapa-content" type="button" role="tab"><i class="fa-solid fa-map-location-dot me-2"></i>Mapa de Registros</button>
+            </li>
             <li class="nav-item" role="presentation">
                 <button class="nav-link active" id="info-tab" data-bs-toggle="tab" data-bs-target="#info-content" type="button" role="tab"><i class="fa-solid fa-book-medical me-2"></i>Información Técnica</button>
             </li>
             <li class="nav-item" role="presentation">
                 <button class="nav-link" id="metro-tab" data-bs-toggle="tab" data-bs-target="#metro-content" type="button" role="tab"><i class="fa-solid fa-gauge me-2"></i>Metrología Legal</button>
             </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="mapa-tab" data-bs-toggle="tab" data-bs-target="#mapa-content" type="button" role="tab"><i class="fa-solid fa-map-location-dot me-2"></i>Mapa de Registros</button>
-            </li>
+            
         </ul>
 
         <div class="tab-content" id="portalTabsContent">

@@ -12,30 +12,22 @@ Original file is located at
 import os
 import glob
 import pandas as pd
+from folium import plugins
 import folium
 from geopy.geocoders import Nominatim
 from geopy.extra.rate_limiter import RateLimiter
-import folium
 
 archivo = f"https://docs.google.com/spreadsheets/d/1iEJl5proYp_-wZHhXMPmzOdNfH4h6EHfDOi1ikCQsok/edit?usp=sharing"
 sheet_id = archivo.split("/d/")[1].split("/")[0]
 
 archivo_csv_url = f"https://docs.google.com/spreadsheets/d/{sheet_id}/export?format=csv"
-
 df = pd.read_csv(archivo_csv_url)
-
-df.head()
-
-df.columns
-
-df["Inscripto como"].value_counts()
 
 geolocator = Nominatim(user_agent="mapa_registros_colab")
 geocode = RateLimiter(geolocator.geocode, min_delay_seconds=1.5)
 
 df['Direccion_Completa'] = df['Dirección'].astype(str) +", Montevideo" +", Uruguay"
 
-print("Buscando coordenadas... esto puede tardar un poco dependiendo de la cantidad de registros.")
 df['Ubicacion'] = df['Direccion_Completa'].apply(geocode)
 
 df['Latitud'] = df['Ubicacion'].apply(lambda loc: loc.latitude if loc else None)
@@ -43,34 +35,23 @@ df['Longitud'] = df['Ubicacion'].apply(lambda loc: loc.longitude if loc else Non
 
 df_mapa = df.dropna(subset=['Latitud', 'Longitud']).copy()
 registros_perdidos = len(df) - len(df_mapa)
-print(f"Búsqueda finalizada. Se ubicaron {len(df_mapa)} registros. No se encontraron coordenadas para {registros_perdidos} registros.")
 
-registros_no_encontrados = df[
-    df['Latitud'].isna() | df['Longitud'].isna()
-]
-for empresa in registros_no_encontrados['Razón Social']:
-    print(empresa)
-
-# Iniciamos el mapa centrado en Montevideo (Latitud -34.9011, Longitud -56.1645)
 mapa = folium.Map(location=[-34.9011, -56.1645], zoom_start=12)
-
-# --- PASO FINAL: Agregar los marcadores y mostrar el mapa ---
+plugins.Fullscreen(position='topright', title='Pantalla Completa', title_cancel='Salir').add_to(mapa)
 
 for index, row in df_mapa.iterrows():
-
     nombre_empresa = row.get('Razón Social', 'Empresa sin nombre')
     tipo_inscripcion = row.get('Inscripto como', 'Sin definir')
     origen = row.get('Origen', 'Desconocido')
 
-    # CSS inyectado para un diseño tipo tarjeta (bordes redondeados, sombra, fuente moderna)
     html_popup = f"""
     <div style="font-family: 'Segoe UI', Arial, sans-serif; min-width: 220px; padding: 5px;">
-        <h4 style="margin-top: 0; margin-bottom: 8px; color: #2c3e50; font-size: 16px;">{nombre_empresa}</h4>
+        <h4 style="margin-top: 0; margin-bottom: 8px; color: #2c3e50; font-size: 14px;">{nombre_empresa}</h4>
         <div style="background-color: #f8f9fa; padding: 8px; border-radius: 6px; border-left: 4px solid #3498db;">
-            <b style="color: #555; font-size: 12px; text-transform: uppercase;">Categoría:</b><br>
-            <span style="color: #333; font-size: 14px; font-weight: bold;">{tipo_inscripcion}</span>
+            <b style="color: #555; font-size: 10px; text-transform: uppercase;">Categoría:</b><br>
+            <span style="color: #333; font-size: 12px; font-weight: bold;">{tipo_inscripcion}</span>
         </div>
-        <div style="margin-top: 10px; font-size: 11px; color: #7f8c8d; text-align: right;">
+        <div style="margin-top: 10px; font-size: 10px; color: #7f8c8d; text-align: right;">
             <i>Fuente: {origen}</i>
         </div>
     </div>
@@ -78,7 +59,6 @@ for index, row in df_mapa.iterrows():
 
     color_pin = 'blue'
     tipo_str = str(tipo_inscripcion).lower()
-
     if 'importador reparador' in tipo_str or 'ambos' in tipo_str:
         color_pin = 'purple'
     elif 'importador' in tipo_str:
@@ -86,7 +66,6 @@ for index, row in df_mapa.iterrows():
     elif 'reparador' in tipo_str:
         color_pin = 'orange'
 
-    # Cambiamos a íconos de FontAwesome (prefix='fa')
     icono_forma = 'star' if origen == 'Sugerido por LATU' else 'info'
 
     folium.Marker(
@@ -95,9 +74,196 @@ for index, row in df_mapa.iterrows():
         icon=folium.Icon(color=color_pin, icon=icono_forma, prefix='fa')
     ).add_to(mapa)
 
-from folium import plugins
-plugins.Fullscreen(position='topright', title='Pantalla Completa', title_cancel='Salir').add_to(mapa)
+# 2. Extraer el código HTML del mapa de Folium
+mapa_html_snippet = mapa._repr_html_()
 
-mapa.save('index.html')
+# 3. Definir la plantilla web completa (HTML + CSS + Bootstrap)
+pag_web_completa = f"""<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal de Esfigmomanómetros - Metrología y Registro</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {{
+            background-color: #f4f6f9;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }}
+        .hero-section {{
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 40px 0;
+            margin-bottom: 30px;
+            border-bottom: 5px solid #00d2ff;
+        }}
+        .card-custom {{
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            margin-bottom: 25px;
+            background-color: white;
+        }}
+        .card-header-custom {{
+            background-color: #fff;
+            border-bottom: 2px solid #f0f2f5;
+            font-weight: bold;
+            color: #2c3e50;
+            padding: 15px 20px;
+            border-radius: 12px 12px 0 0 !important;
+        }}
+        .nav-tabs-custom .nav-link {{
+            color: #555;
+            font-weight: 500;
+            border: none;
+            padding: 12px 20px;
+        }}
+        .nav-tabs-custom .nav-link.active {{
+            color: #1e3c72;
+            border-bottom: 3px solid #1e3c72;
+            background: transparent;
+        }}
+        .map-container {{
+            min-height: 550px;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #dee2e6;
+        }}
+        .badge-importador {{ background-color: #28a745; }}
+        .badge-reparador {{ background-color: #fd7e14; }}
+        .badge-ambos {{ background-color: #6f42c1; }}
+    </style>
+</head>
+<body>
 
-mapa
+    <div class="hero-section text-center">
+        <div class="container">
+            <h1 class="display-5 fw-bold"><i class="fa-solid fa-heart-pulse me-3"></i>Gestión de Esfigmomanómetros</h1>
+            <p class="lead mb-0">Portal informativo de metrología legal y registro de profesionales en Uruguay</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <ul class="nav nav-tabs nav-tabs-custom mb-4" id="portalTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="info-tab" data-bs-toggle="tab" data-bs-target="#info-content" type="button" role="tab"><i class="fa-solid fa-book-medical me-2"></i>Información Técnica</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="metro-tab" data-bs-toggle="tab" data-bs-target="#metro-content" type="button" role="tab"><i class="fa-solid fa-gauge me-2"></i>Metrología Legal</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="mapa-tab" data-bs-toggle="tab" data-bs-target="#mapa-content" type="button" role="tab"><i class="fa-solid fa-map-location-dot me-2"></i>Mapa de Registros</button>
+            </li>
+        </ul>
+
+        <div class="tab-content" id="portalTabsContent">
+            
+            <div class="tab-pane fade show active" id="info-content" role="tabpanel">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="card card-custom p-4">
+                            <h3 class="text-primary mb-3">¿Qué es un Esfigmomanómetro?</h3>
+                            <p class="text-secondary justify-content">
+                                El <strong>esfigmomanómetro</strong>, conocido comúnmente como tensiómetro, es un instrumento de medición médica utilizado para la determinación no invasiva de la presión arterial sistólica y diastólica. Es una herramienta crítica en el diagnóstico y monitoreo de condiciones cardiovasculares como la hipertensión arterial.
+                            </p>
+                            
+                            <h4 class="mt-4 text-dark">¿Cómo funciona?</h4>
+                            <p class="text-secondary">
+                                El principio se basa en la oclusión parcial o total de una arteria superficial (generalmente la arteria braquial en el brazo) mediante un brazalete inflable neumático. 
+                                Al inflar el brazalete por encima de la presión sistólica del paciente, el flujo sanguíneo se detiene. Luego, el aire se libera lentamente disminuyendo la presión de forma controlada:
+                            </p>
+                            <ul class="text-secondary">
+                                <li><strong>Presión Sistólica (Máxima):</strong> Se identifica cuando la presión del brazalete baja lo suficiente como para permitir que la sangre comience a pasar de nuevo, generando el primer sonido pulsátil audible (primer Ruido de Korotkoff).</li>
+                                <li><strong>Presión Diastólica (Mínima):</strong> Se registra en el momento exacto en que los ruidos arteriales desaparecen por completo, indicando que el flujo de sangre ha vuelto a ser laminar y continuo.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <div class="card card-custom p-4">
+                            <h4 class="mb-3 text-dark">Tipos de Equipos</h4>
+                            <div class="mb-3">
+                                <h5><i class="fa-solid fa-compass text-warning me-2"></i>Aneroides</h5>
+                                <p class="small text-muted">Operan mediante un sistema mecánico de fuelle interno y aguja sobre un dial graduado. Son propensos a descalibrarse ante impactos o caídas mecánicas.</p>
+                            </div>
+                            <div class="mb-3">
+                                <h5><i class="fa-solid fa-vial text-danger me-2"></i>De Mercurio</h5>
+                                <p class="small text-muted">Históricamente considerados el patrón de oro clínico. Emplean el desplazamiento físico de una columna de mercurio. Hoy están en desuso o restringidos debido al riesgo ambiental y de toxicidad por rotura.</p>
+                            </div>
+                            <div>
+                                <h5><i class="fa-solid fa-microchip text-success me-2"></i>Digitales</h5>
+                                <p class="small text-muted">Utilizan el método oscilométrico automático mediante transductores de presión electrónicos. Son excelentes para uso doméstico, pero requieren algoritmos validados clínicamente.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="metro-content" role="tabpanel">
+                <div class="card card-custom p-4">
+                    <h3 class="text-primary mb-4">Aseguramiento de la Calidad Metrológica</h3>
+                    <p class="text-secondary">Dado que los errores de medición en medicina pueden inducir a diagnósticos erróneos o medicaciones equivocadas, estos dispositivos están sujetos a normativas estrictas de control metrológico.</p>
+                    
+                    <div class="row mt-4">
+                        <div class="col-md-4">
+                            <div class="p-3 border rounded bg-light h-100">
+                                <h5 class="text-info"><i class="fa-solid fa-scale-balanced me-2"></i>Calibración</h5>
+                                <p class="small text-muted">Es el proceso técnico que compara los valores indicados por el tensiómetro bajo prueba contra un manómetro patrón de alta precisión certificado. El resultado determina el error del instrumento, plasmado en un certificado de calibración.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="p-3 border rounded bg-light h-100">
+                                <h5 class="text-success"><i class="fa-solid fa-square-check me-2"></i>Verificación</h5>
+                                <p class="small text-muted">Es un acto de control legal obligatorio ejecutado por la autoridad competente (en nuestro país alineado con el LATU) para certificar si el instrumento se encuentra dentro de los Errores Máximos Permitidos (EMP) reglamentarios, aprobando o rechazando su uso clínico.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="p-3 border rounded bg-light h-100">
+                                <h5 class="text-warning"><i class="fa-solid fa-wrench me-2"></i>Reparación</h5>
+                                <p class="small text-muted">Procedimiento de mantenimiento correctivo realizado por talleres autorizados cuando se detectan fugas en las tuberías/pera, fallas en la válvula de purga, o desvíos mecánicos severos. Un equipo reparado debe recalibrarse y verificarse obligatoriamente antes de volver a operar.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="mapa-content" role="tabpanel">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card card-custom">
+                            <div class="card-header-custom d-flex justify-content-between align-items-center">
+                                <span><i class="fa-solid fa-earth-americas text-primary me-2"></i>Localizador de Importadores y Reparadores Autorizados</span>
+                                <span class="badge bg-secondary">Total ubicados: {len(df_mapa)}</span>
+                            </div>
+                            <div class="card-body p-2">
+                                <div class="alert alert-info py-2 px-3 mb-2 small d-flex align-items-center">
+                                    <i class="fa-solid fa-circle-info me-2 fs-5"></i>
+                                    <span>Usa los controles del mapa para explorar la distribución geográfica en Montevideo. Los colores de los marcadores indican la categoría de inscripción.</span>
+                                </div>
+                                <div class="map-container">
+                                    {mapa_html_snippet}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <footer class="bg-dark text-white text-center py-3 mt-5">
+        <div class="container">
+            <p class="mb-0 small">Portal de Ingeniería Biomédica & Metrología • Generado automáticamente</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+"""
+
+# 4. Guardar la estructura combinada en el archivo final
+with open('index.html', 'w', encoding='utf-8') as f:
+    f.write(pag_web_completa)

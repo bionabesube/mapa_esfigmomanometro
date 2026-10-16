@@ -1,100 +1,401 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Esfigmomanómetros </title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        body {
-            background-color: #f4f6f9;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        .hero-section {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-            color: white;
-            padding: 40px 0;
-            margin-bottom: 30px;
-            border-bottom: 5px solid #00d2ff;
-        }
-        .card-custom {
-            border: none;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            margin-bottom: 25px;
-            background-color: white;
-        }
-        .card-header-custom {
-            background-color: #fff;
-            border-bottom: 2px solid #f0f2f5;
-            font-weight: bold;
-            color: #2c3e50;
-            padding: 15px 20px;
-            border-radius: 12px 12px 0 0 !important;
-        }
-        .nav-tabs-custom .nav-link {
-            color: #555;
-            font-weight: 500;
-            border: none;
-            padding: 12px 20px;
-        }
-        .nav-tabs-custom .nav-link.active {
-            color: #1e3c72;
-            border-bottom: 3px solid #1e3c72;
-            background: transparent;
-        }
-        .map-container {
-            min-height: 550px;
-            border-radius: 8px;
-            overflow: hidden;
-            border: 1px solid #dee2e6;
-        }
-        .badge-importador { background-color: #28a745; }
-        .badge-reparador { background-color: #fd7e14; }
-        .badge-ambos { background-color: #6f42c1; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Esfigmomanómetros · Portal informativo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+    :root {
+        --primary: #0f4c81;
+        --primary-2: #1e6fbf;
+        --accent: #00b4d8;
+        --success: #10b981;
+        --warning: #f59e0b;
+        --danger: #ef4444;
+        --purple: #8b5cf6;
+        --gray-50: #f8fafc;
+        --gray-100: #f1f5f9;
+        --gray-200: #e2e8f0;
+        --gray-400: #94a3b8;
+        --gray-600: #64748b;
+        --gray-800: #1e293b;
+        --gray-900: #0f172a;
+    }
+    * { -webkit-font-smoothing: antialiased; }
+    body {
+        background: var(--gray-50);
+        font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+        color: var(--gray-800);
+    }
+
+    /* ---------- HERO ---------- */
+    .hero-section {
+        background: linear-gradient(135deg, #0a3557 0%, #0f4c81 40%, #1e6fbf 75%, #00b4d8 100%);
+        color: #fff;
+        padding: 56px 0 44px;
+        position: relative;
+        overflow: hidden;
+    }
+    .hero-section::before {
+        content: "";
+        position: absolute; inset: 0;
+        background-image:
+            radial-gradient(circle at 15% 30%, rgba(255,255,255,.12) 0%, transparent 45%),
+            radial-gradient(circle at 85% 75%, rgba(0,180,216,.25) 0%, transparent 45%);
+        pointer-events: none;
+    }
+    .hero-section::after {
+        content: "";
+        position: absolute; inset: 0;
+        background-image: radial-gradient(rgba(255,255,255,.08) 1px, transparent 1px);
+        background-size: 22px 22px;
+        opacity: .35;
+        pointer-events: none;
+    }
+    .hero-inner { position: relative; z-index: 1; }
+    .hero-title {
+        font-weight: 800; letter-spacing: -.02em;
+        text-shadow: 0 2px 12px rgba(0,0,0,.15);
+    }
+    .hero-subtitle { color: rgba(255,255,255,.85); font-weight: 400; }
+    .hero-chip {
+        display: inline-flex; align-items: center; gap: 8px;
+        background: rgba(255,255,255,.14);
+        border: 1px solid rgba(255,255,255,.22);
+        backdrop-filter: blur(6px);
+        padding: 6px 14px; border-radius: 999px;
+        font-size: .8rem; font-weight: 500;
+        margin-bottom: 16px;
+    }
+    .hero-chip .dot {
+        width: 8px; height: 8px; border-radius: 50%;
+        background: #4ade80; box-shadow: 0 0 0 4px rgba(74,222,128,.25);
+        animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+        0%,100% { box-shadow: 0 0 0 4px rgba(74,222,128,.25); }
+        50%     { box-shadow: 0 0 0 8px rgba(74,222,128,.05); }
+    }
+
+    /* ---------- TABS ---------- */
+    .nav-tabs-custom {
+        border-bottom: 1px solid var(--gray-200);
+        gap: 4px;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+    }
+    .nav-tabs-custom::-webkit-scrollbar { display: none; }
+    .nav-tabs-custom .nav-link {
+        color: var(--gray-600);
+        font-weight: 600;
+        font-size: .92rem;
+        border: none;
+        background: transparent;
+        padding: 14px 22px;
+        border-radius: 10px 10px 0 0;
+        position: relative;
+        white-space: nowrap;
+        transition: color .2s, background .2s;
+    }
+    .nav-tabs-custom .nav-link:hover {
+        color: var(--primary);
+        background: rgba(15,76,129,.05);
+    }
+    .nav-tabs-custom .nav-link.active {
+        color: var(--primary);
+        background: transparent;
+    }
+    .nav-tabs-custom .nav-link.active::after {
+        content: "";
+        position: absolute; left: 12px; right: 12px; bottom: -1px;
+        height: 3px; border-radius: 3px 3px 0 0;
+        background: linear-gradient(90deg, var(--primary), var(--accent));
+    }
+
+    /* ---------- CARDS ---------- */
+    .card-custom {
+        border: 1px solid var(--gray-200);
+        border-radius: 16px;
+        background: #fff;
+        box-shadow: 0 1px 3px rgba(15,23,42,.04), 0 8px 24px rgba(15,23,42,.04);
+        transition: box-shadow .3s ease, transform .3s ease;
+        overflow: hidden;
+    }
+    .card-custom:hover {
+        box-shadow: 0 4px 12px rgba(15,23,42,.06), 0 16px 40px rgba(15,23,42,.08);
+    }
+    .card-header-custom {
+        background: #fff;
+        border-bottom: 1px solid var(--gray-100);
+        font-weight: 700;
+        color: var(--gray-900);
+        padding: 18px 22px;
+        display: flex; align-items: center; justify-content: space-between;
+        flex-wrap: wrap; gap: 10px;
+    }
+    .section-eyebrow {
+        font-size: .7rem; font-weight: 700; letter-spacing: .12em;
+        text-transform: uppercase; color: var(--accent);
+        margin-bottom: 6px;
+    }
+
+    /* ---------- MAP ---------- */
+    .map-container {
+        min-height: 580px;
+        border-radius: 12px;
+        overflow: hidden;
+        border: 1px solid var(--gray-200);
+        background: #fff;
+    }
+    .legend {
+        display: flex; flex-wrap: wrap; gap: 14px;
+        padding: 14px 18px;
+        background: var(--gray-50);
+        border: 1px solid var(--gray-200);
+        border-radius: 12px;
+        margin-bottom: 14px;
+        font-size: .82rem;
+    }
+    .legend-item { display: flex; align-items: center; gap: 8px; color: var(--gray-600); font-weight: 500; }
+    .legend-dot {
+        width: 12px; height: 12px; border-radius: 50%;
+        box-shadow: 0 0 0 2px #fff, 0 0 0 3px currentColor;
+    }
+
+    /* ---------- BADGES ---------- */
+    .badge-soft {
+        display: inline-flex; align-items: center;
+        padding: 5px 12px; border-radius: 999px;
+        font-size: .75rem; font-weight: 600;
+        white-space: nowrap;
+    }
+    .badge-soft.success   { background: #d1fae5; color: #065f46; }
+    .badge-soft.warning   { background: #fef3c7; color: #92400e; }
+    .badge-soft.danger    { background: #fee2e2; color: #991b1b; }
+    .badge-soft.secondary { background: var(--gray-100); color: var(--gray-600); }
+
+    /* ---------- MODELS TABLE ---------- */
+    .models-toolbar {
+        display: flex; flex-wrap: wrap; gap: 10px; align-items: center;
+        padding: 16px 22px;
+        border-bottom: 1px solid var(--gray-100);
+        background: #fff;
+    }
+    .search-wrapper { position: relative; flex: 1 1 280px; min-width: 220px; }
+    .search-wrapper i {
+        position: absolute; left: 14px; top: 50%;
+        transform: translateY(-50%);
+        color: var(--gray-400); font-size: .9rem;
+    }
+    .search-input {
+        width: 100%;
+        padding: 10px 14px 10px 40px;
+        border-radius: 10px;
+        border: 1px solid var(--gray-200);
+        background: var(--gray-50);
+        font-size: .9rem;
+        transition: border-color .2s, box-shadow .2s, background .2s;
+    }
+    .search-input:focus {
+        outline: none;
+        border-color: var(--primary-2);
+        background: #fff;
+        box-shadow: 0 0 0 4px rgba(30,111,191,.12);
+    }
+    .models-table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        font-size: .9rem;
+    }
+    .models-table thead th {
+        background: var(--gray-50);
+        color: var(--gray-600);
+        font-size: .72rem;
+        font-weight: 700;
+        letter-spacing: .08em;
+        text-transform: uppercase;
+        padding: 14px 18px;
+        border-bottom: 1px solid var(--gray-200);
+        text-align: left;
+        white-space: nowrap;
+    }
+    .models-table tbody td {
+        padding: 16px 18px;
+        border-bottom: 1px solid var(--gray-100);
+        vertical-align: middle;
+    }
+    .models-table tbody tr:last-child td { border-bottom: none; }
+    .models-table tbody tr { transition: background .15s; }
+    .models-table tbody tr:hover { background: var(--gray-50); }
+    .brand-avatar {
+        width: 34px; height: 34px; border-radius: 9px;
+        display: inline-flex; align-items: center; justify-content: center;
+        background: linear-gradient(135deg, var(--primary), var(--accent));
+        color: #fff; font-weight: 700; font-size: .85rem;
+        margin-right: 10px;
+        box-shadow: 0 4px 10px rgba(15,76,129,.18);
+    }
+
+    /* ---------- EMPTY STATE ---------- */
+    .empty-state { padding: 40px 20px; text-align: center; color: var(--gray-600); }
+    .empty-state i { font-size: 3rem; color: var(--gray-400); opacity: .6; }
+
+    /* ---------- STATS ---------- */
+    .stat-card {
+        background: #fff;
+        border: 1px solid var(--gray-200);
+        border-radius: 14px;
+        padding: 18px 20px;
+        display: flex; align-items: center; gap: 14px;
+        transition: transform .25s, box-shadow .25s;
+    }
+    .stat-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(15,23,42,.06);
+    }
+    .stat-icon {
+        width: 46px; height: 46px; border-radius: 12px;
+        display: flex; align-items: center; justify-content: center;
+        font-size: 1.15rem; color: #fff;
+        background: linear-gradient(135deg, var(--primary), var(--primary-2));
+        flex-shrink: 0;
+    }
+    .stat-icon.accent  { background: linear-gradient(135deg, var(--accent), #48cae4); }
+    .stat-icon.purple  { background: linear-gradient(135deg, var(--purple), #a78bfa); }
+    .stat-value { font-size: 1.4rem; font-weight: 800; color: var(--gray-900); line-height: 1; }
+    .stat-label { font-size: .78rem; color: var(--gray-600); margin-top: 4px; }
+
+    /* ---------- METRO CARDS ---------- */
+    .metro-card {
+        border: 1px solid var(--gray-200);
+        border-radius: 14px;
+        background: #fff;
+        padding: 22px;
+        height: 100%;
+        transition: transform .25s, box-shadow .25s, border-color .25s;
+    }
+    .metro-card:hover {
+        transform: translateY(-3px);
+        border-color: var(--primary-2);
+        box-shadow: 0 12px 28px rgba(15,23,42,.08);
+    }
+    .metro-card .icon-circle {
+        width: 44px; height: 44px; border-radius: 12px;
+        display: inline-flex; align-items: center; justify-content: center;
+        font-size: 1.1rem; margin-bottom: 14px;
+    }
+    .icon-info    { background: rgba(0,180,216,.12);  color: var(--accent); }
+    .icon-success { background: rgba(16,185,129,.12); color: var(--success); }
+    .icon-warning { background: rgba(245,158,11,.15); color: var(--warning); }
+
+    /* ---------- INFO ---------- */
+    .info-list { list-style: none; padding-left: 0; }
+    .info-list li {
+        padding-left: 28px; position: relative; margin-bottom: 10px;
+        color: var(--gray-600); font-size: .93rem; line-height: 1.55;
+    }
+    .info-list li::before {
+        content: "\f00c";
+        font-family: "Font Awesome 6 Free"; font-weight: 900;
+        position: absolute; left: 0; top: 1px;
+        color: var(--accent); font-size: .8rem;
+    }
+    .type-card {
+        border-radius: 12px;
+        padding: 16px 18px;
+        border: 1px solid var(--gray-200);
+        background: var(--gray-50);
+        margin-bottom: 12px;
+        transition: border-color .2s, background .2s;
+    }
+    .type-card:hover { background: #fff; border-color: var(--primary-2); }
+    .type-card h6 { font-weight: 700; margin-bottom: 6px; color: var(--gray-900); }
+    .type-card p  { font-size: .84rem; color: var(--gray-600); margin: 0; }
+
+    @media (max-width: 576px) {
+        .hero-section { padding: 40px 0 32px; }
+        .nav-tabs-custom .nav-link { padding: 12px 14px; font-size: .82rem; }
+        .models-table thead { display: none; }
+        .models-table tbody td { display: block; padding: 10px 16px; border-bottom: 1px solid var(--gray-100); }
+        .models-table tbody tr { display: block; border-bottom: 2px solid var(--gray-100); padding: 6px 0; }
+    }
+</style>
 </head>
 <body>
 
-    <div class="hero-section text-center">
-        <div class="container">
-            <h1 class="display-5 fw-bold"><i class="fa-solid fa-heart-pulse me-3"></i>Esfigmomanómetros</h1>
-            <p class="lead mb-0">Portal informativo</p>
+<!-- HERO -->
+<div class="hero-section">
+    <div class="container hero-inner">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <span class="hero-chip"><span class="dot"></span> Portal actualizado automáticamente</span>
+                <h1 class="display-5 hero-title mb-2">
+                    <i class="fa-solid fa-heart-pulse me-3"></i>Esfigmomanómetros
+                </h1>
+                <p class="lead hero-subtitle mb-0">
+                    Portal informativo sobre equipos de medición de presión arterial en Uruguay:
+                    registros habilitados, modelos aprobados y control metrológico legal.
+                </p>
+            </div>
+            <div class="col-lg-4 text-lg-end mt-4 mt-lg-0 d-none d-lg-block">
+                <i class="fa-solid fa-stethoscope" style="font-size: 6rem; opacity: .15;"></i>
+            </div>
         </div>
     </div>
+</div>
 
-    <div class="container">
-        <ul class="nav nav-tabs nav-tabs-custom mb-4" id="portalTabs" role="tablist">
-           <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="mapa-tab" data-bs-toggle="tab" data-bs-target="#mapa-content" type="button" role="tab"><i class="fa-solid fa-map-location-dot me-2"></i>Mapa de Registros</button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="info-tab" data-bs-toggle="tab" data-bs-target="#info-content" type="button" role="tab"><i class="fa-solid fa-book-medical me-2"></i>Información Técnica</button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="metro-tab" data-bs-toggle="tab" data-bs-target="#metro-content" type="button" role="tab"><i class="fa-solid fa-gauge me-2"></i>Metrología Legal</button>
-            </li>
-            
-        </ul>
+<div class="container pb-5">
+    <ul class="nav nav-tabs nav-tabs-custom mb-4" id="portalTabs" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="mapa-tab" data-bs-toggle="tab" data-bs-target="#mapa-content" type="button" role="tab">
+                <i class="fa-solid fa-map-location-dot me-2"></i>Mapa de Registros
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="modelos-tab" data-bs-toggle="tab" data-bs-target="#modelos-content" type="button" role="tab">
+                <i class="fa-solid fa-certificate me-2"></i>Modelos Aprobados
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="info-tab" data-bs-toggle="tab" data-bs-target="#info-content" type="button" role="tab">
+                <i class="fa-solid fa-book-medical me-2"></i>Información Técnica
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="metro-tab" data-bs-toggle="tab" data-bs-target="#metro-content" type="button" role="tab">
+                <i class="fa-solid fa-gauge me-2"></i>Metrología Legal
+            </button>
+        </li>
+    </ul>
 
-        <div class="tab-content" id="portalTabsContent">
+    <div class="tab-content" id="portalTabsContent">
 
-            <div class="tab-pane fade show active" id="mapa-content" role="tabpanel">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="card card-custom">
-                            <div class="card-header-custom d-flex justify-content-between align-items-center">
-                                <span><i class="fa-solid fa-earth-americas text-primary me-2"></i>¿Dónde puedo llevar mi equipo?</span>
-                                <span class="badge bg-secondary">Total ubicados: 23</span>
-                            </div>
-                            <div class="card-body p-2">
-                                <div class="alert alert-info py-2 px-3 mb-2 small d-flex align-items-center">
-                                    <i class="fa-solid fa-circle-info me-2 fs-5"></i>
-                                    <span>Usa los controles del mapa para explorar la distribución geográfica en Montevideo. Los colores de los marcadores indican la categoría de inscripción.</span>
-                                </div>
-                                <div class="map-container">
-                                    <div style="width:100%;"><div style="position:relative;width:100%;height:0;padding-bottom:60%;"><span style="color:#565656">Make this Notebook Trusted to load map: File -> Trust Notebook</span><iframe srcdoc="&lt;!DOCTYPE html&gt;
+        <!-- ============ MAPA ============ -->
+        <div class="tab-pane fade show active" id="mapa-content" role="tabpanel">
+            <div class="card card-custom">
+                <div class="card-header-custom">
+                    <div>
+                        <div class="section-eyebrow">Directorio geográfico</div>
+                        <div><i class="fa-solid fa-earth-americas text-primary me-2"></i>¿Dónde puedo llevar mi equipo?</div>
+                    </div>
+                    <span class="badge-soft secondary"><i class="fa-solid fa-location-dot me-1"></i> Total ubicados: 23</span>
+                </div>
+                <div class="card-body p-3">
+                    <div class="legend">
+                        <span class="legend-item"><span class="legend-dot" style="color:#28a745; background:#28a745;"></span> Importador</span>
+                        <span class="legend-item"><span class="legend-dot" style="color:#fd7e14; background:#fd7e14;"></span> Reparador</span>
+                        <span class="legend-item"><span class="legend-dot" style="color:#6f42c1; background:#6f42c1;"></span> Importador + Reparador</span>
+                        <span class="legend-item"><i class="fa-solid fa-star text-secondary"></i> Sugerido por LATU</span>
+                        <span class="legend-item"><i class="fa-solid fa-circle-info text-secondary"></i> Otras fuentes</span>
+                    </div>
+                    <div class="map-container">
+                        <div style="width:100%;"><div style="position:relative;width:100%;height:0;padding-bottom:60%;"><span style="color:#565656">Make this Notebook Trusted to load map: File -> Trust Notebook</span><iframe srcdoc="&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
     
@@ -113,7 +414,7 @@
             &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; /&gt;
             &lt;style&gt;
-                #map_e9b05ff2b3c1322499172d39dd7a020b {
+                #map_766ede546bccef0a8426564b07d032bc {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -152,14 +453,14 @@
 &lt;body&gt;
     
     
-            &lt;div class=&quot;folium-map&quot; id=&quot;map_e9b05ff2b3c1322499172d39dd7a020b&quot; &gt;&lt;/div&gt;
+            &lt;div class=&quot;folium-map&quot; id=&quot;map_766ede546bccef0a8426564b07d032bc&quot; &gt;&lt;/div&gt;
         
 &lt;/body&gt;
 &lt;script&gt;
     
     
-            var map_e9b05ff2b3c1322499172d39dd7a020b = L.map(
-                &quot;map_e9b05ff2b3c1322499172d39dd7a020b&quot;,
+            var map_766ede546bccef0a8426564b07d032bc = L.map(
+                &quot;map_766ede546bccef0a8426564b07d032bc&quot;,
                 {
                     center: [-34.9011, -56.1645],
                     crs: L.CRS.EPSG3857,
@@ -171,20 +472,21 @@
 
                 }
             );
+            L.control.scale().addTo(map_766ede546bccef0a8426564b07d032bc);
 
             
 
         
     
-            var tile_layer_2eba14e83f3829af3e1408bd62134d19 = L.tileLayer(
-                &quot;https://tile.openstreetmap.org/{z}/{x}/{y}.png&quot;,
+            var tile_layer_8038a87cc02851c1d559686aacf42b4d = L.tileLayer(
+                &quot;https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png&quot;,
                 {
   &quot;minZoom&quot;: 0,
-  &quot;maxZoom&quot;: 19,
-  &quot;maxNativeZoom&quot;: 19,
+  &quot;maxZoom&quot;: 20,
+  &quot;maxNativeZoom&quot;: 20,
   &quot;noWrap&quot;: false,
-  &quot;attribution&quot;: &quot;\u0026copy; \u003ca href=\&quot;https://www.openstreetmap.org/copyright\&quot;\u003eOpenStreetMap\u003c/a\u003e contributors&quot;,
-  &quot;subdomains&quot;: &quot;abc&quot;,
+  &quot;attribution&quot;: &quot;\u0026copy; \u003ca href=\&quot;https://www.openstreetmap.org/copyright\&quot;\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\&quot;https://carto.com/attributions\&quot;\u003eCARTO\u003c/a\u003e&quot;,
+  &quot;subdomains&quot;: &quot;abcd&quot;,
   &quot;detectRetina&quot;: false,
   &quot;tms&quot;: false,
   &quot;opacity&quot;: 1,
@@ -193,7 +495,7 @@
             );
         
     
-            tile_layer_2eba14e83f3829af3e1408bd62134d19.addTo(map_e9b05ff2b3c1322499172d39dd7a020b);
+            tile_layer_8038a87cc02851c1d559686aacf42b4d.addTo(map_766ede546bccef0a8426564b07d032bc);
         
     
             L.control.fullscreen(
@@ -203,17 +505,17 @@
   &quot;titleCancel&quot;: &quot;Salir&quot;,
   &quot;forceSeparateButton&quot;: false,
 }
-            ).addTo(map_e9b05ff2b3c1322499172d39dd7a020b);
+            ).addTo(map_766ede546bccef0a8426564b07d032bc);
         
     
-            var marker_71d47facc5e03c552b755ac023616a8a = L.marker(
+            var marker_a7cee36308e8453027cc713ce9ef68e5 = L.marker(
                 [-34.9210957, -56.1618465],
                 {
 }
-            ).addTo(map_e9b05ff2b3c1322499172d39dd7a020b);
+            ).addTo(map_766ede546bccef0a8426564b07d032bc);
         
     
-            var icon_88a26773908b714b5f0ce583a6771ed3 = L.AwesomeMarkers.icon(
+            var icon_7924f8798fbaec1022c822fc40cb4428 = L.AwesomeMarkers.icon(
                 {
   &quot;markerColor&quot;: &quot;green&quot;,
   &quot;iconColor&quot;: &quot;white&quot;,
@@ -224,34 +526,34 @@
             );
         
     
-        var popup_8046cd005960b0d5f11323b6b5e6fa02 = L.popup({
-  &quot;maxWidth&quot;: 300,
+        var popup_bec2d191e627580813aa977399e66557 = L.popup({
+  &quot;maxWidth&quot;: 320,
 });
 
         
             
-                var html_c20f39a8eed00993b93c285260d9e866 = $(`&lt;div id=&quot;html_c20f39a8eed00993b93c285260d9e866&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Segoe UI&#x27;, Arial, sans-serif; min-width: 220px; padding: 5px;&quot;&gt;         &lt;h4 style=&quot;margin-top: 0; margin-bottom: 8px; color: #2c3e50; font-size: 14px;&quot;&gt;BTL MEDICAL URUGUAY S.A.&lt;/h4&gt;         &lt;div style=&quot;background-color: #f8f9fa; padding: 8px; border-radius: 6px; border-left: 4px solid #3498db;&quot;&gt;             &lt;b style=&quot;color: #555; font-size: 10px; text-transform: uppercase;&quot;&gt;Categoría:&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color: #333; font-size: 12px; font-weight: bold;&quot;&gt;Importador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top: 10px; font-size: 10px; color: #7f8c8d; text-align: right;&quot;&gt;             &lt;i&gt;Fuente: Sugerido por LATU&lt;/i&gt;         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
-                popup_8046cd005960b0d5f11323b6b5e6fa02.setContent(html_c20f39a8eed00993b93c285260d9e866);
+                var html_0bed214d0b4189b30701425cc3c188dc = $(`&lt;div id=&quot;html_0bed214d0b4189b30701425cc3c188dc&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Inter&#x27;,&#x27;Segoe UI&#x27;,Arial,sans-serif; min-width:240px; padding:4px;&quot;&gt;         &lt;h4 style=&quot;margin:0 0 10px 0; color:#0f172a; font-size:15px; font-weight:700;&quot;&gt;BTL MEDICAL URUGUAY S.A.&lt;/h4&gt;         &lt;div style=&quot;background:#f1f5f9; padding:10px 12px; border-radius:8px; border-left:4px solid #0f4c81;&quot;&gt;             &lt;b style=&quot;color:#64748b; font-size:10px; text-transform:uppercase; letter-spacing:.5px;&quot;&gt;Categoría&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color:#0f172a; font-size:13px; font-weight:600;&quot;&gt;Importador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top:10px; font-size:10px; color:#94a3b8; text-align:right; font-style:italic;&quot;&gt;             Fuente: Sugerido por LATU         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
+                popup_bec2d191e627580813aa977399e66557.setContent(html_0bed214d0b4189b30701425cc3c188dc);
             
         
 
-        marker_71d47facc5e03c552b755ac023616a8a.bindPopup(popup_8046cd005960b0d5f11323b6b5e6fa02)
+        marker_a7cee36308e8453027cc713ce9ef68e5.bindPopup(popup_bec2d191e627580813aa977399e66557)
         ;
 
         
     
     
-                marker_71d47facc5e03c552b755ac023616a8a.setIcon(icon_88a26773908b714b5f0ce583a6771ed3);
+                marker_a7cee36308e8453027cc713ce9ef68e5.setIcon(icon_7924f8798fbaec1022c822fc40cb4428);
             
     
-            var marker_2bd6bf3bd0a513b1547d045883dfc2fe = L.marker(
+            var marker_d0772ce9ffb256a2628040fcf400bebe = L.marker(
                 [-34.9102049, -56.1846634],
                 {
 }
-            ).addTo(map_e9b05ff2b3c1322499172d39dd7a020b);
+            ).addTo(map_766ede546bccef0a8426564b07d032bc);
         
     
-            var icon_68f44328a783defd56681032f298f41a = L.AwesomeMarkers.icon(
+            var icon_e1820ce1ef264209872594918f5d7c2e = L.AwesomeMarkers.icon(
                 {
   &quot;markerColor&quot;: &quot;purple&quot;,
   &quot;iconColor&quot;: &quot;white&quot;,
@@ -262,34 +564,34 @@
             );
         
     
-        var popup_a6c6218ab9181e1deb72d565ac0f032d = L.popup({
-  &quot;maxWidth&quot;: 300,
+        var popup_34b08d7a0e78dac0441dd3fcd1ce4c2c = L.popup({
+  &quot;maxWidth&quot;: 320,
 });
 
         
             
-                var html_08cef262e530934af0f35c868328e248 = $(`&lt;div id=&quot;html_08cef262e530934af0f35c868328e248&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Segoe UI&#x27;, Arial, sans-serif; min-width: 220px; padding: 5px;&quot;&gt;         &lt;h4 style=&quot;margin-top: 0; margin-bottom: 8px; color: #2c3e50; font-size: 14px;&quot;&gt;FANIO SA&lt;/h4&gt;         &lt;div style=&quot;background-color: #f8f9fa; padding: 8px; border-radius: 6px; border-left: 4px solid #3498db;&quot;&gt;             &lt;b style=&quot;color: #555; font-size: 10px; text-transform: uppercase;&quot;&gt;Categoría:&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color: #333; font-size: 12px; font-weight: bold;&quot;&gt;Importador Reparador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top: 10px; font-size: 10px; color: #7f8c8d; text-align: right;&quot;&gt;             &lt;i&gt;Fuente: Sugerido por LATU&lt;/i&gt;         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
-                popup_a6c6218ab9181e1deb72d565ac0f032d.setContent(html_08cef262e530934af0f35c868328e248);
+                var html_cfce91fcef254af8a6166201219f61bc = $(`&lt;div id=&quot;html_cfce91fcef254af8a6166201219f61bc&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Inter&#x27;,&#x27;Segoe UI&#x27;,Arial,sans-serif; min-width:240px; padding:4px;&quot;&gt;         &lt;h4 style=&quot;margin:0 0 10px 0; color:#0f172a; font-size:15px; font-weight:700;&quot;&gt;FANIO SA&lt;/h4&gt;         &lt;div style=&quot;background:#f1f5f9; padding:10px 12px; border-radius:8px; border-left:4px solid #0f4c81;&quot;&gt;             &lt;b style=&quot;color:#64748b; font-size:10px; text-transform:uppercase; letter-spacing:.5px;&quot;&gt;Categoría&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color:#0f172a; font-size:13px; font-weight:600;&quot;&gt;Importador Reparador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top:10px; font-size:10px; color:#94a3b8; text-align:right; font-style:italic;&quot;&gt;             Fuente: Sugerido por LATU         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
+                popup_34b08d7a0e78dac0441dd3fcd1ce4c2c.setContent(html_cfce91fcef254af8a6166201219f61bc);
             
         
 
-        marker_2bd6bf3bd0a513b1547d045883dfc2fe.bindPopup(popup_a6c6218ab9181e1deb72d565ac0f032d)
+        marker_d0772ce9ffb256a2628040fcf400bebe.bindPopup(popup_34b08d7a0e78dac0441dd3fcd1ce4c2c)
         ;
 
         
     
     
-                marker_2bd6bf3bd0a513b1547d045883dfc2fe.setIcon(icon_68f44328a783defd56681032f298f41a);
+                marker_d0772ce9ffb256a2628040fcf400bebe.setIcon(icon_e1820ce1ef264209872594918f5d7c2e);
             
     
-            var marker_1011ec3ac13ac4de1d94ed3805347873 = L.marker(
+            var marker_2cc99b36545a8d21355982ea73ac01d3 = L.marker(
                 [-34.8990504, -56.1465624],
                 {
 }
-            ).addTo(map_e9b05ff2b3c1322499172d39dd7a020b);
+            ).addTo(map_766ede546bccef0a8426564b07d032bc);
         
     
-            var icon_278f330988b5609307db233e23c239ed = L.AwesomeMarkers.icon(
+            var icon_5792a3d4f49e0d3ac9f379ac814c37e7 = L.AwesomeMarkers.icon(
                 {
   &quot;markerColor&quot;: &quot;purple&quot;,
   &quot;iconColor&quot;: &quot;white&quot;,
@@ -300,34 +602,34 @@
             );
         
     
-        var popup_5c376fd358e94f899887fe1ae78d2548 = L.popup({
-  &quot;maxWidth&quot;: 300,
+        var popup_4aa6ca9e78ef935fbb29b98f56c5ac6b = L.popup({
+  &quot;maxWidth&quot;: 320,
 });
 
         
             
-                var html_1f7138f3a0b001b344f6806d18c49c8a = $(`&lt;div id=&quot;html_1f7138f3a0b001b344f6806d18c49c8a&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Segoe UI&#x27;, Arial, sans-serif; min-width: 220px; padding: 5px;&quot;&gt;         &lt;h4 style=&quot;margin-top: 0; margin-bottom: 8px; color: #2c3e50; font-size: 14px;&quot;&gt;KEITO URUGUAY S A&lt;/h4&gt;         &lt;div style=&quot;background-color: #f8f9fa; padding: 8px; border-radius: 6px; border-left: 4px solid #3498db;&quot;&gt;             &lt;b style=&quot;color: #555; font-size: 10px; text-transform: uppercase;&quot;&gt;Categoría:&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color: #333; font-size: 12px; font-weight: bold;&quot;&gt;Importador Reparador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top: 10px; font-size: 10px; color: #7f8c8d; text-align: right;&quot;&gt;             &lt;i&gt;Fuente: Sugerido por LATU&lt;/i&gt;         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
-                popup_5c376fd358e94f899887fe1ae78d2548.setContent(html_1f7138f3a0b001b344f6806d18c49c8a);
+                var html_7c75ef32ec9132af89d82fce6f90a699 = $(`&lt;div id=&quot;html_7c75ef32ec9132af89d82fce6f90a699&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Inter&#x27;,&#x27;Segoe UI&#x27;,Arial,sans-serif; min-width:240px; padding:4px;&quot;&gt;         &lt;h4 style=&quot;margin:0 0 10px 0; color:#0f172a; font-size:15px; font-weight:700;&quot;&gt;KEITO URUGUAY S A&lt;/h4&gt;         &lt;div style=&quot;background:#f1f5f9; padding:10px 12px; border-radius:8px; border-left:4px solid #0f4c81;&quot;&gt;             &lt;b style=&quot;color:#64748b; font-size:10px; text-transform:uppercase; letter-spacing:.5px;&quot;&gt;Categoría&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color:#0f172a; font-size:13px; font-weight:600;&quot;&gt;Importador Reparador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top:10px; font-size:10px; color:#94a3b8; text-align:right; font-style:italic;&quot;&gt;             Fuente: Sugerido por LATU         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
+                popup_4aa6ca9e78ef935fbb29b98f56c5ac6b.setContent(html_7c75ef32ec9132af89d82fce6f90a699);
             
         
 
-        marker_1011ec3ac13ac4de1d94ed3805347873.bindPopup(popup_5c376fd358e94f899887fe1ae78d2548)
+        marker_2cc99b36545a8d21355982ea73ac01d3.bindPopup(popup_4aa6ca9e78ef935fbb29b98f56c5ac6b)
         ;
 
         
     
     
-                marker_1011ec3ac13ac4de1d94ed3805347873.setIcon(icon_278f330988b5609307db233e23c239ed);
+                marker_2cc99b36545a8d21355982ea73ac01d3.setIcon(icon_5792a3d4f49e0d3ac9f379ac814c37e7);
             
     
-            var marker_7ed1b79024d633f4925ea8328499e8c2 = L.marker(
+            var marker_50d59eb2e7f1a205b3219045f58312bf = L.marker(
                 [-34.8879025, -56.1762535],
                 {
 }
-            ).addTo(map_e9b05ff2b3c1322499172d39dd7a020b);
+            ).addTo(map_766ede546bccef0a8426564b07d032bc);
         
     
-            var icon_21794a1ab6e6292106df1ca71078764c = L.AwesomeMarkers.icon(
+            var icon_e23da316d4fab0c32a50ee940deb168f = L.AwesomeMarkers.icon(
                 {
   &quot;markerColor&quot;: &quot;purple&quot;,
   &quot;iconColor&quot;: &quot;white&quot;,
@@ -338,34 +640,34 @@
             );
         
     
-        var popup_fefb1f8ad7bedee2c04156673bc8e91a = L.popup({
-  &quot;maxWidth&quot;: 300,
+        var popup_0add80a08179ede8d000ec3ddd51643b = L.popup({
+  &quot;maxWidth&quot;: 320,
 });
 
         
             
-                var html_2a290528fe842967def43215cee3c7b4 = $(`&lt;div id=&quot;html_2a290528fe842967def43215cee3c7b4&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Segoe UI&#x27;, Arial, sans-serif; min-width: 220px; padding: 5px;&quot;&gt;         &lt;h4 style=&quot;margin-top: 0; margin-bottom: 8px; color: #2c3e50; font-size: 14px;&quot;&gt;TECMAR MEDICA S.A.&lt;/h4&gt;         &lt;div style=&quot;background-color: #f8f9fa; padding: 8px; border-radius: 6px; border-left: 4px solid #3498db;&quot;&gt;             &lt;b style=&quot;color: #555; font-size: 10px; text-transform: uppercase;&quot;&gt;Categoría:&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color: #333; font-size: 12px; font-weight: bold;&quot;&gt;Importador Reparador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top: 10px; font-size: 10px; color: #7f8c8d; text-align: right;&quot;&gt;             &lt;i&gt;Fuente: Sugerido por LATU&lt;/i&gt;         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
-                popup_fefb1f8ad7bedee2c04156673bc8e91a.setContent(html_2a290528fe842967def43215cee3c7b4);
+                var html_794c82bb30ba1b37e2cb877370fb25e1 = $(`&lt;div id=&quot;html_794c82bb30ba1b37e2cb877370fb25e1&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Inter&#x27;,&#x27;Segoe UI&#x27;,Arial,sans-serif; min-width:240px; padding:4px;&quot;&gt;         &lt;h4 style=&quot;margin:0 0 10px 0; color:#0f172a; font-size:15px; font-weight:700;&quot;&gt;TECMAR MEDICA S.A.&lt;/h4&gt;         &lt;div style=&quot;background:#f1f5f9; padding:10px 12px; border-radius:8px; border-left:4px solid #0f4c81;&quot;&gt;             &lt;b style=&quot;color:#64748b; font-size:10px; text-transform:uppercase; letter-spacing:.5px;&quot;&gt;Categoría&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color:#0f172a; font-size:13px; font-weight:600;&quot;&gt;Importador Reparador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top:10px; font-size:10px; color:#94a3b8; text-align:right; font-style:italic;&quot;&gt;             Fuente: Sugerido por LATU         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
+                popup_0add80a08179ede8d000ec3ddd51643b.setContent(html_794c82bb30ba1b37e2cb877370fb25e1);
             
         
 
-        marker_7ed1b79024d633f4925ea8328499e8c2.bindPopup(popup_fefb1f8ad7bedee2c04156673bc8e91a)
+        marker_50d59eb2e7f1a205b3219045f58312bf.bindPopup(popup_0add80a08179ede8d000ec3ddd51643b)
         ;
 
         
     
     
-                marker_7ed1b79024d633f4925ea8328499e8c2.setIcon(icon_21794a1ab6e6292106df1ca71078764c);
+                marker_50d59eb2e7f1a205b3219045f58312bf.setIcon(icon_e23da316d4fab0c32a50ee940deb168f);
             
     
-            var marker_7dcfb08af0692db4a4836f924f7a1dcf = L.marker(
+            var marker_633ed9abb18d7c42f6271b2ab3c60f38 = L.marker(
                 [-34.9095869, -56.1913639],
                 {
 }
-            ).addTo(map_e9b05ff2b3c1322499172d39dd7a020b);
+            ).addTo(map_766ede546bccef0a8426564b07d032bc);
         
     
-            var icon_9ba0c30d75fdd5759032cd3a693f3b82 = L.AwesomeMarkers.icon(
+            var icon_a01a92ba331eec773776d1b732fde547 = L.AwesomeMarkers.icon(
                 {
   &quot;markerColor&quot;: &quot;green&quot;,
   &quot;iconColor&quot;: &quot;white&quot;,
@@ -376,34 +678,34 @@
             );
         
     
-        var popup_09aaff2d4bdffa9714888e788507c3c1 = L.popup({
-  &quot;maxWidth&quot;: 300,
+        var popup_9ca277588541e231610710f85250f5c8 = L.popup({
+  &quot;maxWidth&quot;: 320,
 });
 
         
             
-                var html_0ea1c4a9c9ecd00c46ad3c11f098c717 = $(`&lt;div id=&quot;html_0ea1c4a9c9ecd00c46ad3c11f098c717&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Segoe UI&#x27;, Arial, sans-serif; min-width: 220px; padding: 5px;&quot;&gt;         &lt;h4 style=&quot;margin-top: 0; margin-bottom: 8px; color: #2c3e50; font-size: 14px;&quot;&gt;ARTILLEROS S.R.L.&lt;/h4&gt;         &lt;div style=&quot;background-color: #f8f9fa; padding: 8px; border-radius: 6px; border-left: 4px solid #3498db;&quot;&gt;             &lt;b style=&quot;color: #555; font-size: 10px; text-transform: uppercase;&quot;&gt;Categoría:&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color: #333; font-size: 12px; font-weight: bold;&quot;&gt;Importador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top: 10px; font-size: 10px; color: #7f8c8d; text-align: right;&quot;&gt;             &lt;i&gt;Fuente: Sugerido por LATU&lt;/i&gt;         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
-                popup_09aaff2d4bdffa9714888e788507c3c1.setContent(html_0ea1c4a9c9ecd00c46ad3c11f098c717);
+                var html_2b44c76348054759bfe4ea662382f784 = $(`&lt;div id=&quot;html_2b44c76348054759bfe4ea662382f784&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Inter&#x27;,&#x27;Segoe UI&#x27;,Arial,sans-serif; min-width:240px; padding:4px;&quot;&gt;         &lt;h4 style=&quot;margin:0 0 10px 0; color:#0f172a; font-size:15px; font-weight:700;&quot;&gt;ARTILLEROS S.R.L.&lt;/h4&gt;         &lt;div style=&quot;background:#f1f5f9; padding:10px 12px; border-radius:8px; border-left:4px solid #0f4c81;&quot;&gt;             &lt;b style=&quot;color:#64748b; font-size:10px; text-transform:uppercase; letter-spacing:.5px;&quot;&gt;Categoría&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color:#0f172a; font-size:13px; font-weight:600;&quot;&gt;Importador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top:10px; font-size:10px; color:#94a3b8; text-align:right; font-style:italic;&quot;&gt;             Fuente: Sugerido por LATU         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
+                popup_9ca277588541e231610710f85250f5c8.setContent(html_2b44c76348054759bfe4ea662382f784);
             
         
 
-        marker_7dcfb08af0692db4a4836f924f7a1dcf.bindPopup(popup_09aaff2d4bdffa9714888e788507c3c1)
+        marker_633ed9abb18d7c42f6271b2ab3c60f38.bindPopup(popup_9ca277588541e231610710f85250f5c8)
         ;
 
         
     
     
-                marker_7dcfb08af0692db4a4836f924f7a1dcf.setIcon(icon_9ba0c30d75fdd5759032cd3a693f3b82);
+                marker_633ed9abb18d7c42f6271b2ab3c60f38.setIcon(icon_a01a92ba331eec773776d1b732fde547);
             
     
-            var marker_18455fdf841ed16b4c55ea193cd6a469 = L.marker(
+            var marker_626fe7e037bedcaf86c305fff47a1a09 = L.marker(
                 [-34.8851543, -56.172572],
                 {
 }
-            ).addTo(map_e9b05ff2b3c1322499172d39dd7a020b);
+            ).addTo(map_766ede546bccef0a8426564b07d032bc);
         
     
-            var icon_c395bd8d757cddc7c4f752d97fda0efe = L.AwesomeMarkers.icon(
+            var icon_4f5f2ad081286788b907813cab97db81 = L.AwesomeMarkers.icon(
                 {
   &quot;markerColor&quot;: &quot;green&quot;,
   &quot;iconColor&quot;: &quot;white&quot;,
@@ -414,34 +716,34 @@
             );
         
     
-        var popup_726ae9e60a43f4656aed7f347180b7d5 = L.popup({
-  &quot;maxWidth&quot;: 300,
+        var popup_bc541b047334b64ebe31ae87cf264773 = L.popup({
+  &quot;maxWidth&quot;: 320,
 });
 
         
             
-                var html_4a09cb38092d99d899f007fdb5288503 = $(`&lt;div id=&quot;html_4a09cb38092d99d899f007fdb5288503&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Segoe UI&#x27;, Arial, sans-serif; min-width: 220px; padding: 5px;&quot;&gt;         &lt;h4 style=&quot;margin-top: 0; margin-bottom: 8px; color: #2c3e50; font-size: 14px;&quot;&gt;MEDICENTER SRL&lt;/h4&gt;         &lt;div style=&quot;background-color: #f8f9fa; padding: 8px; border-radius: 6px; border-left: 4px solid #3498db;&quot;&gt;             &lt;b style=&quot;color: #555; font-size: 10px; text-transform: uppercase;&quot;&gt;Categoría:&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color: #333; font-size: 12px; font-weight: bold;&quot;&gt;Importador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top: 10px; font-size: 10px; color: #7f8c8d; text-align: right;&quot;&gt;             &lt;i&gt;Fuente: Sugerido por LATU&lt;/i&gt;         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
-                popup_726ae9e60a43f4656aed7f347180b7d5.setContent(html_4a09cb38092d99d899f007fdb5288503);
+                var html_9f8727fbe045a07953a32c967bcaf321 = $(`&lt;div id=&quot;html_9f8727fbe045a07953a32c967bcaf321&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Inter&#x27;,&#x27;Segoe UI&#x27;,Arial,sans-serif; min-width:240px; padding:4px;&quot;&gt;         &lt;h4 style=&quot;margin:0 0 10px 0; color:#0f172a; font-size:15px; font-weight:700;&quot;&gt;MEDICENTER SRL&lt;/h4&gt;         &lt;div style=&quot;background:#f1f5f9; padding:10px 12px; border-radius:8px; border-left:4px solid #0f4c81;&quot;&gt;             &lt;b style=&quot;color:#64748b; font-size:10px; text-transform:uppercase; letter-spacing:.5px;&quot;&gt;Categoría&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color:#0f172a; font-size:13px; font-weight:600;&quot;&gt;Importador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top:10px; font-size:10px; color:#94a3b8; text-align:right; font-style:italic;&quot;&gt;             Fuente: Sugerido por LATU         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
+                popup_bc541b047334b64ebe31ae87cf264773.setContent(html_9f8727fbe045a07953a32c967bcaf321);
             
         
 
-        marker_18455fdf841ed16b4c55ea193cd6a469.bindPopup(popup_726ae9e60a43f4656aed7f347180b7d5)
+        marker_626fe7e037bedcaf86c305fff47a1a09.bindPopup(popup_bc541b047334b64ebe31ae87cf264773)
         ;
 
         
     
     
-                marker_18455fdf841ed16b4c55ea193cd6a469.setIcon(icon_c395bd8d757cddc7c4f752d97fda0efe);
+                marker_626fe7e037bedcaf86c305fff47a1a09.setIcon(icon_4f5f2ad081286788b907813cab97db81);
             
     
-            var marker_ca3fae3acc746328eb2f820e3425c2ad = L.marker(
+            var marker_7bf573b13ba10ef10520b290c7ad644e = L.marker(
                 [-34.9107955, -56.1759784],
                 {
 }
-            ).addTo(map_e9b05ff2b3c1322499172d39dd7a020b);
+            ).addTo(map_766ede546bccef0a8426564b07d032bc);
         
     
-            var icon_3de57747c9ed0e45c265559c140067a9 = L.AwesomeMarkers.icon(
+            var icon_ef66163ebaaec0e358bd293aac51936a = L.AwesomeMarkers.icon(
                 {
   &quot;markerColor&quot;: &quot;green&quot;,
   &quot;iconColor&quot;: &quot;white&quot;,
@@ -452,34 +754,34 @@
             );
         
     
-        var popup_edca1ce0ca0c8584f6e09f88fcaf4480 = L.popup({
-  &quot;maxWidth&quot;: 300,
+        var popup_0decfd2db485c87ba8c1f65c6e63f28c = L.popup({
+  &quot;maxWidth&quot;: 320,
 });
 
         
             
-                var html_a1777d846ace4d63d683b1312a66b79f = $(`&lt;div id=&quot;html_a1777d846ace4d63d683b1312a66b79f&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Segoe UI&#x27;, Arial, sans-serif; min-width: 220px; padding: 5px;&quot;&gt;         &lt;h4 style=&quot;margin-top: 0; margin-bottom: 8px; color: #2c3e50; font-size: 14px;&quot;&gt;UNION DISPROFARMA S.A&lt;/h4&gt;         &lt;div style=&quot;background-color: #f8f9fa; padding: 8px; border-radius: 6px; border-left: 4px solid #3498db;&quot;&gt;             &lt;b style=&quot;color: #555; font-size: 10px; text-transform: uppercase;&quot;&gt;Categoría:&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color: #333; font-size: 12px; font-weight: bold;&quot;&gt;Importador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top: 10px; font-size: 10px; color: #7f8c8d; text-align: right;&quot;&gt;             &lt;i&gt;Fuente: Sugerido por LATU&lt;/i&gt;         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
-                popup_edca1ce0ca0c8584f6e09f88fcaf4480.setContent(html_a1777d846ace4d63d683b1312a66b79f);
+                var html_f7e94a1f30720654a4fbe2defa55ef47 = $(`&lt;div id=&quot;html_f7e94a1f30720654a4fbe2defa55ef47&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Inter&#x27;,&#x27;Segoe UI&#x27;,Arial,sans-serif; min-width:240px; padding:4px;&quot;&gt;         &lt;h4 style=&quot;margin:0 0 10px 0; color:#0f172a; font-size:15px; font-weight:700;&quot;&gt;UNION DISPROFARMA S.A&lt;/h4&gt;         &lt;div style=&quot;background:#f1f5f9; padding:10px 12px; border-radius:8px; border-left:4px solid #0f4c81;&quot;&gt;             &lt;b style=&quot;color:#64748b; font-size:10px; text-transform:uppercase; letter-spacing:.5px;&quot;&gt;Categoría&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color:#0f172a; font-size:13px; font-weight:600;&quot;&gt;Importador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top:10px; font-size:10px; color:#94a3b8; text-align:right; font-style:italic;&quot;&gt;             Fuente: Sugerido por LATU         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
+                popup_0decfd2db485c87ba8c1f65c6e63f28c.setContent(html_f7e94a1f30720654a4fbe2defa55ef47);
             
         
 
-        marker_ca3fae3acc746328eb2f820e3425c2ad.bindPopup(popup_edca1ce0ca0c8584f6e09f88fcaf4480)
+        marker_7bf573b13ba10ef10520b290c7ad644e.bindPopup(popup_0decfd2db485c87ba8c1f65c6e63f28c)
         ;
 
         
     
     
-                marker_ca3fae3acc746328eb2f820e3425c2ad.setIcon(icon_3de57747c9ed0e45c265559c140067a9);
+                marker_7bf573b13ba10ef10520b290c7ad644e.setIcon(icon_ef66163ebaaec0e358bd293aac51936a);
             
     
-            var marker_bad7f26870d1b7b280c8edf695fefc80 = L.marker(
+            var marker_7a1f5586162c94860c0228158c777f07 = L.marker(
                 [-34.9102049, -56.1846634],
                 {
 }
-            ).addTo(map_e9b05ff2b3c1322499172d39dd7a020b);
+            ).addTo(map_766ede546bccef0a8426564b07d032bc);
         
     
-            var icon_e136914b5589cfb6eae699c2b216bd51 = L.AwesomeMarkers.icon(
+            var icon_0d58f5ed182fc0c28a52027990a988fa = L.AwesomeMarkers.icon(
                 {
   &quot;markerColor&quot;: &quot;green&quot;,
   &quot;iconColor&quot;: &quot;white&quot;,
@@ -490,34 +792,34 @@
             );
         
     
-        var popup_0b0bd84413c894f0d3856075957b2f03 = L.popup({
-  &quot;maxWidth&quot;: 300,
+        var popup_d409a1b039d04d2c8835e94f2aca86da = L.popup({
+  &quot;maxWidth&quot;: 320,
 });
 
         
             
-                var html_796e02f0f4c1552d56fa7f43cb4cfb2d = $(`&lt;div id=&quot;html_796e02f0f4c1552d56fa7f43cb4cfb2d&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Segoe UI&#x27;, Arial, sans-serif; min-width: 220px; padding: 5px;&quot;&gt;         &lt;h4 style=&quot;margin-top: 0; margin-bottom: 8px; color: #2c3e50; font-size: 14px;&quot;&gt;FANIO SA&lt;/h4&gt;         &lt;div style=&quot;background-color: #f8f9fa; padding: 8px; border-radius: 6px; border-left: 4px solid #3498db;&quot;&gt;             &lt;b style=&quot;color: #555; font-size: 10px; text-transform: uppercase;&quot;&gt;Categoría:&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color: #333; font-size: 12px; font-weight: bold;&quot;&gt;Importador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top: 10px; font-size: 10px; color: #7f8c8d; text-align: right;&quot;&gt;             &lt;i&gt;Fuente: Sugerido por LATU&lt;/i&gt;         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
-                popup_0b0bd84413c894f0d3856075957b2f03.setContent(html_796e02f0f4c1552d56fa7f43cb4cfb2d);
+                var html_3790bdd0f9dd6a92b9b3ae6bee8fdbde = $(`&lt;div id=&quot;html_3790bdd0f9dd6a92b9b3ae6bee8fdbde&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Inter&#x27;,&#x27;Segoe UI&#x27;,Arial,sans-serif; min-width:240px; padding:4px;&quot;&gt;         &lt;h4 style=&quot;margin:0 0 10px 0; color:#0f172a; font-size:15px; font-weight:700;&quot;&gt;FANIO SA&lt;/h4&gt;         &lt;div style=&quot;background:#f1f5f9; padding:10px 12px; border-radius:8px; border-left:4px solid #0f4c81;&quot;&gt;             &lt;b style=&quot;color:#64748b; font-size:10px; text-transform:uppercase; letter-spacing:.5px;&quot;&gt;Categoría&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color:#0f172a; font-size:13px; font-weight:600;&quot;&gt;Importador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top:10px; font-size:10px; color:#94a3b8; text-align:right; font-style:italic;&quot;&gt;             Fuente: Sugerido por LATU         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
+                popup_d409a1b039d04d2c8835e94f2aca86da.setContent(html_3790bdd0f9dd6a92b9b3ae6bee8fdbde);
             
         
 
-        marker_bad7f26870d1b7b280c8edf695fefc80.bindPopup(popup_0b0bd84413c894f0d3856075957b2f03)
+        marker_7a1f5586162c94860c0228158c777f07.bindPopup(popup_d409a1b039d04d2c8835e94f2aca86da)
         ;
 
         
     
     
-                marker_bad7f26870d1b7b280c8edf695fefc80.setIcon(icon_e136914b5589cfb6eae699c2b216bd51);
+                marker_7a1f5586162c94860c0228158c777f07.setIcon(icon_0d58f5ed182fc0c28a52027990a988fa);
             
     
-            var marker_29c8e2856add0044f6c9dfb04a80dcc1 = L.marker(
+            var marker_43da26c0e6e70d2bad89a36bd7617883 = L.marker(
                 [-34.8960358, -56.1659223],
                 {
 }
-            ).addTo(map_e9b05ff2b3c1322499172d39dd7a020b);
+            ).addTo(map_766ede546bccef0a8426564b07d032bc);
         
     
-            var icon_847f7374fd103c2c4992882019cde0ee = L.AwesomeMarkers.icon(
+            var icon_555f42009f338b951ad2b347b9d9daeb = L.AwesomeMarkers.icon(
                 {
   &quot;markerColor&quot;: &quot;green&quot;,
   &quot;iconColor&quot;: &quot;white&quot;,
@@ -528,34 +830,34 @@
             );
         
     
-        var popup_348e4eac5be2dc3d843fd343d27ecb67 = L.popup({
-  &quot;maxWidth&quot;: 300,
+        var popup_f0cf2ff8894ddc05c70357d7454562e9 = L.popup({
+  &quot;maxWidth&quot;: 320,
 });
 
         
             
-                var html_bb4a7d3390310852625d68ddd66d0db0 = $(`&lt;div id=&quot;html_bb4a7d3390310852625d68ddd66d0db0&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Segoe UI&#x27;, Arial, sans-serif; min-width: 220px; padding: 5px;&quot;&gt;         &lt;h4 style=&quot;margin-top: 0; margin-bottom: 8px; color: #2c3e50; font-size: 14px;&quot;&gt;MEDILAND S.A&lt;/h4&gt;         &lt;div style=&quot;background-color: #f8f9fa; padding: 8px; border-radius: 6px; border-left: 4px solid #3498db;&quot;&gt;             &lt;b style=&quot;color: #555; font-size: 10px; text-transform: uppercase;&quot;&gt;Categoría:&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color: #333; font-size: 12px; font-weight: bold;&quot;&gt;Importador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top: 10px; font-size: 10px; color: #7f8c8d; text-align: right;&quot;&gt;             &lt;i&gt;Fuente: Sugerido por LATU&lt;/i&gt;         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
-                popup_348e4eac5be2dc3d843fd343d27ecb67.setContent(html_bb4a7d3390310852625d68ddd66d0db0);
+                var html_486b43fc67813a18129ef86155ecb1b7 = $(`&lt;div id=&quot;html_486b43fc67813a18129ef86155ecb1b7&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Inter&#x27;,&#x27;Segoe UI&#x27;,Arial,sans-serif; min-width:240px; padding:4px;&quot;&gt;         &lt;h4 style=&quot;margin:0 0 10px 0; color:#0f172a; font-size:15px; font-weight:700;&quot;&gt;MEDILAND S.A&lt;/h4&gt;         &lt;div style=&quot;background:#f1f5f9; padding:10px 12px; border-radius:8px; border-left:4px solid #0f4c81;&quot;&gt;             &lt;b style=&quot;color:#64748b; font-size:10px; text-transform:uppercase; letter-spacing:.5px;&quot;&gt;Categoría&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color:#0f172a; font-size:13px; font-weight:600;&quot;&gt;Importador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top:10px; font-size:10px; color:#94a3b8; text-align:right; font-style:italic;&quot;&gt;             Fuente: Sugerido por LATU         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
+                popup_f0cf2ff8894ddc05c70357d7454562e9.setContent(html_486b43fc67813a18129ef86155ecb1b7);
             
         
 
-        marker_29c8e2856add0044f6c9dfb04a80dcc1.bindPopup(popup_348e4eac5be2dc3d843fd343d27ecb67)
+        marker_43da26c0e6e70d2bad89a36bd7617883.bindPopup(popup_f0cf2ff8894ddc05c70357d7454562e9)
         ;
 
         
     
     
-                marker_29c8e2856add0044f6c9dfb04a80dcc1.setIcon(icon_847f7374fd103c2c4992882019cde0ee);
+                marker_43da26c0e6e70d2bad89a36bd7617883.setIcon(icon_555f42009f338b951ad2b347b9d9daeb);
             
     
-            var marker_34b0d683708a5ba92f72c0207c47cf6b = L.marker(
+            var marker_c5abf02f985e7b7a440c218022b9cba2 = L.marker(
                 [-34.8927738, -56.0833129],
                 {
 }
-            ).addTo(map_e9b05ff2b3c1322499172d39dd7a020b);
+            ).addTo(map_766ede546bccef0a8426564b07d032bc);
         
     
-            var icon_02a7c9d148406d212b2b8b7e9de3aea1 = L.AwesomeMarkers.icon(
+            var icon_e50bc6fb63e25dc2d484bb74464b4db2 = L.AwesomeMarkers.icon(
                 {
   &quot;markerColor&quot;: &quot;green&quot;,
   &quot;iconColor&quot;: &quot;white&quot;,
@@ -566,34 +868,34 @@
             );
         
     
-        var popup_e482ec0cfd414f4588f5ac8ab761693b = L.popup({
-  &quot;maxWidth&quot;: 300,
+        var popup_0aac3ec4d5b1263aa3a36418cecc5bf7 = L.popup({
+  &quot;maxWidth&quot;: 320,
 });
 
         
             
-                var html_adbc331cca19d78d98aca5c5ebd76ae2 = $(`&lt;div id=&quot;html_adbc331cca19d78d98aca5c5ebd76ae2&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Segoe UI&#x27;, Arial, sans-serif; min-width: 220px; padding: 5px;&quot;&gt;         &lt;h4 style=&quot;margin-top: 0; margin-bottom: 8px; color: #2c3e50; font-size: 14px;&quot;&gt;GW Y DW S.R.L&lt;/h4&gt;         &lt;div style=&quot;background-color: #f8f9fa; padding: 8px; border-radius: 6px; border-left: 4px solid #3498db;&quot;&gt;             &lt;b style=&quot;color: #555; font-size: 10px; text-transform: uppercase;&quot;&gt;Categoría:&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color: #333; font-size: 12px; font-weight: bold;&quot;&gt;Importador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top: 10px; font-size: 10px; color: #7f8c8d; text-align: right;&quot;&gt;             &lt;i&gt;Fuente: Sugerido por LATU&lt;/i&gt;         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
-                popup_e482ec0cfd414f4588f5ac8ab761693b.setContent(html_adbc331cca19d78d98aca5c5ebd76ae2);
+                var html_17a6c0a89eec018773a9c8881d8f5757 = $(`&lt;div id=&quot;html_17a6c0a89eec018773a9c8881d8f5757&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Inter&#x27;,&#x27;Segoe UI&#x27;,Arial,sans-serif; min-width:240px; padding:4px;&quot;&gt;         &lt;h4 style=&quot;margin:0 0 10px 0; color:#0f172a; font-size:15px; font-weight:700;&quot;&gt;GW Y DW S.R.L&lt;/h4&gt;         &lt;div style=&quot;background:#f1f5f9; padding:10px 12px; border-radius:8px; border-left:4px solid #0f4c81;&quot;&gt;             &lt;b style=&quot;color:#64748b; font-size:10px; text-transform:uppercase; letter-spacing:.5px;&quot;&gt;Categoría&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color:#0f172a; font-size:13px; font-weight:600;&quot;&gt;Importador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top:10px; font-size:10px; color:#94a3b8; text-align:right; font-style:italic;&quot;&gt;             Fuente: Sugerido por LATU         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
+                popup_0aac3ec4d5b1263aa3a36418cecc5bf7.setContent(html_17a6c0a89eec018773a9c8881d8f5757);
             
         
 
-        marker_34b0d683708a5ba92f72c0207c47cf6b.bindPopup(popup_e482ec0cfd414f4588f5ac8ab761693b)
+        marker_c5abf02f985e7b7a440c218022b9cba2.bindPopup(popup_0aac3ec4d5b1263aa3a36418cecc5bf7)
         ;
 
         
     
     
-                marker_34b0d683708a5ba92f72c0207c47cf6b.setIcon(icon_02a7c9d148406d212b2b8b7e9de3aea1);
+                marker_c5abf02f985e7b7a440c218022b9cba2.setIcon(icon_e50bc6fb63e25dc2d484bb74464b4db2);
             
     
-            var marker_ad60e6d594b5f3a8aef0485d9e84fc08 = L.marker(
+            var marker_cc6be263e3f567efb8de5f003af41a42 = L.marker(
                 [-34.9078319, -56.2034867],
                 {
 }
-            ).addTo(map_e9b05ff2b3c1322499172d39dd7a020b);
+            ).addTo(map_766ede546bccef0a8426564b07d032bc);
         
     
-            var icon_75a449915322f7bede58d98eb15b7d3b = L.AwesomeMarkers.icon(
+            var icon_0aa495f076aee33d3539706d5bc0e369 = L.AwesomeMarkers.icon(
                 {
   &quot;markerColor&quot;: &quot;green&quot;,
   &quot;iconColor&quot;: &quot;white&quot;,
@@ -604,34 +906,34 @@
             );
         
     
-        var popup_f500e72d46982258c1dc37335b17644b = L.popup({
-  &quot;maxWidth&quot;: 300,
+        var popup_57ad0bbe9af590eb6a97f0919b8a2e1c = L.popup({
+  &quot;maxWidth&quot;: 320,
 });
 
         
             
-                var html_0f3ef43c75d35aff4e4897755de76c5a = $(`&lt;div id=&quot;html_0f3ef43c75d35aff4e4897755de76c5a&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Segoe UI&#x27;, Arial, sans-serif; min-width: 220px; padding: 5px;&quot;&gt;         &lt;h4 style=&quot;margin-top: 0; margin-bottom: 8px; color: #2c3e50; font-size: 14px;&quot;&gt;ARUYA SA&lt;/h4&gt;         &lt;div style=&quot;background-color: #f8f9fa; padding: 8px; border-radius: 6px; border-left: 4px solid #3498db;&quot;&gt;             &lt;b style=&quot;color: #555; font-size: 10px; text-transform: uppercase;&quot;&gt;Categoría:&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color: #333; font-size: 12px; font-weight: bold;&quot;&gt;Importador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top: 10px; font-size: 10px; color: #7f8c8d; text-align: right;&quot;&gt;             &lt;i&gt;Fuente: Sugerido por LATU&lt;/i&gt;         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
-                popup_f500e72d46982258c1dc37335b17644b.setContent(html_0f3ef43c75d35aff4e4897755de76c5a);
+                var html_65284e53c8d7f53c9836807f7ebf299d = $(`&lt;div id=&quot;html_65284e53c8d7f53c9836807f7ebf299d&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Inter&#x27;,&#x27;Segoe UI&#x27;,Arial,sans-serif; min-width:240px; padding:4px;&quot;&gt;         &lt;h4 style=&quot;margin:0 0 10px 0; color:#0f172a; font-size:15px; font-weight:700;&quot;&gt;ARUYA SA&lt;/h4&gt;         &lt;div style=&quot;background:#f1f5f9; padding:10px 12px; border-radius:8px; border-left:4px solid #0f4c81;&quot;&gt;             &lt;b style=&quot;color:#64748b; font-size:10px; text-transform:uppercase; letter-spacing:.5px;&quot;&gt;Categoría&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color:#0f172a; font-size:13px; font-weight:600;&quot;&gt;Importador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top:10px; font-size:10px; color:#94a3b8; text-align:right; font-style:italic;&quot;&gt;             Fuente: Sugerido por LATU         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
+                popup_57ad0bbe9af590eb6a97f0919b8a2e1c.setContent(html_65284e53c8d7f53c9836807f7ebf299d);
             
         
 
-        marker_ad60e6d594b5f3a8aef0485d9e84fc08.bindPopup(popup_f500e72d46982258c1dc37335b17644b)
+        marker_cc6be263e3f567efb8de5f003af41a42.bindPopup(popup_57ad0bbe9af590eb6a97f0919b8a2e1c)
         ;
 
         
     
     
-                marker_ad60e6d594b5f3a8aef0485d9e84fc08.setIcon(icon_75a449915322f7bede58d98eb15b7d3b);
+                marker_cc6be263e3f567efb8de5f003af41a42.setIcon(icon_0aa495f076aee33d3539706d5bc0e369);
             
     
-            var marker_dd0707209f12b1a59f6e3fdb9b69c7ba = L.marker(
-                [-34.8651693, -56.178707],
+            var marker_9fd95dcb58a06ebaf6dc856118fa9ac1 = L.marker(
+                [-34.8611293, -56.1761506],
                 {
 }
-            ).addTo(map_e9b05ff2b3c1322499172d39dd7a020b);
+            ).addTo(map_766ede546bccef0a8426564b07d032bc);
         
     
-            var icon_3f89dbd262339c00f72b73dd8c8a7ce0 = L.AwesomeMarkers.icon(
+            var icon_b8369a5a87c2cafc37ba40815533e251 = L.AwesomeMarkers.icon(
                 {
   &quot;markerColor&quot;: &quot;orange&quot;,
   &quot;iconColor&quot;: &quot;white&quot;,
@@ -642,34 +944,34 @@
             );
         
     
-        var popup_15c0f23e59d5bceedfc9a8e354cfac22 = L.popup({
-  &quot;maxWidth&quot;: 300,
+        var popup_339ff14d2f413039d8a2cd7f9c36f98d = L.popup({
+  &quot;maxWidth&quot;: 320,
 });
 
         
             
-                var html_1605fc8679e8b7f3405b5fbfcbac5ea3 = $(`&lt;div id=&quot;html_1605fc8679e8b7f3405b5fbfcbac5ea3&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Segoe UI&#x27;, Arial, sans-serif; min-width: 220px; padding: 5px;&quot;&gt;         &lt;h4 style=&quot;margin-top: 0; margin-bottom: 8px; color: #2c3e50; font-size: 14px;&quot;&gt;NESTOR LUIS PAEZ MERA&lt;/h4&gt;         &lt;div style=&quot;background-color: #f8f9fa; padding: 8px; border-radius: 6px; border-left: 4px solid #3498db;&quot;&gt;             &lt;b style=&quot;color: #555; font-size: 10px; text-transform: uppercase;&quot;&gt;Categoría:&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color: #333; font-size: 12px; font-weight: bold;&quot;&gt;Reparador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top: 10px; font-size: 10px; color: #7f8c8d; text-align: right;&quot;&gt;             &lt;i&gt;Fuente: Sugerido por LATU&lt;/i&gt;         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
-                popup_15c0f23e59d5bceedfc9a8e354cfac22.setContent(html_1605fc8679e8b7f3405b5fbfcbac5ea3);
+                var html_57ff0b2193c129f56bcf96402d1acd99 = $(`&lt;div id=&quot;html_57ff0b2193c129f56bcf96402d1acd99&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Inter&#x27;,&#x27;Segoe UI&#x27;,Arial,sans-serif; min-width:240px; padding:4px;&quot;&gt;         &lt;h4 style=&quot;margin:0 0 10px 0; color:#0f172a; font-size:15px; font-weight:700;&quot;&gt;NESTOR LUIS PAEZ MERA&lt;/h4&gt;         &lt;div style=&quot;background:#f1f5f9; padding:10px 12px; border-radius:8px; border-left:4px solid #0f4c81;&quot;&gt;             &lt;b style=&quot;color:#64748b; font-size:10px; text-transform:uppercase; letter-spacing:.5px;&quot;&gt;Categoría&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color:#0f172a; font-size:13px; font-weight:600;&quot;&gt;Reparador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top:10px; font-size:10px; color:#94a3b8; text-align:right; font-style:italic;&quot;&gt;             Fuente: Sugerido por LATU         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
+                popup_339ff14d2f413039d8a2cd7f9c36f98d.setContent(html_57ff0b2193c129f56bcf96402d1acd99);
             
         
 
-        marker_dd0707209f12b1a59f6e3fdb9b69c7ba.bindPopup(popup_15c0f23e59d5bceedfc9a8e354cfac22)
+        marker_9fd95dcb58a06ebaf6dc856118fa9ac1.bindPopup(popup_339ff14d2f413039d8a2cd7f9c36f98d)
         ;
 
         
     
     
-                marker_dd0707209f12b1a59f6e3fdb9b69c7ba.setIcon(icon_3f89dbd262339c00f72b73dd8c8a7ce0);
+                marker_9fd95dcb58a06ebaf6dc856118fa9ac1.setIcon(icon_b8369a5a87c2cafc37ba40815533e251);
             
     
-            var marker_39de4825accc6a1b8ca2764296fbf576 = L.marker(
+            var marker_0e1440c39ddd41507e08b5929a03e46c = L.marker(
                 [-34.9015349, -56.1667299],
                 {
 }
-            ).addTo(map_e9b05ff2b3c1322499172d39dd7a020b);
+            ).addTo(map_766ede546bccef0a8426564b07d032bc);
         
     
-            var icon_c92dfc0567ec0cd01a41ae8e909c796d = L.AwesomeMarkers.icon(
+            var icon_9e06f92edc42d814a3c0c5171e46307c = L.AwesomeMarkers.icon(
                 {
   &quot;markerColor&quot;: &quot;orange&quot;,
   &quot;iconColor&quot;: &quot;white&quot;,
@@ -680,34 +982,34 @@
             );
         
     
-        var popup_268be44bf01b926977522947bca37654 = L.popup({
-  &quot;maxWidth&quot;: 300,
+        var popup_09cf3c3748efbf05454b11182cf48bc1 = L.popup({
+  &quot;maxWidth&quot;: 320,
 });
 
         
             
-                var html_7707527bd0a1345cb5e0ec5e4dacbc31 = $(`&lt;div id=&quot;html_7707527bd0a1345cb5e0ec5e4dacbc31&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Segoe UI&#x27;, Arial, sans-serif; min-width: 220px; padding: 5px;&quot;&gt;         &lt;h4 style=&quot;margin-top: 0; margin-bottom: 8px; color: #2c3e50; font-size: 14px;&quot;&gt;MBR LTDA&lt;/h4&gt;         &lt;div style=&quot;background-color: #f8f9fa; padding: 8px; border-radius: 6px; border-left: 4px solid #3498db;&quot;&gt;             &lt;b style=&quot;color: #555; font-size: 10px; text-transform: uppercase;&quot;&gt;Categoría:&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color: #333; font-size: 12px; font-weight: bold;&quot;&gt;Reparador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top: 10px; font-size: 10px; color: #7f8c8d; text-align: right;&quot;&gt;             &lt;i&gt;Fuente: Sugerido por LATU&lt;/i&gt;         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
-                popup_268be44bf01b926977522947bca37654.setContent(html_7707527bd0a1345cb5e0ec5e4dacbc31);
+                var html_8905f9ec7f16d943b6470d4b6242b623 = $(`&lt;div id=&quot;html_8905f9ec7f16d943b6470d4b6242b623&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Inter&#x27;,&#x27;Segoe UI&#x27;,Arial,sans-serif; min-width:240px; padding:4px;&quot;&gt;         &lt;h4 style=&quot;margin:0 0 10px 0; color:#0f172a; font-size:15px; font-weight:700;&quot;&gt;MBR LTDA&lt;/h4&gt;         &lt;div style=&quot;background:#f1f5f9; padding:10px 12px; border-radius:8px; border-left:4px solid #0f4c81;&quot;&gt;             &lt;b style=&quot;color:#64748b; font-size:10px; text-transform:uppercase; letter-spacing:.5px;&quot;&gt;Categoría&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color:#0f172a; font-size:13px; font-weight:600;&quot;&gt;Reparador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top:10px; font-size:10px; color:#94a3b8; text-align:right; font-style:italic;&quot;&gt;             Fuente: Sugerido por LATU         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
+                popup_09cf3c3748efbf05454b11182cf48bc1.setContent(html_8905f9ec7f16d943b6470d4b6242b623);
             
         
 
-        marker_39de4825accc6a1b8ca2764296fbf576.bindPopup(popup_268be44bf01b926977522947bca37654)
+        marker_0e1440c39ddd41507e08b5929a03e46c.bindPopup(popup_09cf3c3748efbf05454b11182cf48bc1)
         ;
 
         
     
     
-                marker_39de4825accc6a1b8ca2764296fbf576.setIcon(icon_c92dfc0567ec0cd01a41ae8e909c796d);
+                marker_0e1440c39ddd41507e08b5929a03e46c.setIcon(icon_9e06f92edc42d814a3c0c5171e46307c);
             
     
-            var marker_87103749c4cdbb15b42a54d72fa84d71 = L.marker(
+            var marker_98a22fc3a7cd8dc1e547c265501353ab = L.marker(
                 [-34.9078319, -56.2034867],
                 {
 }
-            ).addTo(map_e9b05ff2b3c1322499172d39dd7a020b);
+            ).addTo(map_766ede546bccef0a8426564b07d032bc);
         
     
-            var icon_98447c65e9dc0b7f0b633697b044d279 = L.AwesomeMarkers.icon(
+            var icon_6a88adc959c6f2a84eda7229a5afb047 = L.AwesomeMarkers.icon(
                 {
   &quot;markerColor&quot;: &quot;green&quot;,
   &quot;iconColor&quot;: &quot;white&quot;,
@@ -718,34 +1020,34 @@
             );
         
     
-        var popup_472a9af5a56df0debf6214a8773e6586 = L.popup({
-  &quot;maxWidth&quot;: 300,
+        var popup_cb50ed6e519fe900f9c5140e3655b3d0 = L.popup({
+  &quot;maxWidth&quot;: 320,
 });
 
         
             
-                var html_b3d9e67458f1f7de9db004ba645e61e5 = $(`&lt;div id=&quot;html_b3d9e67458f1f7de9db004ba645e61e5&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Segoe UI&#x27;, Arial, sans-serif; min-width: 220px; padding: 5px;&quot;&gt;         &lt;h4 style=&quot;margin-top: 0; margin-bottom: 8px; color: #2c3e50; font-size: 14px;&quot;&gt;SUCESORES DE SAUL FOJGIEL LTDA&lt;/h4&gt;         &lt;div style=&quot;background-color: #f8f9fa; padding: 8px; border-radius: 6px; border-left: 4px solid #3498db;&quot;&gt;             &lt;b style=&quot;color: #555; font-size: 10px; text-transform: uppercase;&quot;&gt;Categoría:&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color: #333; font-size: 12px; font-weight: bold;&quot;&gt;Importador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top: 10px; font-size: 10px; color: #7f8c8d; text-align: right;&quot;&gt;             &lt;i&gt;Fuente: Sugerido por LATU&lt;/i&gt;         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
-                popup_472a9af5a56df0debf6214a8773e6586.setContent(html_b3d9e67458f1f7de9db004ba645e61e5);
+                var html_b2d9520dc072deb7df56f9c199474002 = $(`&lt;div id=&quot;html_b2d9520dc072deb7df56f9c199474002&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Inter&#x27;,&#x27;Segoe UI&#x27;,Arial,sans-serif; min-width:240px; padding:4px;&quot;&gt;         &lt;h4 style=&quot;margin:0 0 10px 0; color:#0f172a; font-size:15px; font-weight:700;&quot;&gt;SUCESORES DE SAUL FOJGIEL LTDA&lt;/h4&gt;         &lt;div style=&quot;background:#f1f5f9; padding:10px 12px; border-radius:8px; border-left:4px solid #0f4c81;&quot;&gt;             &lt;b style=&quot;color:#64748b; font-size:10px; text-transform:uppercase; letter-spacing:.5px;&quot;&gt;Categoría&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color:#0f172a; font-size:13px; font-weight:600;&quot;&gt;Importador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top:10px; font-size:10px; color:#94a3b8; text-align:right; font-style:italic;&quot;&gt;             Fuente: Sugerido por LATU         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
+                popup_cb50ed6e519fe900f9c5140e3655b3d0.setContent(html_b2d9520dc072deb7df56f9c199474002);
             
         
 
-        marker_87103749c4cdbb15b42a54d72fa84d71.bindPopup(popup_472a9af5a56df0debf6214a8773e6586)
+        marker_98a22fc3a7cd8dc1e547c265501353ab.bindPopup(popup_cb50ed6e519fe900f9c5140e3655b3d0)
         ;
 
         
     
     
-                marker_87103749c4cdbb15b42a54d72fa84d71.setIcon(icon_98447c65e9dc0b7f0b633697b044d279);
+                marker_98a22fc3a7cd8dc1e547c265501353ab.setIcon(icon_6a88adc959c6f2a84eda7229a5afb047);
             
     
-            var marker_c3f391ca6fba7091e830906219f6f0b2 = L.marker(
+            var marker_80437821f4a42eafc48bbad53749e362 = L.marker(
                 [-34.8879025, -56.1762535],
                 {
 }
-            ).addTo(map_e9b05ff2b3c1322499172d39dd7a020b);
+            ).addTo(map_766ede546bccef0a8426564b07d032bc);
         
     
-            var icon_c3f154244544b329722c3fa84f424ed9 = L.AwesomeMarkers.icon(
+            var icon_ee438b18b7bd659339c514191d1bdf9d = L.AwesomeMarkers.icon(
                 {
   &quot;markerColor&quot;: &quot;purple&quot;,
   &quot;iconColor&quot;: &quot;white&quot;,
@@ -756,34 +1058,34 @@
             );
         
     
-        var popup_68c328cc38701c9e3e6d1dc87fcf574f = L.popup({
-  &quot;maxWidth&quot;: 300,
+        var popup_16b207ea53b1102eaa4c7f541242aa03 = L.popup({
+  &quot;maxWidth&quot;: 320,
 });
 
         
             
-                var html_637f6dd8ec53f564d4dfa3dde7ad93b1 = $(`&lt;div id=&quot;html_637f6dd8ec53f564d4dfa3dde7ad93b1&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Segoe UI&#x27;, Arial, sans-serif; min-width: 220px; padding: 5px;&quot;&gt;         &lt;h4 style=&quot;margin-top: 0; margin-bottom: 8px; color: #2c3e50; font-size: 14px;&quot;&gt;TECMAR MEDICA S.A.&lt;/h4&gt;         &lt;div style=&quot;background-color: #f8f9fa; padding: 8px; border-radius: 6px; border-left: 4px solid #3498db;&quot;&gt;             &lt;b style=&quot;color: #555; font-size: 10px; text-transform: uppercase;&quot;&gt;Categoría:&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color: #333; font-size: 12px; font-weight: bold;&quot;&gt;Importador Reparador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top: 10px; font-size: 10px; color: #7f8c8d; text-align: right;&quot;&gt;             &lt;i&gt;Fuente: Sugerido por LATU&lt;/i&gt;         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
-                popup_68c328cc38701c9e3e6d1dc87fcf574f.setContent(html_637f6dd8ec53f564d4dfa3dde7ad93b1);
+                var html_2a961f4735fc2adf233a328de22655ea = $(`&lt;div id=&quot;html_2a961f4735fc2adf233a328de22655ea&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Inter&#x27;,&#x27;Segoe UI&#x27;,Arial,sans-serif; min-width:240px; padding:4px;&quot;&gt;         &lt;h4 style=&quot;margin:0 0 10px 0; color:#0f172a; font-size:15px; font-weight:700;&quot;&gt;TECMAR MEDICA S.A.&lt;/h4&gt;         &lt;div style=&quot;background:#f1f5f9; padding:10px 12px; border-radius:8px; border-left:4px solid #0f4c81;&quot;&gt;             &lt;b style=&quot;color:#64748b; font-size:10px; text-transform:uppercase; letter-spacing:.5px;&quot;&gt;Categoría&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color:#0f172a; font-size:13px; font-weight:600;&quot;&gt;Importador Reparador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top:10px; font-size:10px; color:#94a3b8; text-align:right; font-style:italic;&quot;&gt;             Fuente: Sugerido por LATU         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
+                popup_16b207ea53b1102eaa4c7f541242aa03.setContent(html_2a961f4735fc2adf233a328de22655ea);
             
         
 
-        marker_c3f391ca6fba7091e830906219f6f0b2.bindPopup(popup_68c328cc38701c9e3e6d1dc87fcf574f)
+        marker_80437821f4a42eafc48bbad53749e362.bindPopup(popup_16b207ea53b1102eaa4c7f541242aa03)
         ;
 
         
     
     
-                marker_c3f391ca6fba7091e830906219f6f0b2.setIcon(icon_c3f154244544b329722c3fa84f424ed9);
+                marker_80437821f4a42eafc48bbad53749e362.setIcon(icon_ee438b18b7bd659339c514191d1bdf9d);
             
     
-            var marker_c658791cca753f17b55ccb23c951570a = L.marker(
+            var marker_d509bf6e8e6ccbe6b9b9c0641bd7e5ea = L.marker(
                 [-34.8914069, -56.074603],
                 {
 }
-            ).addTo(map_e9b05ff2b3c1322499172d39dd7a020b);
+            ).addTo(map_766ede546bccef0a8426564b07d032bc);
         
     
-            var icon_02972b226895fd746664dd1ebf1b154b = L.AwesomeMarkers.icon(
+            var icon_30c110794a3a389329f2c2c944497db5 = L.AwesomeMarkers.icon(
                 {
   &quot;markerColor&quot;: &quot;green&quot;,
   &quot;iconColor&quot;: &quot;white&quot;,
@@ -794,34 +1096,34 @@
             );
         
     
-        var popup_88c73f7de230bdd1e8c628947bd73915 = L.popup({
-  &quot;maxWidth&quot;: 300,
+        var popup_2b518c05aa69695dc3457fb87f7172f7 = L.popup({
+  &quot;maxWidth&quot;: 320,
 });
 
         
             
-                var html_b44e50871fd61971fc87c90df111c484 = $(`&lt;div id=&quot;html_b44e50871fd61971fc87c90df111c484&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Segoe UI&#x27;, Arial, sans-serif; min-width: 220px; padding: 5px;&quot;&gt;         &lt;h4 style=&quot;margin-top: 0; margin-bottom: 8px; color: #2c3e50; font-size: 14px;&quot;&gt;JORGE N. GONZALEZ&lt;/h4&gt;         &lt;div style=&quot;background-color: #f8f9fa; padding: 8px; border-radius: 6px; border-left: 4px solid #3498db;&quot;&gt;             &lt;b style=&quot;color: #555; font-size: 10px; text-transform: uppercase;&quot;&gt;Categoría:&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color: #333; font-size: 12px; font-weight: bold;&quot;&gt;Importador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top: 10px; font-size: 10px; color: #7f8c8d; text-align: right;&quot;&gt;             &lt;i&gt;Fuente: Sugerido por LATU&lt;/i&gt;         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
-                popup_88c73f7de230bdd1e8c628947bd73915.setContent(html_b44e50871fd61971fc87c90df111c484);
+                var html_9c88c68f3eea146ec13f8d9f9a0d7f7c = $(`&lt;div id=&quot;html_9c88c68f3eea146ec13f8d9f9a0d7f7c&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Inter&#x27;,&#x27;Segoe UI&#x27;,Arial,sans-serif; min-width:240px; padding:4px;&quot;&gt;         &lt;h4 style=&quot;margin:0 0 10px 0; color:#0f172a; font-size:15px; font-weight:700;&quot;&gt;JORGE N. GONZALEZ&lt;/h4&gt;         &lt;div style=&quot;background:#f1f5f9; padding:10px 12px; border-radius:8px; border-left:4px solid #0f4c81;&quot;&gt;             &lt;b style=&quot;color:#64748b; font-size:10px; text-transform:uppercase; letter-spacing:.5px;&quot;&gt;Categoría&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color:#0f172a; font-size:13px; font-weight:600;&quot;&gt;Importador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top:10px; font-size:10px; color:#94a3b8; text-align:right; font-style:italic;&quot;&gt;             Fuente: Sugerido por LATU         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
+                popup_2b518c05aa69695dc3457fb87f7172f7.setContent(html_9c88c68f3eea146ec13f8d9f9a0d7f7c);
             
         
 
-        marker_c658791cca753f17b55ccb23c951570a.bindPopup(popup_88c73f7de230bdd1e8c628947bd73915)
+        marker_d509bf6e8e6ccbe6b9b9c0641bd7e5ea.bindPopup(popup_2b518c05aa69695dc3457fb87f7172f7)
         ;
 
         
     
     
-                marker_c658791cca753f17b55ccb23c951570a.setIcon(icon_02972b226895fd746664dd1ebf1b154b);
+                marker_d509bf6e8e6ccbe6b9b9c0641bd7e5ea.setIcon(icon_30c110794a3a389329f2c2c944497db5);
             
     
-            var marker_0ccc378ec9512a442d18d28513de543e = L.marker(
+            var marker_709a21a6b217a8773d3ac9a84e4fc58a = L.marker(
                 [-34.8802231, -56.1740781],
                 {
 }
-            ).addTo(map_e9b05ff2b3c1322499172d39dd7a020b);
+            ).addTo(map_766ede546bccef0a8426564b07d032bc);
         
     
-            var icon_84cbbd4f48436f469cc07544595e5a82 = L.AwesomeMarkers.icon(
+            var icon_2327dd8e2cfc4046a7f609a33448766a = L.AwesomeMarkers.icon(
                 {
   &quot;markerColor&quot;: &quot;green&quot;,
   &quot;iconColor&quot;: &quot;white&quot;,
@@ -832,34 +1134,34 @@
             );
         
     
-        var popup_5858bec629f33165da86be848ef0a455 = L.popup({
-  &quot;maxWidth&quot;: 300,
+        var popup_d3acca87ef0ffd2fb91665b65e08658f = L.popup({
+  &quot;maxWidth&quot;: 320,
 });
 
         
             
-                var html_0171ac3552986c4101ed880c45c67254 = $(`&lt;div id=&quot;html_0171ac3552986c4101ed880c45c67254&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Segoe UI&#x27;, Arial, sans-serif; min-width: 220px; padding: 5px;&quot;&gt;         &lt;h4 style=&quot;margin-top: 0; margin-bottom: 8px; color: #2c3e50; font-size: 14px;&quot;&gt;MARE URUGUAY LTDA.&lt;/h4&gt;         &lt;div style=&quot;background-color: #f8f9fa; padding: 8px; border-radius: 6px; border-left: 4px solid #3498db;&quot;&gt;             &lt;b style=&quot;color: #555; font-size: 10px; text-transform: uppercase;&quot;&gt;Categoría:&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color: #333; font-size: 12px; font-weight: bold;&quot;&gt;Importador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top: 10px; font-size: 10px; color: #7f8c8d; text-align: right;&quot;&gt;             &lt;i&gt;Fuente: Sugerido por LATU&lt;/i&gt;         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
-                popup_5858bec629f33165da86be848ef0a455.setContent(html_0171ac3552986c4101ed880c45c67254);
+                var html_24308cdf7691482952f236b1f6c08d70 = $(`&lt;div id=&quot;html_24308cdf7691482952f236b1f6c08d70&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Inter&#x27;,&#x27;Segoe UI&#x27;,Arial,sans-serif; min-width:240px; padding:4px;&quot;&gt;         &lt;h4 style=&quot;margin:0 0 10px 0; color:#0f172a; font-size:15px; font-weight:700;&quot;&gt;MARE URUGUAY LTDA.&lt;/h4&gt;         &lt;div style=&quot;background:#f1f5f9; padding:10px 12px; border-radius:8px; border-left:4px solid #0f4c81;&quot;&gt;             &lt;b style=&quot;color:#64748b; font-size:10px; text-transform:uppercase; letter-spacing:.5px;&quot;&gt;Categoría&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color:#0f172a; font-size:13px; font-weight:600;&quot;&gt;Importador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top:10px; font-size:10px; color:#94a3b8; text-align:right; font-style:italic;&quot;&gt;             Fuente: Sugerido por LATU         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
+                popup_d3acca87ef0ffd2fb91665b65e08658f.setContent(html_24308cdf7691482952f236b1f6c08d70);
             
         
 
-        marker_0ccc378ec9512a442d18d28513de543e.bindPopup(popup_5858bec629f33165da86be848ef0a455)
+        marker_709a21a6b217a8773d3ac9a84e4fc58a.bindPopup(popup_d3acca87ef0ffd2fb91665b65e08658f)
         ;
 
         
     
     
-                marker_0ccc378ec9512a442d18d28513de543e.setIcon(icon_84cbbd4f48436f469cc07544595e5a82);
+                marker_709a21a6b217a8773d3ac9a84e4fc58a.setIcon(icon_2327dd8e2cfc4046a7f609a33448766a);
             
     
-            var marker_674a2565ec8b688c96a867782d565800 = L.marker(
+            var marker_cebd40a887d96905feb7e5fae2ef24cf = L.marker(
                 [-34.8950223, -56.0742192],
                 {
 }
-            ).addTo(map_e9b05ff2b3c1322499172d39dd7a020b);
+            ).addTo(map_766ede546bccef0a8426564b07d032bc);
         
     
-            var icon_6bc369d48b52745da3a6bf56e0ee4daf = L.AwesomeMarkers.icon(
+            var icon_e21c773dc8e83b63b8c08b74e6560d17 = L.AwesomeMarkers.icon(
                 {
   &quot;markerColor&quot;: &quot;green&quot;,
   &quot;iconColor&quot;: &quot;white&quot;,
@@ -870,34 +1172,34 @@
             );
         
     
-        var popup_0f1b5a577d792bf95a2efa985bf257a2 = L.popup({
-  &quot;maxWidth&quot;: 300,
+        var popup_78368ac96c3a18ba4065cdcba959dcd5 = L.popup({
+  &quot;maxWidth&quot;: 320,
 });
 
         
             
-                var html_ceee19a80893f60a4a8a8548cef73e70 = $(`&lt;div id=&quot;html_ceee19a80893f60a4a8a8548cef73e70&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Segoe UI&#x27;, Arial, sans-serif; min-width: 220px; padding: 5px;&quot;&gt;         &lt;h4 style=&quot;margin-top: 0; margin-bottom: 8px; color: #2c3e50; font-size: 14px;&quot;&gt;ALDENOR S.A.&lt;/h4&gt;         &lt;div style=&quot;background-color: #f8f9fa; padding: 8px; border-radius: 6px; border-left: 4px solid #3498db;&quot;&gt;             &lt;b style=&quot;color: #555; font-size: 10px; text-transform: uppercase;&quot;&gt;Categoría:&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color: #333; font-size: 12px; font-weight: bold;&quot;&gt;Importador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top: 10px; font-size: 10px; color: #7f8c8d; text-align: right;&quot;&gt;             &lt;i&gt;Fuente: Sugerido por LATU&lt;/i&gt;         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
-                popup_0f1b5a577d792bf95a2efa985bf257a2.setContent(html_ceee19a80893f60a4a8a8548cef73e70);
+                var html_20b419533165ee879ded6273a649f7f3 = $(`&lt;div id=&quot;html_20b419533165ee879ded6273a649f7f3&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Inter&#x27;,&#x27;Segoe UI&#x27;,Arial,sans-serif; min-width:240px; padding:4px;&quot;&gt;         &lt;h4 style=&quot;margin:0 0 10px 0; color:#0f172a; font-size:15px; font-weight:700;&quot;&gt;ALDENOR S.A.&lt;/h4&gt;         &lt;div style=&quot;background:#f1f5f9; padding:10px 12px; border-radius:8px; border-left:4px solid #0f4c81;&quot;&gt;             &lt;b style=&quot;color:#64748b; font-size:10px; text-transform:uppercase; letter-spacing:.5px;&quot;&gt;Categoría&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color:#0f172a; font-size:13px; font-weight:600;&quot;&gt;Importador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top:10px; font-size:10px; color:#94a3b8; text-align:right; font-style:italic;&quot;&gt;             Fuente: Sugerido por LATU         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
+                popup_78368ac96c3a18ba4065cdcba959dcd5.setContent(html_20b419533165ee879ded6273a649f7f3);
             
         
 
-        marker_674a2565ec8b688c96a867782d565800.bindPopup(popup_0f1b5a577d792bf95a2efa985bf257a2)
+        marker_cebd40a887d96905feb7e5fae2ef24cf.bindPopup(popup_78368ac96c3a18ba4065cdcba959dcd5)
         ;
 
         
     
     
-                marker_674a2565ec8b688c96a867782d565800.setIcon(icon_6bc369d48b52745da3a6bf56e0ee4daf);
+                marker_cebd40a887d96905feb7e5fae2ef24cf.setIcon(icon_e21c773dc8e83b63b8c08b74e6560d17);
             
     
-            var marker_03545e656053ce2ab4ffa760c9321636 = L.marker(
+            var marker_e87412104c328739564377c43019f594 = L.marker(
                 [-34.8962723, -56.1791701],
                 {
 }
-            ).addTo(map_e9b05ff2b3c1322499172d39dd7a020b);
+            ).addTo(map_766ede546bccef0a8426564b07d032bc);
         
     
-            var icon_f1243a7476e467cae1ab776090668841 = L.AwesomeMarkers.icon(
+            var icon_20017e0ef92b8f5b98307a1e560b7ee1 = L.AwesomeMarkers.icon(
                 {
   &quot;markerColor&quot;: &quot;purple&quot;,
   &quot;iconColor&quot;: &quot;white&quot;,
@@ -908,34 +1210,34 @@
             );
         
     
-        var popup_e629799b5d41e1adc0c62e3c0987e5b9 = L.popup({
-  &quot;maxWidth&quot;: 300,
+        var popup_281f0f51b561fab8a461e6b8c842c26e = L.popup({
+  &quot;maxWidth&quot;: 320,
 });
 
         
             
-                var html_9d88733282b63d2dbc8862b4fc33f588 = $(`&lt;div id=&quot;html_9d88733282b63d2dbc8862b4fc33f588&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Segoe UI&#x27;, Arial, sans-serif; min-width: 220px; padding: 5px;&quot;&gt;         &lt;h4 style=&quot;margin-top: 0; margin-bottom: 8px; color: #2c3e50; font-size: 14px;&quot;&gt;MEDI IMPORT S.A.&lt;/h4&gt;         &lt;div style=&quot;background-color: #f8f9fa; padding: 8px; border-radius: 6px; border-left: 4px solid #3498db;&quot;&gt;             &lt;b style=&quot;color: #555; font-size: 10px; text-transform: uppercase;&quot;&gt;Categoría:&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color: #333; font-size: 12px; font-weight: bold;&quot;&gt;Importador Reparador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top: 10px; font-size: 10px; color: #7f8c8d; text-align: right;&quot;&gt;             &lt;i&gt;Fuente: Sugerido por LATU&lt;/i&gt;         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
-                popup_e629799b5d41e1adc0c62e3c0987e5b9.setContent(html_9d88733282b63d2dbc8862b4fc33f588);
+                var html_cda44ebe779aa362fb88c0112702f781 = $(`&lt;div id=&quot;html_cda44ebe779aa362fb88c0112702f781&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Inter&#x27;,&#x27;Segoe UI&#x27;,Arial,sans-serif; min-width:240px; padding:4px;&quot;&gt;         &lt;h4 style=&quot;margin:0 0 10px 0; color:#0f172a; font-size:15px; font-weight:700;&quot;&gt;MEDI IMPORT S.A.&lt;/h4&gt;         &lt;div style=&quot;background:#f1f5f9; padding:10px 12px; border-radius:8px; border-left:4px solid #0f4c81;&quot;&gt;             &lt;b style=&quot;color:#64748b; font-size:10px; text-transform:uppercase; letter-spacing:.5px;&quot;&gt;Categoría&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color:#0f172a; font-size:13px; font-weight:600;&quot;&gt;Importador Reparador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top:10px; font-size:10px; color:#94a3b8; text-align:right; font-style:italic;&quot;&gt;             Fuente: Sugerido por LATU         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
+                popup_281f0f51b561fab8a461e6b8c842c26e.setContent(html_cda44ebe779aa362fb88c0112702f781);
             
         
 
-        marker_03545e656053ce2ab4ffa760c9321636.bindPopup(popup_e629799b5d41e1adc0c62e3c0987e5b9)
+        marker_e87412104c328739564377c43019f594.bindPopup(popup_281f0f51b561fab8a461e6b8c842c26e)
         ;
 
         
     
     
-                marker_03545e656053ce2ab4ffa760c9321636.setIcon(icon_f1243a7476e467cae1ab776090668841);
+                marker_e87412104c328739564377c43019f594.setIcon(icon_20017e0ef92b8f5b98307a1e560b7ee1);
             
     
-            var marker_370f9880b38ed3dcf5d6f68d9dab2b44 = L.marker(
-                [-34.9055186, -56.1841652],
+            var marker_964f0414505f9902b81645799ed360f7 = L.marker(
+                [-34.9055313, -56.1842793],
                 {
 }
-            ).addTo(map_e9b05ff2b3c1322499172d39dd7a020b);
+            ).addTo(map_766ede546bccef0a8426564b07d032bc);
         
     
-            var icon_b6cdcb992d831dbc1665c959f083e771 = L.AwesomeMarkers.icon(
+            var icon_03f4909b78ffafe26d7bd70e6d5a276c = L.AwesomeMarkers.icon(
                 {
   &quot;markerColor&quot;: &quot;orange&quot;,
   &quot;iconColor&quot;: &quot;white&quot;,
@@ -946,34 +1248,34 @@
             );
         
     
-        var popup_2250fe3b09827df7173043ba93f3f8e6 = L.popup({
-  &quot;maxWidth&quot;: 300,
+        var popup_cc981ca1517530a7bb600f053b594faf = L.popup({
+  &quot;maxWidth&quot;: 320,
 });
 
         
             
-                var html_401c30fc3627e6e1bef61ee7acead18c = $(`&lt;div id=&quot;html_401c30fc3627e6e1bef61ee7acead18c&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Segoe UI&#x27;, Arial, sans-serif; min-width: 220px; padding: 5px;&quot;&gt;         &lt;h4 style=&quot;margin-top: 0; margin-bottom: 8px; color: #2c3e50; font-size: 14px;&quot;&gt;DE OLIVEIRA RUBEN GERARDO Y MORALES&lt;/h4&gt;         &lt;div style=&quot;background-color: #f8f9fa; padding: 8px; border-radius: 6px; border-left: 4px solid #3498db;&quot;&gt;             &lt;b style=&quot;color: #555; font-size: 10px; text-transform: uppercase;&quot;&gt;Categoría:&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color: #333; font-size: 12px; font-weight: bold;&quot;&gt;Reparador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top: 10px; font-size: 10px; color: #7f8c8d; text-align: right;&quot;&gt;             &lt;i&gt;Fuente: Sugerido por LATU&lt;/i&gt;         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
-                popup_2250fe3b09827df7173043ba93f3f8e6.setContent(html_401c30fc3627e6e1bef61ee7acead18c);
+                var html_ded6b071442055003c4a64c348fdea0f = $(`&lt;div id=&quot;html_ded6b071442055003c4a64c348fdea0f&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Inter&#x27;,&#x27;Segoe UI&#x27;,Arial,sans-serif; min-width:240px; padding:4px;&quot;&gt;         &lt;h4 style=&quot;margin:0 0 10px 0; color:#0f172a; font-size:15px; font-weight:700;&quot;&gt;DE OLIVEIRA RUBEN GERARDO Y MORALES&lt;/h4&gt;         &lt;div style=&quot;background:#f1f5f9; padding:10px 12px; border-radius:8px; border-left:4px solid #0f4c81;&quot;&gt;             &lt;b style=&quot;color:#64748b; font-size:10px; text-transform:uppercase; letter-spacing:.5px;&quot;&gt;Categoría&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color:#0f172a; font-size:13px; font-weight:600;&quot;&gt;Reparador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top:10px; font-size:10px; color:#94a3b8; text-align:right; font-style:italic;&quot;&gt;             Fuente: Sugerido por LATU         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
+                popup_cc981ca1517530a7bb600f053b594faf.setContent(html_ded6b071442055003c4a64c348fdea0f);
             
         
 
-        marker_370f9880b38ed3dcf5d6f68d9dab2b44.bindPopup(popup_2250fe3b09827df7173043ba93f3f8e6)
+        marker_964f0414505f9902b81645799ed360f7.bindPopup(popup_cc981ca1517530a7bb600f053b594faf)
         ;
 
         
     
     
-                marker_370f9880b38ed3dcf5d6f68d9dab2b44.setIcon(icon_b6cdcb992d831dbc1665c959f083e771);
+                marker_964f0414505f9902b81645799ed360f7.setIcon(icon_03f4909b78ffafe26d7bd70e6d5a276c);
             
     
-            var marker_bf6f16ed2d652e98dbaa59874c2f5155 = L.marker(
+            var marker_18f6efd770d4d1e2b5a3238bb6c6a2b6 = L.marker(
                 [-34.9136255, -56.173108],
                 {
 }
-            ).addTo(map_e9b05ff2b3c1322499172d39dd7a020b);
+            ).addTo(map_766ede546bccef0a8426564b07d032bc);
         
     
-            var icon_ce6c1d7297847d45052104aa622fe26b = L.AwesomeMarkers.icon(
+            var icon_f41ed3c43c20c8cddb25bdb6ac7294fd = L.AwesomeMarkers.icon(
                 {
   &quot;markerColor&quot;: &quot;green&quot;,
   &quot;iconColor&quot;: &quot;white&quot;,
@@ -984,34 +1286,34 @@
             );
         
     
-        var popup_2dad59a530b1807e4a6fa1793cd176b9 = L.popup({
-  &quot;maxWidth&quot;: 300,
+        var popup_351579c657a2d524ede13bc070187380 = L.popup({
+  &quot;maxWidth&quot;: 320,
 });
 
         
             
-                var html_ea31537070cd572b69327689dd410e82 = $(`&lt;div id=&quot;html_ea31537070cd572b69327689dd410e82&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Segoe UI&#x27;, Arial, sans-serif; min-width: 220px; padding: 5px;&quot;&gt;         &lt;h4 style=&quot;margin-top: 0; margin-bottom: 8px; color: #2c3e50; font-size: 14px;&quot;&gt;GAMA ITALY S.A&lt;/h4&gt;         &lt;div style=&quot;background-color: #f8f9fa; padding: 8px; border-radius: 6px; border-left: 4px solid #3498db;&quot;&gt;             &lt;b style=&quot;color: #555; font-size: 10px; text-transform: uppercase;&quot;&gt;Categoría:&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color: #333; font-size: 12px; font-weight: bold;&quot;&gt;Importador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top: 10px; font-size: 10px; color: #7f8c8d; text-align: right;&quot;&gt;             &lt;i&gt;Fuente: Sugerido por LATU&lt;/i&gt;         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
-                popup_2dad59a530b1807e4a6fa1793cd176b9.setContent(html_ea31537070cd572b69327689dd410e82);
+                var html_8811b9eb34fed33ee319174e22119ef0 = $(`&lt;div id=&quot;html_8811b9eb34fed33ee319174e22119ef0&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Inter&#x27;,&#x27;Segoe UI&#x27;,Arial,sans-serif; min-width:240px; padding:4px;&quot;&gt;         &lt;h4 style=&quot;margin:0 0 10px 0; color:#0f172a; font-size:15px; font-weight:700;&quot;&gt;GAMA ITALY S.A&lt;/h4&gt;         &lt;div style=&quot;background:#f1f5f9; padding:10px 12px; border-radius:8px; border-left:4px solid #0f4c81;&quot;&gt;             &lt;b style=&quot;color:#64748b; font-size:10px; text-transform:uppercase; letter-spacing:.5px;&quot;&gt;Categoría&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color:#0f172a; font-size:13px; font-weight:600;&quot;&gt;Importador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top:10px; font-size:10px; color:#94a3b8; text-align:right; font-style:italic;&quot;&gt;             Fuente: Sugerido por LATU         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
+                popup_351579c657a2d524ede13bc070187380.setContent(html_8811b9eb34fed33ee319174e22119ef0);
             
         
 
-        marker_bf6f16ed2d652e98dbaa59874c2f5155.bindPopup(popup_2dad59a530b1807e4a6fa1793cd176b9)
+        marker_18f6efd770d4d1e2b5a3238bb6c6a2b6.bindPopup(popup_351579c657a2d524ede13bc070187380)
         ;
 
         
     
     
-                marker_bf6f16ed2d652e98dbaa59874c2f5155.setIcon(icon_ce6c1d7297847d45052104aa622fe26b);
+                marker_18f6efd770d4d1e2b5a3238bb6c6a2b6.setIcon(icon_f41ed3c43c20c8cddb25bdb6ac7294fd);
             
     
-            var marker_bbeb6ede00b0c5fed6e6a8bf0f52256b = L.marker(
+            var marker_23872d34e6e3e4410d1cae166fb4b4ec = L.marker(
                 [-34.9106525, -56.1848499],
                 {
 }
-            ).addTo(map_e9b05ff2b3c1322499172d39dd7a020b);
+            ).addTo(map_766ede546bccef0a8426564b07d032bc);
         
     
-            var icon_67f0bbd92dd54bb80eebc5d37c63abbf = L.AwesomeMarkers.icon(
+            var icon_ad39659aa3d9fa6ce23b8560c0337db7 = L.AwesomeMarkers.icon(
                 {
   &quot;markerColor&quot;: &quot;purple&quot;,
   &quot;iconColor&quot;: &quot;white&quot;,
@@ -1022,34 +1324,34 @@
             );
         
     
-        var popup_9d9cae17164238ef8486e1b649a83feb = L.popup({
-  &quot;maxWidth&quot;: 300,
+        var popup_47d615cb6b1b5aa7c16cc9c7f7841bd3 = L.popup({
+  &quot;maxWidth&quot;: 320,
 });
 
         
             
-                var html_b279ba153ad13ef338c5c238ee735fb7 = $(`&lt;div id=&quot;html_b279ba153ad13ef338c5c238ee735fb7&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Segoe UI&#x27;, Arial, sans-serif; min-width: 220px; padding: 5px;&quot;&gt;         &lt;h4 style=&quot;margin-top: 0; margin-bottom: 8px; color: #2c3e50; font-size: 14px;&quot;&gt;SOJU STORE &lt;/h4&gt;         &lt;div style=&quot;background-color: #f8f9fa; padding: 8px; border-radius: 6px; border-left: 4px solid #3498db;&quot;&gt;             &lt;b style=&quot;color: #555; font-size: 10px; text-transform: uppercase;&quot;&gt;Categoría:&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color: #333; font-size: 12px; font-weight: bold;&quot;&gt;Importador Reparador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top: 10px; font-size: 10px; color: #7f8c8d; text-align: right;&quot;&gt;             &lt;i&gt;Fuente: Otros&lt;/i&gt;         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
-                popup_9d9cae17164238ef8486e1b649a83feb.setContent(html_b279ba153ad13ef338c5c238ee735fb7);
+                var html_4db592180c2d2455f5bfb7f49831d5b6 = $(`&lt;div id=&quot;html_4db592180c2d2455f5bfb7f49831d5b6&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Inter&#x27;,&#x27;Segoe UI&#x27;,Arial,sans-serif; min-width:240px; padding:4px;&quot;&gt;         &lt;h4 style=&quot;margin:0 0 10px 0; color:#0f172a; font-size:15px; font-weight:700;&quot;&gt;SOJU STORE &lt;/h4&gt;         &lt;div style=&quot;background:#f1f5f9; padding:10px 12px; border-radius:8px; border-left:4px solid #0f4c81;&quot;&gt;             &lt;b style=&quot;color:#64748b; font-size:10px; text-transform:uppercase; letter-spacing:.5px;&quot;&gt;Categoría&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color:#0f172a; font-size:13px; font-weight:600;&quot;&gt;Importador Reparador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top:10px; font-size:10px; color:#94a3b8; text-align:right; font-style:italic;&quot;&gt;             Fuente: Otros         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
+                popup_47d615cb6b1b5aa7c16cc9c7f7841bd3.setContent(html_4db592180c2d2455f5bfb7f49831d5b6);
             
         
 
-        marker_bbeb6ede00b0c5fed6e6a8bf0f52256b.bindPopup(popup_9d9cae17164238ef8486e1b649a83feb)
+        marker_23872d34e6e3e4410d1cae166fb4b4ec.bindPopup(popup_47d615cb6b1b5aa7c16cc9c7f7841bd3)
         ;
 
         
     
     
-                marker_bbeb6ede00b0c5fed6e6a8bf0f52256b.setIcon(icon_67f0bbd92dd54bb80eebc5d37c63abbf);
+                marker_23872d34e6e3e4410d1cae166fb4b4ec.setIcon(icon_ad39659aa3d9fa6ce23b8560c0337db7);
             
     
-            var marker_9da9ef3d7ec3973f54ce6df53c853d93 = L.marker(
+            var marker_a58da2d33561e114b666a4792b9e0651 = L.marker(
                 [-34.9025833, -56.1992817],
                 {
 }
-            ).addTo(map_e9b05ff2b3c1322499172d39dd7a020b);
+            ).addTo(map_766ede546bccef0a8426564b07d032bc);
         
     
-            var icon_466be2290b0e9e2c70373460474917ae = L.AwesomeMarkers.icon(
+            var icon_f556d05d078523be065435ec8b75d557 = L.AwesomeMarkers.icon(
                 {
   &quot;markerColor&quot;: &quot;orange&quot;,
   &quot;iconColor&quot;: &quot;white&quot;,
@@ -1060,107 +1362,960 @@
             );
         
     
-        var popup_6b629582acae947c4d828fb690ad476e = L.popup({
-  &quot;maxWidth&quot;: 300,
+        var popup_d0b87d8006027974ea4b9f9e9c57a0dc = L.popup({
+  &quot;maxWidth&quot;: 320,
 });
 
         
             
-                var html_b58e047080e947a5f394c67d2009bea5 = $(`&lt;div id=&quot;html_b58e047080e947a5f394c67d2009bea5&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Segoe UI&#x27;, Arial, sans-serif; min-width: 220px; padding: 5px;&quot;&gt;         &lt;h4 style=&quot;margin-top: 0; margin-bottom: 8px; color: #2c3e50; font-size: 14px;&quot;&gt;LPGC&lt;/h4&gt;         &lt;div style=&quot;background-color: #f8f9fa; padding: 8px; border-radius: 6px; border-left: 4px solid #3498db;&quot;&gt;             &lt;b style=&quot;color: #555; font-size: 10px; text-transform: uppercase;&quot;&gt;Categoría:&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color: #333; font-size: 12px; font-weight: bold;&quot;&gt;Reparador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top: 10px; font-size: 10px; color: #7f8c8d; text-align: right;&quot;&gt;             &lt;i&gt;Fuente: Otros&lt;/i&gt;         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
-                popup_6b629582acae947c4d828fb690ad476e.setContent(html_b58e047080e947a5f394c67d2009bea5);
+                var html_0cdc67232a07509add360ec8caffbba5 = $(`&lt;div id=&quot;html_0cdc67232a07509add360ec8caffbba5&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family: &#x27;Inter&#x27;,&#x27;Segoe UI&#x27;,Arial,sans-serif; min-width:240px; padding:4px;&quot;&gt;         &lt;h4 style=&quot;margin:0 0 10px 0; color:#0f172a; font-size:15px; font-weight:700;&quot;&gt;LPGC&lt;/h4&gt;         &lt;div style=&quot;background:#f1f5f9; padding:10px 12px; border-radius:8px; border-left:4px solid #0f4c81;&quot;&gt;             &lt;b style=&quot;color:#64748b; font-size:10px; text-transform:uppercase; letter-spacing:.5px;&quot;&gt;Categoría&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color:#0f172a; font-size:13px; font-weight:600;&quot;&gt;Reparador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top:10px; font-size:10px; color:#94a3b8; text-align:right; font-style:italic;&quot;&gt;             Fuente: Otros         &lt;/div&gt;     &lt;/div&gt;     &lt;/div&gt;`)[0];
+                popup_d0b87d8006027974ea4b9f9e9c57a0dc.setContent(html_0cdc67232a07509add360ec8caffbba5);
             
         
 
-        marker_9da9ef3d7ec3973f54ce6df53c853d93.bindPopup(popup_6b629582acae947c4d828fb690ad476e)
+        marker_a58da2d33561e114b666a4792b9e0651.bindPopup(popup_d0b87d8006027974ea4b9f9e9c57a0dc)
         ;
 
         
     
     
-                marker_9da9ef3d7ec3973f54ce6df53c853d93.setIcon(icon_466be2290b0e9e2c70373460474917ae);
+                marker_a58da2d33561e114b666a4792b9e0651.setIcon(icon_f556d05d078523be065435ec8b75d557);
             
 &lt;/script&gt;
 &lt;/html&gt;" style="position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe></div></div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
-
-           
-            <div class="tab-pane fade" id="info-content" role="tabpanel">
-                <div class="row">
-                    <div class="col-md-8">
-                        <div class="card card-custom p-4">
-                            <h3 class="text-primary mb-3">¿Qué es un Esfigmomanómetro?</h3>
-                            <p class="text-secondary justify-content">
-                                El <strong>esfigmomanómetro</strong>, conocido comúnmente como tensiómetro, es un instrumento de medición médica utilizado para la determinación no invasiva de la presión arterial sistólica y diastólica. Es una herramienta crítica en el diagnóstico y monitoreo de condiciones cardiovasculares como la hipertensión arterial.
-                            </p>
-                            
-                            <h4 class="mt-4 text-dark">¿Cómo funciona?</h4>
-                            <p class="text-secondary">
-                                El principio se basa en la oclusión parcial o total de una arteria superficial (generalmente la arteria braquial en el brazo) mediante un brazalete inflable neumático. 
-                                Al inflar el brazalete por encima de la presión sistólica del paciente, el flujo sanguíneo se detiene. Luego, el aire se libera lentamente disminuyendo la presión de forma controlada:
-                            </p>
-                            <ul class="text-secondary">
-                                <li><strong>Presión Sistólica (Máxima):</strong> Se identifica cuando la presión del brazalete baja lo suficiente como para permitir que la sangre comience a pasar de nuevo, generando el primer sonido pulsátil audible (primer Ruido de Korotkoff).</li>
-                                <li><strong>Presión Diastólica (Mínima):</strong> Se registra en el momento exacto en que los ruidos arteriales desaparecen por completo, indicando que el flujo de sangre ha vuelto a ser laminar y continuo.</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="col-md-4">
-                        <div class="card card-custom p-4">
-                            <h4 class="mb-3 text-dark">Tipos de Equipos</h4>
-                            <div class="mb-3">
-                                <h5><i class="fa-solid fa-compass text-warning me-2"></i>Aneroides</h5>
-                                <p class="small text-muted">Operan mediante un sistema mecánico de fuelle interno y aguja sobre un dial graduado. Son propensos a descalibrarse ante impactos o caídas mecánicas.</p>
-                            </div>
-                            <div class="mb-3">
-                                <h5><i class="fa-solid fa-vial text-danger me-2"></i>De Mercurio</h5>
-                                <p class="small text-muted">Históricamente considerados el patrón de oro clínico. Emplean el desplazamiento físico de una columna de mercurio. Hoy están en desuso o restringidos debido al riesgo ambiental y de toxicidad por rotura.</p>
-                            </div>
-                            <div>
-                                <h5><i class="fa-solid fa-microchip text-success me-2"></i>Digitales</h5>
-                                <p class="small text-muted">Utilizan el método oscilométrico automático mediante transductores de presión electrónicos. Son excelentes para uso doméstico, pero requieren algoritmos validados clínicamente.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="tab-pane fade" id="metro-content" role="tabpanel">
-                <div class="card card-custom p-4">
-                    <h3 class="text-primary mb-4">Aseguramiento de la Calidad Metrológica</h3>
-                    <p class="text-secondary">Dado que los errores de medición en medicina pueden inducir a diagnósticos erróneos o medicaciones equivocadas, estos dispositivos están sujetos a normativas estrictas de control metrológico.</p>
-                    
-                    <div class="row mt-4">
-                        <div class="col-md-4">
-                            <div class="p-3 border rounded bg-light h-100">
-                                <h5 class="text-info"><i class="fa-solid fa-scale-balanced me-2"></i>Calibración</h5>
-                                <p class="small text-muted">Es el proceso técnico que compara los valores indicados por el tensiómetro bajo prueba contra un manómetro patrón de alta precisión certificado. El resultado determina el error del instrumento, plasmado en un certificado de calibración.</p>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="p-3 border rounded bg-light h-100">
-                                <h5 class="text-success"><i class="fa-solid fa-square-check me-2"></i>Verificación</h5>
-                                <p class="small text-muted">Es un acto de control legal obligatorio ejecutado por la autoridad competente (en nuestro país alineado con el LATU) para certificar si el instrumento se encuentra dentro de los Errores Máximos Permitidos (EMP) reglamentarios, aprobando o rechazando su uso clínico.</p>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="p-3 border rounded bg-light h-100">
-                                <h5 class="text-warning"><i class="fa-solid fa-wrench me-2"></i>Reparación</h5>
-                                <p class="small text-muted">Procedimiento de mantenimiento correctivo realizado por talleres autorizados cuando se detectan fugas en las tuberías/pera, fallas en la válvula de purga, o desvíos mecánicos severos. Un equipo reparado debe recalibrarse y verificarse obligatoriamente antes de volver a operar.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
         </div>
-    </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- ============ MODELOS APROBADOS ============ -->
+        <div class="tab-pane fade" id="modelos-content" role="tabpanel">
+            <div class="row g-3 mb-4">
+                <div class="col-md-4">
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fa-solid fa-list-check"></i></div>
+                        <div>
+                            <div class="stat-value">56</div>
+                            <div class="stat-label">Modelos registrados</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="stat-card">
+                        <div class="stat-icon accent"><i class="fa-solid fa-tags"></i></div>
+                        <div>
+                            <div class="stat-value">16</div>
+                            <div class="stat-label">Marcas comerciales</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="stat-card">
+                        <div class="stat-icon purple"><i class="fa-solid fa-shield-halved"></i></div>
+                        <div>
+                            <div class="stat-value">LATU</div>
+                            <div class="stat-label">Autoridad de control</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card card-custom">
+                <div class="card-header-custom">
+                    <div>
+                        <div class="section-eyebrow">Control metrológico</div>
+                        <div><i class="fa-solid fa-certificate text-primary me-2"></i>Modelos de tensiómetros aprobados</div>
+                    </div>
+                </div>
+
+                <div class="models-toolbar">
+                    <div class="search-wrapper">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" id="modelSearch" class="search-input" placeholder="Buscar por marca, modelo, tipo o resolución...">
+                    </div>
+                    <select id="typeFilter" class="form-select" style="max-width: 200px; border-radius: 10px; border-color: var(--gray-200);">
+                        <option value="">Todos los tipos</option>
+                        <option value="digital">Digital</option>
+                        <option value="aneroide">Aneroide</option>
+                        <option value="mercurio">Mercurio</option>
+                    </select>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="models-table" id="modelsTable">
+                        <thead>
+                            <tr>
+                                <th>Marca</th>
+                                <th>Modelo</th>
+                                <th>Tipo</th>
+                                <th>Resolución</th>
+                                <th>Fecha</th>
+                                <th>Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+            <tr>
+                <td>
+                    <div class="d-flex align-items-center">
+                        <div class="brand-avatar">A</div>
+                        <span class="fw-semibold">ALPK2</span>
+                    </div>
+                </td>
+                <td class="text-secondary">500 V- EU</td>
+                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="badge-soft success">Aprobado</span></td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="d-flex align-items-center">
+                        <div class="brand-avatar">R</div>
+                        <span class="fw-semibold">RIESTER</span>
+                    </div>
+                </td>
+                <td class="text-secondary">BIG BEN</td>
+                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="badge-soft success">Aprobado</span></td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="d-flex align-items-center">
+                        <div class="brand-avatar">B</div>
+                        <span class="fw-semibold">BEURER</span>
+                    </div>
+                </td>
+                <td class="text-secondary">BM 27</td>
+                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="badge-soft success">Aprobado</span></td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="d-flex align-items-center">
+                        <div class="brand-avatar">B</div>
+                        <span class="fw-semibold">BEURER</span>
+                    </div>
+                </td>
+                <td class="text-secondary">BM 30</td>
+                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="badge-soft success">Aprobado</span></td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="d-flex align-items-center">
+                        <div class="brand-avatar">G</div>
+                        <span class="fw-semibold">GAMA ITALY</span>
+                    </div>
+                </td>
+                <td class="text-secondary">BP-1209</td>
+                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="badge-soft success">Aprobado</span></td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="d-flex align-items-center">
+                        <div class="brand-avatar">G</div>
+                        <span class="fw-semibold">GAMA ITALY</span>
+                    </div>
+                </td>
+                <td class="text-secondary">BP-1304</td>
+                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="badge-soft success">Aprobado</span></td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="d-flex align-items-center">
+                        <div class="brand-avatar">G</div>
+                        <span class="fw-semibold">GAMA ITALY</span>
+                    </div>
+                </td>
+                <td class="text-secondary">BP-1307</td>
+                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="badge-soft success">Aprobado</span></td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="d-flex align-items-center">
+                        <div class="brand-avatar">G</div>
+                        <span class="fw-semibold">GAMA ITALY</span>
+                    </div>
+                </td>
+                <td class="text-secondary">BP-202H</td>
+                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="badge-soft success">Aprobado</span></td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="d-flex align-items-center">
+                        <div class="brand-avatar">C</div>
+                        <span class="fw-semibold">CITIZEN</span>
+                    </div>
+                </td>
+                <td class="text-secondary">CH-452</td>
+                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="badge-soft success">Aprobado</span></td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="d-flex align-items-center">
+                        <div class="brand-avatar">C</div>
+                        <span class="fw-semibold">CITIZEN</span>
+                    </div>
+                </td>
+                <td class="text-secondary">CH-453</td>
+                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="badge-soft success">Aprobado</span></td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="d-flex align-items-center">
+                        <div class="brand-avatar">C</div>
+                        <span class="fw-semibold">CITIZEN</span>
+                    </div>
+                </td>
+                <td class="text-secondary">CH-453AC</td>
+                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="badge-soft success">Aprobado</span></td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="d-flex align-items-center">
+                        <div class="brand-avatar">C</div>
+                        <span class="fw-semibold">CITIZEN</span>
+                    </div>
+                </td>
+                <td class="text-secondary">CH-456</td>
+                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="badge-soft success">Aprobado</span></td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="d-flex align-items-center">
+                        <div class="brand-avatar">C</div>
+                        <span class="fw-semibold">CITIZEN</span>
+                    </div>
+                </td>
+                <td class="text-secondary">CHU306</td>
+                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="badge-soft success">Aprobado</span></td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="d-flex align-items-center">
+                        <div class="brand-avatar">C</div>
+                        <span class="fw-semibold">CITIZEN</span>
+                    </div>
+                </td>
+                <td class="text-secondary">CHUG330</td>
+                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="badge-soft success">Aprobado</span></td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="d-flex align-items-center">
+                        <div class="brand-avatar">F</div>
+                        <span class="fw-semibold">FORA CARE</span>
+                    </div>
+                </td>
+                <td class="text-secondary">D40H</td>
+                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="badge-soft success">Aprobado</span></td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="d-flex align-items-center">
+                        <div class="brand-avatar">F</div>
+                        <span class="fw-semibold">FORA CARE</span>
+                    </div>
+                </td>
+                <td class="text-secondary">D40H</td>
+                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="badge-soft success">Aprobado</span></td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="d-flex align-items-center">
+                        <div class="brand-avatar">J</div>
+                        <span class="fw-semibold">JOYTECH</span>
+                    </div>
+                </td>
+                <td class="text-secondary">DBP-1231</td>
+                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="badge-soft success">Aprobado</span></td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="d-flex align-items-center">
+                        <div class="brand-avatar">G</div>
+                        <span class="fw-semibold">GERATHERM</span>
+                    </div>
+                </td>
+                <td class="text-secondary">DESKTOP GP-6621</td>
+                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="badge-soft success">Aprobado</span></td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="d-flex align-items-center">
+                        <div class="brand-avatar">R</div>
+                        <span class="fw-semibold">RIESTER</span>
+                    </div>
+                </td>
+                <td class="text-secondary">DIPLOMAT PRESAMETER</td>
+                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="badge-soft success">Aprobado</span></td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="d-flex align-items-center">
+                        <div class="brand-avatar">N</div>
+                        <span class="fw-semibold">NISSEI</span>
+                    </div>
+                </td>
+                <td class="text-secondary">DS-11</td>
+                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="badge-soft success">Aprobado</span></td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="d-flex align-items-center">
+                        <div class="brand-avatar">R</div>
+                        <span class="fw-semibold">RIESTER</span>
+                    </div>
+                </td>
+                <td class="text-secondary">EXACTA</td>
+                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="badge-soft success">Aprobado</span></td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="d-flex align-items-center">
+                        <div class="brand-avatar">G</div>
+                        <span class="fw-semibold">GERATHERM</span>
+                    </div>
+                </td>
+                <td class="text-secondary">GT-1775</td>
+                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="badge-soft success">Aprobado</span></td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="d-flex align-items-center">
+                        <div class="brand-avatar">O</div>
+                        <span class="fw-semibold">OMRON</span>
+                    </div>
+                </td>
+                <td class="text-secondary">HEM - 7142</td>
+                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="badge-soft success">Aprobado</span></td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="d-flex align-items-center">
+                        <div class="brand-avatar">O</div>
+                        <span class="fw-semibold">OMRON</span>
+                    </div>
+                </td>
+                <td class="text-secondary">HEM - 7144T2</td>
+                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="badge-soft success">Aprobado</span></td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="d-flex align-items-center">
+                        <div class="brand-avatar">O</div>
+                        <span class="fw-semibold">OMRON</span>
+                    </div>
+                </td>
+                <td class="text-secondary">HEM 6111</td>
+                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="badge-soft success">Aprobado</span></td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="d-flex align-items-center">
+                        <div class="brand-avatar">O</div>
+                        <span class="fw-semibold">OMRON</span>
+                    </div>
+                </td>
+                <td class="text-secondary">HEM 6122</td>
+                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="badge-soft success">Aprobado</span></td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="d-flex align-items-center">
+                        <div class="brand-avatar">O</div>
+                        <span class="fw-semibold">OMRON</span>
+                    </div>
+                </td>
+                <td class="text-secondary">HEM 6131</td>
+                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="badge-soft success">Aprobado</span></td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="d-flex align-items-center">
+                        <div class="brand-avatar">O</div>
+                        <span class="fw-semibold">OMRON</span>
+                    </div>
+                </td>
+                <td class="text-secondary">HEM 7113</td>
+                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="badge-soft success">Aprobado</span></td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="d-flex align-items-center">
+                        <div class="brand-avatar">O</div>
+                        <span class="fw-semibold">OMRON</span>
+                    </div>
+                </td>
+                <td class="text-secondary">HEM 7114</td>
+                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="badge-soft success">Aprobado</span></td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="d-flex align-items-center">
+                        <div class="brand-avatar">O</div>
+                        <span class="fw-semibold">OMRON</span>
+                    </div>
+                </td>
+                <td class="text-secondary">HEM 7130</td>
+                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="badge-soft success">Aprobado</span></td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="d-flex align-items-center">
+                        <div class="brand-avatar">O</div>
+                        <span class="fw-semibold">OMRON</span>
+                    </div>
+                </td>
+                <td class="text-secondary">HEM-4030</td>
+                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="badge-soft success">Aprobado</span></td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="d-flex align-items-center">
+                        <div class="brand-avatar">O</div>
+                        <span class="fw-semibold">OMRON</span>
+                    </div>
+                </td>
+                <td class="text-secondary">HEM-403INT</td>
+                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="badge-soft success">Aprobado</span></td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="d-flex align-items-center">
+                        <div class="brand-avatar">O</div>
+                        <span class="fw-semibold">OMRON</span>
+                    </div>
+                </td>
+                <td class="text-secondary">HEM-6124</td>
+                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="badge-soft success">Aprobado</span></td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="d-flex align-items-center">
+                        <div class="brand-avatar">O</div>
+                        <span class="fw-semibold">OMRON</span>
+                    </div>
+                </td>
+                <td class="text-secondary">HEM-631INT</td>
+                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="badge-soft success">Aprobado</span></td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="d-flex align-items-center">
+                        <div class="brand-avatar">O</div>
+                        <span class="fw-semibold">OMRON</span>
+                    </div>
+                </td>
+                <td class="text-secondary">HEM-7120</td>
+                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="badge-soft success">Aprobado</span></td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="d-flex align-items-center">
+                        <div class="brand-avatar">O</div>
+                        <span class="fw-semibold">OMRON</span>
+                    </div>
+                </td>
+                <td class="text-secondary">HEM-7121</td>
+                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="badge-soft success">Aprobado</span></td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="d-flex align-items-center">
+                        <div class="brand-avatar">O</div>
+                        <span class="fw-semibold">OMRON</span>
+                    </div>
+                </td>
+                <td class="text-secondary">HEM-7122</td>
+                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="badge-soft success">Aprobado</span></td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="d-flex align-items-center">
+                        <div class="brand-avatar">O</div>
+                        <span class="fw-semibold">OMRON</span>
+                    </div>
+                </td>
+                <td class="text-secondary">HEM-716DT2</td>
+                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="badge-soft success">Aprobado</span></td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="d-flex align-items-center">
+                        <div class="brand-avatar">O</div>
+                        <span class="fw-semibold">OMRON</span>
+                    </div>
+                </td>
+                <td class="text-secondary">HEM-742INT</td>
+                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="badge-soft success">Aprobado</span></td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="d-flex align-items-center">
+                        <div class="brand-avatar">K</div>
+                        <span class="fw-semibold">KEITO</span>
+                    </div>
+                </td>
+                <td class="text-secondary">K 10</td>
+                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="badge-soft success">Aprobado</span></td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="d-flex align-items-center">
+                        <div class="brand-avatar">K</div>
+                        <span class="fw-semibold">KEITO</span>
+                    </div>
+                </td>
+                <td class="text-secondary">K 9</td>
+                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="badge-soft success">Aprobado</span></td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="d-flex align-items-center">
+                        <div class="brand-avatar">F</div>
+                        <span class="fw-semibold">F. BOSCH</span>
+                    </div>
+                </td>
+                <td class="text-secondary">KONSTANTE I</td>
+                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="badge-soft success">Aprobado</span></td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="d-flex align-items-center">
+                        <div class="brand-avatar">E</div>
+                        <span class="fw-semibold">ECCOSUR</span>
+                    </div>
+                </td>
+                <td class="text-secondary">MP-260</td>
+                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="badge-soft success">Aprobado</span></td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="d-flex align-items-center">
+                        <div class="brand-avatar">S</div>
+                        <span class="fw-semibold">SAN-UP</span>
+                    </div>
+                </td>
+                <td class="text-secondary">MS 150F</td>
+                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="badge-soft success">Aprobado</span></td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="d-flex align-items-center">
+                        <div class="brand-avatar">I</div>
+                        <span class="fw-semibold">IEM</span>
+                    </div>
+                </td>
+                <td class="text-secondary">Mobil -o- Graph PWA</td>
+                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="badge-soft success">Aprobado</span></td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="d-flex align-items-center">
+                        <div class="brand-avatar">R</div>
+                        <span class="fw-semibold">RIESTER</span>
+                    </div>
+                </td>
+                <td class="text-secondary">NOVA PRESAMETER</td>
+                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="badge-soft success">Aprobado</span></td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="d-flex align-items-center">
+                        <div class="brand-avatar">R</div>
+                        <span class="fw-semibold">RIESTER</span>
+                    </div>
+                </td>
+                <td class="text-secondary">RI-SAN</td>
+                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="badge-soft success">Aprobado</span></td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="d-flex align-items-center">
+                        <div class="brand-avatar">O</div>
+                        <span class="fw-semibold">OMRON</span>
+                    </div>
+                </td>
+                <td class="text-secondary">RS2 (HEM - 6161-E)</td>
+                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="badge-soft success">Aprobado</span></td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="d-flex align-items-center">
+                        <div class="brand-avatar">O</div>
+                        <span class="fw-semibold">OMRON</span>
+                    </div>
+                </td>
+                <td class="text-secondary">RS3 Intelli IT (HEM - 6161T-E)</td>
+                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="badge-soft success">Aprobado</span></td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="d-flex align-items-center">
+                        <div class="brand-avatar">G</div>
+                        <span class="fw-semibold">GERATHERM</span>
+                    </div>
+                </td>
+                <td class="text-secondary">SMART</td>
+                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="badge-soft success">Aprobado</span></td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="d-flex align-items-center">
+                        <div class="brand-avatar">G</div>
+                        <span class="fw-semibold">GERATHERM</span>
+                    </div>
+                </td>
+                <td class="text-secondary">TENSIO-CONTROL GP-6620</td>
+                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="badge-soft success">Aprobado</span></td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="d-flex align-items-center">
+                        <div class="brand-avatar">G</div>
+                        <span class="fw-semibold">GERATHERM</span>
+                    </div>
+                </td>
+                <td class="text-secondary">WRISTWATCH KP6130</td>
+                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="badge-soft success">Aprobado</span></td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="d-flex align-items-center">
+                        <div class="brand-avatar">N</div>
+                        <span class="fw-semibold">NISSEI</span>
+                    </div>
+                </td>
+                <td class="text-secondary">WS-1300</td>
+                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="badge-soft success">Aprobado</span></td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="d-flex align-items-center">
+                        <div class="brand-avatar">R</div>
+                        <span class="fw-semibold">ROSSMAX</span>
+                    </div>
+                </td>
+                <td class="text-secondary">X5</td>
+                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="badge-soft success">Aprobado</span></td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="d-flex align-items-center">
+                        <div class="brand-avatar">R</div>
+                        <span class="fw-semibold">ROSSMAX</span>
+                    </div>
+                </td>
+                <td class="text-secondary">X9</td>
+                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="badge-soft success">Aprobado</span></td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="d-flex align-items-center">
+                        <div class="brand-avatar">S</div>
+                        <span class="fw-semibold">SAN-UP</span>
+                    </div>
+                </td>
+                <td class="text-secondary">Z 43</td>
+                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="text-muted small">—</span></td>
+                <td><span class="badge-soft success">Aprobado</span></td>
+            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============ INFO TÉCNICA ============ -->
+        <div class="tab-pane fade" id="info-content" role="tabpanel">
+            <div class="row g-3">
+                <div class="col-lg-8">
+                    <div class="card card-custom p-4 p-md-5 h-100">
+                        <div class="section-eyebrow">Fundamentos clínicos</div>
+                        <h3 class="fw-bold mb-3" style="color: var(--gray-900);">¿Qué es un Esfigmomanómetro?</h3>
+                        <p class="text-secondary" style="line-height: 1.7;">
+                            El <strong style="color: var(--primary);">esfigmomanómetro</strong>, conocido comúnmente como tensiómetro,
+                            es un instrumento de medición médica utilizado para la determinación no invasiva de la presión arterial
+                            sistólica y diastólica. Es una herramienta crítica en el diagnóstico y monitoreo de condiciones
+                            cardiovasculares como la hipertensión arterial.
+                        </p>
+
+                        <h5 class="fw-bold mt-4 mb-3" style="color: var(--gray-900);">
+                            <i class="fa-solid fa-gears text-primary me-2"></i>¿Cómo funciona?
+                        </h5>
+                        <p class="text-secondary" style="line-height: 1.7;">
+                            El principio se basa en la oclusión parcial o total de una arteria superficial (generalmente la arteria
+                            braquial en el brazo) mediante un brazalete inflable neumático. Al inflar el brazalete por encima de la
+                            presión sistólica del paciente, el flujo sanguíneo se detiene. Luego, el aire se libera lentamente
+                            disminuyendo la presión de forma controlada:
+                        </p>
+                        <ul class="info-list mt-3">
+                            <li><strong>Presión Sistólica (Máxima):</strong> Se identifica cuando la presión del brazalete baja lo suficiente como para permitir que la sangre comience a pasar de nuevo, generando el primer sonido pulsátil audible (primer Ruido de Korotkoff).</li>
+                            <li><strong>Presión Diastólica (Mínima):</strong> Se registra en el momento exacto en que los ruidos arteriales desaparecen por completo, indicando que el flujo de sangre ha vuelto a ser laminar y continuo.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="card card-custom p-4 h-100">
+                        <div class="section-eyebrow">Clasificación</div>
+                        <h5 class="fw-bold mb-3" style="color: var(--gray-900);">Tipos de equipos</h5>
+
+                        <div class="type-card">
+                            <h6><i class="fa-solid fa-compass text-warning me-2"></i>Aneroides</h6>
+                            <p>Sistema mecánico de fuelle interno y aguja sobre dial graduado. Propensos a descalibrarse ante impactos.</p>
+                        </div>
+                        <div class="type-card">
+                            <h6><i class="fa-solid fa-vial text-danger me-2"></i>De mercurio</h6>
+                            <p>Patrón de oro clínico histórico. En desuso por riesgo ambiental y toxicidad ante rotura.</p>
+                        </div>
+                        <div class="type-card mb-0">
+                            <h6><i class="fa-solid fa-microchip text-success me-2"></i>Digitales</h6>
+                            <p>Método oscilométrico automático con transductores electrónicos. Requieren algoritmos validados clínicamente.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============ METROLOGÍA ============ -->
+        <div class="tab-pane fade" id="metro-content" role="tabpanel">
+            <div class="card card-custom p-4 p-md-5">
+                <div class="section-eyebrow">Calidad y normativa</div>
+                <h3 class="fw-bold mb-2" style="color: var(--gray-900);">Aseguramiento de la Calidad Metrológica</h3>
+                <p class="text-secondary mb-4" style="max-width: 900px; line-height: 1.7;">
+                    Dado que los errores de medición en medicina pueden inducir a diagnósticos erróneos o medicaciones
+                    equivocadas, estos dispositivos están sujetos a normativas estrictas de control metrológico.
+                </p>
+
+                <div class="row g-3">
+                    <div class="col-md-4">
+                        <div class="metro-card">
+                            <div class="icon-circle icon-info"><i class="fa-solid fa-scale-balanced"></i></div>
+                            <h5 class="fw-bold mb-2" style="color: var(--gray-900); font-size: 1.05rem;">Calibración</h5>
+                            <p class="text-secondary small mb-0" style="line-height: 1.65;">
+                                Proceso técnico que compara los valores indicados por el tensiómetro bajo prueba contra
+                                un manómetro patrón certificado de alta precisión. El resultado determina el error del
+                                instrumento, plasmado en un certificado de calibración.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="metro-card">
+                            <div class="icon-circle icon-success"><i class="fa-solid fa-square-check"></i></div>
+                            <h5 class="fw-bold mb-2" style="color: var(--gray-900); font-size: 1.05rem;">Verificación</h5>
+                            <p class="text-secondary small mb-0" style="line-height: 1.65;">
+                                Acto de control legal obligatorio ejecutado por la autoridad competente (alineado con LATU)
+                                para certificar si el instrumento se encuentra dentro de los Errores Máximos Permitidos (EMP),
+                                aprobando o rechazando su uso clínico.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="metro-card">
+                            <div class="icon-circle icon-warning"><i class="fa-solid fa-wrench"></i></div>
+                            <h5 class="fw-bold mb-2" style="color: var(--gray-900); font-size: 1.05rem;">Reparación</h5>
+                            <p class="text-secondary small mb-0" style="line-height: 1.65;">
+                                Mantenimiento correctivo realizado por talleres autorizados ante fugas en tuberías o pera,
+                                fallas en la válvula de purga o desvíos mecánicos severos. Un equipo reparado debe
+                                recalibrarse y verificarse obligatoriamente antes de volver a operar.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // Buscador + filtro de la tabla de modelos
+    (function () {
+        const searchInput = document.getElementById('modelSearch');
+        const typeFilter  = document.getElementById('typeFilter');
+        const rows        = document.querySelectorAll('#modelsTable tbody tr');
+
+        function filterRows() {
+            const term = (searchInput?.value || '').toLowerCase().trim();
+            const type = (typeFilter?.value || '').toLowerCase();
+
+            rows.forEach(row => {
+                if (row.querySelector('.empty-state')) return; // no tocar el estado vacío
+                const text = row.textContent.toLowerCase();
+                const matchesTerm = !term || text.includes(term);
+                const matchesType = !type || text.includes(type);
+                row.style.display = (matchesTerm && matchesType) ? '' : 'none';
+            });
+        }
+
+        searchInput?.addEventListener('input', filterRows);
+        typeFilter?.addEventListener('change', filterRows);
+    })();
+</script>
 </body>
 </html>

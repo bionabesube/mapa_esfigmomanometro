@@ -11,224 +11,124 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
     :root {
-        --primary: #0f4c81;
-        --primary-2: #1e6fbf;
-        --accent: #00b4d8;
-        --success: #10b981;
-        --warning: #f59e0b;
-        --danger: #ef4444;
-        --purple: #8b5cf6;
-        --gray-50: #f8fafc;
-        --gray-100: #f1f5f9;
-        --gray-200: #e2e8f0;
-        --gray-400: #94a3b8;
-        --gray-600: #64748b;
-        --gray-800: #1e293b;
-        --gray-900: #0f172a;
+        --primary: #0f4c81; --primary-2: #1e6fbf; --accent: #00b4d8;
+        --success: #10b981; --warning: #f59e0b; --danger: #ef4444; --purple: #8b5cf6;
+        --gray-50: #f8fafc; --gray-100: #f1f5f9; --gray-200: #e2e8f0;
+        --gray-400: #94a3b8; --gray-600: #64748b; --gray-800: #1e293b; --gray-900: #0f172a;
     }
     * { -webkit-font-smoothing: antialiased; }
-    body {
-        background: var(--gray-50);
-        font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
-        color: var(--gray-800);
-    }
+    body { background: var(--gray-50); font-family: 'Inter', 'Segoe UI', system-ui, sans-serif; color: var(--gray-800); }
 
-    /* ---------- HERO ---------- */
     .hero-section {
         background: linear-gradient(135deg, #0a3557 0%, #0f4c81 40%, #1e6fbf 75%, #00b4d8 100%);
-        color: #fff;
-        padding: 56px 0 44px;
-        position: relative;
-        overflow: hidden;
+        color: #fff; padding: 56px 0 44px; position: relative; overflow: hidden;
     }
     .hero-section::before {
-        content: "";
-        position: absolute; inset: 0;
-        background-image:
-            radial-gradient(circle at 15% 30%, rgba(255,255,255,.12) 0%, transparent 45%),
-            radial-gradient(circle at 85% 75%, rgba(0,180,216,.25) 0%, transparent 45%);
+        content: ""; position: absolute; inset: 0;
+        background-image: radial-gradient(circle at 15% 30%, rgba(255,255,255,.12) 0%, transparent 45%),
+                          radial-gradient(circle at 85% 75%, rgba(0,180,216,.25) 0%, transparent 45%);
         pointer-events: none;
     }
     .hero-section::after {
-        content: "";
-        position: absolute; inset: 0;
+        content: ""; position: absolute; inset: 0;
         background-image: radial-gradient(rgba(255,255,255,.08) 1px, transparent 1px);
-        background-size: 22px 22px;
-        opacity: .35;
-        pointer-events: none;
+        background-size: 22px 22px; opacity: .35; pointer-events: none;
     }
     .hero-inner { position: relative; z-index: 1; }
-    .hero-title {
-        font-weight: 800; letter-spacing: -.02em;
-        text-shadow: 0 2px 12px rgba(0,0,0,.15);
-    }
+    .hero-title { font-weight: 800; letter-spacing: -.02em; text-shadow: 0 2px 12px rgba(0,0,0,.15); }
     .hero-subtitle { color: rgba(255,255,255,.85); font-weight: 400; }
     .hero-chip {
         display: inline-flex; align-items: center; gap: 8px;
-        background: rgba(255,255,255,.14);
-        border: 1px solid rgba(255,255,255,.22);
-        backdrop-filter: blur(6px);
-        padding: 6px 14px; border-radius: 999px;
-        font-size: .8rem; font-weight: 500;
-        margin-bottom: 16px;
+        background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.22);
+        backdrop-filter: blur(6px); padding: 6px 14px; border-radius: 999px;
+        font-size: .8rem; font-weight: 500; margin-bottom: 16px;
     }
     .hero-chip .dot {
-        width: 8px; height: 8px; border-radius: 50%;
-        background: #4ade80; box-shadow: 0 0 0 4px rgba(74,222,128,.25);
-        animation: pulse 2s infinite;
+        width: 8px; height: 8px; border-radius: 50%; background: #4ade80;
+        box-shadow: 0 0 0 4px rgba(74,222,128,.25); animation: pulse 2s infinite;
     }
     @keyframes pulse {
         0%,100% { box-shadow: 0 0 0 4px rgba(74,222,128,.25); }
         50%     { box-shadow: 0 0 0 8px rgba(74,222,128,.05); }
     }
 
-    /* ---------- TABS ---------- */
-    .nav-tabs-custom {
-        border-bottom: 1px solid var(--gray-200);
-        gap: 4px;
-        flex-wrap: nowrap;
-        overflow-x: auto;
-    }
+    .nav-tabs-custom { border-bottom: 1px solid var(--gray-200); gap: 4px; flex-wrap: nowrap; overflow-x: auto; }
     .nav-tabs-custom::-webkit-scrollbar { display: none; }
     .nav-tabs-custom .nav-link {
-        color: var(--gray-600);
-        font-weight: 600;
-        font-size: .92rem;
-        border: none;
-        background: transparent;
-        padding: 14px 22px;
-        border-radius: 10px 10px 0 0;
-        position: relative;
-        white-space: nowrap;
-        transition: color .2s, background .2s;
+        color: var(--gray-600); font-weight: 600; font-size: .92rem; border: none;
+        background: transparent; padding: 14px 22px; border-radius: 10px 10px 0 0;
+        position: relative; white-space: nowrap; transition: color .2s, background .2s;
     }
-    .nav-tabs-custom .nav-link:hover {
-        color: var(--primary);
-        background: rgba(15,76,129,.05);
-    }
-    .nav-tabs-custom .nav-link.active {
-        color: var(--primary);
-        background: transparent;
-    }
+    .nav-tabs-custom .nav-link:hover { color: var(--primary); background: rgba(15,76,129,.05); }
+    .nav-tabs-custom .nav-link.active { color: var(--primary); background: transparent; }
     .nav-tabs-custom .nav-link.active::after {
-        content: "";
-        position: absolute; left: 12px; right: 12px; bottom: -1px;
+        content: ""; position: absolute; left: 12px; right: 12px; bottom: -1px;
         height: 3px; border-radius: 3px 3px 0 0;
         background: linear-gradient(90deg, var(--primary), var(--accent));
     }
 
-    /* ---------- CARDS ---------- */
     .card-custom {
-        border: 1px solid var(--gray-200);
-        border-radius: 16px;
-        background: #fff;
+        border: 1px solid var(--gray-200); border-radius: 16px; background: #fff;
         box-shadow: 0 1px 3px rgba(15,23,42,.04), 0 8px 24px rgba(15,23,42,.04);
-        transition: box-shadow .3s ease, transform .3s ease;
-        overflow: hidden;
+        transition: box-shadow .3s ease; overflow: hidden;
     }
-    .card-custom:hover {
-        box-shadow: 0 4px 12px rgba(15,23,42,.06), 0 16px 40px rgba(15,23,42,.08);
-    }
+    .card-custom:hover { box-shadow: 0 4px 12px rgba(15,23,42,.06), 0 16px 40px rgba(15,23,42,.08); }
     .card-header-custom {
-        background: #fff;
-        border-bottom: 1px solid var(--gray-100);
-        font-weight: 700;
-        color: var(--gray-900);
-        padding: 18px 22px;
+        background: #fff; border-bottom: 1px solid var(--gray-100);
+        font-weight: 700; color: var(--gray-900); padding: 18px 22px;
         display: flex; align-items: center; justify-content: space-between;
         flex-wrap: wrap; gap: 10px;
     }
     .section-eyebrow {
         font-size: .7rem; font-weight: 700; letter-spacing: .12em;
-        text-transform: uppercase; color: var(--accent);
-        margin-bottom: 6px;
+        text-transform: uppercase; color: var(--accent); margin-bottom: 6px;
     }
 
-    /* ---------- MAP ---------- */
     .map-container {
-        min-height: 580px;
-        border-radius: 12px;
-        overflow: hidden;
-        border: 1px solid var(--gray-200);
-        background: #fff;
+        min-height: 580px; border-radius: 12px; overflow: hidden;
+        border: 1px solid var(--gray-200); background: #fff;
     }
     .legend {
-        display: flex; flex-wrap: wrap; gap: 14px;
-        padding: 14px 18px;
-        background: var(--gray-50);
-        border: 1px solid var(--gray-200);
-        border-radius: 12px;
-        margin-bottom: 14px;
-        font-size: .82rem;
+        display: flex; flex-wrap: wrap; gap: 14px; padding: 14px 18px;
+        background: var(--gray-50); border: 1px solid var(--gray-200);
+        border-radius: 12px; margin-bottom: 14px; font-size: .82rem;
     }
     .legend-item { display: flex; align-items: center; gap: 8px; color: var(--gray-600); font-weight: 500; }
-    .legend-dot {
-        width: 12px; height: 12px; border-radius: 50%;
-        box-shadow: 0 0 0 2px #fff, 0 0 0 3px currentColor;
-    }
+    .legend-dot { width: 12px; height: 12px; border-radius: 50%; box-shadow: 0 0 0 2px #fff, 0 0 0 3px currentColor; }
 
-    /* ---------- BADGES ---------- */
     .badge-soft {
-        display: inline-flex; align-items: center;
-        padding: 5px 12px; border-radius: 999px;
-        font-size: .75rem; font-weight: 600;
-        white-space: nowrap;
+        display: inline-flex; align-items: center; padding: 5px 12px;
+        border-radius: 999px; font-size: .75rem; font-weight: 600; white-space: nowrap;
     }
-    .badge-soft.success   { background: #d1fae5; color: #065f46; }
-    .badge-soft.warning   { background: #fef3c7; color: #92400e; }
-    .badge-soft.danger    { background: #fee2e2; color: #991b1b; }
     .badge-soft.secondary { background: var(--gray-100); color: var(--gray-600); }
 
-    /* ---------- MODELS TABLE ---------- */
     .models-toolbar {
         display: flex; flex-wrap: wrap; gap: 10px; align-items: center;
-        padding: 16px 22px;
-        border-bottom: 1px solid var(--gray-100);
-        background: #fff;
+        padding: 16px 22px; border-bottom: 1px solid var(--gray-100); background: #fff;
     }
     .search-wrapper { position: relative; flex: 1 1 280px; min-width: 220px; }
     .search-wrapper i {
-        position: absolute; left: 14px; top: 50%;
-        transform: translateY(-50%);
+        position: absolute; left: 14px; top: 50%; transform: translateY(-50%);
         color: var(--gray-400); font-size: .9rem;
     }
     .search-input {
-        width: 100%;
-        padding: 10px 14px 10px 40px;
-        border-radius: 10px;
-        border: 1px solid var(--gray-200);
-        background: var(--gray-50);
-        font-size: .9rem;
-        transition: border-color .2s, box-shadow .2s, background .2s;
+        width: 100%; padding: 10px 14px 10px 40px; border-radius: 10px;
+        border: 1px solid var(--gray-200); background: var(--gray-50);
+        font-size: .9rem; transition: border-color .2s, box-shadow .2s, background .2s;
     }
     .search-input:focus {
-        outline: none;
-        border-color: var(--primary-2);
-        background: #fff;
+        outline: none; border-color: var(--primary-2); background: #fff;
         box-shadow: 0 0 0 4px rgba(30,111,191,.12);
     }
-    .models-table {
-        width: 100%;
-        border-collapse: separate;
-        border-spacing: 0;
-        font-size: .9rem;
-    }
+    .models-table { width: 100%; border-collapse: separate; border-spacing: 0; font-size: .9rem; }
     .models-table thead th {
-        background: var(--gray-50);
-        color: var(--gray-600);
-        font-size: .72rem;
-        font-weight: 700;
-        letter-spacing: .08em;
-        text-transform: uppercase;
-        padding: 14px 18px;
-        border-bottom: 1px solid var(--gray-200);
-        text-align: left;
-        white-space: nowrap;
+        background: var(--gray-50); color: var(--gray-600); font-size: .72rem;
+        font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+        padding: 14px 18px; border-bottom: 1px solid var(--gray-200);
+        text-align: left; white-space: nowrap;
     }
     .models-table tbody td {
-        padding: 16px 18px;
-        border-bottom: 1px solid var(--gray-100);
-        vertical-align: middle;
+        padding: 16px 18px; border-bottom: 1px solid var(--gray-100); vertical-align: middle;
     }
     .models-table tbody tr:last-child td { border-bottom: none; }
     .models-table tbody tr { transition: background .15s; }
@@ -238,51 +138,47 @@
         display: inline-flex; align-items: center; justify-content: center;
         background: linear-gradient(135deg, var(--primary), var(--accent));
         color: #fff; font-weight: 700; font-size: .85rem;
-        margin-right: 10px;
-        box-shadow: 0 4px 10px rgba(15,76,129,.18);
+        margin-right: 10px; box-shadow: 0 4px 10px rgba(15,76,129,.18);
+    }
+    .aprob-badge {
+        display: inline-flex; align-items: center; gap: 6px;
+        background: rgba(0,180,216,.1); color: #0369a1;
+        padding: 5px 12px; border-radius: 8px;
+        font-size: .78rem; font-weight: 600; font-family: 'JetBrains Mono', monospace;
+        border: 1px solid rgba(0,180,216,.2);
+    }
+    .aprob-badge::before {
+        content: "\f00c"; font-family: "Font Awesome 6 Free"; font-weight: 900;
+        font-size: .65rem; color: var(--success);
     }
 
-    /* ---------- EMPTY STATE ---------- */
     .empty-state { padding: 40px 20px; text-align: center; color: var(--gray-600); }
     .empty-state i { font-size: 3rem; color: var(--gray-400); opacity: .6; }
 
-    /* ---------- STATS ---------- */
     .stat-card {
-        background: #fff;
-        border: 1px solid var(--gray-200);
-        border-radius: 14px;
-        padding: 18px 20px;
-        display: flex; align-items: center; gap: 14px;
+        background: #fff; border: 1px solid var(--gray-200); border-radius: 14px;
+        padding: 18px 20px; display: flex; align-items: center; gap: 14px;
         transition: transform .25s, box-shadow .25s;
     }
-    .stat-card:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 24px rgba(15,23,42,.06);
-    }
+    .stat-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(15,23,42,.06); }
     .stat-icon {
         width: 46px; height: 46px; border-radius: 12px;
         display: flex; align-items: center; justify-content: center;
         font-size: 1.15rem; color: #fff;
-        background: linear-gradient(135deg, var(--primary), var(--primary-2));
-        flex-shrink: 0;
+        background: linear-gradient(135deg, var(--primary), var(--primary-2)); flex-shrink: 0;
     }
-    .stat-icon.accent  { background: linear-gradient(135deg, var(--accent), #48cae4); }
-    .stat-icon.purple  { background: linear-gradient(135deg, var(--purple), #a78bfa); }
+    .stat-icon.accent { background: linear-gradient(135deg, var(--accent), #48cae4); }
+    .stat-icon.purple { background: linear-gradient(135deg, var(--purple), #a78bfa); }
     .stat-value { font-size: 1.4rem; font-weight: 800; color: var(--gray-900); line-height: 1; }
     .stat-label { font-size: .78rem; color: var(--gray-600); margin-top: 4px; }
 
-    /* ---------- METRO CARDS ---------- */
     .metro-card {
-        border: 1px solid var(--gray-200);
-        border-radius: 14px;
-        background: #fff;
-        padding: 22px;
-        height: 100%;
+        border: 1px solid var(--gray-200); border-radius: 14px; background: #fff;
+        padding: 22px; height: 100%;
         transition: transform .25s, box-shadow .25s, border-color .25s;
     }
     .metro-card:hover {
-        transform: translateY(-3px);
-        border-color: var(--primary-2);
+        transform: translateY(-3px); border-color: var(--primary-2);
         box-shadow: 0 12px 28px rgba(15,23,42,.08);
     }
     .metro-card .icon-circle {
@@ -294,24 +190,18 @@
     .icon-success { background: rgba(16,185,129,.12); color: var(--success); }
     .icon-warning { background: rgba(245,158,11,.15); color: var(--warning); }
 
-    /* ---------- INFO ---------- */
     .info-list { list-style: none; padding-left: 0; }
     .info-list li {
         padding-left: 28px; position: relative; margin-bottom: 10px;
         color: var(--gray-600); font-size: .93rem; line-height: 1.55;
     }
     .info-list li::before {
-        content: "\f00c";
-        font-family: "Font Awesome 6 Free"; font-weight: 900;
-        position: absolute; left: 0; top: 1px;
-        color: var(--accent); font-size: .8rem;
+        content: "\f00c"; font-family: "Font Awesome 6 Free"; font-weight: 900;
+        position: absolute; left: 0; top: 1px; color: var(--accent); font-size: .8rem;
     }
     .type-card {
-        border-radius: 12px;
-        padding: 16px 18px;
-        border: 1px solid var(--gray-200);
-        background: var(--gray-50);
-        margin-bottom: 12px;
+        border-radius: 12px; padding: 16px 18px; border: 1px solid var(--gray-200);
+        background: var(--gray-50); margin-bottom: 12px;
         transition: border-color .2s, background .2s;
     }
     .type-card:hover { background: #fff; border-color: var(--primary-2); }
@@ -322,14 +212,13 @@
         .hero-section { padding: 40px 0 32px; }
         .nav-tabs-custom .nav-link { padding: 12px 14px; font-size: .82rem; }
         .models-table thead { display: none; }
-        .models-table tbody td { display: block; padding: 10px 16px; border-bottom: 1px solid var(--gray-100); }
-        .models-table tbody tr { display: block; border-bottom: 2px solid var(--gray-100); padding: 6px 0; }
+        .models-table tbody td { display: block; padding: 8px 16px; border-bottom: none; }
+        .models-table tbody tr { display: block; border-bottom: 1px solid var(--gray-100); padding: 8px 0; }
     }
 </style>
 </head>
 <body>
 
-<!-- HERO -->
 <div class="hero-section">
     <div class="container hero-inner">
         <div class="row align-items-center">
@@ -339,7 +228,8 @@
                     <i class="fa-solid fa-heart-pulse me-3"></i>Esfigmomanómetros
                 </h1>
                 <p class="lead hero-subtitle mb-0">
-                    Portal informativo sobre equipos de medición de presión arterial en Uruguay
+                    Portal informativo sobre equipos de medición de presión arterial en Uruguay:
+                    registros habilitados, modelos aprobados y control metrológico legal.
                 </p>
             </div>
             <div class="col-lg-4 text-lg-end mt-4 mt-lg-0 d-none d-lg-block">
@@ -358,7 +248,7 @@
         </li>
         <li class="nav-item" role="presentation">
             <button class="nav-link" id="modelos-tab" data-bs-toggle="tab" data-bs-target="#modelos-content" type="button" role="tab">
-                <i class="fa-solid fa-certificate me-2"></i>Modelos Aprobados
+                <i class="fa-solid fa-certificate me-2"></i>Modelos Aprobados <span class="badge-soft secondary ms-1">55</span>
             </button>
         </li>
         <li class="nav-item" role="presentation">
@@ -375,7 +265,7 @@
 
     <div class="tab-content" id="portalTabsContent">
 
-        <!-- ============ MAPA ============ -->
+        <!-- MAPA -->
         <div class="tab-pane fade show active" id="mapa-content" role="tabpanel">
             <div class="card card-custom">
                 <div class="card-header-custom">
@@ -393,29 +283,1007 @@
                         <span class="legend-item"><i class="fa-solid fa-star text-secondary"></i> Sugerido por LATU</span>
                         <span class="legend-item"><i class="fa-solid fa-circle-info text-secondary"></i> Otras fuentes</span>
                     </div>
-                    <div class="map-container">
-                        
-<iframe
-    src="./mapa.html"
-    title="Mapa de esfigmomanómetros"
-    style="width:100%; height:600px; border:0;"
-    loading="lazy">
-</iframe>
+                    <div class="map-container"><div style="width:100%;"><div style="position:relative;width:100%;height:0;padding-bottom:60%;"><span style="color:#565656">Make this Notebook Trusted to load map: File -> Trust Notebook</span><iframe srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    
+    &lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=UTF-8&quot; /&gt;
+    &lt;script src=&quot;https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://code.jquery.com/jquery-3.7.1.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js&quot;&gt;&lt;/script&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css&quot;/&gt;
+    
+            &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; /&gt;
+            &lt;style&gt;
+                #map_4dac0e96f1b555eff61bfbe1fb34d8d5 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            &lt;/style&gt;
 
-                    </div>
+            &lt;style&gt;html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            &lt;/style&gt;
+
+            &lt;style&gt;#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            &lt;/style&gt;
+
+            &lt;script&gt;
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            &lt;/script&gt;
+
+        
+    &lt;script src=&quot;https://cdn.jsdelivr.net/npm/leaflet.fullscreen@3.0.0/Control.FullScreen.min.js&quot;&gt;&lt;/script&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/leaflet.fullscreen@3.0.0/Control.FullScreen.css&quot;/&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    
+    
+            &lt;div class=&quot;folium-map&quot; id=&quot;map_4dac0e96f1b555eff61bfbe1fb34d8d5&quot; &gt;&lt;/div&gt;
+        
+&lt;/body&gt;
+&lt;script&gt;
+    
+    
+            var map_4dac0e96f1b555eff61bfbe1fb34d8d5 = L.map(
+                &quot;map_4dac0e96f1b555eff61bfbe1fb34d8d5&quot;,
+                {
+                    center: [-34.9011, -56.1645],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  &quot;zoom&quot;: 12,
+  &quot;zoomControl&quot;: true,
+  &quot;preferCanvas&quot;: false,
+}
+
+                }
+            );
+            L.control.scale().addTo(map_4dac0e96f1b555eff61bfbe1fb34d8d5);
+
+            
+
+        
+    
+            var tile_layer_c1b1295b5e42419a128f80612b431163 = L.tileLayer(
+                &quot;https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png&quot;,
+                {
+  &quot;minZoom&quot;: 0,
+  &quot;maxZoom&quot;: 20,
+  &quot;maxNativeZoom&quot;: 20,
+  &quot;noWrap&quot;: false,
+  &quot;attribution&quot;: &quot;\u0026copy; \u003ca href=\&quot;https://www.openstreetmap.org/copyright\&quot;\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\&quot;https://carto.com/attributions\&quot;\u003eCARTO\u003c/a\u003e&quot;,
+  &quot;subdomains&quot;: &quot;abcd&quot;,
+  &quot;detectRetina&quot;: false,
+  &quot;tms&quot;: false,
+  &quot;opacity&quot;: 1,
+}
+
+            );
+        
+    
+            tile_layer_c1b1295b5e42419a128f80612b431163.addTo(map_4dac0e96f1b555eff61bfbe1fb34d8d5);
+        
+    
+            L.control.fullscreen(
+                {
+  &quot;position&quot;: &quot;topright&quot;,
+  &quot;title&quot;: &quot;Pantalla Completa&quot;,
+  &quot;titleCancel&quot;: &quot;Salir&quot;,
+  &quot;forceSeparateButton&quot;: false,
+}
+            ).addTo(map_4dac0e96f1b555eff61bfbe1fb34d8d5);
+        
+    
+            var marker_ee59ab20db4993e0a79552ca485dbfca = L.marker(
+                [-34.9210957, -56.1618465],
+                {
+}
+            ).addTo(map_4dac0e96f1b555eff61bfbe1fb34d8d5);
+        
+    
+            var icon_db3adc971d19546f8df3c27a448acb5b = L.AwesomeMarkers.icon(
+                {
+  &quot;markerColor&quot;: &quot;green&quot;,
+  &quot;iconColor&quot;: &quot;white&quot;,
+  &quot;icon&quot;: &quot;star&quot;,
+  &quot;prefix&quot;: &quot;fa&quot;,
+  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
+}
+            );
+        
+    
+        var popup_fe8376e68c48a0c1d4202dd3a428e827 = L.popup({
+  &quot;maxWidth&quot;: 320,
+});
+
+        
+            
+                var html_827cd3cc8f2af024b88f6d694f31041b = $(`&lt;div id=&quot;html_827cd3cc8f2af024b88f6d694f31041b&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family:&#x27;Inter&#x27;,&#x27;Segoe UI&#x27;,Arial,sans-serif; min-width:240px; padding:4px;&quot;&gt;         &lt;h4 style=&quot;margin:0 0 10px 0; color:#0f172a; font-size:15px; font-weight:700;&quot;&gt;BTL MEDICAL URUGUAY S.A.&lt;/h4&gt;         &lt;div style=&quot;background:#f1f5f9; padding:10px 12px; border-radius:8px; border-left:4px solid #0f4c81;&quot;&gt;             &lt;b style=&quot;color:#64748b; font-size:10px; text-transform:uppercase;&quot;&gt;Categoría&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color:#0f172a; font-size:13px; font-weight:600;&quot;&gt;Importador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top:10px; font-size:10px; color:#94a3b8; text-align:right; font-style:italic;&quot;&gt;Fuente: Sugerido por LATU&lt;/div&gt;     &lt;/div&gt;&lt;/div&gt;`)[0];
+                popup_fe8376e68c48a0c1d4202dd3a428e827.setContent(html_827cd3cc8f2af024b88f6d694f31041b);
+            
+        
+
+        marker_ee59ab20db4993e0a79552ca485dbfca.bindPopup(popup_fe8376e68c48a0c1d4202dd3a428e827)
+        ;
+
+        
+    
+    
+                marker_ee59ab20db4993e0a79552ca485dbfca.setIcon(icon_db3adc971d19546f8df3c27a448acb5b);
+            
+    
+            var marker_f8f9d92308222178ea1b11d67843b35f = L.marker(
+                [-34.9102049, -56.1846634],
+                {
+}
+            ).addTo(map_4dac0e96f1b555eff61bfbe1fb34d8d5);
+        
+    
+            var icon_583ea3678d7f05b37b6c31aa89b27484 = L.AwesomeMarkers.icon(
+                {
+  &quot;markerColor&quot;: &quot;purple&quot;,
+  &quot;iconColor&quot;: &quot;white&quot;,
+  &quot;icon&quot;: &quot;star&quot;,
+  &quot;prefix&quot;: &quot;fa&quot;,
+  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
+}
+            );
+        
+    
+        var popup_1c129941b9a1c0ad7b496818c8087846 = L.popup({
+  &quot;maxWidth&quot;: 320,
+});
+
+        
+            
+                var html_dfdb46334bf9bec53b25afdc7f3adc78 = $(`&lt;div id=&quot;html_dfdb46334bf9bec53b25afdc7f3adc78&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family:&#x27;Inter&#x27;,&#x27;Segoe UI&#x27;,Arial,sans-serif; min-width:240px; padding:4px;&quot;&gt;         &lt;h4 style=&quot;margin:0 0 10px 0; color:#0f172a; font-size:15px; font-weight:700;&quot;&gt;FANIO SA&lt;/h4&gt;         &lt;div style=&quot;background:#f1f5f9; padding:10px 12px; border-radius:8px; border-left:4px solid #0f4c81;&quot;&gt;             &lt;b style=&quot;color:#64748b; font-size:10px; text-transform:uppercase;&quot;&gt;Categoría&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color:#0f172a; font-size:13px; font-weight:600;&quot;&gt;Importador Reparador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top:10px; font-size:10px; color:#94a3b8; text-align:right; font-style:italic;&quot;&gt;Fuente: Sugerido por LATU&lt;/div&gt;     &lt;/div&gt;&lt;/div&gt;`)[0];
+                popup_1c129941b9a1c0ad7b496818c8087846.setContent(html_dfdb46334bf9bec53b25afdc7f3adc78);
+            
+        
+
+        marker_f8f9d92308222178ea1b11d67843b35f.bindPopup(popup_1c129941b9a1c0ad7b496818c8087846)
+        ;
+
+        
+    
+    
+                marker_f8f9d92308222178ea1b11d67843b35f.setIcon(icon_583ea3678d7f05b37b6c31aa89b27484);
+            
+    
+            var marker_3ba5e9a65e961bec1d7dd9f9ea018b0a = L.marker(
+                [-34.8990504, -56.1465624],
+                {
+}
+            ).addTo(map_4dac0e96f1b555eff61bfbe1fb34d8d5);
+        
+    
+            var icon_c90147cfdaa4326493cb21219ffe006f = L.AwesomeMarkers.icon(
+                {
+  &quot;markerColor&quot;: &quot;purple&quot;,
+  &quot;iconColor&quot;: &quot;white&quot;,
+  &quot;icon&quot;: &quot;star&quot;,
+  &quot;prefix&quot;: &quot;fa&quot;,
+  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
+}
+            );
+        
+    
+        var popup_a3ad94f64a38deb58a9ebb9f158e5b11 = L.popup({
+  &quot;maxWidth&quot;: 320,
+});
+
+        
+            
+                var html_06d5cecaeb3738292d620864ef73e055 = $(`&lt;div id=&quot;html_06d5cecaeb3738292d620864ef73e055&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family:&#x27;Inter&#x27;,&#x27;Segoe UI&#x27;,Arial,sans-serif; min-width:240px; padding:4px;&quot;&gt;         &lt;h4 style=&quot;margin:0 0 10px 0; color:#0f172a; font-size:15px; font-weight:700;&quot;&gt;KEITO URUGUAY S A&lt;/h4&gt;         &lt;div style=&quot;background:#f1f5f9; padding:10px 12px; border-radius:8px; border-left:4px solid #0f4c81;&quot;&gt;             &lt;b style=&quot;color:#64748b; font-size:10px; text-transform:uppercase;&quot;&gt;Categoría&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color:#0f172a; font-size:13px; font-weight:600;&quot;&gt;Importador Reparador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top:10px; font-size:10px; color:#94a3b8; text-align:right; font-style:italic;&quot;&gt;Fuente: Sugerido por LATU&lt;/div&gt;     &lt;/div&gt;&lt;/div&gt;`)[0];
+                popup_a3ad94f64a38deb58a9ebb9f158e5b11.setContent(html_06d5cecaeb3738292d620864ef73e055);
+            
+        
+
+        marker_3ba5e9a65e961bec1d7dd9f9ea018b0a.bindPopup(popup_a3ad94f64a38deb58a9ebb9f158e5b11)
+        ;
+
+        
+    
+    
+                marker_3ba5e9a65e961bec1d7dd9f9ea018b0a.setIcon(icon_c90147cfdaa4326493cb21219ffe006f);
+            
+    
+            var marker_bf6116276101841cb56487de7ab98e1b = L.marker(
+                [-34.8879025, -56.1762535],
+                {
+}
+            ).addTo(map_4dac0e96f1b555eff61bfbe1fb34d8d5);
+        
+    
+            var icon_6b8c67c2bf9d901bb22610af4b16435e = L.AwesomeMarkers.icon(
+                {
+  &quot;markerColor&quot;: &quot;purple&quot;,
+  &quot;iconColor&quot;: &quot;white&quot;,
+  &quot;icon&quot;: &quot;star&quot;,
+  &quot;prefix&quot;: &quot;fa&quot;,
+  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
+}
+            );
+        
+    
+        var popup_40d29db937f6b60c02891e76e1d6af37 = L.popup({
+  &quot;maxWidth&quot;: 320,
+});
+
+        
+            
+                var html_73f82fcc8496702aa02f176cc6f1cc5f = $(`&lt;div id=&quot;html_73f82fcc8496702aa02f176cc6f1cc5f&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family:&#x27;Inter&#x27;,&#x27;Segoe UI&#x27;,Arial,sans-serif; min-width:240px; padding:4px;&quot;&gt;         &lt;h4 style=&quot;margin:0 0 10px 0; color:#0f172a; font-size:15px; font-weight:700;&quot;&gt;TECMAR MEDICA S.A.&lt;/h4&gt;         &lt;div style=&quot;background:#f1f5f9; padding:10px 12px; border-radius:8px; border-left:4px solid #0f4c81;&quot;&gt;             &lt;b style=&quot;color:#64748b; font-size:10px; text-transform:uppercase;&quot;&gt;Categoría&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color:#0f172a; font-size:13px; font-weight:600;&quot;&gt;Importador Reparador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top:10px; font-size:10px; color:#94a3b8; text-align:right; font-style:italic;&quot;&gt;Fuente: Sugerido por LATU&lt;/div&gt;     &lt;/div&gt;&lt;/div&gt;`)[0];
+                popup_40d29db937f6b60c02891e76e1d6af37.setContent(html_73f82fcc8496702aa02f176cc6f1cc5f);
+            
+        
+
+        marker_bf6116276101841cb56487de7ab98e1b.bindPopup(popup_40d29db937f6b60c02891e76e1d6af37)
+        ;
+
+        
+    
+    
+                marker_bf6116276101841cb56487de7ab98e1b.setIcon(icon_6b8c67c2bf9d901bb22610af4b16435e);
+            
+    
+            var marker_65d5e16e5c286e23891f3c3e1c908661 = L.marker(
+                [-34.9095869, -56.1913639],
+                {
+}
+            ).addTo(map_4dac0e96f1b555eff61bfbe1fb34d8d5);
+        
+    
+            var icon_d8003c8ca36650d29f31148d2e479b5d = L.AwesomeMarkers.icon(
+                {
+  &quot;markerColor&quot;: &quot;green&quot;,
+  &quot;iconColor&quot;: &quot;white&quot;,
+  &quot;icon&quot;: &quot;star&quot;,
+  &quot;prefix&quot;: &quot;fa&quot;,
+  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
+}
+            );
+        
+    
+        var popup_0d0f3320eb4adcf762b30cef092dec55 = L.popup({
+  &quot;maxWidth&quot;: 320,
+});
+
+        
+            
+                var html_354e4fd1cab2841355371278b8dab25c = $(`&lt;div id=&quot;html_354e4fd1cab2841355371278b8dab25c&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family:&#x27;Inter&#x27;,&#x27;Segoe UI&#x27;,Arial,sans-serif; min-width:240px; padding:4px;&quot;&gt;         &lt;h4 style=&quot;margin:0 0 10px 0; color:#0f172a; font-size:15px; font-weight:700;&quot;&gt;ARTILLEROS S.R.L.&lt;/h4&gt;         &lt;div style=&quot;background:#f1f5f9; padding:10px 12px; border-radius:8px; border-left:4px solid #0f4c81;&quot;&gt;             &lt;b style=&quot;color:#64748b; font-size:10px; text-transform:uppercase;&quot;&gt;Categoría&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color:#0f172a; font-size:13px; font-weight:600;&quot;&gt;Importador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top:10px; font-size:10px; color:#94a3b8; text-align:right; font-style:italic;&quot;&gt;Fuente: Sugerido por LATU&lt;/div&gt;     &lt;/div&gt;&lt;/div&gt;`)[0];
+                popup_0d0f3320eb4adcf762b30cef092dec55.setContent(html_354e4fd1cab2841355371278b8dab25c);
+            
+        
+
+        marker_65d5e16e5c286e23891f3c3e1c908661.bindPopup(popup_0d0f3320eb4adcf762b30cef092dec55)
+        ;
+
+        
+    
+    
+                marker_65d5e16e5c286e23891f3c3e1c908661.setIcon(icon_d8003c8ca36650d29f31148d2e479b5d);
+            
+    
+            var marker_9ab9dc1e2bd5045b8b2a991beb0fa2aa = L.marker(
+                [-34.8851543, -56.172572],
+                {
+}
+            ).addTo(map_4dac0e96f1b555eff61bfbe1fb34d8d5);
+        
+    
+            var icon_b6541db561d686761f123d9666c1d1bf = L.AwesomeMarkers.icon(
+                {
+  &quot;markerColor&quot;: &quot;green&quot;,
+  &quot;iconColor&quot;: &quot;white&quot;,
+  &quot;icon&quot;: &quot;star&quot;,
+  &quot;prefix&quot;: &quot;fa&quot;,
+  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
+}
+            );
+        
+    
+        var popup_61e38879dff282b443a8819a25494fb6 = L.popup({
+  &quot;maxWidth&quot;: 320,
+});
+
+        
+            
+                var html_ca20135cc738563809a717a1df92a485 = $(`&lt;div id=&quot;html_ca20135cc738563809a717a1df92a485&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family:&#x27;Inter&#x27;,&#x27;Segoe UI&#x27;,Arial,sans-serif; min-width:240px; padding:4px;&quot;&gt;         &lt;h4 style=&quot;margin:0 0 10px 0; color:#0f172a; font-size:15px; font-weight:700;&quot;&gt;MEDICENTER SRL&lt;/h4&gt;         &lt;div style=&quot;background:#f1f5f9; padding:10px 12px; border-radius:8px; border-left:4px solid #0f4c81;&quot;&gt;             &lt;b style=&quot;color:#64748b; font-size:10px; text-transform:uppercase;&quot;&gt;Categoría&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color:#0f172a; font-size:13px; font-weight:600;&quot;&gt;Importador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top:10px; font-size:10px; color:#94a3b8; text-align:right; font-style:italic;&quot;&gt;Fuente: Sugerido por LATU&lt;/div&gt;     &lt;/div&gt;&lt;/div&gt;`)[0];
+                popup_61e38879dff282b443a8819a25494fb6.setContent(html_ca20135cc738563809a717a1df92a485);
+            
+        
+
+        marker_9ab9dc1e2bd5045b8b2a991beb0fa2aa.bindPopup(popup_61e38879dff282b443a8819a25494fb6)
+        ;
+
+        
+    
+    
+                marker_9ab9dc1e2bd5045b8b2a991beb0fa2aa.setIcon(icon_b6541db561d686761f123d9666c1d1bf);
+            
+    
+            var marker_768b5ee4790e2796d27a78742a56e0ec = L.marker(
+                [-34.9107955, -56.1759784],
+                {
+}
+            ).addTo(map_4dac0e96f1b555eff61bfbe1fb34d8d5);
+        
+    
+            var icon_45fb8f102e6882b6ed8b3a5da015101c = L.AwesomeMarkers.icon(
+                {
+  &quot;markerColor&quot;: &quot;green&quot;,
+  &quot;iconColor&quot;: &quot;white&quot;,
+  &quot;icon&quot;: &quot;star&quot;,
+  &quot;prefix&quot;: &quot;fa&quot;,
+  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
+}
+            );
+        
+    
+        var popup_a26df44e94ede16fa80ef40a8814e74c = L.popup({
+  &quot;maxWidth&quot;: 320,
+});
+
+        
+            
+                var html_a347fa76552964b63f2415e020272bfd = $(`&lt;div id=&quot;html_a347fa76552964b63f2415e020272bfd&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family:&#x27;Inter&#x27;,&#x27;Segoe UI&#x27;,Arial,sans-serif; min-width:240px; padding:4px;&quot;&gt;         &lt;h4 style=&quot;margin:0 0 10px 0; color:#0f172a; font-size:15px; font-weight:700;&quot;&gt;UNION DISPROFARMA S.A&lt;/h4&gt;         &lt;div style=&quot;background:#f1f5f9; padding:10px 12px; border-radius:8px; border-left:4px solid #0f4c81;&quot;&gt;             &lt;b style=&quot;color:#64748b; font-size:10px; text-transform:uppercase;&quot;&gt;Categoría&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color:#0f172a; font-size:13px; font-weight:600;&quot;&gt;Importador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top:10px; font-size:10px; color:#94a3b8; text-align:right; font-style:italic;&quot;&gt;Fuente: Sugerido por LATU&lt;/div&gt;     &lt;/div&gt;&lt;/div&gt;`)[0];
+                popup_a26df44e94ede16fa80ef40a8814e74c.setContent(html_a347fa76552964b63f2415e020272bfd);
+            
+        
+
+        marker_768b5ee4790e2796d27a78742a56e0ec.bindPopup(popup_a26df44e94ede16fa80ef40a8814e74c)
+        ;
+
+        
+    
+    
+                marker_768b5ee4790e2796d27a78742a56e0ec.setIcon(icon_45fb8f102e6882b6ed8b3a5da015101c);
+            
+    
+            var marker_4fb7bdb04c5913fbb758eaee3e569159 = L.marker(
+                [-34.9102049, -56.1846634],
+                {
+}
+            ).addTo(map_4dac0e96f1b555eff61bfbe1fb34d8d5);
+        
+    
+            var icon_46dcc69d96bb9040bef2247a9e1e6e13 = L.AwesomeMarkers.icon(
+                {
+  &quot;markerColor&quot;: &quot;green&quot;,
+  &quot;iconColor&quot;: &quot;white&quot;,
+  &quot;icon&quot;: &quot;star&quot;,
+  &quot;prefix&quot;: &quot;fa&quot;,
+  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
+}
+            );
+        
+    
+        var popup_d3f1e177fad1792dea46d0992dd3407d = L.popup({
+  &quot;maxWidth&quot;: 320,
+});
+
+        
+            
+                var html_42fb43251e7f3699694bb3189448fd31 = $(`&lt;div id=&quot;html_42fb43251e7f3699694bb3189448fd31&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family:&#x27;Inter&#x27;,&#x27;Segoe UI&#x27;,Arial,sans-serif; min-width:240px; padding:4px;&quot;&gt;         &lt;h4 style=&quot;margin:0 0 10px 0; color:#0f172a; font-size:15px; font-weight:700;&quot;&gt;FANIO SA&lt;/h4&gt;         &lt;div style=&quot;background:#f1f5f9; padding:10px 12px; border-radius:8px; border-left:4px solid #0f4c81;&quot;&gt;             &lt;b style=&quot;color:#64748b; font-size:10px; text-transform:uppercase;&quot;&gt;Categoría&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color:#0f172a; font-size:13px; font-weight:600;&quot;&gt;Importador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top:10px; font-size:10px; color:#94a3b8; text-align:right; font-style:italic;&quot;&gt;Fuente: Sugerido por LATU&lt;/div&gt;     &lt;/div&gt;&lt;/div&gt;`)[0];
+                popup_d3f1e177fad1792dea46d0992dd3407d.setContent(html_42fb43251e7f3699694bb3189448fd31);
+            
+        
+
+        marker_4fb7bdb04c5913fbb758eaee3e569159.bindPopup(popup_d3f1e177fad1792dea46d0992dd3407d)
+        ;
+
+        
+    
+    
+                marker_4fb7bdb04c5913fbb758eaee3e569159.setIcon(icon_46dcc69d96bb9040bef2247a9e1e6e13);
+            
+    
+            var marker_915f10278c5611695881c45c09aded47 = L.marker(
+                [-34.8960358, -56.1659223],
+                {
+}
+            ).addTo(map_4dac0e96f1b555eff61bfbe1fb34d8d5);
+        
+    
+            var icon_3aeb9cddadab02f2f63728014a69d087 = L.AwesomeMarkers.icon(
+                {
+  &quot;markerColor&quot;: &quot;green&quot;,
+  &quot;iconColor&quot;: &quot;white&quot;,
+  &quot;icon&quot;: &quot;star&quot;,
+  &quot;prefix&quot;: &quot;fa&quot;,
+  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
+}
+            );
+        
+    
+        var popup_a8ea55eec01d80109751db8bc557a2df = L.popup({
+  &quot;maxWidth&quot;: 320,
+});
+
+        
+            
+                var html_3b5fe1bfff16ac345475a9d107bc6b20 = $(`&lt;div id=&quot;html_3b5fe1bfff16ac345475a9d107bc6b20&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family:&#x27;Inter&#x27;,&#x27;Segoe UI&#x27;,Arial,sans-serif; min-width:240px; padding:4px;&quot;&gt;         &lt;h4 style=&quot;margin:0 0 10px 0; color:#0f172a; font-size:15px; font-weight:700;&quot;&gt;MEDILAND S.A&lt;/h4&gt;         &lt;div style=&quot;background:#f1f5f9; padding:10px 12px; border-radius:8px; border-left:4px solid #0f4c81;&quot;&gt;             &lt;b style=&quot;color:#64748b; font-size:10px; text-transform:uppercase;&quot;&gt;Categoría&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color:#0f172a; font-size:13px; font-weight:600;&quot;&gt;Importador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top:10px; font-size:10px; color:#94a3b8; text-align:right; font-style:italic;&quot;&gt;Fuente: Sugerido por LATU&lt;/div&gt;     &lt;/div&gt;&lt;/div&gt;`)[0];
+                popup_a8ea55eec01d80109751db8bc557a2df.setContent(html_3b5fe1bfff16ac345475a9d107bc6b20);
+            
+        
+
+        marker_915f10278c5611695881c45c09aded47.bindPopup(popup_a8ea55eec01d80109751db8bc557a2df)
+        ;
+
+        
+    
+    
+                marker_915f10278c5611695881c45c09aded47.setIcon(icon_3aeb9cddadab02f2f63728014a69d087);
+            
+    
+            var marker_2712b17ff18fdd9edc519c8e1426d602 = L.marker(
+                [-34.8927738, -56.0833129],
+                {
+}
+            ).addTo(map_4dac0e96f1b555eff61bfbe1fb34d8d5);
+        
+    
+            var icon_4061f323f4e5f28888966358a5c4dc44 = L.AwesomeMarkers.icon(
+                {
+  &quot;markerColor&quot;: &quot;green&quot;,
+  &quot;iconColor&quot;: &quot;white&quot;,
+  &quot;icon&quot;: &quot;star&quot;,
+  &quot;prefix&quot;: &quot;fa&quot;,
+  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
+}
+            );
+        
+    
+        var popup_ac2e6100d7711b656e29b49e73eb544c = L.popup({
+  &quot;maxWidth&quot;: 320,
+});
+
+        
+            
+                var html_357c03235822098f0855a377cdfa52e0 = $(`&lt;div id=&quot;html_357c03235822098f0855a377cdfa52e0&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family:&#x27;Inter&#x27;,&#x27;Segoe UI&#x27;,Arial,sans-serif; min-width:240px; padding:4px;&quot;&gt;         &lt;h4 style=&quot;margin:0 0 10px 0; color:#0f172a; font-size:15px; font-weight:700;&quot;&gt;GW Y DW S.R.L&lt;/h4&gt;         &lt;div style=&quot;background:#f1f5f9; padding:10px 12px; border-radius:8px; border-left:4px solid #0f4c81;&quot;&gt;             &lt;b style=&quot;color:#64748b; font-size:10px; text-transform:uppercase;&quot;&gt;Categoría&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color:#0f172a; font-size:13px; font-weight:600;&quot;&gt;Importador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top:10px; font-size:10px; color:#94a3b8; text-align:right; font-style:italic;&quot;&gt;Fuente: Sugerido por LATU&lt;/div&gt;     &lt;/div&gt;&lt;/div&gt;`)[0];
+                popup_ac2e6100d7711b656e29b49e73eb544c.setContent(html_357c03235822098f0855a377cdfa52e0);
+            
+        
+
+        marker_2712b17ff18fdd9edc519c8e1426d602.bindPopup(popup_ac2e6100d7711b656e29b49e73eb544c)
+        ;
+
+        
+    
+    
+                marker_2712b17ff18fdd9edc519c8e1426d602.setIcon(icon_4061f323f4e5f28888966358a5c4dc44);
+            
+    
+            var marker_9b55f51c6cce16c9090bdcb6919684b1 = L.marker(
+                [-34.9078319, -56.2034867],
+                {
+}
+            ).addTo(map_4dac0e96f1b555eff61bfbe1fb34d8d5);
+        
+    
+            var icon_82eb84966ab2b8cb4846d800fae4ad10 = L.AwesomeMarkers.icon(
+                {
+  &quot;markerColor&quot;: &quot;green&quot;,
+  &quot;iconColor&quot;: &quot;white&quot;,
+  &quot;icon&quot;: &quot;star&quot;,
+  &quot;prefix&quot;: &quot;fa&quot;,
+  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
+}
+            );
+        
+    
+        var popup_33ad0eaef830123ab10ddc08ec9a35bc = L.popup({
+  &quot;maxWidth&quot;: 320,
+});
+
+        
+            
+                var html_31fde505c56f58753d851950bcafc391 = $(`&lt;div id=&quot;html_31fde505c56f58753d851950bcafc391&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family:&#x27;Inter&#x27;,&#x27;Segoe UI&#x27;,Arial,sans-serif; min-width:240px; padding:4px;&quot;&gt;         &lt;h4 style=&quot;margin:0 0 10px 0; color:#0f172a; font-size:15px; font-weight:700;&quot;&gt;ARUYA SA&lt;/h4&gt;         &lt;div style=&quot;background:#f1f5f9; padding:10px 12px; border-radius:8px; border-left:4px solid #0f4c81;&quot;&gt;             &lt;b style=&quot;color:#64748b; font-size:10px; text-transform:uppercase;&quot;&gt;Categoría&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color:#0f172a; font-size:13px; font-weight:600;&quot;&gt;Importador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top:10px; font-size:10px; color:#94a3b8; text-align:right; font-style:italic;&quot;&gt;Fuente: Sugerido por LATU&lt;/div&gt;     &lt;/div&gt;&lt;/div&gt;`)[0];
+                popup_33ad0eaef830123ab10ddc08ec9a35bc.setContent(html_31fde505c56f58753d851950bcafc391);
+            
+        
+
+        marker_9b55f51c6cce16c9090bdcb6919684b1.bindPopup(popup_33ad0eaef830123ab10ddc08ec9a35bc)
+        ;
+
+        
+    
+    
+                marker_9b55f51c6cce16c9090bdcb6919684b1.setIcon(icon_82eb84966ab2b8cb4846d800fae4ad10);
+            
+    
+            var marker_f8285e054b1cd90c924c421ea4ace4dc = L.marker(
+                [-34.8651693, -56.178707],
+                {
+}
+            ).addTo(map_4dac0e96f1b555eff61bfbe1fb34d8d5);
+        
+    
+            var icon_cc1343178b31dfa24ccea6b6a3ec09d6 = L.AwesomeMarkers.icon(
+                {
+  &quot;markerColor&quot;: &quot;orange&quot;,
+  &quot;iconColor&quot;: &quot;white&quot;,
+  &quot;icon&quot;: &quot;star&quot;,
+  &quot;prefix&quot;: &quot;fa&quot;,
+  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
+}
+            );
+        
+    
+        var popup_daa074fbafbc0e9664ec5ec709fd50c5 = L.popup({
+  &quot;maxWidth&quot;: 320,
+});
+
+        
+            
+                var html_cbcb6dc6b8572ad47dffdec5536052ad = $(`&lt;div id=&quot;html_cbcb6dc6b8572ad47dffdec5536052ad&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family:&#x27;Inter&#x27;,&#x27;Segoe UI&#x27;,Arial,sans-serif; min-width:240px; padding:4px;&quot;&gt;         &lt;h4 style=&quot;margin:0 0 10px 0; color:#0f172a; font-size:15px; font-weight:700;&quot;&gt;NESTOR LUIS PAEZ MERA&lt;/h4&gt;         &lt;div style=&quot;background:#f1f5f9; padding:10px 12px; border-radius:8px; border-left:4px solid #0f4c81;&quot;&gt;             &lt;b style=&quot;color:#64748b; font-size:10px; text-transform:uppercase;&quot;&gt;Categoría&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color:#0f172a; font-size:13px; font-weight:600;&quot;&gt;Reparador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top:10px; font-size:10px; color:#94a3b8; text-align:right; font-style:italic;&quot;&gt;Fuente: Sugerido por LATU&lt;/div&gt;     &lt;/div&gt;&lt;/div&gt;`)[0];
+                popup_daa074fbafbc0e9664ec5ec709fd50c5.setContent(html_cbcb6dc6b8572ad47dffdec5536052ad);
+            
+        
+
+        marker_f8285e054b1cd90c924c421ea4ace4dc.bindPopup(popup_daa074fbafbc0e9664ec5ec709fd50c5)
+        ;
+
+        
+    
+    
+                marker_f8285e054b1cd90c924c421ea4ace4dc.setIcon(icon_cc1343178b31dfa24ccea6b6a3ec09d6);
+            
+    
+            var marker_33465fbf313b7193470c8b3fff8879fe = L.marker(
+                [-34.9015349, -56.1667299],
+                {
+}
+            ).addTo(map_4dac0e96f1b555eff61bfbe1fb34d8d5);
+        
+    
+            var icon_e00d310e0dc6445d45f744130f7f4e59 = L.AwesomeMarkers.icon(
+                {
+  &quot;markerColor&quot;: &quot;orange&quot;,
+  &quot;iconColor&quot;: &quot;white&quot;,
+  &quot;icon&quot;: &quot;star&quot;,
+  &quot;prefix&quot;: &quot;fa&quot;,
+  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
+}
+            );
+        
+    
+        var popup_fc5bf1dd3ea417a960cbadb2f798f5b2 = L.popup({
+  &quot;maxWidth&quot;: 320,
+});
+
+        
+            
+                var html_5b6e232e219075d855571934d897c033 = $(`&lt;div id=&quot;html_5b6e232e219075d855571934d897c033&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family:&#x27;Inter&#x27;,&#x27;Segoe UI&#x27;,Arial,sans-serif; min-width:240px; padding:4px;&quot;&gt;         &lt;h4 style=&quot;margin:0 0 10px 0; color:#0f172a; font-size:15px; font-weight:700;&quot;&gt;MBR LTDA&lt;/h4&gt;         &lt;div style=&quot;background:#f1f5f9; padding:10px 12px; border-radius:8px; border-left:4px solid #0f4c81;&quot;&gt;             &lt;b style=&quot;color:#64748b; font-size:10px; text-transform:uppercase;&quot;&gt;Categoría&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color:#0f172a; font-size:13px; font-weight:600;&quot;&gt;Reparador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top:10px; font-size:10px; color:#94a3b8; text-align:right; font-style:italic;&quot;&gt;Fuente: Sugerido por LATU&lt;/div&gt;     &lt;/div&gt;&lt;/div&gt;`)[0];
+                popup_fc5bf1dd3ea417a960cbadb2f798f5b2.setContent(html_5b6e232e219075d855571934d897c033);
+            
+        
+
+        marker_33465fbf313b7193470c8b3fff8879fe.bindPopup(popup_fc5bf1dd3ea417a960cbadb2f798f5b2)
+        ;
+
+        
+    
+    
+                marker_33465fbf313b7193470c8b3fff8879fe.setIcon(icon_e00d310e0dc6445d45f744130f7f4e59);
+            
+    
+            var marker_e4de72e007056720bb0156ba41d2b676 = L.marker(
+                [-34.9078319, -56.2034867],
+                {
+}
+            ).addTo(map_4dac0e96f1b555eff61bfbe1fb34d8d5);
+        
+    
+            var icon_0653dc11aacd05c476415d9cd3a65556 = L.AwesomeMarkers.icon(
+                {
+  &quot;markerColor&quot;: &quot;green&quot;,
+  &quot;iconColor&quot;: &quot;white&quot;,
+  &quot;icon&quot;: &quot;star&quot;,
+  &quot;prefix&quot;: &quot;fa&quot;,
+  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
+}
+            );
+        
+    
+        var popup_5f7d70e021e7d6f6726f2539882cf3e8 = L.popup({
+  &quot;maxWidth&quot;: 320,
+});
+
+        
+            
+                var html_b2714dfb92f2b4e3ddea9205cb98070d = $(`&lt;div id=&quot;html_b2714dfb92f2b4e3ddea9205cb98070d&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family:&#x27;Inter&#x27;,&#x27;Segoe UI&#x27;,Arial,sans-serif; min-width:240px; padding:4px;&quot;&gt;         &lt;h4 style=&quot;margin:0 0 10px 0; color:#0f172a; font-size:15px; font-weight:700;&quot;&gt;SUCESORES DE SAUL FOJGIEL LTDA&lt;/h4&gt;         &lt;div style=&quot;background:#f1f5f9; padding:10px 12px; border-radius:8px; border-left:4px solid #0f4c81;&quot;&gt;             &lt;b style=&quot;color:#64748b; font-size:10px; text-transform:uppercase;&quot;&gt;Categoría&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color:#0f172a; font-size:13px; font-weight:600;&quot;&gt;Importador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top:10px; font-size:10px; color:#94a3b8; text-align:right; font-style:italic;&quot;&gt;Fuente: Sugerido por LATU&lt;/div&gt;     &lt;/div&gt;&lt;/div&gt;`)[0];
+                popup_5f7d70e021e7d6f6726f2539882cf3e8.setContent(html_b2714dfb92f2b4e3ddea9205cb98070d);
+            
+        
+
+        marker_e4de72e007056720bb0156ba41d2b676.bindPopup(popup_5f7d70e021e7d6f6726f2539882cf3e8)
+        ;
+
+        
+    
+    
+                marker_e4de72e007056720bb0156ba41d2b676.setIcon(icon_0653dc11aacd05c476415d9cd3a65556);
+            
+    
+            var marker_36e605e5c040f524e7f54cdc856ed10c = L.marker(
+                [-34.8879025, -56.1762535],
+                {
+}
+            ).addTo(map_4dac0e96f1b555eff61bfbe1fb34d8d5);
+        
+    
+            var icon_e8a594d491d19a8b65c7800dc858e5db = L.AwesomeMarkers.icon(
+                {
+  &quot;markerColor&quot;: &quot;purple&quot;,
+  &quot;iconColor&quot;: &quot;white&quot;,
+  &quot;icon&quot;: &quot;star&quot;,
+  &quot;prefix&quot;: &quot;fa&quot;,
+  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
+}
+            );
+        
+    
+        var popup_8088daebda342309bd61a2cfa9145f85 = L.popup({
+  &quot;maxWidth&quot;: 320,
+});
+
+        
+            
+                var html_4d03f6f55314198373842c7bd0983530 = $(`&lt;div id=&quot;html_4d03f6f55314198373842c7bd0983530&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family:&#x27;Inter&#x27;,&#x27;Segoe UI&#x27;,Arial,sans-serif; min-width:240px; padding:4px;&quot;&gt;         &lt;h4 style=&quot;margin:0 0 10px 0; color:#0f172a; font-size:15px; font-weight:700;&quot;&gt;TECMAR MEDICA S.A.&lt;/h4&gt;         &lt;div style=&quot;background:#f1f5f9; padding:10px 12px; border-radius:8px; border-left:4px solid #0f4c81;&quot;&gt;             &lt;b style=&quot;color:#64748b; font-size:10px; text-transform:uppercase;&quot;&gt;Categoría&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color:#0f172a; font-size:13px; font-weight:600;&quot;&gt;Importador Reparador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top:10px; font-size:10px; color:#94a3b8; text-align:right; font-style:italic;&quot;&gt;Fuente: Sugerido por LATU&lt;/div&gt;     &lt;/div&gt;&lt;/div&gt;`)[0];
+                popup_8088daebda342309bd61a2cfa9145f85.setContent(html_4d03f6f55314198373842c7bd0983530);
+            
+        
+
+        marker_36e605e5c040f524e7f54cdc856ed10c.bindPopup(popup_8088daebda342309bd61a2cfa9145f85)
+        ;
+
+        
+    
+    
+                marker_36e605e5c040f524e7f54cdc856ed10c.setIcon(icon_e8a594d491d19a8b65c7800dc858e5db);
+            
+    
+            var marker_05c129417b68739a18384f8d59fc3395 = L.marker(
+                [-34.8914069, -56.074603],
+                {
+}
+            ).addTo(map_4dac0e96f1b555eff61bfbe1fb34d8d5);
+        
+    
+            var icon_97489f0dd70f9de2239edf45ebd3c08e = L.AwesomeMarkers.icon(
+                {
+  &quot;markerColor&quot;: &quot;green&quot;,
+  &quot;iconColor&quot;: &quot;white&quot;,
+  &quot;icon&quot;: &quot;star&quot;,
+  &quot;prefix&quot;: &quot;fa&quot;,
+  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
+}
+            );
+        
+    
+        var popup_38a6f677fd363f8c1618b731797d0b11 = L.popup({
+  &quot;maxWidth&quot;: 320,
+});
+
+        
+            
+                var html_6c65df270946ba44e8afb92184ecd5cc = $(`&lt;div id=&quot;html_6c65df270946ba44e8afb92184ecd5cc&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family:&#x27;Inter&#x27;,&#x27;Segoe UI&#x27;,Arial,sans-serif; min-width:240px; padding:4px;&quot;&gt;         &lt;h4 style=&quot;margin:0 0 10px 0; color:#0f172a; font-size:15px; font-weight:700;&quot;&gt;JORGE N. GONZALEZ&lt;/h4&gt;         &lt;div style=&quot;background:#f1f5f9; padding:10px 12px; border-radius:8px; border-left:4px solid #0f4c81;&quot;&gt;             &lt;b style=&quot;color:#64748b; font-size:10px; text-transform:uppercase;&quot;&gt;Categoría&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color:#0f172a; font-size:13px; font-weight:600;&quot;&gt;Importador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top:10px; font-size:10px; color:#94a3b8; text-align:right; font-style:italic;&quot;&gt;Fuente: Sugerido por LATU&lt;/div&gt;     &lt;/div&gt;&lt;/div&gt;`)[0];
+                popup_38a6f677fd363f8c1618b731797d0b11.setContent(html_6c65df270946ba44e8afb92184ecd5cc);
+            
+        
+
+        marker_05c129417b68739a18384f8d59fc3395.bindPopup(popup_38a6f677fd363f8c1618b731797d0b11)
+        ;
+
+        
+    
+    
+                marker_05c129417b68739a18384f8d59fc3395.setIcon(icon_97489f0dd70f9de2239edf45ebd3c08e);
+            
+    
+            var marker_b5176ef47d07a425c123c123536fe2fe = L.marker(
+                [-34.8802231, -56.1740781],
+                {
+}
+            ).addTo(map_4dac0e96f1b555eff61bfbe1fb34d8d5);
+        
+    
+            var icon_0436f696ff6b27f045f58b14914dbb7f = L.AwesomeMarkers.icon(
+                {
+  &quot;markerColor&quot;: &quot;green&quot;,
+  &quot;iconColor&quot;: &quot;white&quot;,
+  &quot;icon&quot;: &quot;star&quot;,
+  &quot;prefix&quot;: &quot;fa&quot;,
+  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
+}
+            );
+        
+    
+        var popup_9f9b92e97960de4ddee92fba54364e7a = L.popup({
+  &quot;maxWidth&quot;: 320,
+});
+
+        
+            
+                var html_1f91c5ca9fdd211d21f5320e73fa2333 = $(`&lt;div id=&quot;html_1f91c5ca9fdd211d21f5320e73fa2333&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family:&#x27;Inter&#x27;,&#x27;Segoe UI&#x27;,Arial,sans-serif; min-width:240px; padding:4px;&quot;&gt;         &lt;h4 style=&quot;margin:0 0 10px 0; color:#0f172a; font-size:15px; font-weight:700;&quot;&gt;MARE URUGUAY LTDA.&lt;/h4&gt;         &lt;div style=&quot;background:#f1f5f9; padding:10px 12px; border-radius:8px; border-left:4px solid #0f4c81;&quot;&gt;             &lt;b style=&quot;color:#64748b; font-size:10px; text-transform:uppercase;&quot;&gt;Categoría&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color:#0f172a; font-size:13px; font-weight:600;&quot;&gt;Importador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top:10px; font-size:10px; color:#94a3b8; text-align:right; font-style:italic;&quot;&gt;Fuente: Sugerido por LATU&lt;/div&gt;     &lt;/div&gt;&lt;/div&gt;`)[0];
+                popup_9f9b92e97960de4ddee92fba54364e7a.setContent(html_1f91c5ca9fdd211d21f5320e73fa2333);
+            
+        
+
+        marker_b5176ef47d07a425c123c123536fe2fe.bindPopup(popup_9f9b92e97960de4ddee92fba54364e7a)
+        ;
+
+        
+    
+    
+                marker_b5176ef47d07a425c123c123536fe2fe.setIcon(icon_0436f696ff6b27f045f58b14914dbb7f);
+            
+    
+            var marker_e901a729240452187895e4b3a534b62e = L.marker(
+                [-34.8950223, -56.0742192],
+                {
+}
+            ).addTo(map_4dac0e96f1b555eff61bfbe1fb34d8d5);
+        
+    
+            var icon_15b212803f0b9485244f6e25311f87b6 = L.AwesomeMarkers.icon(
+                {
+  &quot;markerColor&quot;: &quot;green&quot;,
+  &quot;iconColor&quot;: &quot;white&quot;,
+  &quot;icon&quot;: &quot;star&quot;,
+  &quot;prefix&quot;: &quot;fa&quot;,
+  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
+}
+            );
+        
+    
+        var popup_c184f53871456ac47c7fa6d6ac316348 = L.popup({
+  &quot;maxWidth&quot;: 320,
+});
+
+        
+            
+                var html_b1fea168fabd53f731054492f1dd3dc2 = $(`&lt;div id=&quot;html_b1fea168fabd53f731054492f1dd3dc2&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family:&#x27;Inter&#x27;,&#x27;Segoe UI&#x27;,Arial,sans-serif; min-width:240px; padding:4px;&quot;&gt;         &lt;h4 style=&quot;margin:0 0 10px 0; color:#0f172a; font-size:15px; font-weight:700;&quot;&gt;ALDENOR S.A.&lt;/h4&gt;         &lt;div style=&quot;background:#f1f5f9; padding:10px 12px; border-radius:8px; border-left:4px solid #0f4c81;&quot;&gt;             &lt;b style=&quot;color:#64748b; font-size:10px; text-transform:uppercase;&quot;&gt;Categoría&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color:#0f172a; font-size:13px; font-weight:600;&quot;&gt;Importador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top:10px; font-size:10px; color:#94a3b8; text-align:right; font-style:italic;&quot;&gt;Fuente: Sugerido por LATU&lt;/div&gt;     &lt;/div&gt;&lt;/div&gt;`)[0];
+                popup_c184f53871456ac47c7fa6d6ac316348.setContent(html_b1fea168fabd53f731054492f1dd3dc2);
+            
+        
+
+        marker_e901a729240452187895e4b3a534b62e.bindPopup(popup_c184f53871456ac47c7fa6d6ac316348)
+        ;
+
+        
+    
+    
+                marker_e901a729240452187895e4b3a534b62e.setIcon(icon_15b212803f0b9485244f6e25311f87b6);
+            
+    
+            var marker_099adf4ec68e2ed178c4e3c3a47a412b = L.marker(
+                [-34.8962723, -56.1791701],
+                {
+}
+            ).addTo(map_4dac0e96f1b555eff61bfbe1fb34d8d5);
+        
+    
+            var icon_6a15b01cb2b62b3b52eac6270a7d968d = L.AwesomeMarkers.icon(
+                {
+  &quot;markerColor&quot;: &quot;purple&quot;,
+  &quot;iconColor&quot;: &quot;white&quot;,
+  &quot;icon&quot;: &quot;star&quot;,
+  &quot;prefix&quot;: &quot;fa&quot;,
+  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
+}
+            );
+        
+    
+        var popup_ce6c6e898378353424223418ee541e42 = L.popup({
+  &quot;maxWidth&quot;: 320,
+});
+
+        
+            
+                var html_34bf7d4a15ee07c0ea91c8bd859180d0 = $(`&lt;div id=&quot;html_34bf7d4a15ee07c0ea91c8bd859180d0&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family:&#x27;Inter&#x27;,&#x27;Segoe UI&#x27;,Arial,sans-serif; min-width:240px; padding:4px;&quot;&gt;         &lt;h4 style=&quot;margin:0 0 10px 0; color:#0f172a; font-size:15px; font-weight:700;&quot;&gt;MEDI IMPORT S.A.&lt;/h4&gt;         &lt;div style=&quot;background:#f1f5f9; padding:10px 12px; border-radius:8px; border-left:4px solid #0f4c81;&quot;&gt;             &lt;b style=&quot;color:#64748b; font-size:10px; text-transform:uppercase;&quot;&gt;Categoría&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color:#0f172a; font-size:13px; font-weight:600;&quot;&gt;Importador Reparador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top:10px; font-size:10px; color:#94a3b8; text-align:right; font-style:italic;&quot;&gt;Fuente: Sugerido por LATU&lt;/div&gt;     &lt;/div&gt;&lt;/div&gt;`)[0];
+                popup_ce6c6e898378353424223418ee541e42.setContent(html_34bf7d4a15ee07c0ea91c8bd859180d0);
+            
+        
+
+        marker_099adf4ec68e2ed178c4e3c3a47a412b.bindPopup(popup_ce6c6e898378353424223418ee541e42)
+        ;
+
+        
+    
+    
+                marker_099adf4ec68e2ed178c4e3c3a47a412b.setIcon(icon_6a15b01cb2b62b3b52eac6270a7d968d);
+            
+    
+            var marker_6cfcff1a6447257e4197f75c777f78aa = L.marker(
+                [-34.9055186, -56.1841652],
+                {
+}
+            ).addTo(map_4dac0e96f1b555eff61bfbe1fb34d8d5);
+        
+    
+            var icon_79331eec6fcf150b77e77e1d0defbf60 = L.AwesomeMarkers.icon(
+                {
+  &quot;markerColor&quot;: &quot;orange&quot;,
+  &quot;iconColor&quot;: &quot;white&quot;,
+  &quot;icon&quot;: &quot;star&quot;,
+  &quot;prefix&quot;: &quot;fa&quot;,
+  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
+}
+            );
+        
+    
+        var popup_c8260ba6444bcfb171ac4cca8d1a68d9 = L.popup({
+  &quot;maxWidth&quot;: 320,
+});
+
+        
+            
+                var html_bfd35bf2e39d6d46f96763fc11fb3ff2 = $(`&lt;div id=&quot;html_bfd35bf2e39d6d46f96763fc11fb3ff2&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family:&#x27;Inter&#x27;,&#x27;Segoe UI&#x27;,Arial,sans-serif; min-width:240px; padding:4px;&quot;&gt;         &lt;h4 style=&quot;margin:0 0 10px 0; color:#0f172a; font-size:15px; font-weight:700;&quot;&gt;DE OLIVEIRA RUBEN GERARDO Y MORALES&lt;/h4&gt;         &lt;div style=&quot;background:#f1f5f9; padding:10px 12px; border-radius:8px; border-left:4px solid #0f4c81;&quot;&gt;             &lt;b style=&quot;color:#64748b; font-size:10px; text-transform:uppercase;&quot;&gt;Categoría&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color:#0f172a; font-size:13px; font-weight:600;&quot;&gt;Reparador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top:10px; font-size:10px; color:#94a3b8; text-align:right; font-style:italic;&quot;&gt;Fuente: Sugerido por LATU&lt;/div&gt;     &lt;/div&gt;&lt;/div&gt;`)[0];
+                popup_c8260ba6444bcfb171ac4cca8d1a68d9.setContent(html_bfd35bf2e39d6d46f96763fc11fb3ff2);
+            
+        
+
+        marker_6cfcff1a6447257e4197f75c777f78aa.bindPopup(popup_c8260ba6444bcfb171ac4cca8d1a68d9)
+        ;
+
+        
+    
+    
+                marker_6cfcff1a6447257e4197f75c777f78aa.setIcon(icon_79331eec6fcf150b77e77e1d0defbf60);
+            
+    
+            var marker_64bc66bdf93030dcfedc5dd6283599c3 = L.marker(
+                [-34.9136255, -56.173108],
+                {
+}
+            ).addTo(map_4dac0e96f1b555eff61bfbe1fb34d8d5);
+        
+    
+            var icon_c55833f46df275cc1ba22421a63e72f6 = L.AwesomeMarkers.icon(
+                {
+  &quot;markerColor&quot;: &quot;green&quot;,
+  &quot;iconColor&quot;: &quot;white&quot;,
+  &quot;icon&quot;: &quot;star&quot;,
+  &quot;prefix&quot;: &quot;fa&quot;,
+  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
+}
+            );
+        
+    
+        var popup_eded16cd4921fcd904c1700201515d43 = L.popup({
+  &quot;maxWidth&quot;: 320,
+});
+
+        
+            
+                var html_1a7885c78191d8ba81e9941654b7eaa6 = $(`&lt;div id=&quot;html_1a7885c78191d8ba81e9941654b7eaa6&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family:&#x27;Inter&#x27;,&#x27;Segoe UI&#x27;,Arial,sans-serif; min-width:240px; padding:4px;&quot;&gt;         &lt;h4 style=&quot;margin:0 0 10px 0; color:#0f172a; font-size:15px; font-weight:700;&quot;&gt;GAMA ITALY S.A&lt;/h4&gt;         &lt;div style=&quot;background:#f1f5f9; padding:10px 12px; border-radius:8px; border-left:4px solid #0f4c81;&quot;&gt;             &lt;b style=&quot;color:#64748b; font-size:10px; text-transform:uppercase;&quot;&gt;Categoría&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color:#0f172a; font-size:13px; font-weight:600;&quot;&gt;Importador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top:10px; font-size:10px; color:#94a3b8; text-align:right; font-style:italic;&quot;&gt;Fuente: Sugerido por LATU&lt;/div&gt;     &lt;/div&gt;&lt;/div&gt;`)[0];
+                popup_eded16cd4921fcd904c1700201515d43.setContent(html_1a7885c78191d8ba81e9941654b7eaa6);
+            
+        
+
+        marker_64bc66bdf93030dcfedc5dd6283599c3.bindPopup(popup_eded16cd4921fcd904c1700201515d43)
+        ;
+
+        
+    
+    
+                marker_64bc66bdf93030dcfedc5dd6283599c3.setIcon(icon_c55833f46df275cc1ba22421a63e72f6);
+            
+    
+            var marker_6ddfaa444330f382bb115e209cfd7a3b = L.marker(
+                [-34.9106525, -56.1848499],
+                {
+}
+            ).addTo(map_4dac0e96f1b555eff61bfbe1fb34d8d5);
+        
+    
+            var icon_7589740cae704ecff911d530b18c5ab8 = L.AwesomeMarkers.icon(
+                {
+  &quot;markerColor&quot;: &quot;purple&quot;,
+  &quot;iconColor&quot;: &quot;white&quot;,
+  &quot;icon&quot;: &quot;info&quot;,
+  &quot;prefix&quot;: &quot;fa&quot;,
+  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
+}
+            );
+        
+    
+        var popup_be26778443ed1350c16a1fbfb08f1df9 = L.popup({
+  &quot;maxWidth&quot;: 320,
+});
+
+        
+            
+                var html_18f53c0c8349902bbd116df1d49b4ec0 = $(`&lt;div id=&quot;html_18f53c0c8349902bbd116df1d49b4ec0&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family:&#x27;Inter&#x27;,&#x27;Segoe UI&#x27;,Arial,sans-serif; min-width:240px; padding:4px;&quot;&gt;         &lt;h4 style=&quot;margin:0 0 10px 0; color:#0f172a; font-size:15px; font-weight:700;&quot;&gt;SOJU STORE &lt;/h4&gt;         &lt;div style=&quot;background:#f1f5f9; padding:10px 12px; border-radius:8px; border-left:4px solid #0f4c81;&quot;&gt;             &lt;b style=&quot;color:#64748b; font-size:10px; text-transform:uppercase;&quot;&gt;Categoría&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color:#0f172a; font-size:13px; font-weight:600;&quot;&gt;Importador Reparador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top:10px; font-size:10px; color:#94a3b8; text-align:right; font-style:italic;&quot;&gt;Fuente: Otros&lt;/div&gt;     &lt;/div&gt;&lt;/div&gt;`)[0];
+                popup_be26778443ed1350c16a1fbfb08f1df9.setContent(html_18f53c0c8349902bbd116df1d49b4ec0);
+            
+        
+
+        marker_6ddfaa444330f382bb115e209cfd7a3b.bindPopup(popup_be26778443ed1350c16a1fbfb08f1df9)
+        ;
+
+        
+    
+    
+                marker_6ddfaa444330f382bb115e209cfd7a3b.setIcon(icon_7589740cae704ecff911d530b18c5ab8);
+            
+    
+            var marker_f4fea81d87d3ae5681b5f38d41893e8e = L.marker(
+                [-34.9025833, -56.1992817],
+                {
+}
+            ).addTo(map_4dac0e96f1b555eff61bfbe1fb34d8d5);
+        
+    
+            var icon_34f4a1f31e5e26e332946c2957e93207 = L.AwesomeMarkers.icon(
+                {
+  &quot;markerColor&quot;: &quot;orange&quot;,
+  &quot;iconColor&quot;: &quot;white&quot;,
+  &quot;icon&quot;: &quot;info&quot;,
+  &quot;prefix&quot;: &quot;fa&quot;,
+  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
+}
+            );
+        
+    
+        var popup_ad112fc4192c0a2adc9ba310ac63a133 = L.popup({
+  &quot;maxWidth&quot;: 320,
+});
+
+        
+            
+                var html_9766e4fae08e08475c3a49285863f9d8 = $(`&lt;div id=&quot;html_9766e4fae08e08475c3a49285863f9d8&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;     &lt;div style=&quot;font-family:&#x27;Inter&#x27;,&#x27;Segoe UI&#x27;,Arial,sans-serif; min-width:240px; padding:4px;&quot;&gt;         &lt;h4 style=&quot;margin:0 0 10px 0; color:#0f172a; font-size:15px; font-weight:700;&quot;&gt;LPGC&lt;/h4&gt;         &lt;div style=&quot;background:#f1f5f9; padding:10px 12px; border-radius:8px; border-left:4px solid #0f4c81;&quot;&gt;             &lt;b style=&quot;color:#64748b; font-size:10px; text-transform:uppercase;&quot;&gt;Categoría&lt;/b&gt;&lt;br&gt;             &lt;span style=&quot;color:#0f172a; font-size:13px; font-weight:600;&quot;&gt;Reparador&lt;/span&gt;         &lt;/div&gt;         &lt;div style=&quot;margin-top:10px; font-size:10px; color:#94a3b8; text-align:right; font-style:italic;&quot;&gt;Fuente: Otros&lt;/div&gt;     &lt;/div&gt;&lt;/div&gt;`)[0];
+                popup_ad112fc4192c0a2adc9ba310ac63a133.setContent(html_9766e4fae08e08475c3a49285863f9d8);
+            
+        
+
+        marker_f4fea81d87d3ae5681b5f38d41893e8e.bindPopup(popup_ad112fc4192c0a2adc9ba310ac63a133)
+        ;
+
+        
+    
+    
+                marker_f4fea81d87d3ae5681b5f38d41893e8e.setIcon(icon_34f4a1f31e5e26e332946c2957e93207);
+            
+&lt;/script&gt;
+&lt;/html&gt;" style="position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe></div></div></div>
                 </div>
             </div>
         </div>
 
-        <!-- ============ MODELOS APROBADOS ============ -->
+        <!-- MODELOS APROBADOS -->
         <div class="tab-pane fade" id="modelos-content" role="tabpanel">
             <div class="row g-3 mb-4">
                 <div class="col-md-4">
                     <div class="stat-card">
                         <div class="stat-icon"><i class="fa-solid fa-list-check"></i></div>
                         <div>
-                            <div class="stat-value">56</div>
-                            <div class="stat-label">Modelos registrados</div>
+                            <div class="stat-value">55</div>
+                            <div class="stat-label">Modelos aprobados</div>
                         </div>
                     </div>
                 </div>
@@ -432,8 +1300,8 @@
                     <div class="stat-card">
                         <div class="stat-icon purple"><i class="fa-solid fa-shield-halved"></i></div>
                         <div>
-                            <div class="stat-value">LATU</div>
-                            <div class="stat-label">Autoridad de control</div>
+                            <div class="stat-value" style="font-size:1rem;">Esfigmomanómetro</div>
+                            <div class="stat-label">Tipo de instrumento</div>
                         </div>
                     </div>
                 </div>
@@ -442,21 +1310,20 @@
             <div class="card card-custom">
                 <div class="card-header-custom">
                     <div>
-                        <div class="section-eyebrow">Control metrológico</div>
-                        <div><i class="fa-solid fa-certificate text-primary me-2"></i>Modelos de tensiómetros aprobados</div>
+                        <div class="section-eyebrow">Control metrológico · LATU</div>
+                        <div><i class="fa-solid fa-certificate text-primary me-2"></i>Modelos de esfigmomanómetros aprobados</div>
                     </div>
+                    <span class="badge-soft secondary"><i class="fa-solid fa-circle-check me-1"></i> Vigentes</span>
                 </div>
 
                 <div class="models-toolbar">
                     <div class="search-wrapper">
                         <i class="fa-solid fa-magnifying-glass"></i>
-                        <input type="text" id="modelSearch" class="search-input" placeholder="Buscar por marca, modelo, tipo o resolución...">
+                        <input type="text" id="modelSearch" class="search-input" placeholder="Buscar por marca, modelo o Nº de aprobación...">
                     </div>
-                    <select id="typeFilter" class="form-select" style="max-width: 200px; border-radius: 10px; border-color: var(--gray-200);">
-                        <option value="">Todos los tipos</option>
-                        <option value="digital">Digital</option>
-                        <option value="aneroide">Aneroide</option>
-                        <option value="mercurio">Mercurio</option>
+                    <select id="brandFilter" class="form-select" style="max-width: 220px; border-radius: 10px; border-color: var(--gray-200);">
+                        <option value="">Todas las marcas</option>
+                        <option value="alpk2">ALPK2</option><option value="beurer">BEURER</option><option value="citizen">CITIZEN</option><option value="eccosur">ECCOSUR</option><option value="f. bosch">F. BOSCH</option><option value="fora care">FORA CARE</option><option value="gama italy">GAMA ITALY</option><option value="geratherm">GERATHERM</option><option value="iem">IEM</option><option value="joytech">JOYTECH</option><option value="keito">KEITO</option><option value="nissei">NISSEI</option><option value="omron">OMRON</option><option value="riester">RIESTER</option><option value="rossmax">ROSSMAX</option><option value="san-up">SAN-UP</option>
                     </select>
                 </div>
 
@@ -466,749 +1333,568 @@
                             <tr>
                                 <th>Marca</th>
                                 <th>Modelo</th>
-                                <th>Tipo</th>
-                                <th>Resolución</th>
-                                <th>Fecha</th>
-                                <th>Estado</th>
+                                <th>Nº Aprobación</th>
                             </tr>
                         </thead>
                         <tbody>
                             
-            <tr>
-                <td>
-                    <div class="d-flex align-items-center">
-                        <div class="brand-avatar">A</div>
-                        <span class="fw-semibold">ALPK2</span>
-                    </div>
-                </td>
-                <td class="text-secondary">500 V- EU</td>
-                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="badge-soft success">Aprobado</span></td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="d-flex align-items-center">
-                        <div class="brand-avatar">R</div>
-                        <span class="fw-semibold">RIESTER</span>
-                    </div>
-                </td>
-                <td class="text-secondary">BIG BEN</td>
-                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="badge-soft success">Aprobado</span></td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="d-flex align-items-center">
-                        <div class="brand-avatar">B</div>
-                        <span class="fw-semibold">BEURER</span>
-                    </div>
-                </td>
-                <td class="text-secondary">BM 27</td>
-                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="badge-soft success">Aprobado</span></td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="d-flex align-items-center">
-                        <div class="brand-avatar">B</div>
-                        <span class="fw-semibold">BEURER</span>
-                    </div>
-                </td>
-                <td class="text-secondary">BM 30</td>
-                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="badge-soft success">Aprobado</span></td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="d-flex align-items-center">
-                        <div class="brand-avatar">G</div>
-                        <span class="fw-semibold">GAMA ITALY</span>
-                    </div>
-                </td>
-                <td class="text-secondary">BP-1209</td>
-                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="badge-soft success">Aprobado</span></td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="d-flex align-items-center">
-                        <div class="brand-avatar">G</div>
-                        <span class="fw-semibold">GAMA ITALY</span>
-                    </div>
-                </td>
-                <td class="text-secondary">BP-1304</td>
-                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="badge-soft success">Aprobado</span></td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="d-flex align-items-center">
-                        <div class="brand-avatar">G</div>
-                        <span class="fw-semibold">GAMA ITALY</span>
-                    </div>
-                </td>
-                <td class="text-secondary">BP-1307</td>
-                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="badge-soft success">Aprobado</span></td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="d-flex align-items-center">
-                        <div class="brand-avatar">G</div>
-                        <span class="fw-semibold">GAMA ITALY</span>
-                    </div>
-                </td>
-                <td class="text-secondary">BP-202H</td>
-                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="badge-soft success">Aprobado</span></td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="d-flex align-items-center">
-                        <div class="brand-avatar">C</div>
-                        <span class="fw-semibold">CITIZEN</span>
-                    </div>
-                </td>
-                <td class="text-secondary">CH-452</td>
-                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="badge-soft success">Aprobado</span></td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="d-flex align-items-center">
-                        <div class="brand-avatar">C</div>
-                        <span class="fw-semibold">CITIZEN</span>
-                    </div>
-                </td>
-                <td class="text-secondary">CH-453</td>
-                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="badge-soft success">Aprobado</span></td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="d-flex align-items-center">
-                        <div class="brand-avatar">C</div>
-                        <span class="fw-semibold">CITIZEN</span>
-                    </div>
-                </td>
-                <td class="text-secondary">CH-453AC</td>
-                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="badge-soft success">Aprobado</span></td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="d-flex align-items-center">
-                        <div class="brand-avatar">C</div>
-                        <span class="fw-semibold">CITIZEN</span>
-                    </div>
-                </td>
-                <td class="text-secondary">CH-456</td>
-                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="badge-soft success">Aprobado</span></td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="d-flex align-items-center">
-                        <div class="brand-avatar">C</div>
-                        <span class="fw-semibold">CITIZEN</span>
-                    </div>
-                </td>
-                <td class="text-secondary">CHU306</td>
-                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="badge-soft success">Aprobado</span></td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="d-flex align-items-center">
-                        <div class="brand-avatar">C</div>
-                        <span class="fw-semibold">CITIZEN</span>
-                    </div>
-                </td>
-                <td class="text-secondary">CHUG330</td>
-                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="badge-soft success">Aprobado</span></td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="d-flex align-items-center">
-                        <div class="brand-avatar">F</div>
-                        <span class="fw-semibold">FORA CARE</span>
-                    </div>
-                </td>
-                <td class="text-secondary">D40H</td>
-                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="badge-soft success">Aprobado</span></td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="d-flex align-items-center">
-                        <div class="brand-avatar">F</div>
-                        <span class="fw-semibold">FORA CARE</span>
-                    </div>
-                </td>
-                <td class="text-secondary">D40H</td>
-                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="badge-soft success">Aprobado</span></td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="d-flex align-items-center">
-                        <div class="brand-avatar">J</div>
-                        <span class="fw-semibold">JOYTECH</span>
-                    </div>
-                </td>
-                <td class="text-secondary">DBP-1231</td>
-                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="badge-soft success">Aprobado</span></td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="d-flex align-items-center">
-                        <div class="brand-avatar">G</div>
-                        <span class="fw-semibold">GERATHERM</span>
-                    </div>
-                </td>
-                <td class="text-secondary">DESKTOP GP-6621</td>
-                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="badge-soft success">Aprobado</span></td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="d-flex align-items-center">
-                        <div class="brand-avatar">R</div>
-                        <span class="fw-semibold">RIESTER</span>
-                    </div>
-                </td>
-                <td class="text-secondary">DIPLOMAT PRESAMETER</td>
-                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="badge-soft success">Aprobado</span></td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="d-flex align-items-center">
-                        <div class="brand-avatar">N</div>
-                        <span class="fw-semibold">NISSEI</span>
-                    </div>
-                </td>
-                <td class="text-secondary">DS-11</td>
-                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="badge-soft success">Aprobado</span></td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="d-flex align-items-center">
-                        <div class="brand-avatar">R</div>
-                        <span class="fw-semibold">RIESTER</span>
-                    </div>
-                </td>
-                <td class="text-secondary">EXACTA</td>
-                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="badge-soft success">Aprobado</span></td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="d-flex align-items-center">
-                        <div class="brand-avatar">G</div>
-                        <span class="fw-semibold">GERATHERM</span>
-                    </div>
-                </td>
-                <td class="text-secondary">GT-1775</td>
-                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="badge-soft success">Aprobado</span></td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="d-flex align-items-center">
-                        <div class="brand-avatar">O</div>
-                        <span class="fw-semibold">OMRON</span>
-                    </div>
-                </td>
-                <td class="text-secondary">HEM - 7142</td>
-                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="badge-soft success">Aprobado</span></td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="d-flex align-items-center">
-                        <div class="brand-avatar">O</div>
-                        <span class="fw-semibold">OMRON</span>
-                    </div>
-                </td>
-                <td class="text-secondary">HEM - 7144T2</td>
-                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="badge-soft success">Aprobado</span></td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="d-flex align-items-center">
-                        <div class="brand-avatar">O</div>
-                        <span class="fw-semibold">OMRON</span>
-                    </div>
-                </td>
-                <td class="text-secondary">HEM 6111</td>
-                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="badge-soft success">Aprobado</span></td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="d-flex align-items-center">
-                        <div class="brand-avatar">O</div>
-                        <span class="fw-semibold">OMRON</span>
-                    </div>
-                </td>
-                <td class="text-secondary">HEM 6122</td>
-                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="badge-soft success">Aprobado</span></td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="d-flex align-items-center">
-                        <div class="brand-avatar">O</div>
-                        <span class="fw-semibold">OMRON</span>
-                    </div>
-                </td>
-                <td class="text-secondary">HEM 6131</td>
-                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="badge-soft success">Aprobado</span></td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="d-flex align-items-center">
-                        <div class="brand-avatar">O</div>
-                        <span class="fw-semibold">OMRON</span>
-                    </div>
-                </td>
-                <td class="text-secondary">HEM 7113</td>
-                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="badge-soft success">Aprobado</span></td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="d-flex align-items-center">
-                        <div class="brand-avatar">O</div>
-                        <span class="fw-semibold">OMRON</span>
-                    </div>
-                </td>
-                <td class="text-secondary">HEM 7114</td>
-                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="badge-soft success">Aprobado</span></td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="d-flex align-items-center">
-                        <div class="brand-avatar">O</div>
-                        <span class="fw-semibold">OMRON</span>
-                    </div>
-                </td>
-                <td class="text-secondary">HEM 7130</td>
-                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="badge-soft success">Aprobado</span></td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="d-flex align-items-center">
-                        <div class="brand-avatar">O</div>
-                        <span class="fw-semibold">OMRON</span>
-                    </div>
-                </td>
-                <td class="text-secondary">HEM-4030</td>
-                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="badge-soft success">Aprobado</span></td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="d-flex align-items-center">
-                        <div class="brand-avatar">O</div>
-                        <span class="fw-semibold">OMRON</span>
-                    </div>
-                </td>
-                <td class="text-secondary">HEM-403INT</td>
-                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="badge-soft success">Aprobado</span></td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="d-flex align-items-center">
-                        <div class="brand-avatar">O</div>
-                        <span class="fw-semibold">OMRON</span>
-                    </div>
-                </td>
-                <td class="text-secondary">HEM-6124</td>
-                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="badge-soft success">Aprobado</span></td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="d-flex align-items-center">
-                        <div class="brand-avatar">O</div>
-                        <span class="fw-semibold">OMRON</span>
-                    </div>
-                </td>
-                <td class="text-secondary">HEM-631INT</td>
-                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="badge-soft success">Aprobado</span></td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="d-flex align-items-center">
-                        <div class="brand-avatar">O</div>
-                        <span class="fw-semibold">OMRON</span>
-                    </div>
-                </td>
-                <td class="text-secondary">HEM-7120</td>
-                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="badge-soft success">Aprobado</span></td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="d-flex align-items-center">
-                        <div class="brand-avatar">O</div>
-                        <span class="fw-semibold">OMRON</span>
-                    </div>
-                </td>
-                <td class="text-secondary">HEM-7121</td>
-                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="badge-soft success">Aprobado</span></td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="d-flex align-items-center">
-                        <div class="brand-avatar">O</div>
-                        <span class="fw-semibold">OMRON</span>
-                    </div>
-                </td>
-                <td class="text-secondary">HEM-7122</td>
-                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="badge-soft success">Aprobado</span></td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="d-flex align-items-center">
-                        <div class="brand-avatar">O</div>
-                        <span class="fw-semibold">OMRON</span>
-                    </div>
-                </td>
-                <td class="text-secondary">HEM-716DT2</td>
-                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="badge-soft success">Aprobado</span></td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="d-flex align-items-center">
-                        <div class="brand-avatar">O</div>
-                        <span class="fw-semibold">OMRON</span>
-                    </div>
-                </td>
-                <td class="text-secondary">HEM-742INT</td>
-                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="badge-soft success">Aprobado</span></td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="d-flex align-items-center">
-                        <div class="brand-avatar">K</div>
-                        <span class="fw-semibold">KEITO</span>
-                    </div>
-                </td>
-                <td class="text-secondary">K 10</td>
-                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="badge-soft success">Aprobado</span></td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="d-flex align-items-center">
-                        <div class="brand-avatar">K</div>
-                        <span class="fw-semibold">KEITO</span>
-                    </div>
-                </td>
-                <td class="text-secondary">K 9</td>
-                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="badge-soft success">Aprobado</span></td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="d-flex align-items-center">
-                        <div class="brand-avatar">F</div>
-                        <span class="fw-semibold">F. BOSCH</span>
-                    </div>
-                </td>
-                <td class="text-secondary">KONSTANTE I</td>
-                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="badge-soft success">Aprobado</span></td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="d-flex align-items-center">
-                        <div class="brand-avatar">E</div>
-                        <span class="fw-semibold">ECCOSUR</span>
-                    </div>
-                </td>
-                <td class="text-secondary">MP-260</td>
-                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="badge-soft success">Aprobado</span></td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="d-flex align-items-center">
-                        <div class="brand-avatar">S</div>
-                        <span class="fw-semibold">SAN-UP</span>
-                    </div>
-                </td>
-                <td class="text-secondary">MS 150F</td>
-                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="badge-soft success">Aprobado</span></td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="d-flex align-items-center">
-                        <div class="brand-avatar">I</div>
-                        <span class="fw-semibold">IEM</span>
-                    </div>
-                </td>
-                <td class="text-secondary">Mobil -o- Graph PWA</td>
-                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="badge-soft success">Aprobado</span></td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="d-flex align-items-center">
-                        <div class="brand-avatar">R</div>
-                        <span class="fw-semibold">RIESTER</span>
-                    </div>
-                </td>
-                <td class="text-secondary">NOVA PRESAMETER</td>
-                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="badge-soft success">Aprobado</span></td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="d-flex align-items-center">
-                        <div class="brand-avatar">R</div>
-                        <span class="fw-semibold">RIESTER</span>
-                    </div>
-                </td>
-                <td class="text-secondary">RI-SAN</td>
-                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="badge-soft success">Aprobado</span></td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="d-flex align-items-center">
-                        <div class="brand-avatar">O</div>
-                        <span class="fw-semibold">OMRON</span>
-                    </div>
-                </td>
-                <td class="text-secondary">RS2 (HEM - 6161-E)</td>
-                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="badge-soft success">Aprobado</span></td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="d-flex align-items-center">
-                        <div class="brand-avatar">O</div>
-                        <span class="fw-semibold">OMRON</span>
-                    </div>
-                </td>
-                <td class="text-secondary">RS3 Intelli IT (HEM - 6161T-E)</td>
-                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="badge-soft success">Aprobado</span></td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="d-flex align-items-center">
-                        <div class="brand-avatar">G</div>
-                        <span class="fw-semibold">GERATHERM</span>
-                    </div>
-                </td>
-                <td class="text-secondary">SMART</td>
-                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="badge-soft success">Aprobado</span></td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="d-flex align-items-center">
-                        <div class="brand-avatar">G</div>
-                        <span class="fw-semibold">GERATHERM</span>
-                    </div>
-                </td>
-                <td class="text-secondary">TENSIO-CONTROL GP-6620</td>
-                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="badge-soft success">Aprobado</span></td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="d-flex align-items-center">
-                        <div class="brand-avatar">G</div>
-                        <span class="fw-semibold">GERATHERM</span>
-                    </div>
-                </td>
-                <td class="text-secondary">WRISTWATCH KP6130</td>
-                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="badge-soft success">Aprobado</span></td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="d-flex align-items-center">
-                        <div class="brand-avatar">N</div>
-                        <span class="fw-semibold">NISSEI</span>
-                    </div>
-                </td>
-                <td class="text-secondary">WS-1300</td>
-                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="badge-soft success">Aprobado</span></td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="d-flex align-items-center">
-                        <div class="brand-avatar">R</div>
-                        <span class="fw-semibold">ROSSMAX</span>
-                    </div>
-                </td>
-                <td class="text-secondary">X5</td>
-                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="badge-soft success">Aprobado</span></td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="d-flex align-items-center">
-                        <div class="brand-avatar">R</div>
-                        <span class="fw-semibold">ROSSMAX</span>
-                    </div>
-                </td>
-                <td class="text-secondary">X9</td>
-                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="badge-soft success">Aprobado</span></td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="d-flex align-items-center">
-                        <div class="brand-avatar">S</div>
-                        <span class="fw-semibold">SAN-UP</span>
-                    </div>
-                </td>
-                <td class="text-secondary">Z 43</td>
-                <td><i class="fa-solid fa-compass me-2 text-primary"></i>—</td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="text-muted small">—</span></td>
-                <td><span class="badge-soft success">Aprobado</span></td>
-            </tr>
+        <tr>
+            <td>
+                <div class="d-flex align-items-center">
+                    <div class="brand-avatar">A</div>
+                    <span class="fw-semibold">ALPK2</span>
+                </div>
+            </td>
+            <td class="text-secondary">500 V- EU</td>
+            <td><span class="aprob-badge">E06/10</span></td>
+        </tr>
+        <tr>
+            <td>
+                <div class="d-flex align-items-center">
+                    <div class="brand-avatar">B</div>
+                    <span class="fw-semibold">BEURER</span>
+                </div>
+            </td>
+            <td class="text-secondary">BM 27</td>
+            <td><span class="aprob-badge">2024090601</span></td>
+        </tr>
+        <tr>
+            <td>
+                <div class="d-flex align-items-center">
+                    <div class="brand-avatar">B</div>
+                    <span class="fw-semibold">BEURER</span>
+                </div>
+            </td>
+            <td class="text-secondary">BM 30</td>
+            <td><span class="aprob-badge">2024090602</span></td>
+        </tr>
+        <tr>
+            <td>
+                <div class="d-flex align-items-center">
+                    <div class="brand-avatar">C</div>
+                    <span class="fw-semibold">CITIZEN</span>
+                </div>
+            </td>
+            <td class="text-secondary">CH-452</td>
+            <td><span class="aprob-badge">E05/13</span></td>
+        </tr>
+        <tr>
+            <td>
+                <div class="d-flex align-items-center">
+                    <div class="brand-avatar">C</div>
+                    <span class="fw-semibold">CITIZEN</span>
+                </div>
+            </td>
+            <td class="text-secondary">CH-453</td>
+            <td><span class="aprob-badge">E07/13</span></td>
+        </tr>
+        <tr>
+            <td>
+                <div class="d-flex align-items-center">
+                    <div class="brand-avatar">C</div>
+                    <span class="fw-semibold">CITIZEN</span>
+                </div>
+            </td>
+            <td class="text-secondary">CH-453AC</td>
+            <td><span class="aprob-badge">E07/13</span></td>
+        </tr>
+        <tr>
+            <td>
+                <div class="d-flex align-items-center">
+                    <div class="brand-avatar">C</div>
+                    <span class="fw-semibold">CITIZEN</span>
+                </div>
+            </td>
+            <td class="text-secondary">CH-456</td>
+            <td><span class="aprob-badge">E06/13</span></td>
+        </tr>
+        <tr>
+            <td>
+                <div class="d-flex align-items-center">
+                    <div class="brand-avatar">C</div>
+                    <span class="fw-semibold">CITIZEN</span>
+                </div>
+            </td>
+            <td class="text-secondary">CHU306</td>
+            <td><span class="aprob-badge">2020101501</span></td>
+        </tr>
+        <tr>
+            <td>
+                <div class="d-flex align-items-center">
+                    <div class="brand-avatar">C</div>
+                    <span class="fw-semibold">CITIZEN</span>
+                </div>
+            </td>
+            <td class="text-secondary">CHUG330</td>
+            <td><span class="aprob-badge">2020101501</span></td>
+        </tr>
+        <tr>
+            <td>
+                <div class="d-flex align-items-center">
+                    <div class="brand-avatar">E</div>
+                    <span class="fw-semibold">ECCOSUR</span>
+                </div>
+            </td>
+            <td class="text-secondary">MP-260</td>
+            <td><span class="aprob-badge">2019020401</span></td>
+        </tr>
+        <tr>
+            <td>
+                <div class="d-flex align-items-center">
+                    <div class="brand-avatar">F</div>
+                    <span class="fw-semibold">F. BOSCH</span>
+                </div>
+            </td>
+            <td class="text-secondary">KONSTANTE I</td>
+            <td><span class="aprob-badge">E01/14</span></td>
+        </tr>
+        <tr>
+            <td>
+                <div class="d-flex align-items-center">
+                    <div class="brand-avatar">F</div>
+                    <span class="fw-semibold">FORA CARE</span>
+                </div>
+            </td>
+            <td class="text-secondary">D40H</td>
+            <td><span class="aprob-badge">2017083013</span></td>
+        </tr>
+        <tr>
+            <td>
+                <div class="d-flex align-items-center">
+                    <div class="brand-avatar">G</div>
+                    <span class="fw-semibold">GAMA ITALY</span>
+                </div>
+            </td>
+            <td class="text-secondary">BP-1209</td>
+            <td><span class="aprob-badge">2018061201</span></td>
+        </tr>
+        <tr>
+            <td>
+                <div class="d-flex align-items-center">
+                    <div class="brand-avatar">G</div>
+                    <span class="fw-semibold">GAMA ITALY</span>
+                </div>
+            </td>
+            <td class="text-secondary">BP-1304</td>
+            <td><span class="aprob-badge">E01/15</span></td>
+        </tr>
+        <tr>
+            <td>
+                <div class="d-flex align-items-center">
+                    <div class="brand-avatar">G</div>
+                    <span class="fw-semibold">GAMA ITALY</span>
+                </div>
+            </td>
+            <td class="text-secondary">BP-1307</td>
+            <td><span class="aprob-badge">2017051909</span></td>
+        </tr>
+        <tr>
+            <td>
+                <div class="d-flex align-items-center">
+                    <div class="brand-avatar">G</div>
+                    <span class="fw-semibold">GAMA ITALY</span>
+                </div>
+            </td>
+            <td class="text-secondary">BP-202H</td>
+            <td><span class="aprob-badge">2017060610</span></td>
+        </tr>
+        <tr>
+            <td>
+                <div class="d-flex align-items-center">
+                    <div class="brand-avatar">G</div>
+                    <span class="fw-semibold">GERATHERM</span>
+                </div>
+            </td>
+            <td class="text-secondary">DESKTOP GP-6621</td>
+            <td><span class="aprob-badge">E04/15</span></td>
+        </tr>
+        <tr>
+            <td>
+                <div class="d-flex align-items-center">
+                    <div class="brand-avatar">G</div>
+                    <span class="fw-semibold">GERATHERM</span>
+                </div>
+            </td>
+            <td class="text-secondary">GT-1775</td>
+            <td><span class="aprob-badge">2020062301</span></td>
+        </tr>
+        <tr>
+            <td>
+                <div class="d-flex align-items-center">
+                    <div class="brand-avatar">G</div>
+                    <span class="fw-semibold">GERATHERM</span>
+                </div>
+            </td>
+            <td class="text-secondary">SMART</td>
+            <td><span class="aprob-badge">2020062301</span></td>
+        </tr>
+        <tr>
+            <td>
+                <div class="d-flex align-items-center">
+                    <div class="brand-avatar">G</div>
+                    <span class="fw-semibold">GERATHERM</span>
+                </div>
+            </td>
+            <td class="text-secondary">TENSIO-CONTROL GP-6620</td>
+            <td><span class="aprob-badge">E02/12</span></td>
+        </tr>
+        <tr>
+            <td>
+                <div class="d-flex align-items-center">
+                    <div class="brand-avatar">G</div>
+                    <span class="fw-semibold">GERATHERM</span>
+                </div>
+            </td>
+            <td class="text-secondary">WRISTWATCH KP6130</td>
+            <td><span class="aprob-badge">E03/12</span></td>
+        </tr>
+        <tr>
+            <td>
+                <div class="d-flex align-items-center">
+                    <div class="brand-avatar">I</div>
+                    <span class="fw-semibold">IEM</span>
+                </div>
+            </td>
+            <td class="text-secondary">Mobil -o- Graph PWA</td>
+            <td><span class="aprob-badge">2023021501</span></td>
+        </tr>
+        <tr>
+            <td>
+                <div class="d-flex align-items-center">
+                    <div class="brand-avatar">J</div>
+                    <span class="fw-semibold">JOYTECH</span>
+                </div>
+            </td>
+            <td class="text-secondary">DBP-1231</td>
+            <td><span class="aprob-badge">2021122701</span></td>
+        </tr>
+        <tr>
+            <td>
+                <div class="d-flex align-items-center">
+                    <div class="brand-avatar">K</div>
+                    <span class="fw-semibold">KEITO</span>
+                </div>
+            </td>
+            <td class="text-secondary">K 10</td>
+            <td><span class="aprob-badge">2024070302</span></td>
+        </tr>
+        <tr>
+            <td>
+                <div class="d-flex align-items-center">
+                    <div class="brand-avatar">K</div>
+                    <span class="fw-semibold">KEITO</span>
+                </div>
+            </td>
+            <td class="text-secondary">K 9</td>
+            <td><span class="aprob-badge">2024072201</span></td>
+        </tr>
+        <tr>
+            <td>
+                <div class="d-flex align-items-center">
+                    <div class="brand-avatar">N</div>
+                    <span class="fw-semibold">NISSEI</span>
+                </div>
+            </td>
+            <td class="text-secondary">DS-11</td>
+            <td><span class="aprob-badge">2020070301</span></td>
+        </tr>
+        <tr>
+            <td>
+                <div class="d-flex align-items-center">
+                    <div class="brand-avatar">N</div>
+                    <span class="fw-semibold">NISSEI</span>
+                </div>
+            </td>
+            <td class="text-secondary">WS-1300</td>
+            <td><span class="aprob-badge">2020073001</span></td>
+        </tr>
+        <tr>
+            <td>
+                <div class="d-flex align-items-center">
+                    <div class="brand-avatar">O</div>
+                    <span class="fw-semibold">OMRON</span>
+                </div>
+            </td>
+            <td class="text-secondary">HEM - 7142</td>
+            <td><span class="aprob-badge">2024101501</span></td>
+        </tr>
+        <tr>
+            <td>
+                <div class="d-flex align-items-center">
+                    <div class="brand-avatar">O</div>
+                    <span class="fw-semibold">OMRON</span>
+                </div>
+            </td>
+            <td class="text-secondary">HEM - 7144T2</td>
+            <td><span class="aprob-badge">2024040801</span></td>
+        </tr>
+        <tr>
+            <td>
+                <div class="d-flex align-items-center">
+                    <div class="brand-avatar">O</div>
+                    <span class="fw-semibold">OMRON</span>
+                </div>
+            </td>
+            <td class="text-secondary">HEM 6111</td>
+            <td><span class="aprob-badge">E04/13</span></td>
+        </tr>
+        <tr>
+            <td>
+                <div class="d-flex align-items-center">
+                    <div class="brand-avatar">O</div>
+                    <span class="fw-semibold">OMRON</span>
+                </div>
+            </td>
+            <td class="text-secondary">HEM 6122</td>
+            <td><span class="aprob-badge">E03/15</span></td>
+        </tr>
+        <tr>
+            <td>
+                <div class="d-flex align-items-center">
+                    <div class="brand-avatar">O</div>
+                    <span class="fw-semibold">OMRON</span>
+                </div>
+            </td>
+            <td class="text-secondary">HEM 6131</td>
+            <td><span class="aprob-badge">E02/15</span></td>
+        </tr>
+        <tr>
+            <td>
+                <div class="d-flex align-items-center">
+                    <div class="brand-avatar">O</div>
+                    <span class="fw-semibold">OMRON</span>
+                </div>
+            </td>
+            <td class="text-secondary">HEM 7113</td>
+            <td><span class="aprob-badge">E01/13</span></td>
+        </tr>
+        <tr>
+            <td>
+                <div class="d-flex align-items-center">
+                    <div class="brand-avatar">O</div>
+                    <span class="fw-semibold">OMRON</span>
+                </div>
+            </td>
+            <td class="text-secondary">HEM 7114</td>
+            <td><span class="aprob-badge">E03/13</span></td>
+        </tr>
+        <tr>
+            <td>
+                <div class="d-flex align-items-center">
+                    <div class="brand-avatar">O</div>
+                    <span class="fw-semibold">OMRON</span>
+                </div>
+            </td>
+            <td class="text-secondary">HEM 7130</td>
+            <td><span class="aprob-badge">2016012103</span></td>
+        </tr>
+        <tr>
+            <td>
+                <div class="d-flex align-items-center">
+                    <div class="brand-avatar">O</div>
+                    <span class="fw-semibold">OMRON</span>
+                </div>
+            </td>
+            <td class="text-secondary">HEM-4030</td>
+            <td><span class="aprob-badge">E02/13</span></td>
+        </tr>
+        <tr>
+            <td>
+                <div class="d-flex align-items-center">
+                    <div class="brand-avatar">O</div>
+                    <span class="fw-semibold">OMRON</span>
+                </div>
+            </td>
+            <td class="text-secondary">HEM-403INT</td>
+            <td><span class="aprob-badge">E03/11</span></td>
+        </tr>
+        <tr>
+            <td>
+                <div class="d-flex align-items-center">
+                    <div class="brand-avatar">O</div>
+                    <span class="fw-semibold">OMRON</span>
+                </div>
+            </td>
+            <td class="text-secondary">HEM-6124</td>
+            <td><span class="aprob-badge">2021081002</span></td>
+        </tr>
+        <tr>
+            <td>
+                <div class="d-flex align-items-center">
+                    <div class="brand-avatar">O</div>
+                    <span class="fw-semibold">OMRON</span>
+                </div>
+            </td>
+            <td class="text-secondary">HEM-631INT</td>
+            <td><span class="aprob-badge">E02/11</span></td>
+        </tr>
+        <tr>
+            <td>
+                <div class="d-flex align-items-center">
+                    <div class="brand-avatar">O</div>
+                    <span class="fw-semibold">OMRON</span>
+                </div>
+            </td>
+            <td class="text-secondary">HEM-7120</td>
+            <td><span class="aprob-badge">2016012101</span></td>
+        </tr>
+        <tr>
+            <td>
+                <div class="d-flex align-items-center">
+                    <div class="brand-avatar">O</div>
+                    <span class="fw-semibold">OMRON</span>
+                </div>
+            </td>
+            <td class="text-secondary">HEM-7121</td>
+            <td><span class="aprob-badge">2016012102</span></td>
+        </tr>
+        <tr>
+            <td>
+                <div class="d-flex align-items-center">
+                    <div class="brand-avatar">O</div>
+                    <span class="fw-semibold">OMRON</span>
+                </div>
+            </td>
+            <td class="text-secondary">HEM-7122</td>
+            <td><span class="aprob-badge">2021081001</span></td>
+        </tr>
+        <tr>
+            <td>
+                <div class="d-flex align-items-center">
+                    <div class="brand-avatar">O</div>
+                    <span class="fw-semibold">OMRON</span>
+                </div>
+            </td>
+            <td class="text-secondary">HEM-716DT2</td>
+            <td><span class="aprob-badge">2025110501</span></td>
+        </tr>
+        <tr>
+            <td>
+                <div class="d-flex align-items-center">
+                    <div class="brand-avatar">O</div>
+                    <span class="fw-semibold">OMRON</span>
+                </div>
+            </td>
+            <td class="text-secondary">HEM-742INT</td>
+            <td><span class="aprob-badge">E01/11</span></td>
+        </tr>
+        <tr>
+            <td>
+                <div class="d-flex align-items-center">
+                    <div class="brand-avatar">O</div>
+                    <span class="fw-semibold">OMRON</span>
+                </div>
+            </td>
+            <td class="text-secondary">RS2 (HEM - 6161-E)</td>
+            <td><span class="aprob-badge">2024081301</span></td>
+        </tr>
+        <tr>
+            <td>
+                <div class="d-flex align-items-center">
+                    <div class="brand-avatar">O</div>
+                    <span class="fw-semibold">OMRON</span>
+                </div>
+            </td>
+            <td class="text-secondary">RS3 Intelli IT (HEM - 6161T-E)</td>
+            <td><span class="aprob-badge">2024081302</span></td>
+        </tr>
+        <tr>
+            <td>
+                <div class="d-flex align-items-center">
+                    <div class="brand-avatar">R</div>
+                    <span class="fw-semibold">RIESTER</span>
+                </div>
+            </td>
+            <td class="text-secondary">BIG BEN</td>
+            <td><span class="aprob-badge">E02/10</span></td>
+        </tr>
+        <tr>
+            <td>
+                <div class="d-flex align-items-center">
+                    <div class="brand-avatar">R</div>
+                    <span class="fw-semibold">RIESTER</span>
+                </div>
+            </td>
+            <td class="text-secondary">DIPLOMAT PRESAMETER</td>
+            <td><span class="aprob-badge">E03/10</span></td>
+        </tr>
+        <tr>
+            <td>
+                <div class="d-flex align-items-center">
+                    <div class="brand-avatar">R</div>
+                    <span class="fw-semibold">RIESTER</span>
+                </div>
+            </td>
+            <td class="text-secondary">EXACTA</td>
+            <td><span class="aprob-badge">E05/10</span></td>
+        </tr>
+        <tr>
+            <td>
+                <div class="d-flex align-items-center">
+                    <div class="brand-avatar">R</div>
+                    <span class="fw-semibold">RIESTER</span>
+                </div>
+            </td>
+            <td class="text-secondary">NOVA PRESAMETER</td>
+            <td><span class="aprob-badge">E04/10</span></td>
+        </tr>
+        <tr>
+            <td>
+                <div class="d-flex align-items-center">
+                    <div class="brand-avatar">R</div>
+                    <span class="fw-semibold">RIESTER</span>
+                </div>
+            </td>
+            <td class="text-secondary">RI-SAN</td>
+            <td><span class="aprob-badge">E01/10</span></td>
+        </tr>
+        <tr>
+            <td>
+                <div class="d-flex align-items-center">
+                    <div class="brand-avatar">R</div>
+                    <span class="fw-semibold">ROSSMAX</span>
+                </div>
+            </td>
+            <td class="text-secondary">X5</td>
+            <td><span class="aprob-badge">2021072901</span></td>
+        </tr>
+        <tr>
+            <td>
+                <div class="d-flex align-items-center">
+                    <div class="brand-avatar">R</div>
+                    <span class="fw-semibold">ROSSMAX</span>
+                </div>
+            </td>
+            <td class="text-secondary">X9</td>
+            <td><span class="aprob-badge">2021072901</span></td>
+        </tr>
+        <tr>
+            <td>
+                <div class="d-flex align-items-center">
+                    <div class="brand-avatar">S</div>
+                    <span class="fw-semibold">SAN-UP</span>
+                </div>
+            </td>
+            <td class="text-secondary">MS 150F</td>
+            <td><span class="aprob-badge">E04/12</span></td>
+        </tr>
+        <tr>
+            <td>
+                <div class="d-flex align-items-center">
+                    <div class="brand-avatar">S</div>
+                    <span class="fw-semibold">SAN-UP</span>
+                </div>
+            </td>
+            <td class="text-secondary">Z 43</td>
+            <td><span class="aprob-badge">E05/12</span></td>
+        </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
 
-        <!-- ============ INFO TÉCNICA ============ -->
+        <!-- INFO TÉCNICA -->
         <div class="tab-pane fade" id="info-content" role="tabpanel">
             <div class="row g-3">
                 <div class="col-lg-8">
@@ -1221,7 +1907,6 @@
                             sistólica y diastólica. Es una herramienta crítica en el diagnóstico y monitoreo de condiciones
                             cardiovasculares como la hipertensión arterial.
                         </p>
-
                         <h5 class="fw-bold mt-4 mb-3" style="color: var(--gray-900);">
                             <i class="fa-solid fa-gears text-primary me-2"></i>¿Cómo funciona?
                         </h5>
@@ -1237,12 +1922,10 @@
                         </ul>
                     </div>
                 </div>
-
                 <div class="col-lg-4">
                     <div class="card card-custom p-4 h-100">
                         <div class="section-eyebrow">Clasificación</div>
                         <h5 class="fw-bold mb-3" style="color: var(--gray-900);">Tipos de equipos</h5>
-
                         <div class="type-card">
                             <h6><i class="fa-solid fa-compass text-warning me-2"></i>Aneroides</h6>
                             <p>Sistema mecánico de fuelle interno y aguja sobre dial graduado. Propensos a descalibrarse ante impactos.</p>
@@ -1260,7 +1943,7 @@
             </div>
         </div>
 
-        <!-- ============ METROLOGÍA ============ -->
+        <!-- METROLOGÍA -->
         <div class="tab-pane fade" id="metro-content" role="tabpanel">
             <div class="card card-custom p-4 p-md-5">
                 <div class="section-eyebrow">Calidad y normativa</div>
@@ -1269,7 +1952,6 @@
                     Dado que los errores de medición en medicina pueden inducir a diagnósticos erróneos o medicaciones
                     equivocadas, estos dispositivos están sujetos a normativas estrictas de control metrológico.
                 </p>
-
                 <div class="row g-3">
                     <div class="col-md-4">
                         <div class="metro-card">
@@ -1313,27 +1995,26 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-    // Buscador + filtro de la tabla de modelos
     (function () {
         const searchInput = document.getElementById('modelSearch');
-        const typeFilter  = document.getElementById('typeFilter');
+        const brandFilter = document.getElementById('brandFilter');
         const rows        = document.querySelectorAll('#modelsTable tbody tr');
 
         function filterRows() {
-            const term = (searchInput?.value || '').toLowerCase().trim();
-            const type = (typeFilter?.value || '').toLowerCase();
+            const term  = (searchInput?.value || '').toLowerCase().trim();
+            const brand = (brandFilter?.value || '').toLowerCase();
 
             rows.forEach(row => {
-                if (row.querySelector('.empty-state')) return; // no tocar el estado vacío
+                if (row.querySelector('.empty-state')) return;
                 const text = row.textContent.toLowerCase();
-                const matchesTerm = !term || text.includes(term);
-                const matchesType = !type || text.includes(type);
-                row.style.display = (matchesTerm && matchesType) ? '' : 'none';
+                const matchesTerm  = !term  || text.includes(term);
+                const matchesBrand = !brand || text.includes(brand);
+                row.style.display = (matchesTerm && matchesBrand) ? '' : 'none';
             });
         }
 
         searchInput?.addEventListener('input', filterRows);
-        typeFilter?.addEventListener('change', filterRows);
+        brandFilter?.addEventListener('change', filterRows);
     })();
 </script>
 </body>

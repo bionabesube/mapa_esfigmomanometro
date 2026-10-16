@@ -75,8 +75,12 @@ df_mapa = df.dropna(subset=['Latitud', 'Longitud']).copy()
 # ==========================================================
 # 2. MAPA
 # ==========================================================
-mapa = folium.Map(location=[-34.9011, -56.1645], zoom_start=12,
-                  tiles='CartoDB positron', control_scale=True)
+mapa = folium.Map(
+    location=[-34.9011, -56.1645],
+    zoom_start=12,
+    tiles='OpenStreetMap',   # ← sin API key
+    control_scale=True
+)
 plugins.Fullscreen(position='topright', title='Pantalla Completa', title_cancel='Salir').add_to(mapa)
 
 for _, row in df_mapa.iterrows():

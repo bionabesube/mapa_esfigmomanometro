@@ -74,8 +74,16 @@ for index, row in df_mapa.iterrows():
         icon=folium.Icon(color=color_pin, icon=icono_forma, prefix='fa')
     ).add_to(mapa)
 
-mapa_html_snippet = mapa._repr_html_()
+mapa.save("mapa.html")
 
+mapa_html_snippet = """
+<iframe
+    src="./mapa.html"
+    title="Mapa de esfigmomanómetros"
+    style="width:100%; height:600px; border:0;"
+    loading="lazy">
+</iframe>
+"""
 # ==========================================================
 # 2. DATOS DE MODELOS APROBADOS POR LATU (opcional)
 # Columnas esperadas en la planilla:
@@ -504,8 +512,7 @@ pag_web_completa = f"""<!DOCTYPE html>
                     <i class="fa-solid fa-heart-pulse me-3"></i>Esfigmomanómetros
                 </h1>
                 <p class="lead hero-subtitle mb-0">
-                    Portal informativo sobre equipos de medición de presión arterial en Uruguay:
-                    registros habilitados, modelos aprobados y control metrológico legal.
+                    Portal informativo sobre equipos de medición de presión arterial en Uruguay
                 </p>
             </div>
             <div class="col-lg-4 text-lg-end mt-4 mt-lg-0 d-none d-lg-block">

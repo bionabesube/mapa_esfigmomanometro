@@ -13,73 +13,9 @@ from geopy.exc import GeocoderTimedOut, GeocoderServiceError, GeocoderUnavailabl
 # ==========================================================
 # CONFIGURACIÓN
 # ==========================================================
-# Si más adelante creás la planilla, pegá el link acá y se usará automáticamente.
-# Dejalo como "REEMPLAZAR..." para usar los datos embebidos de abajo.
-SHEET_MODELOS_URL = "https://docs.google.com/spreadsheets/d/14SxS9K7s0X4oMBK53P3uK4-oRLa8v1KU875NlhQTB7U/edit?usp=sharing"
-
+SHEET_REGISTROS_URL = "https://docs.google.com/spreadsheets/d/1iEJl5proYp_-wZHhXMPmzOdNfH4h6EHfDOi1ikCQsok/edit?usp=sharing"
+SHEET_MODELOS_URL   = "https://docs.google.com/spreadsheets/d/14SxS9K7s0X4oMBK53P3uK4-oRLa8v1KU875NlhQTB7U/edit?usp=sharing"
 CACHE_FILE = "coordenadas_cache.csv"
-
-# ==========================================================
-# DATOS EMBEBIDOS: MODELOS APROBADOS POR LATU
-# (reemplazar por planilla cuando esté lista)
-# ==========================================================
-MODELOS_TSV = """Tipo de Instrumento	Marca	Modelo	Nº Aprobación Modelo
-Esfigmomanómetro	ALPK2	500 V- EU	E06/10
-Esfigmomanómetro	RIESTER	BIG BEN	E02/10
-Esfigmomanómetro	BEURER	BM 27	2024090601
-Esfigmomanómetro	BEURER	BM 30	2024090602
-Esfigmomanómetro	GAMA ITALY	BP-1209	2018061201
-Esfigmomanómetro	GAMA ITALY	BP-1304	E01/15
-Esfigmomanómetro	GAMA ITALY	BP-1307	2017051909
-Esfigmomanómetro	GAMA ITALY	BP-202H	2017060610
-Esfigmomanómetro	CITIZEN	CH-452	E05/13
-Esfigmomanómetro	CITIZEN	CH-453	E07/13
-Esfigmomanómetro	CITIZEN	CH-453AC	E07/13
-Esfigmomanómetro	CITIZEN	CH-456	E06/13
-Esfigmomanómetro	CITIZEN	CHU306	2020101501
-Esfigmomanómetro	CITIZEN	CHUG330	2020101501
-Esfigmomanómetro	FORA CARE	D40H	2017083013
-Esfigmomanómetro	JOYTECH	DBP-1231	2021122701
-Esfigmomanómetro	GERATHERM	DESKTOP GP-6621	E04/15
-Esfigmomanómetro	RIESTER	DIPLOMAT PRESAMETER	E03/10
-Esfigmomanómetro	NISSEI	DS-11	2020070301
-Esfigmomanómetro	RIESTER	EXACTA	E05/10
-Esfigmomanómetro	GERATHERM	GT-1775	2020062301
-Esfigmomanómetro	OMRON	HEM - 7142	2024101501
-Esfigmomanómetro	OMRON	HEM - 7144T2	2024040801
-Esfigmomanómetro	OMRON	HEM 6111	E04/13
-Esfigmomanómetro	OMRON	HEM 6122	E03/15
-Esfigmomanómetro	OMRON	HEM 6131	E02/15
-Esfigmomanómetro	OMRON	HEM 7113	E01/13
-Esfigmomanómetro	OMRON	HEM 7114	E03/13
-Esfigmomanómetro	OMRON	HEM 7130	2016012103
-Esfigmomanómetro	OMRON	HEM-4030	E02/13
-Esfigmomanómetro	OMRON	HEM-403INT	E03/11
-Esfigmomanómetro	OMRON	HEM-6124	2021081002
-Esfigmomanómetro	OMRON	HEM-631INT	E02/11
-Esfigmomanómetro	OMRON	HEM-7120	2016012101
-Esfigmomanómetro	OMRON	HEM-7121	2016012102
-Esfigmomanómetro	OMRON	HEM-7122	2021081001
-Esfigmomanómetro	OMRON	HEM-716DT2	2025110501
-Esfigmomanómetro	OMRON	HEM-742INT	E01/11
-Esfigmomanómetro	KEITO	K 10	2024070302
-Esfigmomanómetro	KEITO	K 9	2024072201
-Esfigmomanómetro	F. BOSCH	KONSTANTE I	E01/14
-Esfigmomanómetro	ECCOSUR	MP-260	2019020401
-Esfigmomanómetro	SAN-UP	MS 150F	E04/12
-Esfigmomanómetro	IEM	Mobil -o- Graph PWA	2023021501
-Esfigmomanómetro	RIESTER	NOVA PRESAMETER	E04/10
-Esfigmomanómetro	RIESTER	RI-SAN	E01/10
-Esfigmomanómetro	OMRON	RS2 (HEM - 6161-E)	2024081301
-Esfigmomanómetro	OMRON	RS3 Intelli IT (HEM - 6161T-E)	2024081302
-Esfigmomanómetro	GERATHERM	SMART	2020062301
-Esfigmomanómetro	GERATHERM	TENSIO-CONTROL GP-6620	E02/12
-Esfigmomanómetro	GERATHERM	WRISTWATCH KP6130	E03/12
-Esfigmomanómetro	NISSEI	WS-1300	2020073001
-Esfigmomanómetro	ROSSMAX	X5	2021072901
-Esfigmomanómetro	ROSSMAX	X9	2021072901
-Esfigmomanómetro	SAN-UP	Z 43	E05/12
-"""
 
 # ==========================================================
 # 1. DATOS DE REGISTROS
@@ -483,8 +419,7 @@ pag_web_completa = f"""<!DOCTYPE html>
                     <i class="fa-solid fa-heart-pulse me-3"></i>Esfigmomanómetros
                 </h1>
                 <p class="lead hero-subtitle mb-0">
-                    Portal informativo sobre equipos de medición de presión arterial en Uruguay:
-                    registros habilitados, modelos aprobados y control metrológico legal.
+                    Portal informativo sobre equipos de medición de presión arterial en Uruguay
                 </p>
             </div>
             <div class="col-lg-4 text-lg-end mt-4 mt-lg-0 d-none d-lg-block">

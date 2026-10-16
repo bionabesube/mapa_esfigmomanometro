@@ -34,7 +34,7 @@ df_mapa = df.dropna(subset=['Latitud', 'Longitud']).copy()
 mapa = folium.Map(
     location=[-34.9011, -56.1645],
     zoom_start=12,
-    tiles='CartoDB positron',
+    tiles="OpenStreetMap",
     control_scale=True
 )
 plugins.Fullscreen(position='topright', title='Pantalla Completa', title_cancel='Salir').add_to(mapa)

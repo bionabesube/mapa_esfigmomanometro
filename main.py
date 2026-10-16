@@ -15,7 +15,7 @@ from geopy.exc import GeocoderTimedOut, GeocoderServiceError, GeocoderUnavailabl
 # ==========================================================
 # Si más adelante creás la planilla, pegá el link acá y se usará automáticamente.
 # Dejalo como "REEMPLAZAR..." para usar los datos embebidos de abajo.
-SHEET_MODELOS_URL = "https://docs.google.com/spreadsheets/d/REEMPLAZAR_ID_MODELOS/edit?usp=sharing"
+SHEET_MODELOS_URL = "https://docs.google.com/spreadsheets/d/14SxS9K7s0X4oMBK53P3uK4-oRLa8v1KU875NlhQTB7U/edit?usp=sharing"
 
 CACHE_FILE = "coordenadas_cache.csv"
 

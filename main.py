@@ -577,43 +577,112 @@ pag_web_completa = f"""<!DOCTYPE html>
                 <div class="col-lg-7">
                     <div class="card card-custom p-4 p-md-5 h-100">
                         <div class="section-eyebrow">Núcleo de Ingeniería Biomédica · UdelaR</div>
-                        <h3 class="fw-bold mb-3" style="color: var(--gray-900);">¿Qué es el Proyecto VERIPRES?</h3>
+        
+                        <h3 class="fw-bold mb-3" style="color: var(--gray-900);">
+                            ¿Qué es el Proyecto VERIPRES?
+                        </h3>
+        
                         <p class="text-secondary" style="line-height: 1.7;">
-                            <strong style="color: var(--primary);">VERIPRES</strong> es una iniciativa del <strong>Núcleo de Ingeniería Biomédica (NIB)</strong> de las Facultades de Medicina e Ingeniería de la Universidad de la República. Su objetivo es contribuir al control de la hipertensión arterial en Uruguay mediante la promoción del uso de esfigmomanómetros validados y el fortalecimiento de la red de servicios técnicos autorizados.
+                            <strong style="color: var(--primary);">VERIPRES</strong>
+                            es un proyecto de extensión universitaria del
+                            <strong>Núcleo de Ingeniería Biomédica (NIB)</strong>,
+                            perteneciente a las Facultades de Medicina e Ingeniería de
+                            la Universidad de la República. Su objetivo es acercar a
+                            la población herramientas e información sobre el
+                            funcionamiento de los esfigmomanómetros utilizados en el hogar
+                            y contribuir a un uso informado de estos dispositivos.
                         </p>
+        
                         <p class="text-secondary" style="line-height: 1.7;">
-                            El proyecto se alinea con el marco regulatorio nacional, que exige que los equipos de medición de presión arterial cuenten con aprobación de modelo y verificación periódica por parte del Laboratorio Tecnológico del Uruguay (LATU). VERIPRES busca que tanto profesionales de la salud como la población general puedan identificar fácilmente qué equipos son confiables y dónde pueden ser mantenidos o reparados.
+                            Mediante jornadas abiertas a la comunidad, el proyecto ofrece
+                            una evaluación funcional de tensiómetros bajo condiciones
+                            simuladas, con supervisión docente y participación de
+                            estudiantes. Estas instancias permiten observar el desempeño
+                            de los equipos en las condiciones de ensayo utilizadas e
+                            identificar posibles desvíos en sus mediciones.
                         </p>
+        
+                        <p class="text-secondary" style="line-height: 1.7;">
+                            VERIPRES también difunde información sobre el marco regulatorio
+                            aplicable a estos instrumentos y orienta a la población sobre
+                            las opciones de mantenimiento y reparación. Las actividades
+                            del proyecto son de carácter universitario y no sustituyen
+                            los procedimientos metrológicos oficiales que correspondan.
+                            La participación en estas jornadas no implica aval,
+                            certificación ni intervención del Laboratorio Tecnológico
+                            del Uruguay (LATU).
+                        </p>
+        
+                        <div class="mt-4 p-3 rounded"
+                             style="background-color: var(--gray-100); border-left: 4px solid var(--primary);">
+                            <p class="mb-0 text-secondary small" style="line-height: 1.7;">
+                                <strong style="color: var(--gray-900);">Importante:</strong>
+                                Este informe no constituye una calibración ni un certificado
+                                de cumplimiento de norma oficial.
+                            </p>
+                        </div>
+        
                         <h5 class="fw-bold mt-4 mb-3" style="color: var(--gray-900);">
-                            <i class="fa-solid fa-bullseye text-primary me-2"></i>Objetivos principales
+                            <i class="fa-solid fa-bullseye text-primary me-2"></i>
+                            Objetivos principales
                         </h5>
+        
                         <ul class="info-list mt-3">
-                            <li>Promover el uso de esfigmomanómetros con aprobación de modelo vigente.</li>
-                            <li>Facilitar el acceso a la verificación periódica obligatoria de los equipos en uso.</li>
-                            <li>Visibilizar la red de importadores y talleres de reparación autorizados.</li>
-                            <li>Educar sobre la importancia de la exactitud en la medición de la presión arterial.</li>
+                            <li>Acercar a la población instancias accesibles de evaluación funcional de tensiómetros de uso domiciliario.</li>
+                            <li>Identificar posibles desvíos en las mediciones bajo las condiciones de ensayo del proyecto.</li>
+                            <li>Brindar orientación sobre el mantenimiento y la reparación de estos dispositivos.</li>
+                            <li>Difundir información sobre la normativa aplicable y las vías correspondientes para consultar los requisitos oficiales.</li>
+                            <li>Sensibilizar sobre la importancia de disponer de mediciones de presión arterial confiables.</li>
                         </ul>
                     </div>
                 </div>
+        
                 <div class="col-lg-5">
                     <div class="card card-custom p-4 h-100">
                         <div class="section-eyebrow">Criterios técnicos</div>
-                        <h5 class="fw-bold mb-3" style="color: var(--gray-900);">Equipos y tolerancia</h5>
-
+        
+                        <h5 class="fw-bold mb-3" style="color: var(--gray-900);">
+                            Alcance de la evaluación
+                        </h5>
+        
                         <div class="type-card mb-3">
-                            <h6><i class="fa-solid fa-check-circle text-success me-2"></i>Equipos incluidos</h6>
-                            <p class="mb-0">El portal se enfoca en <strong>esfigmomanómetros no invasivos</strong>, tanto de tipo <strong>mecánico (aneroide)</strong> como <strong>automático (digital)</strong>.</p>
-                        </div>
-
-                        <div class="type-card">
-                            <h6><i class="fa-solid fa-ruler-combined text-primary me-2"></i>Error máximo permitido (EMP)</h6>
+                            <h6>
+                                <i class="fa-solid fa-check-circle text-success me-2"></i>
+                                Equipos incluidos
+                            </h6>
                             <p class="mb-0">
-                                El criterio de aceptación se basa en la reglamentación técnica nacional. Para la <strong>verificación de equipos en uso</strong>, el error máximo admisible es de <strong>± 4 mmHg</strong>.
+                                El proyecto evalúa <strong>esfigmomanómetros no invasivos</strong>
+                                de uso domiciliario, tanto de tipo
+                                <strong>mecánico (aneroide)</strong> como
+                                <strong>automático (digital)</strong>.
                             </p>
                         </div>
-
+        
+                        <div class="type-card">
+                            <h6>
+                                <i class="fa-solid fa-ruler-combined text-primary me-2"></i>
+                                Margen de referencia
+                            </h6>
+                            <p class="mb-0">
+                                Para la evaluación funcional de equipos en uso, el proyecto
+                                toma como referencia un margen de error de
+                                <strong>± 4 mmHg</strong> en las condiciones de ensayo
+                                establecidas. Este valor se utiliza como criterio técnico
+                                de evaluación del proyecto y no constituye, por sí solo,
+                                una determinación oficial de conformidad metrológica.
+                            </p>
+                        </div>
+        
                         <p class="text-secondary small mt-3 mb-0" style="line-height: 1.6;">
-                            <strong>Base normativa:</strong> Este valor se establece en el <strong>Decreto N° 446/009</strong> (esfigmomanómetros mecánicos) y en el <strong>Decreto N° 24/011</strong> (automáticos), que incorporan la Recomendación Internacional <strong>OIML R 16-1</strong>. La aprobación de modelo y la primera verificación son más estrictas (≈ ± 3 mmHg).
+                            <strong>Marco normativo de referencia:</strong>
+                            La regulación nacional contempla requisitos específicos para
+                            los instrumentos de medición de presión arterial, entre ellos
+                            el Decreto Ley N.º 15.298 y los Decretos N.º 554/009
+                            (esfigmomanómetros mecánicos) y N.º 24/011
+                            (esfigmomanómetros automáticos). La aprobación de modelo y
+                            los procedimientos oficiales de verificación se rigen por
+                            la normativa aplicable y corresponden a las instancias
+                            competentes. La evaluación realizada por VERIPRES no los sustituye.
                         </p>
                     </div>
                 </div>

@@ -78,7 +78,7 @@ df_mapa = df.dropna(subset=['Latitud', 'Longitud']).copy()
 mapa = folium.Map(
     location=[-34.9011, -56.1645],
     zoom_start=12,
-    tiles='OpenStreetMap',   # ← sin API key
+    tiles='OpenStreetMap',
     control_scale=True
 )
 plugins.Fullscreen(position='topright', title='Pantalla Completa', title_cancel='Salir').add_to(mapa)
@@ -130,7 +130,6 @@ else:
     df_modelos = pd.read_csv(io.StringIO(MODELOS_TSV), sep='\t')
     print(f"[Modelos] {len(df_modelos)} registros embebidos")
 
-# Normalizar nombres de columnas (por si la planilla usa otros encabezados)
 rename_map = {
     'Tipo de Instrumento': 'Tipo',
     'Nº Aprobación Modelo': 'Aprobacion',
@@ -140,15 +139,11 @@ rename_map = {
 }
 df_modelos = df_modelos.rename(columns=rename_map)
 
-# Rellenar por si falta alguna columna
 for col in ['Tipo', 'Marca', 'Modelo', 'Aprobacion']:
     if col not in df_modelos.columns:
         df_modelos[col] = '—'
 
-# Deduplicar por (Marca, Modelo) para no repetir FORA CARE D40H
 df_modelos = df_modelos.drop_duplicates(subset=['Marca', 'Modelo']).reset_index(drop=True)
-
-# Ordenar alfabéticamente por marca y luego modelo
 df_modelos = df_modelos.sort_values(['Marca', 'Modelo'], kind='stable').reset_index(drop=True)
 
 # ==========================================================
@@ -181,11 +176,9 @@ def build_modelos_rows(df_m) -> str:
 
 modelos_rows_html = build_modelos_rows(df_modelos)
 
-# Opciones del filtro (marcas únicas ordenadas)
 marcas_unicas = sorted(df_modelos['Marca'].dropna().unique().tolist())
 marcas_options = "".join(f'<option value="{m.lower()}">{m}</option>' for m in marcas_unicas)
 
-# Stats
 total_modelos = len(df_modelos)
 total_marcas  = df_modelos['Marca'].nunique()
 tipo_principal = df_modelos['Tipo'].mode().iloc[0] if not df_modelos.empty else 'Esfigmomanómetro'
@@ -232,6 +225,15 @@ pag_web_completa = f"""<!DOCTYPE html>
     .hero-inner {{ position: relative; z-index: 1; }}
     .hero-title {{ font-weight: 800; letter-spacing: -.02em; text-shadow: 0 2px 12px rgba(0,0,0,.15); }}
     .hero-subtitle {{ color: rgba(255,255,255,.85); font-weight: 400; }}
+
+    /* Logo NIB en la cabecera */
+    .nib-logo {{
+        max-height: 100px;
+        max-width: 100%;
+        width: auto;
+        filter: drop-shadow(0 4px 16px rgba(0,0,0,.35));
+    }}
+
     .hero-chip {{
         display: inline-flex; align-items: center; gap: 8px;
         background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.22);
@@ -403,12 +405,21 @@ pag_web_completa = f"""<!DOCTYPE html>
     .type-card h6 {{ font-weight: 700; margin-bottom: 6px; color: var(--gray-900); }}
     .type-card p  {{ font-size: .84rem; color: var(--gray-600); margin: 0; }}
 
+    .nib-badge {{
+        display: inline-flex; align-items: center; gap: 8px;
+        background: linear-gradient(135deg, rgba(15,76,129,.08), rgba(0,180,216,.08));
+        border: 1px solid rgba(15,76,129,.15);
+        color: var(--primary); padding: 6px 14px; border-radius: 999px;
+        font-size: .78rem; font-weight: 600;
+    }}
+
     @media (max-width: 576px) {{
         .hero-section {{ padding: 40px 0 32px; }}
         .nav-tabs-custom .nav-link {{ padding: 12px 14px; font-size: .82rem; }}
         .models-table thead {{ display: none; }}
         .models-table tbody td {{ display: block; padding: 8px 16px; border-bottom: none; }}
         .models-table tbody tr {{ display: block; border-bottom: 1px solid var(--gray-100); padding: 8px 0; }}
+        .nib-logo {{ max-height: 70px; }}
     }}
 </style>
 </head>
@@ -426,8 +437,12 @@ pag_web_completa = f"""<!DOCTYPE html>
                     Portal informativo sobre equipos de medición de presión arterial en Uruguay
                 </p>
             </div>
-            <div class="col-lg-4 text-lg-end mt-4 mt-lg-0 d-none d-lg-block">
-                <i class="fa-solid fa-stethoscope" style="font-size: 6rem; opacity: .15;"></i>
+            <div class="col-lg-4 text-lg-end text-center mt-4 mt-lg-0">
+                <img src="https://www.nib1.fmed.edu.uy/sites/nib/files/2024-11/logo_nib_white_horiz-.png"
+                     alt="Núcleo de Ingeniería Biomédica"
+                     class="nib-logo"
+                     onerror="this.style.display='none'; document.getElementById('nib-logo-fallback').style.display='inline-block';">
+                <i id="nib-logo-fallback" class="fa-solid fa-stethoscope" style="display:none; font-size: 6rem; opacity: .15;"></i>
             </div>
         </div>
     </div>
@@ -443,6 +458,11 @@ pag_web_completa = f"""<!DOCTYPE html>
         <li class="nav-item" role="presentation">
             <button class="nav-link" id="modelos-tab" data-bs-toggle="tab" data-bs-target="#modelos-content" type="button" role="tab">
                 <i class="fa-solid fa-certificate me-2"></i>Modelos Aprobados <span class="badge-soft secondary ms-1">{total_modelos}</span>
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="veripres-tab" data-bs-toggle="tab" data-bs-target="#veripres-content" type="button" role="tab">
+                <i class="fa-solid fa-flask-vial me-2"></i>Proyecto VERIPRES
             </button>
         </li>
         <li class="nav-item" role="presentation">
@@ -547,6 +567,55 @@ pag_web_completa = f"""<!DOCTYPE html>
                             {modelos_rows_html}
                         </tbody>
                     </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- PROYECTO VERIPRES -->
+        <div class="tab-pane fade" id="veripres-content" role="tabpanel">
+            <div class="row g-3">
+                <div class="col-lg-7">
+                    <div class="card card-custom p-4 p-md-5 h-100">
+                        <div class="section-eyebrow">Núcleo de Ingeniería Biomédica · UdelaR</div>
+                        <h3 class="fw-bold mb-3" style="color: var(--gray-900);">¿Qué es el Proyecto VERIPRES?</h3>
+                        <p class="text-secondary" style="line-height: 1.7;">
+                            <strong style="color: var(--primary);">VERIPRES</strong> es una iniciativa del <strong>Núcleo de Ingeniería Biomédica (NIB)</strong> de las Facultades de Medicina e Ingeniería de la Universidad de la República. Su objetivo es contribuir al control de la hipertensión arterial en Uruguay mediante la promoción del uso de esfigmomanómetros validados y el fortalecimiento de la red de servicios técnicos autorizados.
+                        </p>
+                        <p class="text-secondary" style="line-height: 1.7;">
+                            El proyecto se alinea con el marco regulatorio nacional, que exige que los equipos de medición de presión arterial cuenten con aprobación de modelo y verificación periódica por parte del Laboratorio Tecnológico del Uruguay (LATU). VERIPRES busca que tanto profesionales de la salud como la población general puedan identificar fácilmente qué equipos son confiables y dónde pueden ser mantenidos o reparados.
+                        </p>
+                        <h5 class="fw-bold mt-4 mb-3" style="color: var(--gray-900);">
+                            <i class="fa-solid fa-bullseye text-primary me-2"></i>Objetivos principales
+                        </h5>
+                        <ul class="info-list mt-3">
+                            <li>Promover el uso de esfigmomanómetros con aprobación de modelo vigente.</li>
+                            <li>Facilitar el acceso a la verificación periódica obligatoria de los equipos en uso.</li>
+                            <li>Visibilizar la red de importadores y talleres de reparación autorizados.</li>
+                            <li>Educar sobre la importancia de la exactitud en la medición de la presión arterial.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="card card-custom p-4 h-100">
+                        <div class="section-eyebrow">Criterios técnicos</div>
+                        <h5 class="fw-bold mb-3" style="color: var(--gray-900);">Equipos y tolerancia</h5>
+
+                        <div class="type-card mb-3">
+                            <h6><i class="fa-solid fa-check-circle text-success me-2"></i>Equipos incluidos</h6>
+                            <p class="mb-0">El portal se enfoca en <strong>esfigmomanómetros no invasivos</strong>, tanto de tipo <strong>mecánico (aneroide)</strong> como <strong>automático (digital)</strong>.</p>
+                        </div>
+
+                        <div class="type-card">
+                            <h6><i class="fa-solid fa-ruler-combined text-primary me-2"></i>Error máximo permitido (EMP)</h6>
+                            <p class="mb-0">
+                                El criterio de aceptación se basa en la reglamentación técnica nacional. Para la <strong>verificación de equipos en uso</strong>, el error máximo admisible es de <strong>± 4 mmHg</strong>.
+                            </p>
+                        </div>
+
+                        <p class="text-secondary small mt-3 mb-0" style="line-height: 1.6;">
+                            <strong>Base normativa:</strong> Este valor se establece en el <strong>Decreto N° 446/009</strong> (esfigmomanómetros mecánicos) y en el <strong>Decreto N° 24/011</strong> (automáticos), que incorporan la Recomendación Internacional <strong>OIML R 16-1</strong>. La aprobación de modelo y la primera verificación son más estrictas (≈ ± 3 mmHg).
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
